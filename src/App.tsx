@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import PageTitle from "./components/PageTitle/PageTitle";
 import ColoredText from "./components/ColoredText/ColoredText";
+import PresentationInfo from "./components/PresentationInfo/PresentationInfo";
 
 function App() {
   return (
@@ -9,14 +10,17 @@ function App() {
       <Route
         path="/home"
         element={
-          <PageTitle
-            title={
-              <ColoredText
-                textArray={["Sample", "text"]}
-                styleData={{ size: "48px", weight: 800 }}
-              />
-            }
-          />
+          <>
+            <PageTitle
+              title={
+                <ColoredText
+                  textArray={["Sample", "text"]}
+                  styleData={{ isTitle: true }}
+                />
+              }
+            />
+            <PresentationInfo />
+          </>
         }
       />
       <Route path="/aboutme" element={<p>About me Page</p>} />

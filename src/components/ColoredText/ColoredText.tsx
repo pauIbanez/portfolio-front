@@ -7,6 +7,7 @@ interface Props {
     weight?: number;
     color?: string;
     accentColor?: string;
+    isTitle?: boolean;
   };
 }
 interface ColoredSectionProps {
@@ -28,6 +29,12 @@ const Text = styled.p<Section>`
   color: ${(props) => props.color || "black"};
 `;
 
+const Title = styled.h1`
+  font-size: 48px;
+  font-weight: 800;
+  color: Black;
+`;
+
 /**
  * Creates a text with accented words
  *
@@ -36,21 +43,37 @@ const Text = styled.p<Section>`
  */
 const ColoredText = ({ textArray, styleData }: Props) => {
   return (
-    <Text
-      color={styleData?.color}
-      size={styleData?.size}
-      weight={styleData?.weight}
-    >
-      {textArray.map((text, index) =>
-        index % 2 ? (
-          <ColoredSection color={styleData?.accentColor} key={index}>
-            {text}
-          </ColoredSection>
-        ) : (
-          text
-        )
+    <>
+      {!styleData?.isTitle ? (
+        <Text
+          color={styleData?.color}
+          size={styleData?.size}
+          weight={styleData?.weight}
+        >
+          {textArray.map((text, index) =>
+            index % 2 ? (
+              <ColoredSection color={styleData?.accentColor} key={index}>
+                {text}
+              </ColoredSection>
+            ) : (
+              text
+            )
+          )}
+        </Text>
+      ) : (
+        <Title>
+          {textArray.map((text, index) =>
+            index % 2 ? (
+              <ColoredSection color={styleData?.accentColor} key={index}>
+                {text}
+              </ColoredSection>
+            ) : (
+              text
+            )
+          )}
+        </Title>
       )}
-    </Text>
+    </>
   );
 };
 
