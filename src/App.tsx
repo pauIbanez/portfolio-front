@@ -3,6 +3,7 @@ import PageTitle from "./components/PageTitle/PageTitle";
 import ColoredText from "./components/ColoredText/ColoredText";
 import PresentationInfo from "./components/PresentationInfo/PresentationInfo";
 import Pages from "./data/Pages/Pages";
+import NavBar from "./components/NavBar/NavBar";
 
 function App() {
   return (
@@ -15,12 +16,13 @@ function App() {
             <PageTitle
               title={
                 <ColoredText
-                  textArray={["Sample", "text"]}
+                  textArray={["Sample ", "text"]}
                   styleData={{ isTitle: true }}
                 />
               }
             />
             <PresentationInfo />
+            <NavBar />
           </>
         }
       />

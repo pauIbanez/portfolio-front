@@ -1,29 +1,57 @@
 import { styled } from "styled-components";
 import Pages from "../../data/Pages/Pages";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Colors from "../../data/style/Colors";
 
 const NavBarContainer = styled.nav`
-  height: 100%;
+  height: 75px;
   display: flex;
 `;
-const NavItem = styled(Link)`
+
+interface NavItemProps {
+  active?: string;
+}
+
+const NavItem = styled(Link)<NavItemProps>`
   height: 100%;
   width: 140px;
-  color: ${Colors.textGray};
-  font-size: 16;
+
+  font-size: 16px;
   font-weight: 700;
+
+  color: ${(props) => (props.active === "true" ? "white" : Colors.textGray)};
+  background-color: ${(props) =>
+    props.active === "true" ? Colors.main : "transparent"};
 
   &:hover {
     color: white;
-    background-color: ${Colors.main};
+    ${(props) =>
+      props.active === "true"
+        ? ""
+        : `background-color: ${Colors.disabledMain};`};
   }
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
 `;
 
 const NavBar = () => {
-  const pages = Object.values(Pages).map((page) => (
-    <NavItem to={page.path}>{page.name}</NavItem>
-  ));
+  const currentPage = useLocation().pathname;
+
+  const pages = Object.values(Pages)
+    .filter((page) => !(page as any).dynamic)
+    .map((page) => (
+      <NavItem
+        key={page.name}
+        active={(currentPage === page.path).toString()}
+        to={page.path}
+      >
+        {page.name}
+      </NavItem>
+    ));
 
   return <NavBarContainer>{pages}</NavBarContainer>;
 };

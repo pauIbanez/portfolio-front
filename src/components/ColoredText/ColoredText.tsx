@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import Colors from "../../data/style/Colors";
 
 interface Props {
   textArray: string[];
@@ -14,7 +15,7 @@ interface ColoredSectionProps {
   color?: string;
 }
 const ColoredSection = styled.span<ColoredSectionProps>`
-  color: ${(props) => props.color || "red"};
+  color: ${(props) => props.color || Colors.main};
 `;
 
 interface Section {

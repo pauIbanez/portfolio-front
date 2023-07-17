@@ -4,7 +4,7 @@ enum Colors {
   lightTextGray = "#757575",
   backgroundWhite = "#EAEAEA",
   projectCardBackground = "#D1D1D1",
-  disabledMain = "#9747FF",
+  disabledMain = "rgba(151, 71, 255, 0.5)",
   disabledTextGray = "#757575",
 }
 
