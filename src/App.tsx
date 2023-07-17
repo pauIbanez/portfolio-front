@@ -7,7 +7,10 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<Navigate to={Pages.home.path} />} />
-        <Route path={Pages.home.path} element={<p>Home page</p>} />
+        <Route
+          path={Pages.home.path}
+          element={<p style={{ height: 2000 }}>Home page</p>}
+        />
         <Route path={Pages.aboutMe.path} element={<p>About me Page</p>} />
         <Route path={Pages.projects.path} element={<p>Projects Page</p>} />
         <Route path={Pages.project.path}>

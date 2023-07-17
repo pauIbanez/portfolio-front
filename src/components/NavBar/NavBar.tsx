@@ -1,8 +1,7 @@
 import { styled } from "styled-components";
 import Pages from "../../data/Pages/Pages";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Colors from "../../data/style/Colors";
-import PageInfo from "../../Types/PageInfo";
 
 const NavBarContainer = styled.nav`
   height: 100%;
@@ -39,17 +38,15 @@ const NavItem = styled(Link)<NavItemProps>`
   text-decoration: none;
 `;
 
-interface Props {
-  currentPage: PageInfo;
-}
+const NavBar = () => {
+  const currentPage = useLocation().pathname;
 
-const NavBar = ({ currentPage }: Props) => {
   const pages = Object.values(Pages)
-    .filter((page) => !page.isDynamic)
+    .filter((page) => !(page as any).dynamic)
     .map((page) => (
       <NavItem
         key={page.name}
-        active={(currentPage.name === page.name).toString()}
+        active={(currentPage === page.path).toString()}
         to={page.path}
       >
         {page.name}
