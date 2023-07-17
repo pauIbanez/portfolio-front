@@ -1,10 +1,11 @@
 import { styled } from "styled-components";
 import Pages from "../../data/Pages/Pages";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Colors from "../../data/style/Colors";
+import PageInfo from "../../Types/PageInfo";
 
 const NavBarContainer = styled.nav`
-  height: 75px;
+  height: 100%;
   display: flex;
 `;
 
@@ -38,15 +39,17 @@ const NavItem = styled(Link)<NavItemProps>`
   text-decoration: none;
 `;
 
-const NavBar = () => {
-  const currentPage = useLocation().pathname;
+interface Props {
+  currentPage: PageInfo;
+}
 
+const NavBar = ({ currentPage }: Props) => {
   const pages = Object.values(Pages)
     .filter((page) => !(page as any).dynamic)
     .map((page) => (
       <NavItem
         key={page.name}
-        active={(currentPage === page.path).toString()}
+        active={(currentPage.name === page.name).toString()}
         to={page.path}
       >
         {page.name}

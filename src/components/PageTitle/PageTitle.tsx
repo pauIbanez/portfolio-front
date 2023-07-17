@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ColoredText from "../ColoredText/ColoredText";
 
 const Container = styled.section`
   width: 100%;
@@ -16,11 +17,18 @@ const Container = styled.section`
 `;
 
 interface Props {
-  title: JSX.Element;
+  title: string | string[];
 }
 
 const PageTitle = ({ title }: Props) => {
-  return <Container>{title}</Container>;
+  const text =
+    typeof title === "string" ? (
+      title
+    ) : (
+      <ColoredText textArray={title} styleData={{ isTitle: true }} />
+    );
+
+  return <Container>{text}</Container>;
 };
 
 export default PageTitle;
