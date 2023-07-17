@@ -30,3 +30,6 @@ jobs:
 
       - name: ESLint validation
         run: npx eslint --ignore-path .gitignore .
+
+      - name: Testing
+        run: npm test
