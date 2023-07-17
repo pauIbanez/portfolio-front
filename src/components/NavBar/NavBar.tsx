@@ -45,7 +45,7 @@ interface Props {
 
 const NavBar = ({ currentPage }: Props) => {
   const pages = Object.values(Pages)
-    .filter((page) => !(page as any).dynamic)
+    .filter((page) => !page.isDynamic)
     .map((page) => (
       <NavItem
         key={page.name}
