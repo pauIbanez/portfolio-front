@@ -12,9 +12,10 @@ const Pages = {
     name: "Projects",
   },
   project: {
-    path: ":projectId",
+    path: "/project",
     name: "Project",
     dynamic: true,
+    dynamicId: ":projectId",
   },
   curriculum: {
     path: "/curriculum",
