@@ -42,7 +42,7 @@ const NavBar = () => {
   const currentPage = useLocation().pathname;
 
   const pages = Object.values(Pages)
-    .filter((page) => !(page as any).dynamic)
+    .filter((page) => !page.isDynamic)
     .map((page) => (
       <NavItem
         key={page.name}

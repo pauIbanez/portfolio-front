@@ -1,7 +1,9 @@
 import { styled } from "styled-components";
-import Header from "../Header/Header";
 import PresentationInfo from "../PresentationInfo/PresentationInfo";
 import NavBar from "../NavBar/NavBar";
+import { useLocation } from "react-router-dom";
+import Pages from "../../data/Pages/Pages";
+import PageTitle from "../PageTitle/PageTitle";
 
 const BarContainer = styled.div`
   width: 100%;
@@ -23,9 +25,16 @@ interface Props {
 }
 
 const Layout = ({ children }: Props) => {
+  const currentPath = useLocation().pathname;
+  const pageTitle = Object.values(Pages).find(
+    (page) => page.path === currentPath
+  )?.title;
+
+  const title = pageTitle ? pageTitle : ["Project ", "Name"];
+
   return (
     <>
-      <Header />
+      <PageTitle title={title} />
       <BarContainer>
         <PresentationInfo />
         <NavBar />
