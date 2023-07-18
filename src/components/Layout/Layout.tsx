@@ -21,7 +21,7 @@ const BarContainer = styled.div`
 `;
 
 interface Props {
-  children: JSX.Element;
+  children?: JSX.Element;
 }
 
 const Layout = ({ children }: Props) => {
@@ -30,6 +30,7 @@ const Layout = ({ children }: Props) => {
     (page) => page.path === currentPath
   )?.title;
 
+  console.log(currentPath);
   const title = pageTitle ? pageTitle : ["Project ", "Name"];
 
   return (

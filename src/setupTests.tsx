@@ -3,13 +3,18 @@
 // expect(element).toHaveTextContent(/react/i)
 // learn more: https://github.com/testing-library/jest-dom
 import "@testing-library/jest-dom";
-import { BrowserRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import { ReactNode, ReactElement } from "react";
 import { render } from "@testing-library/react";
 
-export const renderInRouter = (component: ReactElement) => {
+export const renderInRouter = (
+  component: ReactElement,
+  initialEntries?: string[]
+) => {
   const Bocata = ({ children }: { children: ReactNode }) => (
-    <BrowserRouter>{children}</BrowserRouter>
+    <MemoryRouter initialEntries={initialEntries || ["/home"]}>
+      {children}
+    </MemoryRouter>
   );
 
   render(component, { wrapper: Bocata });
