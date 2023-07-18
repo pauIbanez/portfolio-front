@@ -6,6 +6,7 @@ i18next.use(I18NextHttpBackend);
 i18next.use(initReactI18next).init({
   lng: "en",
   fallbackLng: "en",
+
   interpolation: {
     escapeValue: false,
   },

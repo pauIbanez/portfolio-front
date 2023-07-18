@@ -10,7 +10,13 @@ jest.mock("react-router-dom", () => ({
 describe("Given the NavBar component", () => {
   describe("When it's intanciated in the page home", () => {
     test("Then it should render the pages", () => {
-      const expectedPages = ["Home", "About me", "Projects", "CV", "Contact"];
+      const expectedPages = [
+        "navBar.home",
+        "navBar.aboutme",
+        "navBar.projects",
+        "navBar.cv",
+        "navBar.contact",
+      ];
 
       renderInRouter(<NavBar />);
 
@@ -29,7 +35,7 @@ describe("Given the NavBar component", () => {
     });
 
     test("Then it should render the home link as highlighted", () => {
-      const expectedPage = "Home";
+      const expectedPage = "navBar.home";
       const expectedStyle = {
         color: "white",
       };
