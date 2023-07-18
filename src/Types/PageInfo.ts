@@ -1,7 +1,7 @@
 interface PageInfo {
   readonly path: string;
   readonly name: string;
-  readonly title?: string | string[];
+  readonly translationKey?: string;
   readonly isDynamic?: boolean;
   readonly id?: string;
 }

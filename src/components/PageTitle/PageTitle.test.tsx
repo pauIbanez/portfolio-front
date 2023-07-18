@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import PageTitle from "./PageTitle";
-import toRGB from "../../utils/toRGBA";
+import toRGB from "../../utils/toRGB/toRGB";
 import Colors from "../../data/style/Colors";
 
 describe("Given the PageTitle component", () => {

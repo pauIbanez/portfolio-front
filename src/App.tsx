@@ -1,7 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Pages from "./data/Pages/Pages";
 import Layout from "./components/Layout/Layout";
-import ColoredText from "./components/ColoredText/ColoredText";
 
 function App() {
   return (
@@ -12,15 +11,7 @@ function App() {
           path={Pages.home.path}
           element={<p style={{ height: 2000 }}>Home page</p>}
         />
-        <Route
-          path={Pages.aboutMe.path}
-          element={
-            <ColoredText
-              textArray={["About ", "me ", "page"]}
-              styleData={{ isTitle: true }}
-            />
-          }
-        />
+        <Route path={Pages.aboutMe.path} element={<p>About me Page</p>} />
         <Route path={Pages.projects.path} element={<p>Projects Page</p>} />
         <Route path={Pages.project.path}>
           <Route path={Pages.project.id} element={<p>Project page</p>} />

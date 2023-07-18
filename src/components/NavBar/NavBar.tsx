@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Pages from "../../data/Pages/Pages";
 import { Link, useLocation } from "react-router-dom";
 import Colors from "../../data/style/Colors";
+import { useTranslation } from "react-i18next";
 
 const NavBarContainer = styled.nav`
   height: 100%;
@@ -40,6 +41,7 @@ const NavItem = styled(Link)<NavItemProps>`
 
 const NavBar = () => {
   const currentPage = useLocation().pathname;
+  const { t } = useTranslation();
 
   const pages = Object.values(Pages)
     .filter((page) => !page.isDynamic)
@@ -49,7 +51,7 @@ const NavBar = () => {
         active={(currentPage === page.path).toString()}
         to={page.path}
       >
-        {page.name}
+        {t(`navBar.${page.translationKey}`)}
       </NavItem>
     ));
 

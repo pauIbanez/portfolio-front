@@ -4,17 +4,17 @@ const Pages: { [key: string]: PageInfo } = {
   home: {
     path: "/home",
     name: "Home",
-    title: "Presentation",
+    translationKey: "home",
   },
   aboutMe: {
     path: "/aboutme",
     name: "About me",
-    title: ["Let's hear about ", "me", "!"],
+    translationKey: "aboutme",
   },
   projects: {
     path: "/projects",
     name: "Projects",
-    title: ["", "My ", "Projects"],
+    translationKey: "projects",
   },
   project: {
     path: "/project",
@@ -25,12 +25,12 @@ const Pages: { [key: string]: PageInfo } = {
   curriculum: {
     path: "/curriculum",
     name: "CV",
-    title: ["", "My ", "Curriculum"],
+    translationKey: "cv",
   },
   contact: {
     path: "/contact",
     name: "Contact",
-    title: ["Contact ", "me"],
+    translationKey: "contact",
   },
 };
 

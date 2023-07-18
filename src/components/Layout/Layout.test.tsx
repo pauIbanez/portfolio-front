@@ -6,7 +6,7 @@ import { MemoryRouter } from "react-router-dom";
 describe("Given the Layout component", () => {
   describe("When it's instanciated in the page home", () => {
     test("Then it should render the Pagetitle with text Presentation", () => {
-      const expectedTitle = "Presentation";
+      const expectedTitle = "Home.title";
 
       renderInRouter(<Layout />);
 
@@ -24,7 +24,7 @@ describe("Given the Layout component", () => {
     });
   });
 
-  describe("When it's instanciated in a page with no title", () => {
+  describe("When it's instanciated in a dynamic page", () => {
     test("Then it should render the Pagetitle with text 'Project'", () => {
       const pathname = "/project/example";
       const expectedTitle = "Project";

@@ -1,0 +1,24 @@
+{
+  "navBar": {
+    "home": "Home",
+    "aboutme": "Sobre mi",
+    "projects": "Proyectos",
+    "cv": "CV",
+    "contact": "Contacto"
+  },
+  "Home": {
+    "title": "Presentación"
+  },
+  "About me": {
+    "title": "Un poquito sobre <&>mi<&>!"
+  },
+  "Projects": {
+    "title": "<&>Mis<&> Proyectos"
+  },
+  "CV": {
+    "title": "<&>Mi<&> Curriculum"
+  },
+  "Contact": {
+    "title": "Contacta <&>conmigo<&>"
+  }
+}
