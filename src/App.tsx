@@ -14,7 +14,12 @@ function App() {
         />
         <Route
           path={Pages.aboutMe.path}
-          element={<ColoredText textArray={["About ", "me ", "page"]} />}
+          element={
+            <ColoredText
+              textArray={["About ", "me ", "page"]}
+              styleData={{ isTitle: true }}
+            />
+          }
         />
         <Route path={Pages.projects.path} element={<p>Projects Page</p>} />
         <Route path={Pages.project.path}>
