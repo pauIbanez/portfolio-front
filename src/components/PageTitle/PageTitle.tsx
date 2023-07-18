@@ -10,10 +10,12 @@ const Container = styled.header`
   justify-content: center;
 
   background-color: white;
-  color: black;
 
-  font-size: 48px;
-  font-weight: 800;
+  h1 {
+    font-size: 48px;
+    font-weight: 800;
+    color: black;
+  }
 `;
 
 interface Props {
@@ -23,7 +25,7 @@ interface Props {
 const PageTitle = ({ title }: Props) => {
   const text =
     typeof title === "string" ? (
-      title
+      <h1>{title}</h1>
     ) : (
       <ColoredText textArray={title} styleData={{ isTitle: true }} />
     );
