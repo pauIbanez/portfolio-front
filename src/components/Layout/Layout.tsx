@@ -30,11 +30,17 @@ const Layout = ({ children }: Props) => {
   const { t } = useTranslation();
 
   const currentPath = useLocation().pathname;
+  const pathName = currentPath.slice(1).includes("/")
+    ? currentPath.slice(0, currentPath.slice(1).indexOf("/") + 1)
+    : currentPath;
+
   const currentPage = Object.values(Pages).find(
-    (page) => page.path === currentPath
+    (page) => page.path === pathName
   );
 
-  const title = parseAccents(t(`${currentPage?.name}.title`));
+  const title = currentPage?.isDynamic
+    ? "Project"
+    : parseAccents(t(`${currentPage?.name}.title`));
 
   return (
     <>
