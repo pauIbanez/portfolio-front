@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 import Pages from "../../data/Pages/Pages";
 import { Link, useLocation } from "react-router-dom";
 import Colors from "../../data/style/Colors";

@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 import PresentationInfo from "../PresentationInfo/PresentationInfo";
 import NavBar from "../NavBar/NavBar";
 import { useLocation } from "react-router-dom";

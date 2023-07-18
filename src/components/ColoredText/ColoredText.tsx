@@ -14,8 +14,8 @@ interface Props {
 interface ColoredSectionProps {
   color?: string;
 }
-const ColoredSection = styled.span`
-  color: ${(props: ColoredSectionProps) => props.color || Colors.main};
+const ColoredSection = styled.span<ColoredSectionProps>`
+  color: ${(props) => props.color || Colors.main};
 `;
 
 interface Section {
@@ -24,10 +24,10 @@ interface Section {
   color?: string;
   accentColor?: string;
 }
-const Text = styled.p`
-  font-size: ${(props: Section) => props.size || "14px"};
-  font-weight: ${(props: Section) => props.weight || 400};
-  color: ${(props: Section) => props.color || "black"};
+const Text = styled.p<Section>`
+  font-size: ${(props) => props.size || "14px"};
+  font-weight: ${(props) => props.weight || 400};
+  color: ${(props) => props.color || "black"};
 `;
 
 const Title = styled.h1`
