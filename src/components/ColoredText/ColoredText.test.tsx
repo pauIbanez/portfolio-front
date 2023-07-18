@@ -28,8 +28,6 @@ describe("Given the ColoredText component", () => {
         color: toRGB(Colors.main),
       };
 
-      console.log(toRGB(Colors.main));
-
       render(<ColoredText textArray={text} />);
 
       const foundText = screen.getByText(expectedTexts[1]);
