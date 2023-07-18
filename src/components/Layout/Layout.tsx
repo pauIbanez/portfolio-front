@@ -30,7 +30,6 @@ const Layout = ({ children }: Props) => {
     (page) => page.path === currentPath
   )?.title;
 
-  console.log(currentPath);
   const title = pageTitle ? pageTitle : ["Project ", "Name"];
 
   return (

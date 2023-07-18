@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import ColoredText from "../ColoredText/ColoredText";
+import { useTranslation } from "react-i18next";
+import { useState } from "react";
+import languages from "../../data/languages/languages";
 
 const Container = styled.header`
   width: 100%;
@@ -23,6 +26,10 @@ interface Props {
 }
 
 const PageTitle = ({ title }: Props) => {
+  const [lang, setLang] = useState("en");
+
+  const { i18n } = useTranslation();
+
   const text =
     typeof title === "string" ? (
       <h1>{title}</h1>
@@ -30,7 +37,21 @@ const PageTitle = ({ title }: Props) => {
       <ColoredText textArray={title} styleData={{ isTitle: true }} />
     );
 
-  return <Container>{text}</Container>;
+  return (
+    <Container>
+      {text}{" "}
+      <button
+        onClick={() => {
+          const lng = languages[lang === "en" ? 1 : 0];
+          i18n.changeLanguage(lng.code);
+          setLang(lng.code);
+          console.log(lng.code);
+        }}
+      >
+        Change lange
+      </button>{" "}
+    </Container>
+  );
 };
 
 export default PageTitle;

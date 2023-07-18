@@ -1,0 +1,9 @@
+{
+  "navBar": {
+    "home": "Home",
+    "aboutme": "Sobre mi",
+    "projects": "Proyectos",
+    "cv": "CV",
+    "contact": "Contacto"
+  }
+}
