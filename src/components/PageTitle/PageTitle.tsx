@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import ColoredText from "../ColoredText/ColoredText";
 
-const Container = styled.section`
+const Container = styled.header`
   width: 100%;
   height: 280px;
 
