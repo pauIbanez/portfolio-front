@@ -51,5 +51,16 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.26"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*",
+      "!src/**/*.d.ts",
+      "!src/index.tsx",
+      "!src/Types/**/*.ts",
+      "!src/data/**/*.ts",
+      "!src/hooks/useEffectOnce.ts",
+      "!src/contexts/**/*.contextCreator.ts"
+    ]
   }
 }
