@@ -11,5 +11,14 @@
   },
   "About me": {
     "title": "Let's hear about <&>me<&>!"
+  },
+  "Projects": {
+    "title": "<&>My<&> Projects"
+  },
+  "CV": {
+    "title": "<&>My<&> Curriculum"
+  },
+  "Contact": {
+    "title": "Contact <&>me<&>"
   }
 }
