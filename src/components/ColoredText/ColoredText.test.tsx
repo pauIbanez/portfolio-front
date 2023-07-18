@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import ColoredText from "./ColoredText";
 import Colors from "../../data/style/Colors";
-import toRGB from "../../utils/toRGBA";
+import toRGB from "../../utils/toRGB/toRGB";
 
 describe("Given the ColoredText component", () => {
   const text = ["Test ", "text"];

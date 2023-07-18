@@ -4,6 +4,8 @@ import NavBar from "../NavBar/NavBar";
 import { useLocation } from "react-router-dom";
 import Pages from "../../data/Pages/Pages";
 import PageTitle from "../PageTitle/PageTitle";
+import { useTranslation } from "react-i18next";
+import parseAccents from "../../utils/parseAccents/parseAccents";
 
 const BarContainer = styled.div`
   width: 100%;
@@ -25,12 +27,14 @@ interface Props {
 }
 
 const Layout = ({ children }: Props) => {
-  const currentPath = useLocation().pathname;
-  const pageTitle = Object.values(Pages).find(
-    (page) => page.path === currentPath
-  )?.title;
+  const { t } = useTranslation();
 
-  const title = pageTitle ? pageTitle : ["Project ", "Name"];
+  const currentPath = useLocation().pathname;
+  const currentPage = Object.values(Pages).find(
+    (page) => page.path === currentPath
+  );
+
+  const title = parseAccents(t(`${currentPage?.name}.title`));
 
   return (
     <>

@@ -5,5 +5,11 @@
     "projects": "Projects",
     "cv": "CV",
     "contact": "Contact"
+  },
+  "Home": {
+    "title": "Presentation"
+  },
+  "About me": {
+    "title": "Let's hear about <&>me<&>!"
   }
 }

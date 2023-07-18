@@ -1,4 +1,4 @@
-import toRGB from "./toRGBA";
+import toRGB from "./toRGB";
 
 describe("Given util toRGB", () => {
   describe("When it's called passing hex '#8A1C05'", () => {
