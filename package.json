@@ -18,7 +18,7 @@
     "react-ga": "^3.3.1",
     "react-router-dom": "^6.14.1",
     "react-scripts": "5.0.1",
-    "styled-components": "^6.0.4",
+    "styled-components": "^5.3.3",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4",
     "yup": "^1.2.0"
@@ -51,5 +51,16 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.26"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*",
+      "!src/**/*.d.ts",
+      "!src/index.tsx",
+      "!src/Types/**/*.ts",
+      "!src/data/**/*.ts",
+      "!src/hooks/useEffectOnce.ts",
+      "!src/contexts/**/*.contextCreator.ts"
+    ]
   }
 }
