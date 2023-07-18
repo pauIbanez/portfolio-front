@@ -4,7 +4,7 @@ import { initReactI18next } from "react-i18next";
 
 i18next.use(I18NextHttpBackend);
 i18next.use(initReactI18next).init({
-  lng: "en",
+  lng: "es",
   fallbackLng: "en",
 
   interpolation: {
