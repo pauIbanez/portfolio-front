@@ -36,12 +36,6 @@ const Title = styled.h1`
   color: Black;
 `;
 
-/**
- * Creates a text with accented words
- *
- * @param textArray - The array containing the text to highlight, every odd index is going to be highlighted. Example ["Hello", "world", "somthing else"] -> "world" is going to be highlighted
- * @param styleData - Specific style information
- */
 const ColoredText = ({ textArray, styleData }: Props) => {
   return (
     <>
