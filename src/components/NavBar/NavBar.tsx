@@ -10,7 +10,7 @@ const NavBarContainer = styled.nav`
 `;
 
 interface NavItemProps {
-  active?: string;
+  $active?: boolean;
 }
 
 const NavItem = styled(Link)<NavItemProps>`
@@ -20,16 +20,16 @@ const NavItem = styled(Link)<NavItemProps>`
   font-size: 16px;
   font-weight: 700;
 
-  color: ${(props) => (props.active === "true" ? "white" : Colors.textGray)};
-  background-color: ${(props) =>
-    props.active === "true" ? Colors.main : "transparent"};
+  color: ${(props) => (props.$active ? Colors.main : Colors.textGray)};
+
+  ${(props) =>
+    props.$active
+      ? `border-bottom: 3px solid ${Colors.main}`
+      : "border-bottom: 3px solid transparent"};
 
   &:hover {
-    color: white;
-    ${(props) =>
-      props.active === "true"
-        ? ""
-        : `background-color: ${Colors.disabledMain};`};
+    color: ${Colors.main};
+    border-bottom: 3px solid ${Colors.main};
   }
 
   display: flex;
@@ -48,7 +48,7 @@ const NavBar = () => {
     .map((page) => (
       <NavItem
         key={page.name}
-        active={(currentPage === page.path).toString()}
+        $active={currentPage === page.path}
         to={page.path}
       >
         {t(`navBar.${page.translationKey}`)}
