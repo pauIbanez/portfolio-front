@@ -7,7 +7,14 @@
     "contact": "Contacto"
   },
   "Home": {
-    "title": "Presentación"
+    "title": "Presentación",
+    "content": {
+      "accent": "CONOCEME!",
+      "heading": "Hola! Soy Pau Ibáñez",
+      "info1": "Este sitio web tiene todo lo que necesitas saber sobre mí y mi trabajo. Te invito a explorarla mientras consideras también su impacto como representación de mi portfolio.",
+      "info2": "Espero con entusiasmo la posibilidad de conectarme contigo y colaborar en proyectos emocionantes.",
+      "button": "Mi Portfolio"
+    }
   },
   "About me": {
     "title": "Un poquito sobre <&>mi<&>!"
