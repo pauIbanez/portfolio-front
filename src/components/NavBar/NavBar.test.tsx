@@ -4,10 +4,9 @@ import { renderInRouter } from "../../setupTests";
 import toRGB from "../../utils/toRGB/toRGB";
 import Colors from "../../data/style/Colors";
 
-jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"),
-  useLocation: () => ({ pathname: "/home" }),
-}));
+beforeEach(() => {
+  jest.resetAllMocks();
+});
 
 describe("Given the NavBar component", () => {
   describe("When it's intanciated in the page home", () => {
@@ -46,6 +45,23 @@ describe("Given the NavBar component", () => {
       const foundHomeLink = screen.getByRole("link", { name: expectedPage });
 
       expect(foundHomeLink).toHaveStyle(expectedStyle);
+    });
+  });
+
+  describe("When it's intanciated in the page contacts page", () => {
+    test("Then it should render the contact button as active", () => {
+      const linkName = "navBar.contact";
+      const expectedStyle = {
+        color: toRGB(Colors.main),
+        backgroundColor: "white",
+        border: `3px solid ${Colors.main}`,
+      };
+
+      renderInRouter(<NavBar />, ["/contact"]);
+
+      const foundLink = screen.getByRole("link", { name: linkName });
+
+      expect(foundLink).toHaveStyle(expectedStyle);
     });
   });
 });
