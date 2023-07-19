@@ -10,7 +10,7 @@ const NavBarContainer = styled.nav`
 `;
 
 interface NavItemProps {
-  active?: string;
+  $active?: boolean;
 }
 
 const NavItem = styled(Link)<NavItemProps>`
@@ -20,16 +20,16 @@ const NavItem = styled(Link)<NavItemProps>`
   font-size: 16px;
   font-weight: 700;
 
-  color: ${(props) => (props.active === "true" ? "white" : Colors.textGray)};
-  background-color: ${(props) =>
-    props.active === "true" ? Colors.main : "transparent"};
+  color: ${(props) => (props.$active ? Colors.main : Colors.textGray)};
+
+  ${(props) =>
+    props.$active
+      ? `border-bottom: 3px solid ${Colors.main}`
+      : "border-bottom: 3px solid transparent"};
 
   &:hover {
-    color: white;
-    ${(props) =>
-      props.active === "true"
-        ? ""
-        : `background-color: ${Colors.disabledMain};`};
+    color: ${Colors.main};
+    border-bottom: 3px solid ${Colors.main};
   }
 
   display: flex;
@@ -37,6 +37,48 @@ const NavItem = styled(Link)<NavItemProps>`
   justify-content: center;
 
   text-decoration: none;
+
+  transition: all ease-in-out 200ms;
+`;
+
+const ContactContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 300px;
+`;
+
+const ContactLink = styled(Link)<NavItemProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  padding: 0 30px 0 30px;
+
+  height: 60px;
+  width: 140px;
+
+  background-color: ${(props) => (props.$active ? "white" : Colors.main)};
+  color: ${(props) => (props.$active ? Colors.main : "white")};
+
+  border: ${(props) =>
+    props.$active ? "3px solid " + Colors.main : "3px solid transparent"};
+
+  border-radius: 25px;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  transition: all ease-in-out 200ms;
+
+  &:hover {
+    background-color: white;
+    color: ${Colors.main};
+
+    border: 3px solid ${Colors.main};
+  }
 `;
 
 const NavBar = () => {
@@ -44,18 +86,30 @@ const NavBar = () => {
   const { t } = useTranslation();
 
   const pages = Object.values(Pages)
-    .filter((page) => !page.isDynamic)
+    .filter((page) => !page.isDynamic && page.name !== "Contact")
     .map((page) => (
       <NavItem
         key={page.name}
-        active={(currentPage === page.path).toString()}
+        $active={currentPage === page.path}
         to={page.path}
       >
         {t(`navBar.${page.translationKey}`)}
       </NavItem>
     ));
 
-  return <NavBarContainer>{pages}</NavBarContainer>;
+  return (
+    <NavBarContainer>
+      {pages}
+      <ContactContainer>
+        <ContactLink
+          $active={currentPage === Pages.contact.path}
+          to={Pages.contact.path}
+        >
+          {t("navBar.contact")}
+        </ContactLink>
+      </ContactContainer>{" "}
+    </NavBarContainer>
+  );
 };
 
 export default NavBar;

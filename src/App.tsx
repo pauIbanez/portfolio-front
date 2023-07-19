@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Pages from "./data/Pages/Pages";
 import Layout from "./components/Layout/Layout";
+import Button from "./components/Button/Button";
 
 function App() {
   return (
@@ -9,7 +10,28 @@ function App() {
         <Route path="/" element={<Navigate to={Pages.home.path} />} />
         <Route
           path={Pages.home.path}
-          element={<p style={{ height: 2000 }}>Home page</p>}
+          element={
+            <>
+              <div style={{ padding: 30, display: "flex", gap: 30 }}>
+                <Button onClick={() => {}}>
+                  <p>Normal button</p>
+                </Button>
+                <Button onClick={() => {}} reversed={true}>
+                  <p>Reversed button</p>
+                </Button>
+
+                <Button onClick={() => {}} disabled={true}>
+                  <p>Diabled button</p>
+                </Button>
+
+                <Button onClick={() => {}} active={true}>
+                  <p>Active button</p>
+                </Button>
+              </div>
+
+              <p style={{ height: 2000 }}>Home page</p>
+            </>
+          }
         />
         <Route path={Pages.aboutMe.path} element={<p>About me Page</p>} />
         <Route path={Pages.projects.path} element={<p>Projects Page</p>} />
