@@ -1,6 +1,8 @@
 import { screen } from "@testing-library/react";
 import NavBar from "./NavBar";
 import { renderInRouter } from "../../setupTests";
+import toRGB from "../../utils/toRGB/toRGB";
+import Colors from "../../data/style/Colors";
 
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
@@ -37,7 +39,7 @@ describe("Given the NavBar component", () => {
     test("Then it should render the home link as highlighted", () => {
       const expectedPage = "navBar.home";
       const expectedStyle = {
-        color: "white",
+        color: toRGB(Colors.main),
       };
       renderInRouter(<NavBar />);
 

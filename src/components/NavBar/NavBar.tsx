@@ -105,7 +105,7 @@ const NavBar = () => {
           $active={currentPage === Pages.contact.path}
           to={Pages.contact.path}
         >
-          Contact
+          {t("navBar.contact")}
         </ContactLink>
       </ContactContainer>{" "}
     </NavBarContainer>
