@@ -28,6 +28,14 @@ const Line = styled.div<{ order: number }>`
 
 const MockItem = styled.p<{ order: number }>``;
 
+const Title = styled.h3`
+  font-weight: 700;
+  font-size: 20px;
+  color: black;
+  padding: 40px 0 40px 70px;
+  margin: 0;
+`;
+
 interface Props {
   title: string;
   items: CVListItemData[];
@@ -78,6 +86,7 @@ const CVListSection = ({ title, items }: Props) => {
 
   return (
     <Container>
+      <Title>{title}</Title>
       <ItemsHolder>{renderItems}</ItemsHolder>
       <button onClick={changeOrder}>Order</button>
     </Container>
