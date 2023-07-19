@@ -23,7 +23,7 @@ const Name = styled.h3`
 const PresentationInfo = () => {
   return (
     <Container>
-      <MyLogo alt="My logo" src="./media/logo.svg" />
+      <MyLogo alt="My logo" src="/media/logo.svg" />
       <Name>PAU IBÁÑEZ PORTFOLIO</Name>
     </Container>
   );
