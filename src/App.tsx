@@ -14,14 +14,18 @@ function App() {
             <>
               <div style={{ margin: 30, display: "flex", gap: 30 }}>
                 <Button onClick={() => {}}>
-                  <p>Test button</p>
+                  <p>Normal button</p>
                 </Button>
                 <Button onClick={() => {}} reversed={true}>
-                  <p>Test button</p>
+                  <p>Reversed button</p>
                 </Button>
 
                 <Button onClick={() => {}} disabled={true}>
-                  <p>Test button</p>
+                  <p>Diabled button</p>
+                </Button>
+
+                <Button onClick={() => {}} active={true}>
+                  <p>Active button</p>
                 </Button>
               </div>
 
