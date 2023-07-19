@@ -12,7 +12,7 @@ function App() {
           path={Pages.home.path}
           element={
             <>
-              <div style={{ margin: 30, display: "flex", gap: 30 }}>
+              <div style={{ padding: 30, display: "flex", gap: 30 }}>
                 <Button onClick={() => {}}>
                   <p>Normal button</p>
                 </Button>

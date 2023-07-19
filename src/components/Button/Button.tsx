@@ -1,21 +1,6 @@
 import styled from "styled-components";
 import Colors from "../../data/style/Colors";
 
-interface Props {
-  onClick: () => void;
-  reversed?: boolean;
-  active?: boolean;
-  children: JSX.Element;
-  disabled?: boolean;
-  style?: {
-    width?: number;
-    height?: number;
-    fontSize?: number;
-    fontWeight?: number;
-    radius?: number;
-  };
-}
-
 interface ButotnCaseProps {
   reversed?: boolean;
   $active?: boolean;
@@ -80,6 +65,21 @@ const ButtonCase = styled.button<ButotnCaseProps>`
     background-color: ${Colors.disabledMain};
   }
 `;
+
+interface Props {
+  onClick: () => void;
+  reversed?: boolean;
+  active?: boolean;
+  children: JSX.Element | string;
+  disabled?: boolean;
+  style?: {
+    width?: number;
+    height?: number;
+    fontSize?: number;
+    fontWeight?: number;
+    radius?: number;
+  };
+}
 
 const Button = ({
   onClick,
