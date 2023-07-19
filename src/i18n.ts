@@ -11,7 +11,7 @@ i18next.use(initReactI18next).init({
     escapeValue: false,
   },
   backend: {
-    loadPath: "./i18n/{{lng}}.json",
+    loadPath: "/i18n/{{lng}}.json",
   },
 });
 

@@ -90,7 +90,10 @@ const NavBar = () => {
     .map((page) => (
       <NavItem
         key={page.name}
-        $active={currentPage === page.path}
+        $active={
+          currentPage === page.path ||
+          (page.name === "Projects" && currentPage.includes(Pages.project.path))
+        }
         to={page.path}
       >
         {t(`navBar.${page.translationKey}`)}
