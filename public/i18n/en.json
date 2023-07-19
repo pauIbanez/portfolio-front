@@ -7,7 +7,14 @@
     "contact": "Contact"
   },
   "Home": {
-    "title": "Presentation"
+    "title": "Presentation",
+    "content": {
+      "accent": "GET TO KNOW ME!",
+      "heading": "Hello! I'm Pau Ibáñez",
+      "info1": "This website has everything you need to know about me and my work. I invite yo to explore it while also considering it's impact as a representation of my portfolio.",
+      "info2": "I look forward to the possibility of connecting with you and collaborating on exciting projects.",
+      "button": "My Portfolio"
+    }
   },
   "About me": {
     "title": "Let's hear about <&>me<&>!"

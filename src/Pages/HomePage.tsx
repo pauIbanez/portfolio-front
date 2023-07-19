@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Pages from "../data/Pages/Pages";
 import Button from "../components/Button/Button";
 import Colors from "../data/style/Colors";
+import { useTranslation } from "react-i18next";
 
 const Container = styled.div`
   display: flex;
@@ -99,6 +100,7 @@ const BackgroundTriangles = styled.img`
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const goToProjects = () => {
     navigate(Pages.projects.path);
@@ -108,18 +110,11 @@ const HomePage = () => {
       <Holder>
         <InfoSection>
           <BackgroundOrb src="/media/home/background_circle.svg" />
-          <AccentText>GET TO KNOW ME!</AccentText>
-          <MyName>Hello! I'm Pau Ibáñez</MyName>
+          <AccentText>{t("Home.content.accent")}</AccentText>
+          <MyName>{t("Home.content.heading")}</MyName>
           <TextSection>
-            <p>
-              This website has everything you need to know about me and my work.
-              I invite yo to explore it while also considering it's impact as a
-              representation of my portfolio.
-            </p>
-            <p>
-              I look forward to the possibility of connecting with you and
-              collaborating on exciting projects.
-            </p>
+            <p>{t("Home.content.info1")}</p>
+            <p>{t("Home.content.info2")}</p>
           </TextSection>
           <Button
             onClick={goToProjects}
@@ -129,7 +124,7 @@ const HomePage = () => {
               radius: 20,
             }}
           >
-            My Portfolio -
+            {t("Home.content.button")}
           </Button>
         </InfoSection>
         <PictureSection>
