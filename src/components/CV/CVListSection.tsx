@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import Colors from "../../data/style/Colors";
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import CVListItemData from "../../Types/CVListItem";
 import useEffectOnce from "../../hooks/useEffectOnce";
 import CVListItem from "./CVListItem";
-import useScroll from "../../hooks/useScroll";
+import ScrollContext from "../../contexts/scrollContext/ScrollContext.contextCreator";
 
 const Container = styled.section`
   margin: 0 auto;
@@ -75,10 +75,10 @@ const CVListSection = ({ title, items }: Props) => {
 
   const section = useRef(null);
 
-  const { loadRef } = useScroll();
+  const { loadItem } = useContext(ScrollContext);
 
   useEffectOnce(() => {
-    loadRef({ name: title, ref: section });
+    loadItem({ name: title, ref: section });
 
     const allItems: JSX.Element[] = [];
 

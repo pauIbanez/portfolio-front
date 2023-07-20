@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Colors from "../../data/style/Colors";
-import useScroll from "../../hooks/useScroll";
+import { useContext } from "react";
+import ScrollContext from "../../contexts/scrollContext/ScrollContext.contextCreator";
 
 const Holder = styled.div`
   background-color: white;
@@ -49,13 +50,13 @@ interface Props {
 }
 
 const InternalNavigation = ({ items }: Props) => {
-  const { scrollToRef } = useScroll();
+  const { scrollToItem } = useContext(ScrollContext);
 
   const renderItems = items.map((item) => (
     <Item
       key={item.name}
       onClick={() => {
-        scrollToRef(item.name);
+        scrollToItem(item.name);
       }}
       $active={item.active}
     >
