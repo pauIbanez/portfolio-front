@@ -65,7 +65,7 @@ const InternalNavigation = ({ items }: Props) => {
     </Item>
   ));
   return (
-    <Sticky offset={0}>
+    <Sticky offset={30}>
       <Holder>{renderItems}</Holder>
     </Sticky>
   );
