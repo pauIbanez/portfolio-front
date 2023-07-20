@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Colors from "../../data/style/Colors";
+import useScroll from "../../hooks/useScroll";
 
 const Holder = styled.div`
   background-color: white;
@@ -41,20 +42,20 @@ const Item = styled.button<{ $active: boolean }>`
 `;
 
 interface Props {
-  onClick: (scrollTo: string) => void;
   items: {
     name: string;
-    scrollTo: string;
     active: boolean;
   }[];
 }
 
-const InternalNavigation = ({ onClick, items }: Props) => {
+const InternalNavigation = ({ items }: Props) => {
+  const { scrollToRef } = useScroll();
+
   const renderItems = items.map((item) => (
     <Item
       key={item.name}
       onClick={() => {
-        onClick(item.scrollTo);
+        scrollToRef(item.name);
       }}
       $active={item.active}
     >

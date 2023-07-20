@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import Colors from "../../data/style/Colors";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import CVListItemData from "../../Types/CVListItem";
 import useEffectOnce from "../../hooks/useEffectOnce";
 import CVListItem from "./CVListItem";
+import useScroll from "../../hooks/useScroll";
 
 const Container = styled.section`
   margin: 0 auto;
@@ -72,7 +73,13 @@ const CVListSection = ({ title, items }: Props) => {
   const [isDateUp, setIsDateUp] = useState(true);
   const [renderItems, setRenderItems] = useState([<></>]);
 
+  const section = useRef(null);
+
+  const { loadRef } = useScroll();
+
   useEffectOnce(() => {
+    loadRef({ name: title, ref: section });
+
     const allItems: JSX.Element[] = [];
 
     let currentIndex = 0;
@@ -111,7 +118,7 @@ const CVListSection = ({ title, items }: Props) => {
   };
 
   return (
-    <Container>
+    <Container ref={section}>
       <Content>
         <Title>{title}</Title>
         <Order onClick={changeOrder} isDateUp={isDateUp}>
