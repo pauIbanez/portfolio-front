@@ -26,13 +26,25 @@ const Sticky = ({ offset, children }: Props) => {
         const elementRect = element.getBoundingClientRect();
         const refrenceRect = refrenceRef.current?.getBoundingClientRect();
 
+        const isAbove = elementRect.bottom <= refrenceRect?.top!;
+        if (!isAbove) return false;
+
+        const [elementLeft, elementRight] = [
+          elementRect.left,
+          elementRect.right,
+        ];
+        const [referenceLeft, referenceRight] = [
+          refrenceRect?.left!,
+          refrenceRect?.right!,
+        ];
+
         const isInTop =
-          (elementRect.left <= refrenceRect?.right! ||
-            elementRect.right >= refrenceRect?.left!) &&
-          elementRect.bottom <= refrenceRect?.top!;
-        if (!isInTop) {
-          return false;
-        }
+          (elementLeft <= referenceLeft && elementRight >= referenceRight) ||
+          (elementLeft >= referenceRight && elementRight <= referenceRight) ||
+          (elementLeft <= referenceLeft && elementRight >= referenceLeft) ||
+          (elementRight >= referenceRight && elementLeft <= referenceRight);
+
+        if (!isInTop) return false;
 
         const positionValue = window
           .getComputedStyle(element)
@@ -44,12 +56,15 @@ const Sticky = ({ offset, children }: Props) => {
       }
     );
 
+    console.log(allFixedElements);
+
     const itemsOffset = allFixedElements.reduce<number>(
       (acumulator, current) => acumulator + current.clientHeight,
       0
     );
 
     setRealOffset(itemsOffset + (offset || 0));
+    console.log(itemsOffset);
   }, [offset]);
 
   const onScroll = useCallback(() => {
