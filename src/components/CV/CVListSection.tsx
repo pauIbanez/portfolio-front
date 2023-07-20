@@ -49,7 +49,7 @@ const CVListSection = ({ title, items }: Props) => {
     let currentIndex = 0;
     items
       .sort((a, b) =>
-        Date.parse(a.dates.startDate) > Date.parse(b.dates.startDate) ? 1 : -1
+        Date.parse(a.dates.startDate) > Date.parse(b.dates.startDate) ? -1 : 1
       )
       .forEach((item, index) => {
         allItems.push(
