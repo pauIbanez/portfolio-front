@@ -3,6 +3,7 @@ import Colors from "../../data/style/Colors";
 import { useState } from "react";
 import CVListItemData from "../../Types/CVListItem";
 import useEffectOnce from "../../hooks/useEffectOnce";
+import CVListItem from "./CVListItem";
 
 const Container = styled.section`
   margin: 0 auto;
@@ -25,8 +26,6 @@ const Line = styled.div<{ order: number }>`
   background-color: ${Colors.disabledMain};
   height: 2px;
 `;
-
-const MockItem = styled.p<{ order: number }>``;
 
 const Title = styled.h3`
   font-weight: 700;
@@ -54,9 +53,11 @@ const CVListSection = ({ title, items }: Props) => {
       )
       .forEach((item, index) => {
         allItems.push(
-          <MockItem order={currentIndex} key={currentIndex + item.name}>
-            {item.name}
-          </MockItem>
+          <CVListItem
+            item={item}
+            order={currentIndex}
+            key={currentIndex + item.name}
+          />
         );
         if (index !== items.length - 1) {
           allItems.push(

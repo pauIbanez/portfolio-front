@@ -2,6 +2,7 @@ interface CVListItemData {
   name: string;
   image: string;
   concept: string;
+  location: string;
   dates: {
     startDate: string;
     endDate: string;
