@@ -31,8 +31,37 @@ const Title = styled.h3`
   font-weight: 700;
   font-size: 20px;
   color: black;
-  padding: 40px 0 40px 70px;
   margin: 0;
+`;
+
+const Content = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 70px 40px 70px;
+`;
+
+const Order = styled.button<{ isDateUp: boolean }>`
+  display: flex;
+  gap: 5px;
+  border: none;
+  background: none;
+  font-size: 15px;
+  font-family: inherit;
+  color: ${Colors.main};
+
+  div {
+    color: ${Colors.textGray};
+    display: flex;
+    align-items: center;
+
+    img {
+      height: 15px;
+      width: 15px;
+      transition: all ease-in-out 200ms;
+
+      ${(props) => (props.isDateUp ? "" : "transform: Rotate(180deg);")}
+    }
+  }
 `;
 
 interface Props {
@@ -53,15 +82,11 @@ const CVListSection = ({ title, items }: Props) => {
       )
       .forEach((item, index) => {
         allItems.push(
-          <CVListItem
-            item={item}
-            order={currentIndex}
-            key={currentIndex + item.name}
-          />
+          <CVListItem item={item} order={currentIndex} key={item.name} />
         );
         if (index !== items.length - 1) {
           allItems.push(
-            <Line key={currentIndex + 1 + item.name} order={currentIndex + 1} />
+            <Line key={item.name + " Line"} order={currentIndex + 1} />
           );
         }
         currentIndex = currentIndex + 2;
@@ -87,9 +112,16 @@ const CVListSection = ({ title, items }: Props) => {
 
   return (
     <Container>
-      <Title>{title}</Title>
+      <Content>
+        <Title>{title}</Title>
+        <Order onClick={changeOrder} isDateUp={isDateUp}>
+          Order:
+          <div>
+            Date <img src="/media/icons/arrowUp.svg" alt="arrowUp" />
+          </div>
+        </Order>
+      </Content>
       <ItemsHolder>{renderItems}</ItemsHolder>
-      <button onClick={changeOrder}>Order</button>
     </Container>
   );
 };
