@@ -6,6 +6,7 @@ const defaultValues: ScrollContextData = {
   loadItem: () => null,
   scrollToItem: () => null,
   getItems: () => [],
+  currentActive: "",
 };
 
 const ScrollContext = createContext<ScrollContextData>(defaultValues);

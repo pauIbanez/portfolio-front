@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import ScrollItem from "../../Types/ScrollItem";
 import ScrollContext from "./ScrollContext.contextCreator";
 import ScrollContextData from "../../Types/contextData/ScrollContextData";
@@ -9,26 +9,51 @@ interface Props {
 
 const ScrollContextProvider = ({ children }: Props) => {
   const scrollItems = useRef<ScrollItem[]>([]);
+  const [currentActive, setCurrentActive] = useState<string>("");
 
   const loadItem = (item: ScrollItem) => {
     scrollItems.current.push(item);
   };
 
   const scrollToItem = (name: string, offsetY?: number) => {
-    const foundRef = scrollItems.current.find(
-      (item) => item.name === name
-    )?.ref;
+    const foundItem = scrollItems.current.find((item) => item.name === name);
 
-    if (!foundRef) {
+    if (!foundItem) {
       console.log("Ref not found: " + name);
       return;
     }
-    const rect = foundRef.current?.getBoundingClientRect();
+    const rect = foundItem.ref.current?.getBoundingClientRect();
     window.scrollTo({
       top: (rect?.top || 0) + window.scrollY - (offsetY || 100),
       behavior: "smooth",
     });
+    // setCurrentActive(foundItem.name);
   };
+
+  const onScroll = useCallback(() => {
+    let closestItem: string = "";
+    let closestItemHeight: number = 0;
+
+    scrollItems.current.forEach((item) => {
+      const visible =
+        window.innerHeight -
+        Math.abs(item.ref.current?.getBoundingClientRect().y || 0);
+
+      if (visible > closestItemHeight) {
+        console.log(visible, closestItemHeight);
+        closestItemHeight = visible;
+        closestItem = item.name;
+      }
+    });
+
+    setCurrentActive(closestItem);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll);
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [onScroll]);
 
   const getItems = (): ScrollItem[] => scrollItems.current;
 
@@ -37,6 +62,7 @@ const ScrollContextProvider = ({ children }: Props) => {
     loadItem,
     scrollToItem,
     getItems,
+    currentActive,
   };
 
   return (

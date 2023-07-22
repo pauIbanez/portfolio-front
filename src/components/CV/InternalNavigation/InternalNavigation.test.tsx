@@ -27,6 +27,7 @@ describe("Given the InternalNavigation component", () => {
         items: [],
         loadItem: () => null,
         scrollToItem: mockScrollToItem,
+        currentActive: "",
       };
 
       render(
@@ -62,6 +63,7 @@ describe("Given the InternalNavigation component", () => {
         items: [],
         loadItem: () => null,
         scrollToItem: mockScrollToItem,
+        currentActive: "",
       };
 
       render(

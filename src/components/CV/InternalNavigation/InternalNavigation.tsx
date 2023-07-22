@@ -44,7 +44,7 @@ const Item = styled.button<{ $active: boolean }>`
 `;
 
 const InternalNavigation = () => {
-  const { scrollToItem, getItems } = useContext(ScrollContext);
+  const { scrollToItem, getItems, currentActive } = useContext(ScrollContext);
   const [renderItems, setRenderItems] = useState<JSX.Element[]>([]);
 
   useEffect(() => {
@@ -55,13 +55,13 @@ const InternalNavigation = () => {
           onClick={() => {
             scrollToItem(item.name);
           }}
-          $active={item.active || false}
+          $active={item.name === currentActive}
         >
           {item.name}
         </Item>
       ))
     );
-  }, [getItems, scrollToItem]);
+  }, [currentActive, getItems, scrollToItem]);
 
   return (
     <Stickyy offset={30}>
