@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import Colors from "../../data/style/Colors";
+import Colors from "../../../data/style/Colors";
 import { useContext, useRef, useState } from "react";
-import CVListItemData from "../../Types/CVListItem";
-import useEffectOnce from "../../hooks/useEffectOnce";
-import CVListItem from "./CVListItem/CVListItem";
-import ScrollContext from "../../contexts/scrollContext/ScrollContext.contextCreator";
+import CVListItemData from "../../../Types/CVListItem";
+import useEffectOnce from "../../../hooks/useEffectOnce";
+import CVListItem from "../CVListItem/CVListItem";
+import ScrollContext from "../../../contexts/scrollContext/ScrollContext.contextCreator";
 
 const Container = styled.section`
   margin: 0 auto;
@@ -73,7 +73,7 @@ interface Props {
 }
 const CVListSection = ({ title, items }: Props) => {
   const [isDateUp, setIsDateUp] = useState(true);
-  const [renderItems, setRenderItems] = useState([<></>]);
+  const [renderItems, setRenderItems] = useState<JSX.Element[]>([]);
 
   const section = useRef(null);
 
@@ -105,17 +105,7 @@ const CVListSection = ({ title, items }: Props) => {
   });
 
   const changeOrder = () => {
-    setRenderItems(
-      renderItems.sort((a, b) =>
-        a.props.order > b.props.order
-          ? !isDateUp
-            ? 1
-            : -1
-          : !isDateUp
-          ? -1
-          : 1
-      )
-    );
+    setRenderItems(renderItems.reverse());
     setIsDateUp(!isDateUp);
   };
 
