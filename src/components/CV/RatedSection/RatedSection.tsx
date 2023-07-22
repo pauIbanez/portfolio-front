@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Colors from "../../data/style/Colors";
-import ColoredText from "../ColoredText/ColoredText";
-import parseAccents from "../../utils/parseAccents/parseAccents";
+import Colors from "../../../data/style/Colors";
+import ColoredText from "../../ColoredText/ColoredText";
+import parseAccents from "../../../utils/parseAccents/parseAccents";
 
 const Holder = styled.div`
   background-color: ${Colors.backgroundGray};
@@ -53,8 +53,12 @@ interface Props {
 }
 
 const RatedSection = ({ title, items, notRated }: Props) => {
-  const renderItems = items.map((item) => (
-    <Item notRated={notRated || false} key={item.name}>
+  const renderItems = items.map((item, index) => (
+    <Item
+      notRated={notRated || false}
+      key={item.name}
+      data-testid={`item-${index}`}
+    >
       <p>{item.name}</p>
       {notRated ? (
         <Text>{item.text}</Text>
