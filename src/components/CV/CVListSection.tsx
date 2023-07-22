@@ -3,7 +3,7 @@ import Colors from "../../data/style/Colors";
 import { useContext, useRef, useState } from "react";
 import CVListItemData from "../../Types/CVListItem";
 import useEffectOnce from "../../hooks/useEffectOnce";
-import CVListItem from "./CVListItem";
+import CVListItem from "./CVListItem/CVListItem";
 import ScrollContext from "../../contexts/scrollContext/ScrollContext.contextCreator";
 
 const Container = styled.section`

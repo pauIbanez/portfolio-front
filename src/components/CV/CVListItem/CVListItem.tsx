@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import CVListItemData from "../../Types/CVListItem";
-import Colors from "../../data/style/Colors";
+import CVListItemData from "../../../Types/CVListItem";
+import Colors from "../../../data/style/Colors";
 
 interface Props {
   item: CVListItemData;
