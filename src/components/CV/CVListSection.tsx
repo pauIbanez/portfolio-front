@@ -50,6 +50,8 @@ const Order = styled.button<{ isDateUp: boolean }>`
   font-family: inherit;
   color: ${Colors.main};
 
+  cursor: pointer;
+
   div {
     color: ${Colors.textGray};
     display: flex;
