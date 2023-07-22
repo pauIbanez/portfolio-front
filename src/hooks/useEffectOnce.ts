@@ -30,7 +30,8 @@ const useEffectOnce = (effect: () => void | (() => void)) => {
         destroyFunc.current();
       }
     };
-  }, [effect]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 };
 
 export default useEffectOnce;
