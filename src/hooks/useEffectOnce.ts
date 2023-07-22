@@ -30,7 +30,7 @@ const useEffectOnce = (effect: () => void | (() => void)) => {
         destroyFunc.current();
       }
     };
-  }, []);
+  }, [effect]);
 };
 
 export default useEffectOnce;

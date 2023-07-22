@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Colors from "../../data/style/Colors";
 import { useContext } from "react";
 import ScrollContext from "../../contexts/scrollContext/ScrollContext.contextCreator";
-import Sticky from "../Sticky/Sticky";
+import Stickyy from "react-stickyy";
 
 const Holder = styled.div`
   background-color: white;
@@ -65,9 +65,9 @@ const InternalNavigation = ({ items }: Props) => {
     </Item>
   ));
   return (
-    <Sticky offset={30}>
+    <Stickyy offset={30}>
       <Holder>{renderItems}</Holder>
-    </Sticky>
+    </Stickyy>
   );
 };
 
