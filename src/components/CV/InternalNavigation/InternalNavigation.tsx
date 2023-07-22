@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Colors from "../../data/style/Colors";
+import Colors from "../../../data/style/Colors";
 import { useContext, useEffect, useState } from "react";
-import ScrollContext from "../../contexts/scrollContext/ScrollContext.contextCreator";
+import ScrollContext from "../../../contexts/scrollContext/ScrollContext.contextCreator";
 import Stickyy from "react-stickyy";
 
 const Holder = styled.div`

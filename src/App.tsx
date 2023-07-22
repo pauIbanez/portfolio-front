@@ -3,7 +3,7 @@ import Pages from "./data/Pages/Pages";
 import Layout from "./components/Layout/Layout";
 import HomePage from "./Pages/HomePage";
 import CVListSection from "./components/CV/CVListSection/CVListSection";
-import InternalNavigation from "./components/CV/InternalNavigation";
+import InternalNavigation from "./components/CV/InternalNavigation/InternalNavigation";
 import ScrollContextProvider from "./contexts/scrollContext/ScrollContextProvider";
 import CVSection from "./components/CV/CVSection/CVSection";
 import RatedSection from "./components/CV/RatedSection/RatedSection";
