@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import Colors from "../../data/style/Colors";
-import ScrollContext from "../../contexts/scrollContext/ScrollContext.contextCreator";
+import Colors from "../../../data/style/Colors";
+import ScrollContext from "../../../contexts/scrollContext/ScrollContext.contextCreator";
 import { useContext, useRef } from "react";
-import useEffectOnce from "../../hooks/useEffectOnce";
+import useEffectOnce from "../../../hooks/useEffectOnce";
 
 const Container = styled.section`
   margin: 0 auto;

@@ -5,7 +5,7 @@ import HomePage from "./Pages/HomePage";
 import CVListSection from "./components/CV/CVListSection";
 import InternalNavigation from "./components/CV/InternalNavigation";
 import ScrollContextProvider from "./contexts/scrollContext/ScrollContextProvider";
-import CVSection from "./components/CV/CVSection";
+import CVSection from "./components/CV/CVSection/CVSection";
 import RatedSection from "./components/CV/RatedSection/RatedSection";
 
 function App() {
