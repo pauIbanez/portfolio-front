@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import Colors from "../../data/style/Colors";
+import ScrollContext from "../../contexts/scrollContext/ScrollContext.contextCreator";
+import { useContext, useRef } from "react";
+import useEffectOnce from "../../hooks/useEffectOnce";
 
 const Container = styled.section`
   margin: 0 auto;
@@ -36,8 +39,15 @@ interface Props {
   children: JSX.Element;
 }
 const CVSection = ({ title, children }: Props) => {
+  const section = useRef(null);
+  const { loadItem } = useContext(ScrollContext);
+
+  useEffectOnce(() => {
+    loadItem({ name: title, ref: section });
+  });
+
   return (
-    <Container>
+    <Container ref={section}>
       <Content>
         <Title>{title}</Title>
       </Content>

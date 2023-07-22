@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Colors from "../../data/style/Colors";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import ScrollContext from "../../contexts/scrollContext/ScrollContext.contextCreator";
 import Stickyy from "react-stickyy";
 
@@ -43,27 +43,26 @@ const Item = styled.button<{ $active: boolean }>`
   }
 `;
 
-interface Props {
-  items: {
-    name: string;
-    active: boolean;
-  }[];
-}
+const InternalNavigation = () => {
+  const { scrollToItem, getItems } = useContext(ScrollContext);
+  const [renderItems, setRenderItems] = useState<JSX.Element[]>([]);
 
-const InternalNavigation = ({ items }: Props) => {
-  const { scrollToItem } = useContext(ScrollContext);
+  useEffect(() => {
+    setRenderItems(
+      getItems().map((item) => (
+        <Item
+          key={item.name}
+          onClick={() => {
+            scrollToItem(item.name);
+          }}
+          $active={item.active || false}
+        >
+          {item.name}
+        </Item>
+      ))
+    );
+  }, [getItems, scrollToItem]);
 
-  const renderItems = items.map((item) => (
-    <Item
-      key={item.name}
-      onClick={() => {
-        scrollToItem(item.name);
-      }}
-      $active={item.active}
-    >
-      {item.name}
-    </Item>
-  ));
   return (
     <Stickyy offset={30}>
       <Holder>{renderItems}</Holder>

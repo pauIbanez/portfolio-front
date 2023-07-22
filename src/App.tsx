@@ -23,12 +23,7 @@ function App() {
           element={
             <ScrollContextProvider>
               <div style={{ margin: 30 }}>
-                <InternalNavigation
-                  items={[
-                    { name: "Example", active: false },
-                    { name: "Other", active: false },
-                  ]}
-                />
+                <InternalNavigation />
                 <CVListSection
                   title="Example"
                   items={[
