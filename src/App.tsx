@@ -6,6 +6,7 @@ import CVListSection from "./components/CV/CVListSection";
 import InternalNavigation from "./components/CV/InternalNavigation";
 import ScrollContextProvider from "./contexts/scrollContext/ScrollContextProvider";
 import CVSection from "./components/CV/CVSection";
+import RatedSection from "./components/CV/RatedSection";
 
 function App() {
   return (
@@ -117,10 +118,97 @@ function App() {
                   ]}
                 />
                 <CVSection title="Languages">
-                  <p>
-                    These are the lanaguages I speak and write along with my
-                    level at them.
-                  </p>
+                  <>
+                    <p>
+                      These are the lanaguages I speak and write along with my
+                      level at them.
+                    </p>
+                    <div
+                      style={{
+                        display: "flex",
+                        gap: 20,
+                        justifyItems: "space-beween",
+                        width: "100%",
+                      }}
+                    >
+                      <RatedSection
+                        title="<&>Lan<&>guages"
+                        notRated={true}
+                        items={[
+                          {
+                            name: "Catalan",
+                            text: "Native",
+                          },
+                          {
+                            name: "Spanish",
+                            text: "Native",
+                          },
+                          {
+                            name: "English",
+                            text: "Fluent",
+                          },
+                        ]}
+                      />
+                      <RatedSection
+                        items={[
+                          {
+                            name: "JavaScript",
+                            rating: 5,
+                          },
+                          {
+                            name: "TypeScript",
+                            rating: 5,
+                          },
+                          {
+                            name: "C#",
+                            rating: 3,
+                          },
+                          {
+                            name: "C++",
+                            rating: 2,
+                          },
+                          {
+                            name: "Lua",
+                            rating: 4,
+                          },
+                          {
+                            name: "SQL",
+                            rating: 4,
+                          },
+                        ]}
+                        title="Programing <&>Languages"
+                      />
+                      <RatedSection
+                        items={[
+                          {
+                            name: "JavaScript",
+                            rating: 5,
+                          },
+                          {
+                            name: "TypeScript",
+                            rating: 5,
+                          },
+                          {
+                            name: "C#",
+                            rating: 3,
+                          },
+                          {
+                            name: "C++",
+                            rating: 2,
+                          },
+                          {
+                            name: "Lua",
+                            rating: 4,
+                          },
+                          {
+                            name: "SQL",
+                            rating: 4,
+                          },
+                        ]}
+                        title="Programing <&>Languages"
+                      />
+                    </div>
+                  </>
                 </CVSection>
               </div>
             </ScrollContextProvider>
