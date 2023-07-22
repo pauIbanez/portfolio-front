@@ -5,6 +5,7 @@ import HomePage from "./Pages/HomePage";
 import CVListSection from "./components/CV/CVListSection";
 import InternalNavigation from "./components/CV/InternalNavigation";
 import ScrollContextProvider from "./contexts/scrollContext/ScrollContextProvider";
+import CVSection from "./components/CV/CVSection";
 
 function App() {
   return (
@@ -120,6 +121,12 @@ function App() {
                     },
                   ]}
                 />
+                <CVSection title="Languages">
+                  <p>
+                    These are the lanaguages I speak and write along with my
+                    level at them.
+                  </p>
+                </CVSection>
               </div>
             </ScrollContextProvider>
           }
