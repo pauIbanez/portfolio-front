@@ -5,11 +5,13 @@ import CVListSection from "../../components/CV/CVListSection/CVListSection";
 import ScrollContextProvider from "../../contexts/scrollContext/ScrollContextProvider";
 import sections from "../../data/cv/sections";
 import InternalNavigation from "../../components/CV/InternalNavigation/InternalNavigation";
+import CVSection from "../../components/CV/CVSection/CVSection";
+import RatedSection from "../../components/CV/RatedSection/RatedSection";
 
 const Holder = styled.div`
   display: flex;
   justify-content: center;
-  padding: 0 75px;
+  padding: 0 75px 200px 75px;
 `;
 
 const Content = styled.div`
@@ -30,6 +32,17 @@ const CVHolder = styled.div`
   display: flex;
   gap: 50px;
   padding: 0 50px;
+`;
+
+const LanguageSectionContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+`;
+const LanguageItemHolder = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
 `;
 
 const CVPage = () => {
@@ -74,6 +87,21 @@ const CVPage = () => {
                 title={sections.experience.title}
                 items={sections.experience.items}
               />
+              <CVSection title={sections.languages.title}>
+                <LanguageSectionContent>
+                  <p>{sections.languages.text}</p>
+                  <LanguageItemHolder>
+                    {sections.languages.sections.map((section) => (
+                      <RatedSection
+                        key={section.title}
+                        title={section.title}
+                        items={section.items}
+                        notRated={section.notRated}
+                      />
+                    ))}
+                  </LanguageItemHolder>
+                </LanguageSectionContent>
+              </CVSection>
             </CVContent>
           </CVHolder>
         </Content>

@@ -194,6 +194,179 @@ const sections = {
       },
     ],
   },
+  technologies: {
+    title: "Technbologies and Skills",
+    text: "",
+    pages: [
+      {
+        name: "Technologies",
+        sections: [
+          [
+            {
+              title: "Frameworks",
+              items: [
+                {
+                  name: "React",
+                  rating: 5,
+                },
+                {
+                  name: "Next.js",
+                  rating: 4,
+                },
+                {
+                  name: "Express",
+                  rating: 5,
+                },
+                {
+                  name: "JQuery",
+                  rating: 2,
+                },
+                {
+                  name: "Flutter",
+                  rating: 3,
+                },
+              ],
+            },
+            {
+              title: "Databases",
+              items: [
+                {
+                  name: "MongoDB",
+                  rating: 5,
+                },
+                {
+                  name: "MySQL",
+                  rating: 4,
+                },
+                {
+                  name: "PostgresSQL",
+                  rating: 3,
+                },
+              ],
+            },
+          ],
+          [
+            {
+              title: "Testing",
+              items: [
+                {
+                  name: "Jest",
+                  rating: 5,
+                },
+                {
+                  name: "Supertest",
+                  rating: 4,
+                },
+                {
+                  name: "Testing-library",
+                  rating: 5,
+                },
+              ],
+            },
+            {
+              title: "Unidirectional data flows",
+              items: [
+                {
+                  name: "Flux",
+                  rating: 5,
+                },
+                {
+                  name: "Redux",
+                  rating: 5,
+                },
+              ],
+            },
+            {
+              title: "Version control",
+              items: [
+                {
+                  name: "Git",
+                  rating: 5,
+                },
+              ],
+            },
+          ],
+          [
+            {
+              title: "Styling",
+              items: [
+                {
+                  name: "CSS",
+                  rating: 5,
+                },
+                {
+                  name: "SCSS",
+                  rating: 5,
+                },
+                {
+                  name: "Styled-components",
+                  rating: 5,
+                },
+                {
+                  name: "CSS Modules",
+                  rating: 5,
+                },
+              ],
+            },
+            {
+              title: "Methodologies",
+              items: [
+                {
+                  name: "CI/CD",
+                  rating: 5,
+                },
+                {
+                  name: "SOLID Principles",
+                  rating: 4,
+                },
+                {
+                  name: "Test driven p.",
+                  rating: 3,
+                },
+                {
+                  name: "Agile development",
+                  rating: 4,
+                },
+              ],
+            },
+          ],
+        ],
+      },
+      {
+        name: "Skills",
+        sections: [
+          [
+            {
+              title: "Critical <&>Thinking",
+              text: "I possess a keen analytical mindset, evaluating information objectively and drawing logical conclusions.",
+            },
+            {
+              title: "<&>Team<&>work",
+              text: "I thrive in collaborative environments, fostering open communication, trust, and mutual respect. I actively contribute to group dynamics, valuing diverse perspectives and working towards shared goals.",
+            },
+            {
+              title: "Problem <&>Thinking",
+              text: "I excel at breaking down complex problems, anticipating obstacles, and devising innovative solutions. I strongly believe that troubleshooting is the most important skill to have as a programmer. No one's code always works the first time, and it's important to know how to find what's causing the error.",
+            },
+          ],
+          [
+            {
+              title: "<&>Flex<&>ibility",
+              text: " I thrive in dynamic and changing environments. I embrace new challenges, willingly take on different roles, and effectively contribute to team objectives.",
+            },
+            {
+              title: "De<&>sign (me, xd)",
+              text: "I do not consider myself to be a designer, but I have an eye for it. I won’t create the best design, but I’ll know when something doesn’t work right. I put myself in the position of the end user and I try to figure out the best layout and style for the desired  purpose of the page.",
+            },
+            {
+              title: "<&>Fast <&>learning",
+              text: "I think of myself as a fast learner. My experience with such varies technologies and developing enviroments allows me to adapt to new ones with ease.",
+            },
+          ],
+        ],
+      },
+    ],
+  },
 };
 
 export default sections;
