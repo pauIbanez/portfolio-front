@@ -5,6 +5,8 @@ import { render, screen } from "@testing-library/react";
 import ScrollContext from "../../../contexts/scrollContext/ScrollContext.contextCreator";
 import InternalNavigation from "./InternalNavigation";
 import userEvent from "@testing-library/user-event";
+import toRGB from "../../../utils/toRGB/toRGB";
+import Colors from "../../../data/style/Colors";
 
 describe("Given the InternalNavigation component", () => {
   describe("When it's instanciated", () => {
@@ -79,6 +81,43 @@ describe("Given the InternalNavigation component", () => {
 
         expect(mockScrollToItem).toHaveBeenCalledWith(item.name);
       });
+    });
+  });
+
+  describe("When it's instanciated with a currentActive", () => {
+    test("Then it should render the item background color as the disabledMain", () => {
+      const items: ScrollItem[] = [
+        {
+          ref: null as unknown as RefObject<HTMLDivElement>,
+          name: "asdasda",
+        },
+        {
+          ref: null as unknown as RefObject<HTMLDivElement>,
+          name: "sasa2",
+        },
+      ];
+
+      const expectedStyle = {
+        backgroundColor: toRGB(Colors.disabledMain),
+      };
+
+      const contextValue: ScrollContextData = {
+        getItems: () => items,
+        items: [],
+        loadItem: () => null,
+        scrollToItem: () => null,
+        currentActive: items[0].name,
+      };
+
+      render(
+        <ScrollContext.Provider value={contextValue}>
+          <InternalNavigation />
+        </ScrollContext.Provider>
+      );
+
+      const foundItems = screen.getAllByRole("button");
+
+      expect(foundItems[0]).toHaveStyle(expectedStyle);
     });
   });
 });

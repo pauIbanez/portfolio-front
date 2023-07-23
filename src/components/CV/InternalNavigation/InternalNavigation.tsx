@@ -29,13 +29,8 @@ const Item = styled.button<{ $active: boolean }>`
   align-items: center;
   justify-content: center;
 
-  ${(props) =>
-    props.$active
-      ? "background-color: " +
-        Colors.disabledMain +
-        "; color: " +
-        Colors.disabledTextGray
-      : ""}
+  background-color: ${(props) =>
+    props.$active ? Colors.disabledMain : "white"};
 
   &:hover {
     background-color: ${Colors.disabledMain};
