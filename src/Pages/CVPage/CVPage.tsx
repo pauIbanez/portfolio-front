@@ -3,6 +3,7 @@ import PresentationText from "../../components/PresentationText/PresentationText
 import styled from "styled-components";
 import CVListSection from "../../components/CV/CVListSection/CVListSection";
 import ScrollContextProvider from "../../contexts/scrollContext/ScrollContextProvider";
+import sections from "../../data/cv/sections";
 
 const Holder = styled.div`
   display: flex;
@@ -31,7 +32,13 @@ const CVHolder = styled.main`
 const CVPage = () => {
   const cvRef = useRef<HTMLDivElement>(null);
 
-  const onClick = () => cvRef.current?.scrollIntoView({ behavior: "smooth" });
+  const onClick = () => {
+    const rect = cvRef.current?.getBoundingClientRect();
+    window.scrollTo({
+      top: (rect?.top || 0) + window.scrollY - 100,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <ScrollContextProvider>
@@ -54,7 +61,10 @@ const CVPage = () => {
             }}
           />
           <CVHolder ref={cvRef}>
-            <CVListSection title="Education" items={[]} />
+            <CVListSection
+              title={sections.education.title}
+              items={sections.education.items}
+            />
           </CVHolder>
         </Content>
       </Holder>
