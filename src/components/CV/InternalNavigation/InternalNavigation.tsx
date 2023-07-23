@@ -19,6 +19,7 @@ const Holder = styled.div`
 const Item = styled.button<{ $active: boolean }>`
   border: none;
   background: none;
+  font-family: inherit;
 
   width: 100%;
   height: 50px;

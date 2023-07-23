@@ -7,6 +7,7 @@ import sections from "../../data/cv/sections";
 import InternalNavigation from "../../components/CV/InternalNavigation/InternalNavigation";
 import CVSection from "../../components/CV/CVSection/CVSection";
 import RatedSection from "../../components/CV/RatedSection/RatedSection";
+import TechnologiesSection from "../../components/CV/TechnologiesSection/TechnologiesSection";
 
 const Holder = styled.div`
   display: flex;
@@ -34,7 +35,7 @@ const CVHolder = styled.div`
   padding: 0 50px;
 `;
 
-const LanguageSectionContent = styled.div`
+const SectionContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -88,7 +89,7 @@ const CVPage = () => {
                 items={sections.experience.items}
               />
               <CVSection title={sections.languages.title}>
-                <LanguageSectionContent>
+                <SectionContent>
                   <p>{sections.languages.text}</p>
                   <LanguageItemHolder>
                     {sections.languages.sections.map((section) => (
@@ -100,8 +101,9 @@ const CVPage = () => {
                       />
                     ))}
                   </LanguageItemHolder>
-                </LanguageSectionContent>
+                </SectionContent>
               </CVSection>
+              <TechnologiesSection />
             </CVContent>
           </CVHolder>
         </Content>
