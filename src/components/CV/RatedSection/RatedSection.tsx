@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Colors from "../../../data/style/Colors";
 import ColoredText from "../../ColoredText/ColoredText";
-import parseAccents from "../../../utils/parseAccents/parseAccents";
 
 const Holder = styled.div`
   background-color: ${Colors.backgroundGray};
@@ -94,10 +93,7 @@ const RatedSection = ({ title, items, notRated }: Props) => {
 
   return (
     <Holder>
-      <ColoredText
-        textArray={[...parseAccents(title)]}
-        styleData={{ size: "16px", weight: 700 }}
-      />
+      <ColoredText text={title} styleData={{ size: "16px", weight: 700 }} />
       <Content>{renderItems}</Content>
     </Holder>
   );

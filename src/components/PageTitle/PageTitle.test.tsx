@@ -23,14 +23,16 @@ describe("Given the PageTitle component", () => {
 
   describe("When it's passed an array as title", () => {
     test("Then it should render a text with color main", () => {
-      const title = ["test ", "title"];
+      const title = "Test <&>title";
+      const expectedTitle = "title";
+
       const expectedStyle = {
         color: toRGB(Colors.main),
       };
 
       render(<PageTitle title={title} />);
 
-      const foundTitle_title = screen.getByText(title[1]);
+      const foundTitle_title = screen.getByText(expectedTitle);
 
       expect(foundTitle_title).toBeInTheDocument();
       expect(foundTitle_title).toHaveStyle(expectedStyle);
