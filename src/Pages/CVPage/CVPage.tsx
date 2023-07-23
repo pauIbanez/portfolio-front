@@ -9,14 +9,13 @@ import InternalNavigation from "../../components/CV/InternalNavigation/InternalN
 const Holder = styled.div`
   display: flex;
   justify-content: center;
-  padding: 200px 75px 100px 75px;
+  padding: 0 75px;
 `;
 
 const Content = styled.div`
   max-width: 1775px;
   display: flex;
   flex-direction: column;
-  gap: 200px;
 `;
 
 const CVContent = styled.main`
