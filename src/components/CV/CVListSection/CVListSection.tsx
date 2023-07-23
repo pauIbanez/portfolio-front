@@ -7,8 +7,7 @@ import CVListItem from "../CVListItem/CVListItem";
 import ScrollContext from "../../../contexts/scrollContext/ScrollContext.contextCreator";
 
 const Container = styled.section`
-  margin: 0 auto;
-  width: 1100px;
+  width: 100%;
   background-color: white;
   color: ${Colors.textGray};
   border-radius: 15px;

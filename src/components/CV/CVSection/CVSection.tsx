@@ -5,8 +5,7 @@ import { useContext, useRef } from "react";
 import useEffectOnce from "../../../hooks/useEffectOnce";
 
 const Container = styled.section`
-  margin: 0 auto;
-  width: 1100px;
+  width: 100%;
   background-color: white;
   color: ${Colors.textGray};
   border-radius: 15px;
