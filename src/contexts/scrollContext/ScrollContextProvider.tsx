@@ -27,7 +27,6 @@ const ScrollContextProvider = ({ children }: Props) => {
       top: (rect?.top || 0) + window.scrollY - (offsetY || 100),
       behavior: "smooth",
     });
-    // setCurrentActive(foundItem.name);
   };
 
   const onScroll = useCallback(() => {

@@ -1,7 +1,8 @@
+/* eslint-disable testing-library/no-unnecessary-act */
 import { render, screen } from "@testing-library/react";
 import CVListSection from "./CVListSection";
 import userEvent from "@testing-library/user-event";
-import { wait } from "@testing-library/user-event/dist/utils";
+import { act } from "react-dom/test-utils";
 
 describe("Given the CVListSection component", () => {
   describe("When it's intanciated passing a title some items", () => {
@@ -64,7 +65,7 @@ describe("Given the CVListSection component", () => {
   });
 
   describe("When it's intanciated passing a title some items and the user changes the order", () => {
-    test("Then it should render the items with the changed order", async () => {
+    test("Then it should render the items with the changed order", () => {
       const items = [
         {
           name: "Jesuïtes El Clot",
@@ -117,10 +118,9 @@ describe("Given the CVListSection component", () => {
       foundItemNames.forEach((name, index) => {
         expect(name.textContent).toBe(items[index].name);
       });
-
-      userEvent.click(foundButton);
-
-      await wait(500);
+      act(() => {
+        userEvent.click(foundButton);
+      });
 
       foundItemNames = screen.getAllByRole("heading", {
         level: 4,
@@ -130,9 +130,9 @@ describe("Given the CVListSection component", () => {
         expect(name.textContent).not.toBe(items[index].name);
       });
 
-      userEvent.click(foundButton);
-
-      await wait(500);
+      act(() => {
+        userEvent.click(foundButton);
+      });
 
       foundItemNames = screen.getAllByRole("heading", {
         level: 4,
@@ -142,9 +142,9 @@ describe("Given the CVListSection component", () => {
         expect(name.textContent).toBe(items[index].name);
       });
 
-      userEvent.click(foundButton);
-
-      await wait(500);
+      act(() => {
+        userEvent.click(foundButton);
+      });
 
       foundItemNames = screen.getAllByRole("heading", {
         level: 4,
@@ -154,9 +154,9 @@ describe("Given the CVListSection component", () => {
         expect(name.textContent).not.toBe(items[index].name);
       });
 
-      userEvent.click(foundButton);
-
-      await wait(500);
+      act(() => {
+        userEvent.click(foundButton);
+      });
 
       foundItemNames = screen.getAllByRole("heading", {
         level: 4,

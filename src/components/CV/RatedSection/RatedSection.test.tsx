@@ -58,7 +58,7 @@ describe("Given the RatedSection component", () => {
         const foundItem = screen.getByTestId(`item-${index}`);
         const foundName = screen.getByText(item.name);
         const foundStars = within(foundItem).getAllByRole("img");
-        const foundFullStars = within(foundItem).getAllByAltText(/\bFull\b/g);
+        const foundFullStars = within(foundItem).getAllByAltText(/\bFull\b/);
 
         expect(foundName).toBeInTheDocument();
         expect(foundStars.length).toBe(5);
