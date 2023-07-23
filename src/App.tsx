@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Pages from "./data/Pages/Pages";
 import Layout from "./components/Layout/Layout";
-import HomePage from "./Pages/HomePage";
+import HomePage from "./Pages/HomePage/HomePage";
 import CVListSection from "./components/CV/CVListSection/CVListSection";
 import InternalNavigation from "./components/CV/InternalNavigation/InternalNavigation";
 import ScrollContextProvider from "./contexts/scrollContext/ScrollContextProvider";
