@@ -124,6 +124,76 @@ const sections = {
       },
     ],
   },
+  languages: {
+    title: "Languages",
+    text: "These are the lanaguages I speak and write along with my level at them.",
+    sections: [
+      {
+        title: "<&>Lan<&>guages",
+        items: [
+          {
+            name: "Catalan",
+            text: "Native",
+          },
+          {
+            name: "Spanish",
+            text: "Native",
+          },
+          {
+            name: "English",
+            text: "Fluent",
+          },
+        ],
+        notRated: true,
+      },
+      {
+        title: "Programmin <&>Languages",
+        items: [
+          {
+            name: "JavaScript",
+            rating: 5,
+          },
+          {
+            name: "TypeScript",
+            rating: 5,
+          },
+          {
+            name: "C#",
+            rating: 3,
+          },
+          {
+            name: "C++",
+            rating: 2,
+          },
+          {
+            name: "Lua",
+            rating: 4,
+          },
+          {
+            name: "SQL",
+            rating: 4,
+          },
+        ],
+      },
+      {
+        title: "Other <&>Languages",
+        items: [
+          {
+            name: "HTML / JSX",
+            rating: 5,
+          },
+          {
+            name: "JSON",
+            rating: 5,
+          },
+          {
+            name: "XML",
+            rating: 5,
+          },
+        ],
+      },
+    ],
+  },
 };
 
 export default sections;
