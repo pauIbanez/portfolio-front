@@ -29,6 +29,8 @@ const Item = styled.button<{ $active: boolean }>`
   align-items: center;
   justify-content: center;
 
+  cursor: pointer;
+
   background-color: ${(props) =>
     props.$active ? Colors.disabledMain : "white"};
 

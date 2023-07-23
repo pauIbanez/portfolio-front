@@ -29,6 +29,7 @@ const Icon = styled.img`
   width: 80px;
 
   border-radius: 15px;
+  object-fit: contain;
 `;
 
 const InfoItems = styled.div`

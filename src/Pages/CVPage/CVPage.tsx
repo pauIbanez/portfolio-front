@@ -4,29 +4,33 @@ import styled from "styled-components";
 import CVListSection from "../../components/CV/CVListSection/CVListSection";
 import ScrollContextProvider from "../../contexts/scrollContext/ScrollContextProvider";
 import sections from "../../data/cv/sections";
+import InternalNavigation from "../../components/CV/InternalNavigation/InternalNavigation";
 
 const Holder = styled.div`
   display: flex;
   justify-content: center;
-  padding: 150px 75px 100px 75px;
+  padding: 200px 75px 100px 75px;
 `;
 
 const Content = styled.div`
   max-width: 1775px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 150px;
+  gap: 200px;
 `;
 
-const CVHolder = styled.main`
+const CVContent = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
-  margin: 50px;
+  gap: 30px;
   width: 100%;
   max-width: 1175px;
+`;
+const CVHolder = styled.div`
+  display: flex;
+  gap: 50px;
+  padding: 0 50px;
 `;
 
 const CVPage = () => {
@@ -61,10 +65,17 @@ const CVPage = () => {
             }}
           />
           <CVHolder ref={cvRef}>
-            <CVListSection
-              title={sections.education.title}
-              items={sections.education.items}
-            />
+            <InternalNavigation />
+            <CVContent>
+              <CVListSection
+                title={sections.education.title}
+                items={sections.education.items}
+              />
+              <CVListSection
+                title={sections.experience.title}
+                items={sections.experience.items}
+              />
+            </CVContent>
           </CVHolder>
         </Content>
       </Holder>
