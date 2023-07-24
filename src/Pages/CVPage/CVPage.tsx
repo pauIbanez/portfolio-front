@@ -5,12 +5,10 @@ import CVListSection from "../../components/CV/CVListSection/CVListSection";
 import ScrollContextProvider from "../../contexts/scrollContext/ScrollContextProvider";
 import sections from "../../data/cv/sections";
 import InternalNavigation from "../../components/CV/InternalNavigation/InternalNavigation";
-import CVSection from "../../components/CV/CVSection/CVSection";
-import RatedSection from "../../components/CV/RatedSection/RatedSection";
 import TechnologiesSection from "../../components/CV/sections/TechnologiesSection/TechnologiesSection";
-import Letter from "../../components/CV/Letter/Letter";
-import Colors from "../../data/style/Colors";
 import DownloadSection from "../../components/CV/sections/DownloadSection/DownloadSection";
+import LanguagesSection from "../../components/CV/sections/LanguagesSection/LanguagesSection";
+import ReferencesSection from "../../components/CV/sections/ReferencesSection/ReferencesSection";
 
 const Holder = styled.div`
   display: flex;
@@ -36,30 +34,6 @@ const CVHolder = styled.div`
   display: flex;
   gap: 50px;
   padding: 0 50px;
-`;
-
-const LanguagesSectionContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-`;
-
-const LanguageItemHolder = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-`;
-
-const RecommendationSectionContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-  margin-top: 15px;
-`;
-
-const Line = styled.div`
-  background-color: ${Colors.disabledMain};
-  height: 2px;
 `;
 
 const CVPage = () => {
@@ -104,34 +78,9 @@ const CVPage = () => {
                 title={sections.experience.title}
                 items={sections.experience.items}
               />
-              <CVSection title={sections.languages.title}>
-                <LanguagesSectionContent>
-                  <p>{sections.languages.text}</p>
-                  <LanguageItemHolder>
-                    {sections.languages.sections.map((section) => (
-                      <RatedSection
-                        key={section.title}
-                        title={section.title}
-                        items={section.items}
-                        notRated={section.notRated}
-                      />
-                    ))}
-                  </LanguageItemHolder>
-                </LanguagesSectionContent>
-              </CVSection>
+              <LanguagesSection />
               <TechnologiesSection />
-              <CVSection title={sections.references.title}>
-                <RecommendationSectionContent>
-                  {sections.references.items.map((item, index) => (
-                    <>
-                      <Letter item={item} key={index} />
-                      {index !== sections.references.items.length - 1 && (
-                        <Line key={index + "Line"} />
-                      )}
-                    </>
-                  ))}
-                </RecommendationSectionContent>
-              </CVSection>
+              <ReferencesSection />
               <DownloadSection />
             </CVContent>
           </CVHolder>
