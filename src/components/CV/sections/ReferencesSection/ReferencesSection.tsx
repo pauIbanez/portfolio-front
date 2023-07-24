@@ -3,6 +3,8 @@ import sections from "../../../../data/cv/sections";
 import CVSection from "../../CVSection/CVSection";
 import Colors from "../../../../data/style/Colors";
 import Letter from "../../Letter/Letter";
+import useEffectOnce from "../../../../hooks/useEffectOnce";
+import { useState } from "react";
 
 const Content = styled.div`
   display: flex;
@@ -17,18 +19,24 @@ const Line = styled.div`
 `;
 
 const ReferencesSection = () => {
+  const [renderItems, setRenderItems] = useState<JSX.Element[]>([]);
+
+  useEffectOnce(() => {
+    const allItems: JSX.Element[] = [];
+
+    sections.references.items.forEach((item, index) => {
+      allItems.push(<Letter item={item} key={item.name} />);
+      if (index !== sections.references.items.length - 1) {
+        allItems.push(<Line key={item.name + "Line"} />);
+      }
+    });
+
+    setRenderItems(allItems);
+  });
+
   return (
     <CVSection title={sections.references.title}>
-      <Content>
-        {sections.references.items.map((item, index) => (
-          <>
-            <Letter item={item} key={index} />
-            {index !== sections.references.items.length - 1 && (
-              <Line key={index + "Line"} />
-            )}
-          </>
-        ))}
-      </Content>
+      <Content>{renderItems}</Content>
     </CVSection>
   );
 };

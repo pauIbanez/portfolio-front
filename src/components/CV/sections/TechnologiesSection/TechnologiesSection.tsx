@@ -160,21 +160,23 @@ const TechnologiesSection = () => {
           <Page>
             <PageTitle>{sections.technologies.pages.skills.name}</PageTitle>
             <SectionsHolder>
-              {sections.technologies.pages.skills.sections.map((column) => (
-                <Column>
-                  {column.map((section) => (
-                    <InSectionHolder>
-                      <ColoredText
-                        text={section.title}
-                        styleData={{ size: "16px", weight: 700 }}
-                      />
-                      <div style={{ padding: 10 }}>
-                        <InSectionText>{section.text}</InSectionText>
-                      </div>
-                    </InSectionHolder>
-                  ))}
-                </Column>
-              ))}
+              {sections.technologies.pages.skills.sections.map(
+                (column, index) => (
+                  <Column key={index}>
+                    {column.map((section) => (
+                      <InSectionHolder key={section.title}>
+                        <ColoredText
+                          text={section.title}
+                          styleData={{ size: "16px", weight: 700 }}
+                        />
+                        <div style={{ padding: 10 }}>
+                          <InSectionText>{section.text}</InSectionText>
+                        </div>
+                      </InSectionHolder>
+                    ))}
+                  </Column>
+                )
+              )}
             </SectionsHolder>
           </Page>
         </PageView>
