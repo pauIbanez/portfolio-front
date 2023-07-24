@@ -8,6 +8,8 @@ import InternalNavigation from "../../components/CV/InternalNavigation/InternalN
 import CVSection from "../../components/CV/CVSection/CVSection";
 import RatedSection from "../../components/CV/RatedSection/RatedSection";
 import TechnologiesSection from "../../components/CV/TechnologiesSection/TechnologiesSection";
+import Letter from "../../components/CV/Letter/Letter";
+import Colors from "../../data/style/Colors";
 
 const Holder = styled.div`
   display: flex;
@@ -35,15 +37,28 @@ const CVHolder = styled.div`
   padding: 0 50px;
 `;
 
-const SectionContent = styled.div`
+const LanguagesSectionContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
 `;
+
 const LanguageItemHolder = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 30px;
+`;
+
+const RecommendationSectionContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  margin-top: 15px;
+`;
+
+const Line = styled.div`
+  background-color: ${Colors.disabledMain};
+  height: 2px;
 `;
 
 const CVPage = () => {
@@ -89,7 +104,7 @@ const CVPage = () => {
                 items={sections.experience.items}
               />
               <CVSection title={sections.languages.title}>
-                <SectionContent>
+                <LanguagesSectionContent>
                   <p>{sections.languages.text}</p>
                   <LanguageItemHolder>
                     {sections.languages.sections.map((section) => (
@@ -101,9 +116,21 @@ const CVPage = () => {
                       />
                     ))}
                   </LanguageItemHolder>
-                </SectionContent>
+                </LanguagesSectionContent>
               </CVSection>
               <TechnologiesSection />
+              <CVSection title={sections.references.title}>
+                <RecommendationSectionContent>
+                  {sections.references.items.map((item, index) => (
+                    <>
+                      <Letter item={item} />
+                      {index !== sections.references.items.length - 1 && (
+                        <Line />
+                      )}
+                    </>
+                  ))}
+                </RecommendationSectionContent>
+              </CVSection>
             </CVContent>
           </CVHolder>
         </Content>

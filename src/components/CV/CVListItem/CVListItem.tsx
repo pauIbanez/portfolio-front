@@ -35,7 +35,7 @@ const Icon = styled.img`
 const InfoItems = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space between;
+  justify-content: space-between;
   height: 70px;
   margin-left: 15px;
 `;
