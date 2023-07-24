@@ -7,9 +7,10 @@ import sections from "../../data/cv/sections";
 import InternalNavigation from "../../components/CV/InternalNavigation/InternalNavigation";
 import CVSection from "../../components/CV/CVSection/CVSection";
 import RatedSection from "../../components/CV/RatedSection/RatedSection";
-import TechnologiesSection from "../../components/CV/TechnologiesSection/TechnologiesSection";
+import TechnologiesSection from "../../components/CV/sections/TechnologiesSection/TechnologiesSection";
 import Letter from "../../components/CV/Letter/Letter";
 import Colors from "../../data/style/Colors";
+import DownloadSection from "../../components/CV/sections/DownloadSection/DownloadSection";
 
 const Holder = styled.div`
   display: flex;
@@ -131,6 +132,7 @@ const CVPage = () => {
                   ))}
                 </RecommendationSectionContent>
               </CVSection>
+              <DownloadSection />
             </CVContent>
           </CVHolder>
         </Content>

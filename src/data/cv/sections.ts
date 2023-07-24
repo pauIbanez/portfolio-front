@@ -1,14 +1,3 @@
-import { CVListSectionData } from "../../Types/CVSectionData";
-
-interface Sections {
-  readonly education: CVListSectionData;
-  readonly experience: CVListSectionData;
-  readonly languages: any;
-  readonly technologies: any;
-  readonly references: any;
-  readonly download: any;
-}
-
 const sections = {
   education: {
     title: "Education",
@@ -407,22 +396,26 @@ const sections = {
     checkmarkError: "Accept terms and conditions",
     buttonText: "Download",
     items: [
-      {
-        name: "My Curriculum Vitae",
-        link: "static.CV",
-      },
-      {
-        name: "Recommendation letter",
-        link: "static.RL",
-      },
-      {
-        name: "Cover letter",
-        link: "static.CL",
-      },
-      {
-        name: "Combined PDF",
-        link: "static.CC",
-      },
+      [
+        {
+          name: "My Curriculum Vitae",
+          link: "static.CV",
+        },
+        {
+          name: "Recommendation letter",
+          link: "static.RL",
+        },
+      ],
+      [
+        {
+          name: "Cover letter",
+          link: "static.CL",
+        },
+        {
+          name: "Combined PDF",
+          link: "static.CC",
+        },
+      ],
     ],
   },
 };
