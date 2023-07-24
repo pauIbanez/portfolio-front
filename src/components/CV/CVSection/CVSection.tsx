@@ -43,7 +43,7 @@ const CVSection = ({ name, title, children }: Props) => {
   const { loadItem } = useContext(ScrollContext);
 
   useEffectOnce(() => {
-    loadItem({ name: (name ? name : title), ref: section });
+    loadItem({ name: name ? name : title, ref: section });
   });
 
   return (

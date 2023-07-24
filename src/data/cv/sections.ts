@@ -195,6 +195,7 @@ const sections = {
     ],
   },
   technologies: {
+    name: "Technologies",
     title: "Technbologies and Skills",
     text: "These are my most developed technologies and methodologies with an added rating. Note that the ratings reflect my evaluation of my general knowledge and proficiency in each respective area. However, understand that a high rating does not mean I claim to know everything about the given skill.",
     pages: {

@@ -127,7 +127,10 @@ const TechnologiesSection = () => {
   }, [currentPage]);
 
   return (
-    <CVSection title={sections.technologies.title}>
+    <CVSection
+      title={sections.technologies.title}
+      name={sections.technologies.name}
+    >
       <>
         <SectionContent>
           <p>{sections.technologies.text}</p>
