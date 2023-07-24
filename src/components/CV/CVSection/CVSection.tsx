@@ -35,14 +35,15 @@ const Holder = styled.div`
 
 interface Props {
   title: string;
+  name?: string;
   children: JSX.Element;
 }
-const CVSection = ({ title, children }: Props) => {
+const CVSection = ({ name, title, children }: Props) => {
   const section = useRef(null);
   const { loadItem } = useContext(ScrollContext);
 
   useEffectOnce(() => {
-    loadItem({ name: title, ref: section });
+    loadItem({ name: (name ? name : title), ref: section });
   });
 
   return (
