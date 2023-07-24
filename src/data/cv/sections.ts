@@ -394,24 +394,34 @@ const sections = {
           Blikk
           `,
       },
+    ],
+  },
+  download: {
+    title: "Download",
+    text: "Having read or not my curriculum in this format, I’ve prepared some PDF files so you can download them. These files contain my CV, a recommendation letter and a cover letter. You can also find the option to download them combined into a single PDF file.",
+    disclaimer: `
+      By downloading the files listed here, you are granted permission to store and review them. However, you are strictly prohibited from sharing these files without obtaining explicit written consent from me. If you wish to share these files with a 3rd party, please contact me to obtain the necessary permissions.\n
+      Job search agencies are authorized to share the CV with the end employer company solely for the purpose of employment consideration. However, they must ensure the confidentiality and proper handling of the CV during the recruitment process.
+    `,
+    checkmark: "I accept the terms and conditions.",
+    checkmarkError: "Accept terms and conditions",
+    buttonText: "Download",
+    items: [
       {
-        name: "Gunnar Kolbeinsson",
-        position: "CTO at Blikk Hugbúnaðarþjónusta hf.",
-        email: "gunnar@getblikk.is",
-        linkedIn: "linkedin.com/in/gunnarkolbeinsson",
-        picture: "gunnar.jpg",
-        letter: `
-          It is my pleasure to recommend Pau Ibáñez for employment. \n
-          I was Pau’s immediate supervisor at Blikk Hugbúnaðarþjónusta hf. in Iceland. Pau was hired for a 2-month internship as a remote frontend developer and managed to deliver a prototype mobile application written in Dart with the Flutter framework, along with a backend server written in Go.\n
-          We are a small open banking software company in Iceland applying for a financial license and looking to create a platform for open banking services. Unfortunately, we could not hire Pau full-time due to uncertainty regarding the operating license of the company and a lack of resources thereof.\n
-          Pau is a talented and driven programmer. He managed to research and come up with solutions to problems and was very keen to figure out how to implement a number of different aspects of the prototype app. He even offered some interesting ideas on how to improve the codebase and coding in a somewhat immature development environment of our small and recently founded startup. He finished tasks according to plan, on time and according to specification and design immaculately.\n
-          Pau is a very skilled communicator, both in written and spoken language. He is Spanish but speaks English fluently and with an excellent technical vocabulary. We communicated mostly on Slack but shared a Zoom call every few days and more often if needed. Pau had the initiative to propose some ideas of features to add to the project as well ideas for different implementations on some features. Pau could deliver those ideas concisely and clearly while still maintaining coding velocity. He was also very easy to get along with and chat with and is really friendly.\n
-          Pau managed to complete his assignments brilliantly and made an impact on our organization despite his short tenure. I am confident that he will continue to grow as a programmer and make an impact everywhere he goes. Please feel free to contact me if there is anything you would like to discuss further with Pau Ibáñez and I will happily have a chat.\n
-          Best Regards 
-          Gunnar Kolbeinsson
-          Head of Product
-          Blikk
-          `,
+        name: "My Curriculum Vitae",
+        link: "static.CV",
+      },
+      {
+        name: "Recommendation letter",
+        link: "static.RL",
+      },
+      {
+        name: "Cover letter",
+        link: "static.CL",
+      },
+      {
+        name: "Combined PDF",
+        link: "static.CC",
       },
     ],
   },
