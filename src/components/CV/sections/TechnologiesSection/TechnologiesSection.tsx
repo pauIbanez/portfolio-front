@@ -142,10 +142,11 @@ const TechnologiesSection = () => {
             </PageTitle>
             <SectionsHolder>
               {sections.technologies.pages.technologies.sections.map(
-                (column) => (
-                  <Column>
+                (column, index) => (
+                  <Column key={index}>
                     {column.map((section) => (
                       <RatedSection
+                        key={section.title}
                         title={section.title}
                         items={section.items}
                         grow={true}

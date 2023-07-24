@@ -29,7 +29,9 @@ interface Props {
   };
 }
 const PresentationText = ({ title, texts, button }: Props) => {
-  const renderTexts = texts.map((text) => <ColoredText text={text} />);
+  const renderTexts = texts.map((text) => (
+    <ColoredText text={text} key={text} />
+  ));
 
   return (
     <Holder>

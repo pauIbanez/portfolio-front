@@ -4,8 +4,8 @@ import CVSection from "../../CVSection/CVSection";
 import Button from "../../../Button/Button";
 import ColoredText from "../../../ColoredText/ColoredText";
 import Colors from "../../../../data/style/Colors";
-import { useState, useCallback, useRef } from "react";
-import useError from "../../../../hooks/useError";
+import { useState, useCallback } from "react";
+import ReactError from "../../../ReactError/ReactError";
 
 const Content = styled.div`
   display: flex;
@@ -40,13 +40,13 @@ const DisclaimerHolder = styled.div`
   flex-direction: column;
   gap: 15px;
 
-  p {
+  & > p {
     font-size: 10px;
     white-space: pre-line;
   }
 `;
 
-const BlueLabel = styled.label<{ isChecked: boolean; hasError: boolean }>`
+const BlueLabel = styled.label`
   font-size: 12px;
   cursor: pointer;
   user-select: none;
@@ -54,50 +54,46 @@ const BlueLabel = styled.label<{ isChecked: boolean; hasError: boolean }>`
   display: flex;
   gap: 5px;
   align-items: center;
-
-  div {
-    content: "";
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    height: 20px;
-    width: 20px;
-
-    border: ${(props) => (props.hasError ? "solid 3px red" : "none")};
-    border-radius: 5px;
-
-    background-color: ${(props) =>
-      props.isChecked ? Colors.main : Colors.disabledMain};
-  }
 `;
 
-const CheckMark = styled.input<{ error: boolean }>`
-  display: none;
+const CheckMark = styled.div<{ isChecked: boolean; hasError: boolean }>`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 20px;
+  width: 20px;
+
+  border: ${(props) => (props.hasError ? "solid 2px red" : "none")};
+  border-radius: 5px;
+
+  background-color: ${(props) =>
+    props.isChecked ? Colors.main : Colors.disabledMain};
 `;
 
 const DownloadSection = () => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
-  const errorRef = useRef<HTMLDivElement>(null);
-  const { loadError } = useError();
-
-  loadError({
-    name: "test",
-    content: "hello world",
-    ref: errorRef,
-  });
+  const [isErrorActive, setErrorActive] = useState<boolean>(false);
 
   const onClick = useCallback(
     (link: string) => {
       if (isChecked) {
         console.log("download: " + link);
+        return;
+      }
+      if (!isErrorActive) {
+        setErrorActive(true);
       }
     },
-    [isChecked]
+    [isChecked, isErrorActive]
   );
 
   const toggleCheck = useCallback(() => {
     setIsChecked(!isChecked);
+    if (!isChecked) {
+      setErrorActive(false);
+    }
   }, [isChecked]);
 
   return (
@@ -120,6 +116,7 @@ const DownloadSection = () => {
                   <Button
                     onClick={() => onClick(item.link)}
                     style={{ height: 40, width: 156, radius: 10, fontSize: 15 }}
+                    disabled={isErrorActive}
                   >
                     Download
                   </Button>
@@ -130,14 +127,19 @@ const DownloadSection = () => {
         </DownloadHolder>
         <DisclaimerHolder>
           <p>{sections.download.disclaimer}</p>
-          <BlueLabel htmlFor="tos" isChecked={isChecked} hasError={false}>
-            <div ref={errorRef}></div>
-            <CheckMark
+          <BlueLabel htmlFor="tos">
+            <CheckMark isChecked={isChecked} hasError={isErrorActive}>
+              <ReactError
+                active={isErrorActive}
+                content={sections.download.checkmarkError}
+              />
+            </CheckMark>
+            <input
               type="checkbox"
               name="tos"
               id="tos"
-              error={false}
               onChange={toggleCheck}
+              style={{ display: "none" }}
             />
             {sections.download.checkmark}
           </BlueLabel>

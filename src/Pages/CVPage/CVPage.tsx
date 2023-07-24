@@ -124,9 +124,9 @@ const CVPage = () => {
                 <RecommendationSectionContent>
                   {sections.references.items.map((item, index) => (
                     <>
-                      <Letter item={item} />
+                      <Letter item={item} key={index} />
                       {index !== sections.references.items.length - 1 && (
-                        <Line />
+                        <Line key={index + "Line"} />
                       )}
                     </>
                   ))}

@@ -19,7 +19,8 @@ const ButtonCase = styled.button<ButotnCaseProps>`
   padding: 0 30px 0 30px;
   font-family: inherit;
 
-  gap: 8px;
+  user-select: none;
+  :gap: 8px;
   height: ${(props) =>
     props.style?.height ? props.style.height + "px" : "60px"};
   width: ${(props) =>

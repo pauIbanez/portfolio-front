@@ -46,7 +46,7 @@ const ColoredText = ({ text, styleData }: Props) => {
       >
         {textArray.map((text, index) =>
           index % 2 ? (
-            <ColoredSection color={styleData?.accentColor} key={index}>
+            <ColoredSection color={styleData?.accentColor} key={text}>
               {text}
             </ColoredSection>
           ) : (
