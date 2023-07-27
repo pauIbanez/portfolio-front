@@ -9,6 +9,7 @@ import TechnologiesSection from "../../components/CV/sections/TechnologiesSectio
 import DownloadSection from "../../components/CV/sections/DownloadSection/DownloadSection";
 import LanguagesSection from "../../components/CV/sections/LanguagesSection/LanguagesSection";
 import ReferencesSection from "../../components/CV/sections/ReferencesSection/ReferencesSection";
+import { ErrorrContextProvider } from "react-errorr";
 
 const Holder = styled.div`
   display: flex;
@@ -81,7 +82,13 @@ const CVPage = () => {
               <LanguagesSection />
               <TechnologiesSection />
               <ReferencesSection />
-              <DownloadSection />
+              <ErrorrContextProvider
+                options={{
+                  activeTime: 300,
+                }}
+              >
+                <DownloadSection />
+              </ErrorrContextProvider>
             </CVContent>
           </CVHolder>
         </Content>

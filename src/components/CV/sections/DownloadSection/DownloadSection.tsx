@@ -4,8 +4,8 @@ import CVSection from "../../CVSection/CVSection";
 import Button from "../../../Button/Button";
 import ColoredText from "../../../ColoredText/ColoredText";
 import Colors from "../../../../data/style/Colors";
-import { useState, useCallback } from "react";
-import ReactError from "../../../ReactError/ReactError";
+import { useState, useCallback, useContext } from "react";
+import { Errorr, ErrorrContext } from "react-errorr";
 
 const Content = styled.div`
   display: flex;
@@ -75,6 +75,7 @@ const CheckMark = styled.div<{ isChecked: boolean; hasError: boolean }>`
 const DownloadSection = () => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
   const [isErrorActive, setErrorActive] = useState<boolean>(false);
+  const { activateErrorr } = useContext(ErrorrContext);
 
   const onClick = useCallback(
     (link: string) => {
@@ -84,9 +85,10 @@ const DownloadSection = () => {
       }
       if (!isErrorActive) {
         setErrorActive(true);
+        activateErrorr("tos");
       }
     },
-    [isChecked, isErrorActive]
+    [activateErrorr, isChecked, isErrorActive]
   );
 
   const toggleCheck = useCallback(() => {
@@ -128,12 +130,17 @@ const DownloadSection = () => {
         <DisclaimerHolder>
           <p>{sections.download.disclaimer}</p>
           <BlueLabel htmlFor="tos">
-            <CheckMark isChecked={isChecked} hasError={isErrorActive}>
-              <ReactError
-                active={isErrorActive}
-                content={sections.download.checkmarkError}
-              />
-            </CheckMark>
+            <Errorr
+              name="tos"
+              message={sections.download.checkmarkError}
+              options={{
+                positioning: {
+                  inline: "center",
+                },
+              }}
+            >
+              <CheckMark isChecked={isChecked} hasError={isErrorActive} />
+            </Errorr>
             <input
               type="checkbox"
               name="tos"
