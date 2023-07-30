@@ -8,9 +8,7 @@ const parseAccents = (text: string): string[] | string => {
   let parsedString;
   try {
     parsedString = JSON.parse(toParseString);
-  } catch (e) {
-    console.error(e);
-  }
+  } catch (e) {}
 
   return parsedString ? (parsedString as string[]) : text;
 };
