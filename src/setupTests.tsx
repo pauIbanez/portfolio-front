@@ -37,3 +37,4 @@ export const renderInRouter = (
 };
 
 Element.prototype.scrollTo = jest.fn();
+window.scrollTo = jest.fn();
