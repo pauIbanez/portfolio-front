@@ -5,8 +5,7 @@ import { useContext, useRef } from "react";
 import useEffectOnce from "../../../hooks/useEffectOnce";
 
 const Container = styled.section`
-  margin: 0 auto;
-  width: 1100px;
+  width: 100%;
   background-color: white;
   color: ${Colors.textGray};
   border-radius: 15px;
@@ -36,14 +35,15 @@ const Holder = styled.div`
 
 interface Props {
   title: string;
+  name?: string;
   children: JSX.Element;
 }
-const CVSection = ({ title, children }: Props) => {
+const CVSection = ({ name, title, children }: Props) => {
   const section = useRef(null);
   const { loadItem } = useContext(ScrollContext);
 
   useEffectOnce(() => {
-    loadItem({ name: title, ref: section });
+    loadItem({ name: name ? name : title, ref: section });
   });
 
   return (

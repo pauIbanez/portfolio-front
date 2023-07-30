@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import Pages from "../data/Pages/Pages";
-import Button from "../components/Button/Button";
-import Colors from "../data/style/Colors";
+import Pages from "../../data/Pages/Pages";
+import Button from "../../components/Button/Button";
+import Colors from "../../data/style/Colors";
 import { useTranslation } from "react-i18next";
 
 const Container = styled.div`

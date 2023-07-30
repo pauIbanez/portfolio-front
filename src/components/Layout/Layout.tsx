@@ -5,7 +5,6 @@ import { useLocation } from "react-router-dom";
 import Pages from "../../data/Pages/Pages";
 import PageTitle from "../PageTitle/PageTitle";
 import { useTranslation } from "react-i18next";
-import parseAccents from "../../utils/parseAccents/parseAccents";
 
 const BarContainer = styled.div`
   width: 100%;
@@ -40,7 +39,7 @@ const Layout = ({ children }: Props) => {
 
   const title = currentPage?.isDynamic
     ? "Project"
-    : parseAccents(t(`${currentPage?.name}.title`));
+    : t(`${currentPage?.name}.title`);
 
   return (
     <>

@@ -19,6 +19,7 @@ const Holder = styled.div`
 const Item = styled.button<{ $active: boolean }>`
   border: none;
   background: none;
+  font-family: inherit;
 
   width: 100%;
   height: 50px;
@@ -28,6 +29,8 @@ const Item = styled.button<{ $active: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  cursor: pointer;
 
   background-color: ${(props) =>
     props.$active ? Colors.disabledMain : "white"};

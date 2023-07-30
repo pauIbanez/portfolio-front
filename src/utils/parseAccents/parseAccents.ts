@@ -1,6 +1,9 @@
 const parseAccents = (text: string): string[] | string => {
   const accentMarker = "<&>";
-  const toParseString = '["' + text.replaceAll(accentMarker, '","') + '"]';
+  const escapedText = text.replaceAll("\n", "\\n");
+
+  const toParseString =
+    '["' + escapedText.replaceAll(accentMarker, '","') + '"]';
 
   let parsedString;
   try {

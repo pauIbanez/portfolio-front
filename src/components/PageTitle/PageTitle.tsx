@@ -19,18 +19,15 @@ const Container = styled.header`
 `;
 
 interface Props {
-  title: string | string[];
+  title: string;
 }
 
 const PageTitle = ({ title }: Props) => {
-  const text =
-    typeof title === "string" ? (
-      <h1>{title}</h1>
-    ) : (
-      <ColoredText textArray={title} styleData={{ isTitle: true }} />
-    );
-
-  return <Container>{text}</Container>;
+  return (
+    <Container>
+      <ColoredText text={title} styleData={{ heading: 1 }} />
+    </Container>
+  );
 };
 
 export default PageTitle;

@@ -39,7 +39,6 @@ const ScrollContextProvider = ({ children }: Props) => {
         Math.abs(item.ref.current?.getBoundingClientRect().y || 0);
 
       if (visible > closestItemHeight) {
-        console.log(visible, closestItemHeight);
         closestItemHeight = visible;
         closestItem = item.name;
       }

@@ -25,17 +25,18 @@ const InfoSection = styled.div`
 `;
 
 const Icon = styled.img`
-  height: 80px;
-  width: 80px;
+  height: 70px;
+  width: 70px;
 
   border-radius: 15px;
+  object-fit: contain;
 `;
 
 const InfoItems = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space between;
-  height: 80px;
+  justify-content: space-between;
+  height: 70px;
   margin-left: 15px;
 `;
 
@@ -72,6 +73,7 @@ const TextSection = styled.div`
 const TextTitle = styled.h5`
   font-size: 15px;
   font-weight: 700;
+  margin-bottom: 5px !important;
 `;
 const TextContent = styled.p`
   font-size: 15px;

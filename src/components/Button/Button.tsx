@@ -13,12 +13,14 @@ interface ButotnCaseProps {
   };
 }
 const ButtonCase = styled.button<ButotnCaseProps>`
-  disply: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 0 30px 0 30px;
+  font-family: inherit;
 
+  user-select: none;
+  :gap: 8px;
   height: ${(props) =>
     props.style?.height ? props.style.height + "px" : "60px"};
   width: ${(props) =>

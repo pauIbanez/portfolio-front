@@ -7,19 +7,18 @@ import CVListItem from "../CVListItem/CVListItem";
 import ScrollContext from "../../../contexts/scrollContext/ScrollContext.contextCreator";
 
 const Container = styled.section`
-  margin: 0 auto;
-  width: 1100px;
+  width: 100%;
   background-color: white;
   color: ${Colors.textGray};
   border-radius: 15px;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1), -4px -4px 10px rgba(0, 0, 0, 0.1);
+  padding: 0 70px 70px 70px;
 `;
 
 const ItemsHolder = styled.div`
   display: flex;
   flex-direction: column;
   gap: 70px;
-  padding: 0 70px 70px 70px;
   width: 100%;
 `;
 
@@ -38,7 +37,8 @@ const Title = styled.h3`
 const Content = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 40px 70px 40px 70px;
+  align-items: center;
+  height: 125px;
 `;
 
 const Order = styled.button<{ isDateUp: boolean }>`
