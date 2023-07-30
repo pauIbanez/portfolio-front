@@ -75,7 +75,7 @@ const CheckMark = styled.div<{ isChecked: boolean; hasError: boolean }>`
 const DownloadSection = () => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
   const [isErrorActive, setErrorActive] = useState<boolean>(false);
-  const { activateErrorr } = useContext(ErrorrContext);
+  const { activateErrorr, forceRemoveErrorr } = useContext(ErrorrContext);
 
   const sections = useSections();
 
@@ -97,8 +97,9 @@ const DownloadSection = () => {
     setIsChecked(!isChecked);
     if (!isChecked) {
       setErrorActive(false);
+      forceRemoveErrorr("tos");
     }
-  }, [isChecked]);
+  }, [forceRemoveErrorr, isChecked]);
 
   return (
     <CVSection title={sections.download.title}>
