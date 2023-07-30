@@ -194,6 +194,11 @@
                 "text": "I think of myself as a fast learner. My experience with such varies technologies and developing enviroments allows me to adapt to new ones with ease."
               }
             ]
+          },
+          "controls": {
+            "prev": "Prev",
+            "page": "Page",
+            "next": "Next"
           }
         }
       },

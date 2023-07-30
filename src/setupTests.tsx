@@ -35,3 +35,5 @@ export const renderInRouter = (
 
   render(component, { wrapper: Bocata });
 };
+
+Element.prototype.scrollTo = jest.fn();

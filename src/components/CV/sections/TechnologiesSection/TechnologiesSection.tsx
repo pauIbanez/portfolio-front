@@ -187,10 +187,10 @@ const TechnologiesSection = () => {
             onClick={() => setCurrentPage(0)}
             style={buttonStyle}
           >
-            <ButtonText>Prev</ButtonText>
+            <ButtonText>{sections.technologies.pages.controls.prev}</ButtonText>
           </Button>
           <PageCounter>
-            <p>Page</p>
+            <p>{sections.technologies.pages.controls.page}</p>
             <p>{`${currentPage + 1}/2`}</p>
           </PageCounter>
           <Button
@@ -198,7 +198,7 @@ const TechnologiesSection = () => {
             onClick={() => setCurrentPage(1)}
             style={buttonStyle}
           >
-            <ButtonText>Next</ButtonText>
+            <ButtonText>{sections.technologies.pages.controls.next}</ButtonText>
           </Button>
         </ButtonHolder>
       </>

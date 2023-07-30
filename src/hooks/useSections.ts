@@ -319,6 +319,11 @@ const useSections = () => {
               ],
             ],
           },
+          controls: {
+            prev: t("CV.sections.technologies.pages.controls.prev"),
+            next: t("CV.sections.technologies.pages.controls.next"),
+            page: t("CV.sections.technologies.pages.controls.page"),
+          },
         },
       },
       references: {
