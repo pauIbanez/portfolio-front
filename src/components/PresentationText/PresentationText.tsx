@@ -22,17 +22,13 @@ const TextSection = styled.div`
 
 interface Props {
   title: string;
-  texts: string[];
+  text: string;
   button: {
     content: JSX.Element;
     onClick(): void;
   };
 }
-const PresentationText = ({ title, texts, button }: Props) => {
-  const renderTexts = texts.map((text) => (
-    <ColoredText text={text} key={text} />
-  ));
-
+const PresentationText = ({ title, text, button }: Props) => {
   return (
     <Holder>
       <TextSection>
@@ -40,7 +36,7 @@ const PresentationText = ({ title, texts, button }: Props) => {
           text={title}
           styleData={{ heading: 2, weight: 700, size: "30px" }}
         />
-        <div>{renderTexts}</div>
+        <ColoredText text={text} />
       </TextSection>
       <Button onClick={button.onClick}>{button.content}</Button>
     </Holder>

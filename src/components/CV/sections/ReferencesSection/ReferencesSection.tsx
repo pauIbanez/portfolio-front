@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import sections from "../../../../data/cv/sections";
 import CVSection from "../../CVSection/CVSection";
 import Colors from "../../../../data/style/Colors";
 import Letter from "../../Letter/Letter";
 import useEffectOnce from "../../../../hooks/useEffectOnce";
 import { useState } from "react";
+import useSections from "../../../../hooks/useSections";
 
 const Content = styled.div`
   display: flex;
@@ -20,6 +20,8 @@ const Line = styled.div`
 
 const ReferencesSection = () => {
   const [renderItems, setRenderItems] = useState<JSX.Element[]>([]);
+
+  const sections = useSections();
 
   useEffectOnce(() => {
     const allItems: JSX.Element[] = [];

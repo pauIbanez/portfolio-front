@@ -29,6 +29,7 @@ const Text = styled.div<Section>`
   font-size: ${(props) => props.size || "14px"};
   font-weight: ${(props) => props.weight || 400};
   color: ${(props) => props.color || "black"};
+  white-space: pre-line;
 `;
 
 const ColoredText = ({ text, styleData }: Props) => {

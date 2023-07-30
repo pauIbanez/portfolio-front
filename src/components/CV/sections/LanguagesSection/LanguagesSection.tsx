@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import CVSection from "../../CVSection/CVSection";
-import sections from "../../../../data/cv/sections";
 import RatedSection from "../../RatedSection/RatedSection";
+import useSections from "../../../../hooks/useSections";
 
 const Content = styled.div`
   display: flex;
@@ -16,6 +16,7 @@ const ItemHolder = styled.div`
 `;
 
 const LanguagesSection = () => {
+  const sections = useSections();
   return (
     <CVSection title={sections.languages.title}>
       <Content>

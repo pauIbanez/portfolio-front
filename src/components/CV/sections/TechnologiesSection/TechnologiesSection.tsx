@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import sections from "../../../../data/cv/sections";
 import CVSection from "../../CVSection/CVSection";
 import { useState, useEffect, useRef } from "react";
 import Button from "../../../Button/Button";
 import Colors from "../../../../data/style/Colors";
 import RatedSection from "../../RatedSection/RatedSection";
 import ColoredText from "../../../ColoredText/ColoredText";
+import useSections from "../../../../hooks/useSections";
 
 const SectionContent = styled.div`
   display: flex;
@@ -107,6 +107,7 @@ const InSectionText = styled.p`
 const TechnologiesSection = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const pageViewRef = useRef<HTMLDivElement>(null);
+  const sections = useSections();
 
   useEffect(() => {
     switch (currentPage) {

@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import sections from "../../../../data/cv/sections";
 import CVSection from "../../CVSection/CVSection";
 import Button from "../../../Button/Button";
 import ColoredText from "../../../ColoredText/ColoredText";
 import Colors from "../../../../data/style/Colors";
 import { useState, useCallback, useContext } from "react";
 import { Errorr, ErrorrContext } from "react-errorr";
+import useSections from "../../../../hooks/useSections";
 
 const Content = styled.div`
   display: flex;
@@ -77,6 +77,8 @@ const DownloadSection = () => {
   const [isErrorActive, setErrorActive] = useState<boolean>(false);
   const { activateErrorr } = useContext(ErrorrContext);
 
+  const sections = useSections();
+
   const onClick = useCallback(
     (link: string) => {
       if (isChecked) {
@@ -137,6 +139,7 @@ const DownloadSection = () => {
                 positioning: {
                   inline: "center",
                 },
+                activeTime: 3000,
               }}
             >
               <CheckMark isChecked={isChecked} hasError={isErrorActive} />

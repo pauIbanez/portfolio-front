@@ -1,11 +1,16 @@
 const parseAccents = (text: string): string[] | string => {
   const accentMarker = "<&>";
-  const toParseString = '["' + text.replaceAll(accentMarker, '","') + '"]';
+  const escapedText = text.replaceAll("\n", "\\n");
+
+  const toParseString =
+    '["' + escapedText.replaceAll(accentMarker, '","') + '"]';
 
   let parsedString;
   try {
     parsedString = JSON.parse(toParseString);
-  } catch (e) {}
+  } catch (e) {
+    console.error(e);
+  }
 
   return parsedString ? (parsedString as string[]) : text;
 };

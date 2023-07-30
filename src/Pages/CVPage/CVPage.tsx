@@ -3,13 +3,14 @@ import PresentationText from "../../components/PresentationText/PresentationText
 import styled from "styled-components";
 import CVListSection from "../../components/CV/CVListSection/CVListSection";
 import ScrollContextProvider from "../../contexts/scrollContext/ScrollContextProvider";
-import sections from "../../data/cv/sections";
 import InternalNavigation from "../../components/CV/InternalNavigation/InternalNavigation";
 import TechnologiesSection from "../../components/CV/sections/TechnologiesSection/TechnologiesSection";
 import DownloadSection from "../../components/CV/sections/DownloadSection/DownloadSection";
 import LanguagesSection from "../../components/CV/sections/LanguagesSection/LanguagesSection";
 import ReferencesSection from "../../components/CV/sections/ReferencesSection/ReferencesSection";
 import { ErrorrContextProvider } from "react-errorr";
+import { useTranslation } from "react-i18next";
+import useSections from "../../hooks/useSections";
 
 const Holder = styled.div`
   display: flex;
@@ -40,6 +41,9 @@ const CVHolder = styled.div`
 const CVPage = () => {
   const cvRef = useRef<HTMLDivElement>(null);
 
+  const { t } = useTranslation();
+  const sections = useSections();
+
   const onClick = () => {
     const rect = cvRef.current?.getBoundingClientRect();
     window.scrollTo({
@@ -53,16 +57,12 @@ const CVPage = () => {
       <Holder>
         <Content>
           <PresentationText
-            title="<&>My<&> Curriculum Vitae"
-            texts={[
-              "Take a look at my curriculum, you can explore my <&>educational background<&> and <&>professional experience<&>. Furthermore, I have dedicated a section to outline the various <&>technologies and skills<&> I’ve worked with and developed over the years, along with my <&>proficiency level<&> in each of them.",
-              "To ensure your <&>convenience<&>, I have also created a <&>compact version of my CV in PDF format<&>, which you can easily <&>download<&>. The download options can be found at the <&>bottom of this page<&>.",
-            ]}
+            title={t("CV.presentation.title")}
+            text={t("CV.presentation.text")}
             button={{
               content: (
                 <>
-                  <p>Go to CV</p>
-                  <p>v</p>
+                  <p>{t("CV.presentation.button")}</p>
                 </>
               ),
               onClick: onClick,
@@ -76,7 +76,7 @@ const CVPage = () => {
                 items={sections.education.items}
               />
               <CVListSection
-                title={sections.experience.title}
+                title={t(sections.experience.title)}
                 items={sections.experience.items}
               />
               <LanguagesSection />
