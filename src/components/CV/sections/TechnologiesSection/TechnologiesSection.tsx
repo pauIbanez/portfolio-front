@@ -107,7 +107,7 @@ const InSectionText = styled.p`
 const TechnologiesSection = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const pageViewRef = useRef<HTMLDivElement>(null);
-  const sections = useSections();
+  const { sections } = useSections();
 
   useEffect(() => {
     switch (currentPage) {

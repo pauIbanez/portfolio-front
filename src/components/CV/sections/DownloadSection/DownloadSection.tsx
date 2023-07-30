@@ -77,7 +77,7 @@ const DownloadSection = () => {
   const [isErrorActive, setErrorActive] = useState<boolean>(false);
   const { activateErrorr, forceRemoveErrorr } = useContext(ErrorrContext);
 
-  const sections = useSections();
+  const { sections } = useSections();
 
   const onClick = useCallback(
     (link: string) => {

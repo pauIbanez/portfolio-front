@@ -16,7 +16,7 @@ const ItemHolder = styled.div`
 `;
 
 const LanguagesSection = () => {
-  const sections = useSections();
+  const { sections } = useSections();
   return (
     <CVSection title={sections.languages.title}>
       <Content>

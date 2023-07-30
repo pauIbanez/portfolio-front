@@ -21,7 +21,7 @@ const Line = styled.div`
 const ReferencesSection = () => {
   const [renderItems, setRenderItems] = useState<JSX.Element[]>([]);
 
-  const sections = useSections();
+  const { sections } = useSections();
 
   useEffectOnce(() => {
     const allItems: JSX.Element[] = [];
@@ -29,7 +29,7 @@ const ReferencesSection = () => {
     sections.references.items.forEach((item, index) => {
       allItems.push(<Letter item={item} key={item.name} />);
       if (index !== sections.references.items.length - 1) {
-        allItems.push(<Line key={item.name + "Line"} />);
+        allItems.push(<Line key={item.name + "Line"} data-testid="line" />);
       }
     });
 

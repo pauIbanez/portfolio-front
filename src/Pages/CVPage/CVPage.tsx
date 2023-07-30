@@ -42,7 +42,7 @@ const CVPage = () => {
   const cvRef = useRef<HTMLDivElement>(null);
 
   const { t } = useTranslation();
-  const sections = useSections();
+  const { sections } = useSections();
 
   const onClick = () => {
     const rect = cvRef.current?.getBoundingClientRect();
