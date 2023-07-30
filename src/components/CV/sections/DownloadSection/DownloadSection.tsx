@@ -85,20 +85,17 @@ const DownloadSection = () => {
         console.log("download: " + link);
         return;
       }
-      if (!isErrorActive) {
-        setErrorActive(true);
-        activateErrorr("tos");
-      }
+
+      setErrorActive(true);
+      activateErrorr("tos");
     },
-    [activateErrorr, isChecked, isErrorActive]
+    [activateErrorr, isChecked]
   );
 
   const toggleCheck = useCallback(() => {
     setIsChecked(!isChecked);
-    if (!isChecked) {
-      setErrorActive(false);
-      forceRemoveErrorr("tos");
-    }
+    setErrorActive(false);
+    forceRemoveErrorr("tos");
   }, [forceRemoveErrorr, isChecked]);
 
   return (
@@ -143,7 +140,11 @@ const DownloadSection = () => {
                 activeTime: 3000,
               }}
             >
-              <CheckMark isChecked={isChecked} hasError={isErrorActive} />
+              <CheckMark
+                isChecked={isChecked}
+                hasError={isErrorActive}
+                data-testid="checkmark"
+              />
             </Errorr>
             <input
               type="checkbox"
