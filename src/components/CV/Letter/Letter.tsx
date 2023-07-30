@@ -66,7 +66,7 @@ const Letter = ({
   return (
     <Holder>
       <InfoSection>
-        <Icon alt={`${name}`} src={`/media/references/${picture}`} />
+        <Icon alt={name} src={`/media/references/${picture}`} />
         <InfoItems>
           <Name>{name}</Name>
           <InfoText>{position}</InfoText>
