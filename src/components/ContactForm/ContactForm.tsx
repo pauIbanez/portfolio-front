@@ -1,9 +1,13 @@
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import * as Yup from "yup";
-import ContactFormValues, { MessageType } from "../../Types/ContactFormValues";
+import ContactFormValues, {
+  MessageType,
+  TypeVariable,
+} from "../../Types/ContactFormValues";
 import styled from "styled-components";
 import InputField from "../InputField/InputField";
+import Colors from "../../data/style/Colors";
 
 const Holder = styled.form`
   margin: 100px;
@@ -11,13 +15,20 @@ const Holder = styled.form`
   width: 745px;
   background-color: white;
   border-radius: 0 25px 25px 0;
+  padding: 50px;
 `;
 
 const ContentHolder = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+const Row = styled.div`
+  width: 100%;
+  display: flex;
   justify-content: space-between;
+  gap: 50px;
 `;
 
 interface Props {
@@ -73,22 +84,123 @@ const ContactForm = ({ onSubmit }: Props) => {
   return (
     <Holder onSubmit={contactForm.handleSubmit} aria-label="Contact form">
       <ContentHolder>
+        <Row>
+          <InputField
+            id="firstName"
+            name="firstName"
+            label="First Name"
+            placeholder="First name"
+            type="text"
+            value={contactForm.values.firstName}
+            onChange={contactForm.handleChange}
+            onBlur={contactForm.handleBlur}
+            sugestions="given-name"
+            errorMessage={
+              contactForm.touched.firstName
+                ? contactForm.errors.firstName ?? ""
+                : ""
+            }
+          />
+          <InputField
+            id="lastName"
+            name="lastName"
+            label="Last Name"
+            placeholder="Last name"
+            type="text"
+            value={contactForm.values.lastName}
+            onChange={contactForm.handleChange}
+            onBlur={contactForm.handleBlur}
+            sugestions="family-name"
+            errorMessage={
+              contactForm.touched.lastName
+                ? contactForm.errors.lastName ?? ""
+                : ""
+            }
+          />
+        </Row>
+        <Row>
+          MESSAGE TYPE
+          <InputField
+            id="typeVariable"
+            name="typeVariable"
+            label={TypeVariable["C"].field}
+            placeholder={TypeVariable["C"].field}
+            type="text"
+            value={contactForm.values.typeVariable ?? ""}
+            onChange={contactForm.handleChange}
+            onBlur={contactForm.handleBlur}
+            errorMessage={
+              contactForm.touched.typeVariable
+                ? contactForm.errors.typeVariable ?? ""
+                : ""
+            }
+          />
+        </Row>
         <InputField
-          id="firstName"
-          name="firstName"
-          label="First Name"
-          placeholder="First name"
-          type="text"
-          value={contactForm.values.firstName}
+          id="email"
+          name="email"
+          label="Email"
+          placeholder="Email Adress"
+          type="email"
+          value={contactForm.values.email}
           onChange={contactForm.handleChange}
           onBlur={contactForm.handleBlur}
-          sugestions="given-name"
           errorMessage={
-            contactForm.touched.firstName
-              ? contactForm.errors.firstName ?? ""
-              : ""
+            contactForm.touched.email ? contactForm.errors.email ?? "" : ""
           }
         />
+        <InputField
+          id="subject"
+          name="subject"
+          label="Subject"
+          placeholder="Subject"
+          type="text"
+          value={contactForm.values.subject}
+          onChange={contactForm.handleChange}
+          onBlur={contactForm.handleBlur}
+          errorMessage={
+            contactForm.touched.subject ? contactForm.errors.subject ?? "" : ""
+          }
+        />
+        <InputField
+          id="message"
+          name="message"
+          label="Message"
+          placeholder="Message..."
+          type="text"
+          big={true}
+          value={contactForm.values.message}
+          onChange={contactForm.handleChange}
+          onBlur={contactForm.handleBlur}
+          errorMessage={
+            contactForm.touched.message ? contactForm.errors.message ?? "" : ""
+          }
+        />
+        {/* <InputHolder>
+          <Label
+            htmlFor={"message"}
+            error={
+              contactForm.touched.message
+                ? contactForm.errors.message ?? ""
+                : ""
+            }
+          >
+            Message
+          </Label>
+          <MessageArea
+            id="message"
+            name="message"
+            placeholder="Message..."
+            value={contactForm.values.message}
+            onChange={contactForm.handleChange}
+            onBlur={contactForm.handleBlur}
+            hasValidationError={
+              contactForm.touched.message
+                ? contactForm.errors.message ?? ""
+                : ""
+            }
+          />
+        </InputHolder> */}
       </ContentHolder>
     </Holder>
   );

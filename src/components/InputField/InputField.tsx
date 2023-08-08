@@ -9,6 +9,7 @@ interface Props {
   value: string;
   placeholder: string;
   type: string;
+  big?: boolean;
   errorMessage: string;
   sugestions?: string;
   autoCapitalize?: boolean;
@@ -18,6 +19,7 @@ interface Props {
 
 interface CustomInputFieldProps {
   hasValidationError: boolean;
+  big?: boolean;
 }
 
 const InputHolder = styled.div`
@@ -28,17 +30,16 @@ const InputHolder = styled.div`
   width: 100%;
 `;
 
-const CustomInputField = styled.input`
+const CustomInputField = styled.input<CustomInputFieldProps>`
   width: 100%;
-  height: 40px;
-  padding-left: 50px;
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 
-  border: ${(props: CustomInputFieldProps) =>
-    props.hasValidationError ? "1px solid red" : "none"};
+  border: ${(props) => (props.hasValidationError ? "2px solid red" : "none")};
   outline: none;
-  height: 50px;
-  border-radius: 15px;
+  height: ${(props) => (props.big ? "157px" : "40px")};
+  ${(props) => (props.big ? "padding-top: 5px;" : "")}
+  border-radius: 10px;
   font-family: inherit;
   font-size: 15px;
 
@@ -52,10 +53,11 @@ const CustomInputField = styled.input`
     font-weight: 400;
   }
 `;
-const InputError = styled.p`
-  color: red;
 
-  height: 20px;
+const Label = styled.label<{ error?: string }>`
+  font-size: 15px;
+  font-weight: 700;
+  color: ${(props) => (props.error ? "red" : Colors.textGray)};
 `;
 
 const InputField = ({
@@ -65,6 +67,7 @@ const InputField = ({
   name,
   placeholder,
   type,
+  big,
   errorMessage,
   sugestions,
   autoCapitalize,
@@ -73,14 +76,17 @@ const InputField = ({
 }: Props) => {
   return (
     <InputHolder>
-      <label htmlFor={id} hidden>
+      <Label htmlFor={id} error={errorMessage}>
         {label}
-      </label>
+      </Label>
+
       <CustomInputField
         id={id}
+        as={big ? "textarea" : "input"}
         placeholder={placeholder}
         type={type}
         name={name}
+        big={big}
         onChange={onChange}
         onBlur={onBlur}
         value={value}
@@ -88,7 +94,6 @@ const InputField = ({
         autoComplete={sugestions ? sugestions : "off"}
         autoCapitalize={autoCapitalize ? "characters" : "off"}
       />
-      <InputError>{errorMessage}</InputError>
     </InputHolder>
   );
 };
