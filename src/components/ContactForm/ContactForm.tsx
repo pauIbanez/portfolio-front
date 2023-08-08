@@ -2,6 +2,22 @@ import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import * as Yup from "yup";
 import ContactFormValues, { MessageType } from "../../Types/ContactFormValues";
+import styled from "styled-components";
+
+const Holder = styled.form`
+  margin: 100px;
+  height: 713px;
+  width: 745px;
+  background-color: white;
+  border-radius: 0 25px 25px 0;
+`;
+
+const ContentHolder = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+`;
 
 interface Props {
   onSubmit(contactFormValues: ContactFormValues): void;
@@ -52,6 +68,12 @@ const ContactForm = ({ onSubmit }: Props) => {
 
     setIsErrorShowing(foundError);
   }, [contactForm.errors]);
+
+  return (
+    <Holder>
+      <ContentHolder></ContentHolder>
+    </Holder>
+  );
 };
 
 export default ContactForm;
