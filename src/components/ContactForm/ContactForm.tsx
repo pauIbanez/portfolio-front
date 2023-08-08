@@ -57,6 +57,11 @@ const ContactForm = ({ onSubmit }: Props) => {
     },
     onSubmit: (values, { validateForm }) => {
       validateForm(values);
+
+      setMockIsMessageBeingSent(true);
+      setTimeout(() => {
+        setMockIsMessageBeingSent(false);
+      }, 2000);
       onSubmit(contactForm.values);
     },
     validateOnChange: isErrorShowing,
