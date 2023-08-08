@@ -1,29 +1,36 @@
 export enum MessageType {
-  JobOportunity = "JO",
-  Collaboration = "C",
-  GeneralQuestion = "GQ",
-  Other = "O",
-  default = "",
+  JobOportunity = "jobOportunity",
+  Collaboration = "collaboration",
+  GeneralQuestion = "generalQuestion",
+  Other = "other",
+  default = "default",
 }
 
 export const TypeVariable = {
-  JO: {
+  jobOportunity: {
     name: "Job Oportunity",
     hasVariableField: true,
     field: "Company name",
   },
-  C: {
+  collaboration: {
     name: "Collaboration",
     hasVariableField: true,
     field: "Project Name",
   },
-  GQ: {
-    name: "Job Oportunity",
+  generalQuestion: {
+    name: "General Question",
     hasVariableField: false,
+    field: "",
   },
-  O: {
+  other: {
     name: "Other",
     hasVariableField: false,
+    field: "",
+  },
+  default: {
+    name: "Select one...",
+    hasVariableField: false,
+    field: "",
   },
 };
 

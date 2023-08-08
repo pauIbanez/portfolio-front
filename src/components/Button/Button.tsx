@@ -69,11 +69,12 @@ const ButtonCase = styled.button<ButotnCaseProps>`
 `;
 
 interface Props {
-  onClick: () => void;
+  onClick?: () => void;
   reversed?: boolean;
   active?: boolean;
   children: JSX.Element | string;
   disabled?: boolean;
+  submit?: boolean;
   style?: {
     width?: number;
     height?: number;
@@ -89,11 +90,13 @@ const Button = ({
   children,
   disabled,
   style,
+  submit,
   active,
 }: Props) => {
   return (
     <ButtonCase
       onClick={onClick}
+      type={submit ? "submit" : "button"}
       disabled={disabled}
       reversed={reversed}
       style={style}

@@ -7,7 +7,7 @@ import ContactFormValues, {
 } from "../../Types/ContactFormValues";
 import styled from "styled-components";
 import InputField from "../InputField/InputField";
-import Colors from "../../data/style/Colors";
+import Button from "../Button/Button";
 
 const Holder = styled.form`
   margin: 100px;
@@ -37,6 +37,11 @@ interface Props {
 
 const ContactForm = ({ onSubmit }: Props) => {
   const [isErrorShowing, setIsErrorShowing] = useState<boolean>(false);
+
+  const [mockIsMessageBeingSent, setMockIsMessageBeingSent] =
+    useState<boolean>(false);
+  const [isFilled, setIsFilled] = useState<boolean>(false);
+
   const [visibleVariableField, setVisibleVariableField] =
     useState<boolean>(false);
 
@@ -68,6 +73,31 @@ const ContactForm = ({ onSubmit }: Props) => {
       messageType: Yup.string().required("Select a message type"),
     }),
   });
+
+  useEffect(() => {
+    if (TypeVariable[contactForm.values.messageType].hasVariableField) {
+      setVisibleVariableField(true);
+    } else {
+      setVisibleVariableField(false);
+    }
+  }, [contactForm.values.messageType]);
+
+  useEffect(() => {
+    const values = contactForm.values;
+
+    if (
+      values.email !== "" &&
+      values.firstName !== "" &&
+      values.lastName !== "" &&
+      values.subject !== "" &&
+      values.message !== "" &&
+      values.messageType !== MessageType.default
+    ) {
+      setIsFilled(true);
+    } else {
+      setIsFilled(false);
+    }
+  }, [contactForm.values]);
 
   useEffect(() => {
     let foundError = false;
@@ -119,22 +149,45 @@ const ContactForm = ({ onSubmit }: Props) => {
           />
         </Row>
         <Row>
-          MESSAGE TYPE
-          <InputField
-            id="typeVariable"
-            name="typeVariable"
-            label={TypeVariable["C"].field}
-            placeholder={TypeVariable["C"].field}
-            type="text"
-            value={contactForm.values.typeVariable ?? ""}
+          <select
+            name="messageType"
+            id="messageType"
+            value={contactForm.values.messageType}
             onChange={contactForm.handleChange}
             onBlur={contactForm.handleBlur}
-            errorMessage={
-              contactForm.touched.typeVariable
-                ? contactForm.errors.typeVariable ?? ""
-                : ""
-            }
-          />
+          >
+            <option value={MessageType.default}>
+              {TypeVariable.default.name}
+            </option>
+            <option value={MessageType.JobOportunity}>
+              {TypeVariable.jobOportunity.name}
+            </option>
+            <option value={MessageType.Collaboration}>
+              {TypeVariable.collaboration.name}
+            </option>
+            <option value={MessageType.GeneralQuestion}>
+              {TypeVariable.generalQuestion.name}
+            </option>
+            <option value={MessageType.Other}>{TypeVariable.other.name}</option>
+          </select>
+
+          {visibleVariableField && (
+            <InputField
+              id="typeVariable"
+              name="typeVariable"
+              label={TypeVariable[contactForm.values.messageType].field}
+              placeholder={TypeVariable[contactForm.values.messageType].field}
+              type="text"
+              value={contactForm.values.typeVariable ?? ""}
+              onChange={contactForm.handleChange}
+              onBlur={contactForm.handleBlur}
+              errorMessage={
+                contactForm.touched.typeVariable
+                  ? contactForm.errors.typeVariable ?? ""
+                  : ""
+              }
+            />
+          )}
         </Row>
         <InputField
           id="email"
@@ -176,6 +229,12 @@ const ContactForm = ({ onSubmit }: Props) => {
             contactForm.touched.message ? contactForm.errors.message ?? "" : ""
           }
         />
+        <Button
+          submit={true}
+          disabled={mockIsMessageBeingSent || !isFilled || isErrorShowing}
+        >
+          {mockIsMessageBeingSent ? "Loading" : "Send Message"}
+        </Button>
       </ContentHolder>
     </Holder>
   );
