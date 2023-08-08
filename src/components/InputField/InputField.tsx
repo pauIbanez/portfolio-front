@@ -9,11 +9,9 @@ interface Props {
   value: string;
   placeholder: string;
   type: string;
-  icon: string;
   errorMessage: string;
   sugestions?: string;
   autoCapitalize?: boolean;
-  max?: number;
   onChange(e: ChangeEvent<any>): void;
   onBlur(e: FocusEvent<any, Element>): void;
 }
@@ -54,18 +52,6 @@ const CustomInputField = styled.input`
     font-weight: 400;
   }
 `;
-
-const InputIconHolder = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 50px;
-  width: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 const InputError = styled.p`
   color: red;
 
@@ -79,9 +65,7 @@ const InputField = ({
   name,
   placeholder,
   type,
-  icon,
   errorMessage,
-  max,
   sugestions,
   autoCapitalize,
   onChange,
@@ -92,9 +76,6 @@ const InputField = ({
       <label htmlFor={id} hidden>
         {label}
       </label>
-      <InputIconHolder>
-        <img src={icon} alt={`${id} input field icon`} height={30} width={30} />
-      </InputIconHolder>
       <CustomInputField
         id={id}
         placeholder={placeholder}
@@ -104,7 +85,6 @@ const InputField = ({
         onBlur={onBlur}
         value={value}
         hasValidationError={errorMessage ? true : false}
-        maxLength={max}
         autoComplete={sugestions ? sugestions : "off"}
         autoCapitalize={autoCapitalize ? "characters" : "off"}
       />

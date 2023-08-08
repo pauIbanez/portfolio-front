@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import * as Yup from "yup";
 import ContactFormValues, { MessageType } from "../../Types/ContactFormValues";
 import styled from "styled-components";
+import InputField from "../InputField/InputField";
 
 const Holder = styled.form`
   margin: 100px;
@@ -70,8 +71,25 @@ const ContactForm = ({ onSubmit }: Props) => {
   }, [contactForm.errors]);
 
   return (
-    <Holder>
-      <ContentHolder></ContentHolder>
+    <Holder onSubmit={contactForm.handleSubmit} aria-label="Contact form">
+      <ContentHolder>
+        <InputField
+          id="firstName"
+          name="firstName"
+          label="First Name"
+          placeholder="First name"
+          type="text"
+          value={contactForm.values.firstName}
+          onChange={contactForm.handleChange}
+          onBlur={contactForm.handleBlur}
+          sugestions="given-name"
+          errorMessage={
+            contactForm.touched.firstName
+              ? contactForm.errors.firstName ?? ""
+              : ""
+          }
+        />
+      </ContentHolder>
     </Holder>
   );
 };
