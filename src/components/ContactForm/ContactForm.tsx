@@ -176,31 +176,6 @@ const ContactForm = ({ onSubmit }: Props) => {
             contactForm.touched.message ? contactForm.errors.message ?? "" : ""
           }
         />
-        {/* <InputHolder>
-          <Label
-            htmlFor={"message"}
-            error={
-              contactForm.touched.message
-                ? contactForm.errors.message ?? ""
-                : ""
-            }
-          >
-            Message
-          </Label>
-          <MessageArea
-            id="message"
-            name="message"
-            placeholder="Message..."
-            value={contactForm.values.message}
-            onChange={contactForm.handleChange}
-            onBlur={contactForm.handleBlur}
-            hasValidationError={
-              contactForm.touched.message
-                ? contactForm.errors.message ?? ""
-                : ""
-            }
-          />
-        </InputHolder> */}
       </ContentHolder>
     </Holder>
   );

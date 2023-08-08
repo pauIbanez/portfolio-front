@@ -38,7 +38,7 @@ const CustomInputField = styled.input<CustomInputFieldProps>`
   border: ${(props) => (props.hasValidationError ? "2px solid red" : "none")};
   outline: none;
   height: ${(props) => (props.big ? "157px" : "40px")};
-  ${(props) => (props.big ? "padding-top: 5px;" : "")}
+  ${(props) => (props.big ? "padding-top: 5px; resize: vertical;" : "")}
   border-radius: 10px;
   font-family: inherit;
   font-size: 15px;
