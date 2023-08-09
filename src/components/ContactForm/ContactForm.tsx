@@ -8,6 +8,7 @@ import ContactFormValues, {
 import styled from "styled-components";
 import InputField from "../InputField/InputField";
 import Button from "../Button/Button";
+import SelectField from "../SelectField/SelectField";
 
 const Holder = styled.form`
   margin: 100px;
@@ -154,27 +155,17 @@ const ContactForm = ({ onSubmit }: Props) => {
           />
         </Row>
         <Row>
-          <select
+          <SelectField
+            label="Message Type"
             name="messageType"
-            id="messageType"
-            value={contactForm.values.messageType}
             onChange={contactForm.handleChange}
             onBlur={contactForm.handleBlur}
-          >
-            <option value={MessageType.default}>
-              {TypeVariable.default.name}
-            </option>
-            <option value={MessageType.JobOportunity}>
-              {TypeVariable.jobOportunity.name}
-            </option>
-            <option value={MessageType.Collaboration}>
-              {TypeVariable.collaboration.name}
-            </option>
-            <option value={MessageType.GeneralQuestion}>
-              {TypeVariable.generalQuestion.name}
-            </option>
-            <option value={MessageType.Other}>{TypeVariable.other.name}</option>
-          </select>
+            value={contactForm.values.messageType}
+            options={Object.entries(TypeVariable).map((entry) => ({
+              name: entry[1].name,
+              value: entry[0],
+            }))}
+          />
 
           {visibleVariableField && (
             <InputField
