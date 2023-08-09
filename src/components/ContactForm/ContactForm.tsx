@@ -17,6 +17,7 @@ const Holder = styled.form`
   background-color: white;
   border-radius: 0 25px 25px 0;
   padding: 50px;
+  position: relative;
 `;
 
 const ContentHolder = styled.div`
@@ -32,12 +33,47 @@ const Row = styled.div`
   display: flex;
   justify-content: space-between;
   gap: 30px;
+  position: relative;
+`;
+const ArrowWrapper = styled.div<{ animation: string }>`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0;
+  opacity: 1;
+  bottom: 0;
+  height: 40px;
+  width: 30px;
+  background-color: red;
+
+  user-select: none;
+  pointer-events: none;
+
+  ${(props) => "animation: " + props.animation + " 500ms forwards" ?? ""};
+
+  @keyframes comeIn {
+    0% {
+      transform: translateX(-150%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes goOut {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(-150%);
+    }
+  }
 `;
 
 const VisibleWrapper = styled.div<{ visible: boolean }>`
   width: 100%;
   opacity: ${(props) => (props.visible ? "1" : "0")};
   pointer-events: ${(props) => (props.visible ? "all" : "none")};
+  transition: opacity ease-out 500ms;
 `;
 
 interface Props {
@@ -53,6 +89,8 @@ const ContactForm = ({ onSubmit }: Props) => {
 
   const [visibleVariableField, setVisibleVariableField] =
     useState<boolean>(false);
+
+  const [rememberedField, setRememberedField] = useState<string>("Placeholder");
 
   const contactForm = useFormik<ContactFormValues>({
     initialValues: {
@@ -91,6 +129,7 @@ const ContactForm = ({ onSubmit }: Props) => {
   useEffect(() => {
     if (TypeVariable[contactForm.values.messageType].hasVariableField) {
       setVisibleVariableField(true);
+      setRememberedField(TypeVariable[contactForm.values.messageType].field);
     } else {
       setVisibleVariableField(false);
     }
@@ -175,13 +214,13 @@ const ContactForm = ({ onSubmit }: Props) => {
               hasVariableField: entry[1].hasVariableField,
             }))}
           />
-
+          <ArrowWrapper animation={visibleVariableField ? "comeIn" : "goOut"} />
           <VisibleWrapper visible={visibleVariableField}>
             <InputField
               id="typeVariable"
               name="typeVariable"
-              label={TypeVariable[contactForm.values.messageType].field}
-              placeholder={TypeVariable[contactForm.values.messageType].field}
+              label={rememberedField}
+              placeholder={rememberedField}
               type="text"
               value={contactForm.values.typeVariable ?? ""}
               onChange={contactForm.handleChange}

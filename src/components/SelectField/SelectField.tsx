@@ -8,6 +8,7 @@ const InputHolder = styled.div`
   flex-direction: column;
   gap: 5px;
   width: 100%;
+  z-index: 5;
 `;
 
 const Label = styled.label`
