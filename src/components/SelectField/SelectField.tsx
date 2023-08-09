@@ -94,7 +94,6 @@ const SelectField = ({
         }}
         onBlur={(e: FocusEvent) => {
           onBlur(e);
-          console.log("Blured!");
           setIsActive(false);
         }}
         onFocus={() => {

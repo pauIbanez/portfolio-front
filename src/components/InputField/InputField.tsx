@@ -10,6 +10,7 @@ interface Props {
   placeholder: string;
   type: string;
   big?: boolean;
+  optional?: boolean;
   errorMessage: string;
   sugestions?: string;
   autoCapitalize?: boolean;
@@ -60,6 +61,11 @@ const Label = styled.label<{ error?: string }>`
   color: ${(props) => (props.error ? "red" : Colors.textGray)};
 `;
 
+const Optional = styled.span`
+  font-weight: 500;
+  font-size: 12px;
+`;
+
 const InputField = ({
   id,
   label,
@@ -68,6 +74,7 @@ const InputField = ({
   placeholder,
   type,
   big,
+  optional,
   errorMessage,
   sugestions,
   autoCapitalize,
@@ -78,6 +85,7 @@ const InputField = ({
     <InputHolder>
       <Label htmlFor={id} error={errorMessage}>
         {label}
+        {optional && <Optional>{" (if applicable)"}</Optional>}
       </Label>
 
       <CustomInputField

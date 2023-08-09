@@ -222,6 +222,7 @@ const ContactForm = ({ onSubmit }: Props) => {
               label={rememberedField}
               placeholder={rememberedField}
               type="text"
+              optional={true}
               value={contactForm.values.typeVariable ?? ""}
               onChange={contactForm.handleChange}
               onBlur={contactForm.handleBlur}
