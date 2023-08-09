@@ -7,6 +7,11 @@ export enum MessageType {
 }
 
 export const TypeVariable = {
+  default: {
+    name: "Select one...",
+    hasVariableField: false,
+    field: "",
+  },
   jobOportunity: {
     name: "Job Oportunity",
     hasVariableField: true,
@@ -24,11 +29,6 @@ export const TypeVariable = {
   },
   other: {
     name: "Other",
-    hasVariableField: false,
-    field: "",
-  },
-  default: {
-    name: "Select one...",
     hasVariableField: false,
     field: "",
   },

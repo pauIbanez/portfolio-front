@@ -10,6 +10,7 @@ interface ButotnCaseProps {
     fontSize?: number;
     fontWeight?: number;
     radius?: number;
+    padding?: number;
   };
 }
 const ButtonCase = styled.button<ButotnCaseProps>`
@@ -17,6 +18,10 @@ const ButtonCase = styled.button<ButotnCaseProps>`
   align-items: center;
   justify-content: center;
   padding: 0 30px 0 30px;
+  padding: ${(props) =>
+    props.style?.padding
+      ? "0 " + props.style.padding + "px 0 " + props.style.padding + "px"
+      : "0 30px 0 30px"};
   font-family: inherit;
 
   user-select: none;
@@ -81,6 +86,7 @@ interface Props {
     fontSize?: number;
     fontWeight?: number;
     radius?: number;
+    padding?: number;
   };
 }
 

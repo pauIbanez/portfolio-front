@@ -23,13 +23,21 @@ const ContentHolder = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  height: 100%;
 `;
 
 const Row = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  gap: 50px;
+  gap: 30px;
+`;
+
+const VisibleWrapper = styled.div<{ visible: boolean }>`
+  width: 100%;
+  opacity: ${(props) => (props.visible ? "1" : "0")};
+  pointer-events: ${(props) => (props.visible ? "all" : "none")};
 `;
 
 interface Props {
@@ -164,10 +172,11 @@ const ContactForm = ({ onSubmit }: Props) => {
             options={Object.entries(TypeVariable).map((entry) => ({
               name: entry[1].name,
               value: entry[0],
+              hasVariableField: entry[1].hasVariableField,
             }))}
           />
 
-          {visibleVariableField && (
+          <VisibleWrapper visible={visibleVariableField}>
             <InputField
               id="typeVariable"
               name="typeVariable"
@@ -183,7 +192,7 @@ const ContactForm = ({ onSubmit }: Props) => {
                   : ""
               }
             />
-          )}
+          </VisibleWrapper>
         </Row>
         <InputField
           id="email"
@@ -225,12 +234,21 @@ const ContactForm = ({ onSubmit }: Props) => {
             contactForm.touched.message ? contactForm.errors.message ?? "" : ""
           }
         />
-        <Button
-          submit={true}
-          disabled={mockIsMessageBeingSent || !isFilled || isErrorShowing}
-        >
-          {mockIsMessageBeingSent ? "Loading" : "Send Message"}
-        </Button>
+        <Row>
+          <Button
+            submit={true}
+            disabled={mockIsMessageBeingSent || !isFilled || isErrorShowing}
+            style={{
+              width: 160,
+              fontSize: 15,
+              height: 40,
+              radius: 10,
+              padding: 0,
+            }}
+          >
+            {mockIsMessageBeingSent ? "Loading" : "Send Message"}
+          </Button>
+        </Row>
       </ContentHolder>
     </Holder>
   );
