@@ -84,8 +84,8 @@ const SelectField = ({
       <Label htmlFor={name}>{label}</Label>
       <Select
         ref={selectRef}
-        name="messageType"
-        id="messageType"
+        name={name}
+        id={name}
         value={value}
         onChange={(e: ChangeEvent) => {
           onChange(e);
