@@ -3,6 +3,7 @@ import Pages from "./data/Pages/Pages";
 import Layout from "./components/Layout/Layout";
 import HomePage from "./Pages/HomePage/HomePage";
 import CVPage from "./Pages/CVPage/CVPage";
+import ContactForm from "./components/ContactForm/ContactForm";
 
 function App() {
   return (
@@ -16,7 +17,10 @@ function App() {
           <Route path={Pages.project.id} element={<p>Project page</p>} />
         </Route>
         <Route path={Pages.curriculum.path} element={<CVPage />} />
-        <Route path={Pages.contact.path} element={<p>Contact Page</p>} />
+        <Route
+          path={Pages.contact.path}
+          element={<ContactForm onSubmit={(values) => console.log(values)} />}
+        />
       </Routes>
     </Layout>
   );

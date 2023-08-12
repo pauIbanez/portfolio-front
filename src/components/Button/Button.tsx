@@ -4,27 +4,31 @@ import Colors from "../../data/style/Colors";
 interface ButotnCaseProps {
   reversed?: boolean;
   $active?: boolean;
-  style?: {
+  styleObject?: {
     height?: number;
     width?: number;
     fontSize?: number;
     fontWeight?: number;
     radius?: number;
+    padding?: number;
   };
 }
 const ButtonCase = styled.button<ButotnCaseProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 30px 0 30px;
+  padding: ${(props) =>
+    props.styleObject?.padding
+      ? `0 ${props.styleObject.padding}px 0 ${props.styleObject.padding}px`
+      : "0 30px 0 30px"};
   font-family: inherit;
 
   user-select: none;
   :gap: 8px;
   height: ${(props) =>
-    props.style?.height ? props.style.height + "px" : "60px"};
+    props.styleObject?.height ? props.styleObject.height + "px" : "60px"};
   width: ${(props) =>
-    props.style?.width ? props.style.width + "px" : "fit-content"};
+    props.styleObject?.width ? props.styleObject.width + "px" : "fit-content"};
 
   background-color: ${(props) =>
     props.$active ? "white" : props.reversed ? "white" : Colors.main};
@@ -40,13 +44,13 @@ const ButtonCase = styled.button<ButotnCaseProps>`
       : "none"};
 
   border-radius: ${(props) =>
-    props.style?.radius ? props.style.radius + "px" : "20px"};
+    props.styleObject?.radius ? props.styleObject.radius + "px" : "20px"};
 
   font-size: ${(props) =>
-    props.style?.fontSize ? props.style.fontSize + "px" : "20px"};
+    props.styleObject?.fontSize ? props.styleObject.fontSize + "px" : "20px"};
 
   font-weight: ${(props) =>
-    props.style?.fontWeight ? props.style.fontWeight : 400};
+    props.styleObject?.fontWeight ? props.styleObject.fontWeight : 400};
 
   cursor: pointer;
 
@@ -69,17 +73,19 @@ const ButtonCase = styled.button<ButotnCaseProps>`
 `;
 
 interface Props {
-  onClick: () => void;
+  onClick?: () => void;
   reversed?: boolean;
   active?: boolean;
   children: JSX.Element | string;
   disabled?: boolean;
-  style?: {
+  submit?: boolean;
+  styleObject?: {
     width?: number;
     height?: number;
     fontSize?: number;
     fontWeight?: number;
     radius?: number;
+    padding?: number;
   };
 }
 
@@ -88,15 +94,17 @@ const Button = ({
   reversed,
   children,
   disabled,
-  style,
+  styleObject,
+  submit,
   active,
 }: Props) => {
   return (
     <ButtonCase
       onClick={onClick}
+      type={submit ? "submit" : "button"}
       disabled={disabled}
       reversed={reversed}
-      style={style}
+      styleObject={styleObject}
       $active={active}
     >
       {children}
