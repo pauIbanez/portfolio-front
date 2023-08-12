@@ -49,7 +49,7 @@ const ArrowWrapper = styled.div<{ animation: string }>`
   user-select: none;
   pointer-events: none;
 
-  ${(props) => "animation: " + props.animation + " 500ms forwards" ?? ""};
+  ${(props) => "animation: " + props.animation + " 500ms forwards"};
 
   @keyframes comeIn {
     0% {
@@ -83,8 +83,6 @@ interface Props {
 const ContactForm = ({ onSubmit }: Props) => {
   const [isErrorShowing, setIsErrorShowing] = useState<boolean>(false);
 
-  const [mockIsMessageBeingSent, setMockIsMessageBeingSent] =
-    useState<boolean>(false);
   const [isFilled, setIsFilled] = useState<boolean>(false);
 
   const [visibleVariableField, setVisibleVariableField] =
@@ -106,11 +104,6 @@ const ContactForm = ({ onSubmit }: Props) => {
     },
     onSubmit: (values, { validateForm }) => {
       validateForm(values);
-
-      setMockIsMessageBeingSent(true);
-      setTimeout(() => {
-        setMockIsMessageBeingSent(false);
-      }, 2000);
       onSubmit(contactForm.values);
     },
     validateOnChange: isErrorShowing,
@@ -227,7 +220,10 @@ const ContactForm = ({ onSubmit }: Props) => {
               arrowTouched ? (visibleVariableField ? "comeIn" : "goOut") : ""
             }
           />
-          <VisibleWrapper visible={visibleVariableField}>
+          <VisibleWrapper
+            visible={visibleVariableField}
+            data-testid="visible-wrapper"
+          >
             <InputField
               id="typeVariable"
               name="typeVariable"
@@ -235,7 +231,7 @@ const ContactForm = ({ onSubmit }: Props) => {
               placeholder={rememberedField}
               type="text"
               optional={true}
-              value={contactForm.values.typeVariable ?? ""}
+              value={contactForm.values.typeVariable as string}
               onChange={contactForm.handleChange}
               onBlur={contactForm.handleBlur}
               errorMessage={
@@ -289,7 +285,7 @@ const ContactForm = ({ onSubmit }: Props) => {
         <Row>
           <Button
             submit={true}
-            disabled={mockIsMessageBeingSent || !isFilled || isErrorShowing}
+            disabled={!isFilled || isErrorShowing}
             style={{
               width: 160,
               fontSize: 15,
@@ -298,7 +294,7 @@ const ContactForm = ({ onSubmit }: Props) => {
               padding: 0,
             }}
           >
-            {mockIsMessageBeingSent ? "Loading" : "Send Message"}
+            Send Message
           </Button>
         </Row>
       </ContentHolder>
