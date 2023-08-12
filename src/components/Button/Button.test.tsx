@@ -50,7 +50,7 @@ describe("Given the Button component", () => {
     test("Then it should render the a button with the passed styles", () => {
       const text = "test button";
       const style = {
-        padding: 10,
+        padding: 15,
         fontSize: 11,
         fontWeight: 700,
         height: 13,
@@ -58,7 +58,7 @@ describe("Given the Button component", () => {
         width: 30,
       };
       const expectedStyle = {
-        padding: "0 10px 0 10px",
+        padding: "0 15px 0 15px",
         fontSize: "11px",
         fontWeight: 700,
         height: "13px",
@@ -67,7 +67,7 @@ describe("Given the Button component", () => {
       };
 
       render(
-        <Button onClick={() => {}} disabled style={style}>
+        <Button onClick={() => {}} disabled styleObject={style}>
           {text}
         </Button>
       );

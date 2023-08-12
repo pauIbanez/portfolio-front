@@ -286,7 +286,7 @@ const ContactForm = ({ onSubmit }: Props) => {
           <Button
             submit={true}
             disabled={!isFilled || isErrorShowing}
-            style={{
+            styleObject={{
               width: 160,
               fontSize: 15,
               height: 40,
