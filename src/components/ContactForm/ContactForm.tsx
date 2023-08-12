@@ -38,7 +38,7 @@ const Row = styled.div`
 const ArrowWrapper = styled.div<{ animation: string }>`
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-150%);
   z-index: 0;
   opacity: 1;
   bottom: 0;
@@ -89,6 +89,8 @@ const ContactForm = ({ onSubmit }: Props) => {
 
   const [visibleVariableField, setVisibleVariableField] =
     useState<boolean>(false);
+
+  const [arrowTouched, setArrowTouched] = useState<boolean>(false);
 
   const [rememberedField, setRememberedField] = useState<string>("Placeholder");
 
@@ -164,6 +166,12 @@ const ContactForm = ({ onSubmit }: Props) => {
     setIsErrorShowing(foundError);
   }, [contactForm.errors]);
 
+  useEffect(() => {
+    if (contactForm.values.messageType !== MessageType.default) {
+      setArrowTouched(true);
+    }
+  }, [contactForm.values.messageType]);
+
   return (
     <Holder onSubmit={contactForm.handleSubmit} aria-label="Contact form">
       <ContentHolder>
@@ -214,7 +222,11 @@ const ContactForm = ({ onSubmit }: Props) => {
               hasVariableField: entry[1].hasVariableField,
             }))}
           />
-          <ArrowWrapper animation={visibleVariableField ? "comeIn" : "goOut"} />
+          <ArrowWrapper
+            animation={
+              arrowTouched ? (visibleVariableField ? "comeIn" : "goOut") : ""
+            }
+          />
           <VisibleWrapper visible={visibleVariableField}>
             <InputField
               id="typeVariable"
