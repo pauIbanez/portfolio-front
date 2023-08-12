@@ -50,6 +50,7 @@ describe("Given the Button component", () => {
     test("Then it should render the a button with the passed styles", () => {
       const text = "test button";
       const style = {
+        padding: 10,
         fontSize: 11,
         fontWeight: 700,
         height: 13,
@@ -57,6 +58,7 @@ describe("Given the Button component", () => {
         width: 30,
       };
       const expectedStyle = {
+        padding: "0 10px 0 10px",
         fontSize: "11px",
         fontWeight: 700,
         height: "13px",
