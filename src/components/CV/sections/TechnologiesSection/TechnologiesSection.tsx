@@ -185,7 +185,7 @@ const TechnologiesSection = () => {
           <Button
             disabled={currentPage === 0}
             onClick={() => setCurrentPage(0)}
-            style={buttonStyle}
+            styleObject={buttonStyle}
           >
             <ButtonText>{sections.technologies.pages.controls.prev}</ButtonText>
           </Button>
@@ -196,7 +196,7 @@ const TechnologiesSection = () => {
           <Button
             disabled={currentPage === 1}
             onClick={() => setCurrentPage(1)}
-            style={buttonStyle}
+            styleObject={buttonStyle}
           >
             <ButtonText>{sections.technologies.pages.controls.next}</ButtonText>
           </Button>

@@ -118,7 +118,7 @@ const HomePage = () => {
           </TextSection>
           <Button
             onClick={goToProjects}
-            style={{
+            styleObject={{
               height: 70,
               width: 240,
               radius: 20,
