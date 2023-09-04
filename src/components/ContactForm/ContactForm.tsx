@@ -11,7 +11,6 @@ import Button from "../Button/Button";
 import SelectField from "../SelectField/SelectField";
 
 const Holder = styled.form`
-  margin: 100px;
   height: 713px;
   width: 745px;
   background-color: white;
