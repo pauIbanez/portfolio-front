@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import ColoredText from "../ColoredText/ColoredText";
 
-const TextSection = styled.div`
+const TextSection = styled.div<{ gap?: number }>`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: ${(props) => props.gap ?? 15}px;
 
   h2 {
     margin: 0;
@@ -28,11 +28,12 @@ interface Props {
       color?: string;
       accentColor?: string;
     };
+    gap?: number;
   };
 }
 const TiteledText = ({ title, text, styleObject }: Props) => {
   return (
-    <TextSection>
+    <TextSection gap={styleObject?.gap}>
       <ColoredText
         text={title}
         styleData={{
