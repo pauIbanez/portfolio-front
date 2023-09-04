@@ -43,12 +43,20 @@ const ContactInfo = styled.section`
 
   color: white;
 
-  padding: 0 25px;
-  gap: 15px;
+  padding: 0 40px;
+  gap: 40px;
 
   p {
     margin: 0;
   }
+`;
+
+const ContactInfoSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 `;
 
 const ContactItem = styled.div`
@@ -202,64 +210,68 @@ const ContactPage = () => {
               text: { size: "14px", color: "white" },
             }}
           />
-          <ContactItem>
-            <ItemIcon height={30} width={30} />
-            <ItemName>Phone:</ItemName>
-            <ItemValue>
-              <p>+34 673408670</p>
-            </ItemValue>
-          </ContactItem>
-          <EmailButtonHolder>
-            <EmailButton
-              onClick={() => {
-                if (!isEmailActive) setIsEmailActive(true);
-              }}
-              onBlur={() => {
-                setTimeout(() => setIsEmailActive(false), 130);
-              }}
-            >
+          <ContactInfoSection>
+            <ContactItem>
               <ItemIcon height={30} width={30} />
-              <ItemName>Email:</ItemName>
+              <ItemName>Phone:</ItemName>
               <ItemValue>
-                <p>pauibanez2001@gmail.com</p>
+                <p>+34 673408670</p>
               </ItemValue>
-              <AfterItemIcon height={15} width={15} />
-            </EmailButton>
-            <EmailButtonOptions isActive={isEmailActive}>
-              <EmailButtonActive>
+            </ContactItem>
+            <EmailButtonHolder>
+              <EmailButton
+                onClick={() => {
+                  if (!isEmailActive) setIsEmailActive(true);
+                }}
+                onBlur={() => {
+                  setTimeout(() => setIsEmailActive(false), 130);
+                }}
+              >
                 <ItemIcon height={30} width={30} />
                 <ItemName>Email:</ItemName>
                 <ItemValue>
                   <p>pauibanez2001@gmail.com</p>
                 </ItemValue>
-              </EmailButtonActive>
-              <EmailItem
-                onClick={() => {
-                  navigator.clipboard.writeText("pauibanez2001@gmail.com");
-                }}
-              >
-                Copy email
-              </EmailItem>
-              <EmailLink to={"mailto:pauibanez2001@gmail.com"} target="_blank">
-                Open email
-              </EmailLink>
-            </EmailButtonOptions>
-          </EmailButtonHolder>
-
-          <ContactItem>
-            <ItemIcon height={30} width={30} />
-            <ItemName>LinkedIn:</ItemName>
-            <ItemValue>
-              <a
-                href="https://www.linkedin.com/in/pau-ibanez/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                My LinkedIn profile
                 <AfterItemIcon height={15} width={15} />
-              </a>
-            </ItemValue>
-          </ContactItem>
+              </EmailButton>
+              <EmailButtonOptions isActive={isEmailActive}>
+                <EmailButtonActive>
+                  <ItemIcon height={30} width={30} />
+                  <ItemName>Email:</ItemName>
+                  <ItemValue>
+                    <p>pauibanez2001@gmail.com</p>
+                  </ItemValue>
+                </EmailButtonActive>
+                <EmailItem
+                  onClick={() => {
+                    navigator.clipboard.writeText("pauibanez2001@gmail.com");
+                  }}
+                >
+                  Copy email
+                </EmailItem>
+                <EmailLink
+                  to={"mailto:pauibanez2001@gmail.com"}
+                  target="_blank"
+                >
+                  Open email
+                </EmailLink>
+              </EmailButtonOptions>
+            </EmailButtonHolder>
+            <ContactItem>
+              <ItemIcon height={30} width={30} />
+              <ItemName>LinkedIn:</ItemName>
+              <ItemValue>
+                <a
+                  href="https://www.linkedin.com/in/pau-ibanez/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  My LinkedIn profile
+                  <AfterItemIcon height={15} width={15} />
+                </a>
+              </ItemValue>
+            </ContactItem>
+          </ContactInfoSection>
         </ContactInfo>
         <ContactForm onSubmit={onSubmit} />
       </FormHolder>
