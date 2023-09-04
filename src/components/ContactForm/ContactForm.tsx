@@ -286,8 +286,8 @@ const ContactForm = ({ onSubmit }: Props) => {
             submit={true}
             disabled={!isFilled || isErrorShowing}
             styleObject={{
-              width: 160,
-              fontSize: 15,
+              width: 170,
+              fontSize: 14,
               height: 40,
               radius: 10,
               padding: 0,
