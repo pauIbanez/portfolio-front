@@ -148,7 +148,7 @@ const EmailButtonOptions = styled.div<{ isActive: boolean }>`
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(0, 0, 0, 0.2);
 `;
 
-const EmailItem = styled.div`
+const CopyEmailButton = styled.button`
   width: 100%;
   display: flex;
   align-items: center;
@@ -222,7 +222,7 @@ const ContactPage = () => {
             <EmailButtonHolder>
               <EmailButton
                 onClick={() => {
-                  if (!isEmailActive) setIsEmailActive(true);
+                  setIsEmailActive(true);
                 }}
                 onBlur={() => {
                   setTimeout(() => setIsEmailActive(false), 130);
@@ -243,13 +243,13 @@ const ContactPage = () => {
                     <p>pauibanez2001@gmail.com</p>
                   </ItemValue>
                 </EmailButtonActive>
-                <EmailItem
+                <CopyEmailButton
                   onClick={() => {
                     navigator.clipboard.writeText("pauibanez2001@gmail.com");
                   }}
                 >
                   Copy email
-                </EmailItem>
+                </CopyEmailButton>
                 <EmailLink
                   to={"mailto:pauibanez2001@gmail.com"}
                   target="_blank"
