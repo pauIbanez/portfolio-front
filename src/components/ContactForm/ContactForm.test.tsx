@@ -12,7 +12,9 @@ describe("Given the ContactForm component", () => {
       render(<ContactForm onSubmit={() => null} />);
 
       const foundInputs = screen.getAllByRole("textbox");
-      const foundSelect = screen.getByLabelText("Message Type");
+      const foundSelect = screen.getByLabelText(
+        "Contact.contactForm.labels.messageType"
+      );
 
       expect(foundInputs.length).toBe(expectedInputs);
       expect(foundSelect).toBeInTheDocument();
@@ -25,7 +27,9 @@ describe("Given the ContactForm component", () => {
       render(<ContactForm onSubmit={onSubmit} />);
 
       const foundInputs = screen.getAllByRole("textbox");
-      const foundSelect = screen.getByLabelText("Message Type");
+      const foundSelect = screen.getByLabelText(
+        "Contact.contactForm.labels.messageType"
+      );
 
       act(() => {
         fireEvent.change(foundSelect, {
@@ -38,7 +42,7 @@ describe("Given the ContactForm component", () => {
       });
 
       const foundSubmitButton = screen.getByRole("button", {
-        name: "Send Message",
+        name: "Contact.contactForm.sendMessage",
       });
       act(() => {
         userEvent.click(foundSubmitButton);
@@ -54,7 +58,9 @@ describe("Given the ContactForm component", () => {
       render(<ContactForm onSubmit={() => null} />);
 
       let foundVisibleWrapper = screen.getByTestId("visible-wrapper");
-      const foundSelect = screen.getByLabelText("Message Type");
+      const foundSelect = screen.getByLabelText(
+        "Contact.contactForm.labels.messageType"
+      );
 
       expect(foundVisibleWrapper).toHaveStyle("opacity: 0;");
       act(() => {
