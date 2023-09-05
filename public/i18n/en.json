@@ -262,21 +262,22 @@
     },
     "contactForm": {
       "labels": {
-        "fistName": "First Name",
+        "firstName": "First Name",
         "lastName": "Last Name",
         "messageType": "Message Type",
         "projectName": "Project Name",
         "companyName": "Company Name",
-        "applicable": "(if applicable)",
+        "applicable": "if applicable",
         "email": "Email",
         "subject": "Subject",
         "message": "Message"
       },
       "sendMessage": "Send Message",
       "messageTypes": {
+        "select": "Select One",
         "jobOpportunity": "Job Opportunity",
         "collaboration": "Collaboration",
-        "generalQuestion": "GeneralQuestion",
+        "generalQuestion": "General Question",
         "other": "Other..."
       }
     }
