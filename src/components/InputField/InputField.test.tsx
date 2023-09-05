@@ -53,8 +53,8 @@ describe("Given the InputField component", () => {
   });
 
   describe("When it's intanciated as optional", () => {
-    test("It should add '(if applicable)' to the label", () => {
-      const expectedOptional = "(if applicable)";
+    test("It should add '(Contact.contactForm.labels.applicable)' to the label", () => {
+      const expectedOptional = "(Contact.contactForm.labels.applicable)";
 
       render(
         <InputField
