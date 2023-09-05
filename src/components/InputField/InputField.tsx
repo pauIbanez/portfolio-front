@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { ChangeEvent, FocusEvent } from "react";
 import Colors from "../../data/style/Colors";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   id: string;
@@ -81,11 +82,17 @@ const InputField = ({
   onChange,
   onBlur,
 }: Props) => {
+  const { t } = useTranslation();
+
   return (
     <InputHolder>
       <Label htmlFor={id} error={errorMessage}>
         {label}
-        {optional && <Optional>{" (if applicable)"}</Optional>}
+        {optional && (
+          <Optional>{` (${t(
+            "Contact.contactForm.labels.applicable"
+          )})`}</Optional>
+        )}
       </Label>
 
       <CustomInputField

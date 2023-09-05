@@ -5,6 +5,7 @@ import TiteledText from "../../components/TitledText/TiteledText";
 import Colors from "../../data/style/Colors";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const ContactHolder = styled.div`
   display: flex;
@@ -196,15 +197,15 @@ const ContactPage = () => {
 
   const [isEmailActive, setIsEmailActive] = useState<boolean>(false);
 
+  const { t } = useTranslation();
+
   return (
     <ContactHolder>
       <FormHolder>
         <ContactInfo>
           <TiteledText
-            title={"Let’s get in touch!"}
-            text={
-              "Feel free to contact me directly through any of the options bellow:"
-            }
+            title={t("Contact.contactInfo.title")}
+            text={t("Contact.contactInfo.text")}
             styleObject={{
               gap: 5,
               title: { size: "19px", heading: 0, color: "white" },
@@ -214,7 +215,9 @@ const ContactPage = () => {
           <ContactInfoSection>
             <ContactItem>
               <ItemIcon height={30} width={30} />
-              <ItemName>Phone:</ItemName>
+              <ItemName>
+                {t("Contact.contactInfo.itemNames.phone") + ":"}
+              </ItemName>
               <ItemValue>
                 <p>+34 673408670</p>
               </ItemValue>
@@ -229,7 +232,9 @@ const ContactPage = () => {
                 }}
               >
                 <ItemIcon height={30} width={30} />
-                <ItemName>Email:</ItemName>
+                <ItemName>
+                  {t("Contact.contactInfo.itemNames.email") + ":"}
+                </ItemName>
                 <ItemValue>
                   <p>pauibanez2001@gmail.com</p>
                 </ItemValue>
@@ -238,7 +243,9 @@ const ContactPage = () => {
               <EmailButtonOptions isActive={isEmailActive}>
                 <EmailButtonActive>
                   <ItemIcon height={30} width={30} />
-                  <ItemName>Email:</ItemName>
+                  <ItemName>
+                    {t("Contact.contactInfo.itemNames.email") + ":"}
+                  </ItemName>
                   <ItemValue>
                     <p>pauibanez2001@gmail.com</p>
                   </ItemValue>
@@ -248,26 +255,28 @@ const ContactPage = () => {
                     navigator.clipboard.writeText("pauibanez2001@gmail.com");
                   }}
                 >
-                  Copy email
+                  {t("Contact.contactInfo.itemValues.copyEmail")}
                 </CopyEmailButton>
                 <EmailLink
                   to={"mailto:pauibanez2001@gmail.com"}
                   target="_blank"
                 >
-                  Open email
+                  {t("Contact.contactInfo.itemValues.openEmail")}
                 </EmailLink>
               </EmailButtonOptions>
             </EmailButtonHolder>
             <ContactItem>
               <ItemIcon height={30} width={30} />
-              <ItemName>LinkedIn:</ItemName>
+              <ItemName>
+                {t("Contact.contactInfo.itemNames.linkedIn") + ":"}
+              </ItemName>
               <ItemValue>
                 <a
                   href="https://www.linkedin.com/in/pau-ibanez/"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  My LinkedIn profile
+                  {t("Contact.contactInfo.itemValues.linkedIn")}
                   <AfterItemIcon height={15} width={15} />
                 </a>
               </ItemValue>
@@ -278,17 +287,13 @@ const ContactPage = () => {
       </FormHolder>
       <InfoSection>
         <TiteledText
-          title={"Welcome to my Contact page!"}
-          text={
-            "If you have any questions, inquiries, or would simply like to get in touch, I would be thrilled to hear from you. Whether you're interested in collaborating on a project, discussing a potential opportunity, or just want to say hello, this is the place to reach out. Feel free to fill out the contact form, and I will make sure to get back to you as soon as possible. Additionally, if you prefer to email me directly, you can reach me through the provided email address or phone number. \n \n Thank you for visiting my portfolio website, and I look forward to hearing from you soon!"
-          }
+          title={t("Contact.textSections.0.title")}
+          text={t("Contact.textSections.0.text")}
         />
         <TiteledText
-          title={"Privacy Notice"}
-          text={
-            "By contacting me via this form or sending an email, you acknowledge and consent that the information you provide, including your name and email address, will be collected and stored for the purpose of responding to your inquiry."
-          }
-          styleObject={{ text: { size: "14px" } }}
+          title={t("Contact.textSections.1.title")}
+          text={t("Contact.textSections.1.text")}
+          styleObject={{ gap: 0, text: { size: "13px" } }}
         />
       </InfoSection>
     </ContactHolder>

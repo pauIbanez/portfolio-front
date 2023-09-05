@@ -9,6 +9,7 @@ import styled from "styled-components";
 import InputField from "../InputField/InputField";
 import Button from "../Button/Button";
 import SelectField from "../SelectField/SelectField";
+import { useTranslation } from "react-i18next";
 
 const Holder = styled.form`
   height: 713px;
@@ -88,6 +89,8 @@ const ContactForm = ({ onSubmit }: Props) => {
     useState<boolean>(false);
 
   const [arrowTouched, setArrowTouched] = useState<boolean>(false);
+
+  const { t } = useTranslation();
 
   const [rememberedField, setRememberedField] = useState<string>("Placeholder");
 
@@ -171,8 +174,8 @@ const ContactForm = ({ onSubmit }: Props) => {
           <InputField
             id="firstName"
             name="firstName"
-            label="First Name"
-            placeholder="First name"
+            label={t("Contact.contactForm.labels.firstName")}
+            placeholder={t("Contact.contactForm.labels.firstName")}
             type="text"
             value={contactForm.values.firstName}
             onChange={contactForm.handleChange}
@@ -187,8 +190,8 @@ const ContactForm = ({ onSubmit }: Props) => {
           <InputField
             id="lastName"
             name="lastName"
-            label="Last Name"
-            placeholder="Last name"
+            label={t("Contact.contactForm.labels.lastName")}
+            placeholder={t("Contact.contactForm.labels.lastName")}
             type="text"
             value={contactForm.values.lastName}
             onChange={contactForm.handleChange}
@@ -203,13 +206,13 @@ const ContactForm = ({ onSubmit }: Props) => {
         </Row>
         <Row>
           <SelectField
-            label="Message Type"
+            label={t("Contact.contactForm.labels.messageType")}
             name="messageType"
             onChange={contactForm.handleChange}
             onBlur={contactForm.handleBlur}
             value={contactForm.values.messageType}
             options={Object.entries(TypeVariable).map((entry) => ({
-              name: entry[1].name,
+              name: t(entry[1].name),
               value: entry[0],
               hasVariableField: entry[1].hasVariableField,
             }))}
@@ -226,8 +229,8 @@ const ContactForm = ({ onSubmit }: Props) => {
             <InputField
               id="typeVariable"
               name="typeVariable"
-              label={rememberedField}
-              placeholder={rememberedField}
+              label={t(rememberedField)}
+              placeholder={t(rememberedField)}
               type="text"
               optional={true}
               value={contactForm.values.typeVariable as string}
@@ -244,8 +247,8 @@ const ContactForm = ({ onSubmit }: Props) => {
         <InputField
           id="email"
           name="email"
-          label="Email"
-          placeholder="Email Adress"
+          label={t("Contact.contactForm.labels.email")}
+          placeholder={t("Contact.contactForm.labels.email")}
           type="email"
           value={contactForm.values.email}
           onChange={contactForm.handleChange}
@@ -257,8 +260,8 @@ const ContactForm = ({ onSubmit }: Props) => {
         <InputField
           id="subject"
           name="subject"
-          label="Subject"
-          placeholder="Subject"
+          label={t("Contact.contactForm.labels.subject")}
+          placeholder={t("Contact.contactForm.labels.subject")}
           type="text"
           value={contactForm.values.subject}
           onChange={contactForm.handleChange}
@@ -270,8 +273,8 @@ const ContactForm = ({ onSubmit }: Props) => {
         <InputField
           id="message"
           name="message"
-          label="Message"
-          placeholder="Message..."
+          label={t("Contact.contactForm.labels.message")}
+          placeholder={t("Contact.contactForm.labels.message") + "..."}
           type="text"
           big={true}
           value={contactForm.values.message}
@@ -293,7 +296,7 @@ const ContactForm = ({ onSubmit }: Props) => {
               padding: 0,
             }}
           >
-            Send Message
+            {t("Contact.contactForm.sendMessage")}
           </Button>
         </Row>
       </ContentHolder>

@@ -235,6 +235,51 @@
     }
   },
   "Contact": {
-    "title": "Contact <&>me<&>"
+    "title": "Contact <&>me<&>",
+    "textSections": [
+      {
+        "title": "Welcome to <&>my<&> Contact page!",
+        "text": "If you have any questions, inquiries, or would simply like to <&>get in touch<&>, I would be thrilled to hear from you. Whether you're interested in <&>collaborating<&> on a project, discussing a <&>potential opportunity<&>, or just want to <&>say hello<&>, this is the place to reach out. Feel free to fill out the contact form, and I will make sure to get back to you as soon as possible. Additionally, if you prefer to email me directly, you can reach me through the provided email address or phone number. \n \n <&>Thank you<&> for visiting my portfolio website, and <&>I look forward to hearing from you soon!<&>"
+      },
+      {
+        "title": "Privacy Notice",
+        "text": "By contacting me via this form or sending an email, you acknowledge and consent that the information you provide, including your name and email address, will be collected and stored for the purpose of responding to your inquiry."
+      }
+    ],
+    "contactInfo": {
+      "title": "Let’s get in touch!",
+      "text": "Feel free to contact me directly through any of the options bellow:",
+      "itemNames": {
+        "phone": "Phone",
+        "email": "Email",
+        "linkedIn": "LinkedIn"
+      },
+      "itemValues": {
+        "copyEmail": "Copy email",
+        "openEmail": "Open email",
+        "linkedIn": "My LinkedIn profile"
+      }
+    },
+    "contactForm": {
+      "labels": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "messageType": "Message Type",
+        "projectName": "Project Name",
+        "companyName": "Company Name",
+        "applicable": "if applicable",
+        "email": "Email",
+        "subject": "Subject",
+        "message": "Message"
+      },
+      "sendMessage": "Send Message",
+      "messageTypes": {
+        "select": "Select One",
+        "jobOpportunity": "Job Opportunity",
+        "collaboration": "Collaboration",
+        "generalQuestion": "General Question",
+        "other": "Other..."
+      }
+    }
   }
 }

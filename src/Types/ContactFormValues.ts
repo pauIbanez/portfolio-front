@@ -8,27 +8,27 @@ export enum MessageType {
 
 export const TypeVariable = {
   default: {
-    name: "Select one...",
+    name: "Contact.contactForm.messageTypes.select",
     hasVariableField: false,
     field: "",
   },
   jobOportunity: {
-    name: "Job Oportunity",
+    name: "Contact.contactForm.messageTypes.jobOpportunity",
     hasVariableField: true,
-    field: "Company name",
+    field: "Contact.contactForm.labels.companyName",
   },
   collaboration: {
-    name: "Collaboration",
+    name: "Contact.contactForm.messageTypes.collaboration",
     hasVariableField: true,
-    field: "Project Name",
+    field: "Contact.contactForm.labels.projectName",
   },
   generalQuestion: {
-    name: "General Question",
+    name: "Contact.contactForm.messageTypes.generalQuestion",
     hasVariableField: false,
     field: "",
   },
   other: {
-    name: "Other",
+    name: "Contact.contactForm.messageTypes.other",
     hasVariableField: false,
     field: "",
   },
