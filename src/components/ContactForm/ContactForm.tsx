@@ -11,7 +11,6 @@ import Button from "../Button/Button";
 import SelectField from "../SelectField/SelectField";
 
 const Holder = styled.form`
-  margin: 100px;
   height: 713px;
   width: 745px;
   background-color: white;
@@ -287,8 +286,8 @@ const ContactForm = ({ onSubmit }: Props) => {
             submit={true}
             disabled={!isFilled || isErrorShowing}
             styleObject={{
-              width: 160,
-              fontSize: 15,
+              width: 170,
+              fontSize: 14,
               height: 40,
               radius: 10,
               padding: 0,

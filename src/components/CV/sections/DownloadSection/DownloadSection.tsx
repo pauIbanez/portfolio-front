@@ -117,7 +117,12 @@ const DownloadSection = () => {
                   />
                   <Button
                     onClick={() => onClick(item.link)}
-                    style={{ height: 40, width: 156, radius: 10, fontSize: 15 }}
+                    styleObject={{
+                      height: 40,
+                      width: 156,
+                      radius: 10,
+                      fontSize: 15,
+                    }}
                     disabled={isErrorActive}
                   >
                     Download
