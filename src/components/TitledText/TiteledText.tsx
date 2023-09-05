@@ -6,7 +6,11 @@ const TextSection = styled.div<{ gap?: number }>`
   flex-direction: column;
   gap: ${(props) => props.gap ?? 15}px;
 
-  h2 {
+  h2,
+  h3,
+  h4,
+  h5,
+  h1 {
     margin: 0;
   }
 `;
