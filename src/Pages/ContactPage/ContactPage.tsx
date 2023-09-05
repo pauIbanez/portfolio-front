@@ -132,6 +132,7 @@ const EmailButtonActive = styled.div`
   gap: 5px;
   background-color: white;
   font-size: 13px;
+  color: ${Colors.main};
 `;
 
 const EmailButtonOptions = styled.div<{ isActive: boolean }>`
@@ -142,7 +143,7 @@ const EmailButtonOptions = styled.div<{ isActive: boolean }>`
   left: 0;
   right: 0;
   border-radius: 10px;
-  color: ${Colors.main};
+  color: ${Colors.textGray};
   overflow: hidden;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(0, 0, 0, 0.2);
 `;
