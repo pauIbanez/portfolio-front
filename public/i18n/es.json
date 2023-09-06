@@ -482,6 +482,13 @@
         "collaboration": "Collaboration",
         "generalQuestion": "General Question",
         "other": "Other..."
+      },
+      "errors": {
+        "email": ["An email is required", "Formato invalido"],
+        "firstName": "Introduce tu numbre",
+        "lastName": "Introduce tu apellido",
+        "subject": "Falta el título",
+        "message": "Nos falta el mensaje!"
       }
     }
   }
