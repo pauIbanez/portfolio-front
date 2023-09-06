@@ -6,10 +6,11 @@ import Colors from "../../data/style/Colors";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { ErrorrContextProvider } from "react-errorr";
 
 const ContactHolder = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 75px 75px 200px 75px;
   gap: 75px;
@@ -283,7 +284,9 @@ const ContactPage = () => {
             </ContactItem>
           </ContactInfoSection>
         </ContactInfo>
-        <ContactForm onSubmit={onSubmit} />
+        <ErrorrContextProvider>
+          <ContactForm onSubmit={onSubmit} />
+        </ErrorrContextProvider>
       </FormHolder>
       <InfoSection>
         <TiteledText

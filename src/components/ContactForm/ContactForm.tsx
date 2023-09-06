@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext, useRef } from "react";
 import * as Yup from "yup";
 import ContactFormValues, {
   MessageType,
@@ -10,6 +10,7 @@ import InputField from "../InputField/InputField";
 import Button from "../Button/Button";
 import SelectField from "../SelectField/SelectField";
 import { useTranslation } from "react-i18next";
+import { Errorr, ErrorrContext } from "react-errorr";
 
 const Holder = styled.form`
   height: 713px;
@@ -94,6 +95,17 @@ const ContactForm = ({ onSubmit }: Props) => {
 
   const [rememberedField, setRememberedField] = useState<string>("Placeholder");
 
+  const { activateErrorr, forceRemoveErrorr } = useContext(ErrorrContext);
+
+  const activeErrors = useRef<{ [key: string]: boolean }>({
+    email: false,
+    firstName: false,
+    lastName: false,
+    message: false,
+    subject: false,
+    typeVariable: false,
+  });
+
   const contactForm = useFormik<ContactFormValues>({
     initialValues: {
       email: "",
@@ -108,7 +120,7 @@ const ContactForm = ({ onSubmit }: Props) => {
       validateForm(values);
       onSubmit(contactForm.values);
     },
-    validateOnChange: isErrorShowing,
+    validateOnChange: true,
     validateOnBlur: true,
     validationSchema: Yup.object({
       email: Yup.string()
@@ -152,14 +164,28 @@ const ContactForm = ({ onSubmit }: Props) => {
   useEffect(() => {
     let foundError = false;
 
-    Object.values(contactForm.errors).forEach((errorValue) => {
-      if (!foundError && errorValue !== "") {
-        foundError = true;
+    Object.entries(contactForm.touched).forEach(([fieldKey, fieldTouched]) => {
+      if (contactForm.errors[fieldKey as keyof ContactFormValues]) {
+        if (!foundError) {
+          foundError = true;
+        }
+        if (!activeErrors.current[fieldKey]) {
+          activateErrorr(fieldKey);
+          activeErrors.current[fieldKey] = true;
+        }
+      } else if (activeErrors.current[fieldKey]) {
+        activeErrors.current[fieldKey] = false;
+        forceRemoveErrorr(fieldKey);
       }
     });
 
     setIsErrorShowing(foundError);
-  }, [contactForm.errors]);
+  }, [
+    forceRemoveErrorr,
+    activateErrorr,
+    contactForm.errors,
+    contactForm.touched,
+  ]);
 
   useEffect(() => {
     if (contactForm.values.messageType !== MessageType.default) {
@@ -171,38 +197,42 @@ const ContactForm = ({ onSubmit }: Props) => {
     <Holder onSubmit={contactForm.handleSubmit} aria-label="Contact form">
       <ContentHolder>
         <Row>
-          <InputField
-            id="firstName"
-            name="firstName"
-            label={t("Contact.contactForm.labels.firstName")}
-            placeholder={t("Contact.contactForm.labels.firstName")}
-            type="text"
-            value={contactForm.values.firstName}
-            onChange={contactForm.handleChange}
-            onBlur={contactForm.handleBlur}
-            sugestions="given-name"
-            errorMessage={
-              contactForm.touched.firstName
-                ? contactForm.errors.firstName ?? ""
-                : ""
-            }
-          />
-          <InputField
-            id="lastName"
-            name="lastName"
-            label={t("Contact.contactForm.labels.lastName")}
-            placeholder={t("Contact.contactForm.labels.lastName")}
-            type="text"
-            value={contactForm.values.lastName}
-            onChange={contactForm.handleChange}
-            onBlur={contactForm.handleBlur}
-            sugestions="family-name"
-            errorMessage={
-              contactForm.touched.lastName
-                ? contactForm.errors.lastName ?? ""
-                : ""
-            }
-          />
+          <Errorr name="firstName" message={contactForm.errors.firstName}>
+            <InputField
+              id="firstName"
+              name="firstName"
+              label={t("Contact.contactForm.labels.firstName")}
+              placeholder={t("Contact.contactForm.labels.firstName")}
+              type="text"
+              value={contactForm.values.firstName}
+              onChange={contactForm.handleChange}
+              onBlur={contactForm.handleBlur}
+              sugestions="given-name"
+              errorMessage={
+                contactForm.touched.firstName
+                  ? contactForm.errors.firstName ?? ""
+                  : ""
+              }
+            />
+          </Errorr>
+          <Errorr name="lastName" message={contactForm.errors.lastName}>
+            <InputField
+              id="lastName"
+              name="lastName"
+              label={t("Contact.contactForm.labels.lastName")}
+              placeholder={t("Contact.contactForm.labels.lastName")}
+              type="text"
+              value={contactForm.values.lastName}
+              onChange={contactForm.handleChange}
+              onBlur={contactForm.handleBlur}
+              sugestions="family-name"
+              errorMessage={
+                contactForm.touched.lastName
+                  ? contactForm.errors.lastName ?? ""
+                  : ""
+              }
+            />
+          </Errorr>
         </Row>
         <Row>
           <SelectField
@@ -244,46 +274,56 @@ const ContactForm = ({ onSubmit }: Props) => {
             />
           </VisibleWrapper>
         </Row>
-        <InputField
-          id="email"
-          name="email"
-          label={t("Contact.contactForm.labels.email")}
-          placeholder={t("Contact.contactForm.labels.email")}
-          type="email"
-          value={contactForm.values.email}
-          onChange={contactForm.handleChange}
-          onBlur={contactForm.handleBlur}
-          errorMessage={
-            contactForm.touched.email ? contactForm.errors.email ?? "" : ""
-          }
-        />
-        <InputField
-          id="subject"
-          name="subject"
-          label={t("Contact.contactForm.labels.subject")}
-          placeholder={t("Contact.contactForm.labels.subject")}
-          type="text"
-          value={contactForm.values.subject}
-          onChange={contactForm.handleChange}
-          onBlur={contactForm.handleBlur}
-          errorMessage={
-            contactForm.touched.subject ? contactForm.errors.subject ?? "" : ""
-          }
-        />
-        <InputField
-          id="message"
-          name="message"
-          label={t("Contact.contactForm.labels.message")}
-          placeholder={t("Contact.contactForm.labels.message") + "..."}
-          type="text"
-          big={true}
-          value={contactForm.values.message}
-          onChange={contactForm.handleChange}
-          onBlur={contactForm.handleBlur}
-          errorMessage={
-            contactForm.touched.message ? contactForm.errors.message ?? "" : ""
-          }
-        />
+        <Errorr name="email" message={contactForm.errors.email}>
+          <InputField
+            id="email"
+            name="email"
+            label={t("Contact.contactForm.labels.email")}
+            placeholder={t("Contact.contactForm.labels.email")}
+            type="email"
+            value={contactForm.values.email}
+            onChange={contactForm.handleChange}
+            onBlur={contactForm.handleBlur}
+            errorMessage={
+              contactForm.touched.email ? contactForm.errors.email ?? "" : ""
+            }
+          />
+        </Errorr>
+        <Errorr name="subject" message={contactForm.errors.subject}>
+          <InputField
+            id="subject"
+            name="subject"
+            label={t("Contact.contactForm.labels.subject")}
+            placeholder={t("Contact.contactForm.labels.subject")}
+            type="text"
+            value={contactForm.values.subject}
+            onChange={contactForm.handleChange}
+            onBlur={contactForm.handleBlur}
+            errorMessage={
+              contactForm.touched.subject
+                ? contactForm.errors.subject ?? ""
+                : ""
+            }
+          />
+        </Errorr>
+        <Errorr name="message" message={contactForm.errors.message}>
+          <InputField
+            id="message"
+            name="message"
+            label={t("Contact.contactForm.labels.message")}
+            placeholder={t("Contact.contactForm.labels.message") + "..."}
+            type="text"
+            big={true}
+            value={contactForm.values.message}
+            onChange={contactForm.handleChange}
+            onBlur={contactForm.handleBlur}
+            errorMessage={
+              contactForm.touched.message
+                ? contactForm.errors.message ?? ""
+                : ""
+            }
+          />
+        </Errorr>
         <Row>
           <Button
             submit={true}
