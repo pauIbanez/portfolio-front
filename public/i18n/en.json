@@ -279,6 +279,13 @@
         "collaboration": "Collaboration",
         "generalQuestion": "General Question",
         "other": "Other..."
+      },
+      "errors": {
+        "email": ["An email is required", "Invalid email format"],
+        "firstName": "First Name is required",
+        "lastName": "Last Name is required",
+        "subject": "Subject is required",
+        "message": "We are missing the message!"
       }
     }
   }
