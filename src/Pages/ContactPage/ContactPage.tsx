@@ -11,7 +11,7 @@ const ContactHolder = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 75px 75px 200px 75px;
+  padding: 75px;
   gap: 75px;
 `;
 
