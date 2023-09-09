@@ -10,7 +10,8 @@ const TextSection = styled.div<{ gap?: number }>`
   h3,
   h4,
   h5,
-  h1 {
+  h1,
+  p {
     margin: 0;
   }
 `;
