@@ -12,5 +12,14 @@ describe("Given the AboutMePage", () => {
 
       expect(foundHeadings.length).toBe(expectedHeadings);
     });
+    test("Then it should render 2 images", () => {
+      const expectedImages = 2;
+
+      render(<AboutMePage />);
+
+      const foundImages = screen.getAllByRole("img");
+
+      expect(foundImages.length).toBe(expectedImages);
+    });
   });
 });
