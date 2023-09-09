@@ -6,11 +6,6 @@ const Pages: { [key: string]: PageInfo } = {
     name: "Home",
     translationKey: "home",
   },
-  aboutMe: {
-    path: "/aboutme",
-    name: "About me",
-    translationKey: "aboutme",
-  },
   projects: {
     path: "/projects",
     name: "Projects",
@@ -26,6 +21,11 @@ const Pages: { [key: string]: PageInfo } = {
     path: "/curriculum",
     name: "CV",
     translationKey: "cv",
+  },
+  aboutMe: {
+    path: "/aboutme",
+    name: "About me",
+    translationKey: "aboutme",
   },
   contact: {
     path: "/contact",
