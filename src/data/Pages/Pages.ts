@@ -24,7 +24,7 @@ const Pages: { [key: string]: PageInfo } = {
   },
   aboutMe: {
     path: "/aboutme",
-    name: "About me",
+    name: "AboutMe",
     translationKey: "aboutme",
   },
   contact: {
