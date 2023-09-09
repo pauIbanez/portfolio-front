@@ -4,6 +4,7 @@ import Layout from "./components/Layout/Layout";
 import HomePage from "./Pages/HomePage/HomePage";
 import CVPage from "./Pages/CVPage/CVPage";
 import ContactPage from "./Pages/ContactPage/ContactPage";
+import AboutMePage from "./Pages/AboutMePage/AboutMePage";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to={Pages.home.path} />} />
         <Route path={Pages.home.path} element={<HomePage />} />
-        <Route path={Pages.aboutMe.path} element={<p>About me Page</p>} />
+        <Route path={Pages.aboutMe.path} element={<AboutMePage />} />
         <Route path={Pages.projects.path} element={<p>Projects Page</p>} />
         <Route path={Pages.project.path}>
           <Route path={Pages.project.id} element={<p>Project page</p>} />
