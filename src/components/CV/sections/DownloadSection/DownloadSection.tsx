@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import CVSection from "../../CVSection/CVSection";
 import Button from "../../../Button/Button";
-import ColoredText from "../../../ColoredText/ColoredText";
+import ColoredText from "../../../textComponents/ColoredText/ColoredText";
 import Colors from "../../../../data/style/Colors";
 import { useState, useCallback, useContext } from "react";
 import { Errorr, ErrorrContext } from "react-errorr";

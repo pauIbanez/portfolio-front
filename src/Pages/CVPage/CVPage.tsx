@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import PresentationText from "../../components/PresentationText/PresentationText";
+import PresentationText from "../../components/textComponents/PresentationText/PresentationText";
 import styled from "styled-components";
 import CVListSection from "../../components/CV/CVListSection/CVListSection";
 import ScrollContextProvider from "../../contexts/scrollContext/ScrollContextProvider";

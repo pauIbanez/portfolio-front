@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import ColoredText from "./ColoredText";
-import Colors from "../../data/style/Colors";
-import toRGB from "../../utils/toRGB/toRGB";
+import Colors from "../../../data/style/Colors";
+import toRGB from "../../../utils/toRGB/toRGB";
 
 describe("Given the ColoredText component", () => {
   describe("When it's instanciated passing the text 'test <&>text'", () => {

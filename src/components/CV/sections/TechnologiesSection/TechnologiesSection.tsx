@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Button from "../../../Button/Button";
 import Colors from "../../../../data/style/Colors";
 import RatedSection from "../../RatedSection/RatedSection";
-import ColoredText from "../../../ColoredText/ColoredText";
+import ColoredText from "../../../textComponents/ColoredText/ColoredText";
 import useSections from "../../../../hooks/useSections";
 
 const SectionContent = styled.div`

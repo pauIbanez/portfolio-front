@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import ContactFormValues from "../../Types/ContactFormValues";
 import ContactForm from "../../components/ContactForm/ContactForm";
-import TiteledText from "../../components/TitledText/TiteledText";
+import TiteledText from "../../components/textComponents/TitledText/TiteledText";
 import Colors from "../../data/style/Colors";
 import { useState } from "react";
 import { Link } from "react-router-dom";
