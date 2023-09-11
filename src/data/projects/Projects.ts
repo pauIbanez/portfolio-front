@@ -7,11 +7,59 @@ const projectTags: { [key: string]: ProjectTag } = {
     color: "#323330",
     backgroundColor: "#F0DB4F",
   },
+  typeScript: {
+    name: "TypeScript",
+    icon: "typeScript.png",
+    color: "white",
+    backgroundColor: "#007ACC",
+  },
   react: {
     name: "React",
     icon: "react.png",
     color: "#61DBFB",
     backgroundColor: "#1C1C1C",
+  },
+  next: {
+    name: "Next.js",
+    icon: "next.png",
+    color: "#F7F7F7",
+    backgroundColor: "black",
+  },
+  jest: {
+    name: "Jest",
+    icon: "jest.png",
+    color: "#F7F7F7",
+    backgroundColor: "#C03B13",
+  },
+  webSockets: {
+    name: "Web Sockets",
+    icon: "webSockets.png",
+    color: "white",
+    backgroundColor: "#E69D2D",
+  },
+  backEnd: {
+    name: "Back-end",
+    icon: "backEnd.png",
+    color: "#323330",
+    backgroundColor: "#659F64",
+  },
+  frontEnd: {
+    name: "Front-end",
+    icon: "frontEnd.png",
+    color: "#323330",
+    backgroundColor: "#525CB0",
+  },
+  fullStack: {
+    name: "Full-Stack",
+    icon: "fullStack.png",
+    color: "#323330",
+    backgroundColor: "#FF25DC",
+  },
+  cSharp: {
+    name: "CSharp",
+    icon: "cSharp.png",
+    color: "white",
+    backgroundColor: "#a179dcff",
   },
 } as const;
 
