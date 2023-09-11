@@ -40,19 +40,19 @@ const projectTags: { [key: string]: ProjectTag } = {
   backEnd: {
     name: "Back-end",
     icon: "backEnd.png",
-    color: "#323330",
+    color: "white",
     backgroundColor: "#659F64",
   },
   frontEnd: {
     name: "Front-end",
     icon: "frontEnd.png",
-    color: "#323330",
+    color: "white",
     backgroundColor: "#525CB0",
   },
   fullStack: {
     name: "Full-Stack",
     icon: "fullStack.png",
-    color: "#323330",
+    color: "white",
     backgroundColor: "#FF25DC",
   },
   cSharp: {
@@ -71,10 +71,10 @@ const ProjectCards: ProjectCardInfo[] = [
     image: "logo.svg",
     tags: [
       projectTags.javaScript,
+      projectTags.typeScript,
       projectTags.react,
-      projectTags.javaScript,
-      projectTags.react,
-      projectTags.javaScript,
+      projectTags.jest,
+      projectTags.fullStack,
     ],
     isInteractive: true,
     link: "/project/myportfolio",

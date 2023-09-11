@@ -118,7 +118,7 @@ const CardClickInfo = styled.p`
 
 const MaximazableTag = styled.div<{ tag: ProjectTag; isHovering: boolean }>`
   width: 100px;
-  height: 23px;
+  height: 25px;
   font-size: 15px;
 
   position: relative;
@@ -129,7 +129,7 @@ const MaximazableTag = styled.div<{ tag: ProjectTag; isHovering: boolean }>`
   overflow: ${(props) => (props.isHovering ? "hidden" : "")};
 
   div {
-    height: ${(props) => (props.isHovering ? "23px" : "20px")};
+    height: ${(props) => (props.isHovering ? "100%" : "20px")};
     color: ${(props) => props.tag.color};
     background-color: ${(props) => props.tag.backgroundColor};
     width: ${(props) => (props.isHovering ? "100%" : "20px")};
