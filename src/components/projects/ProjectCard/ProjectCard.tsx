@@ -14,6 +14,7 @@ const CardHolder = styled.div`
   border-radius: 15px;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 `;
 
 const CardPresentation = styled.div`
@@ -87,9 +88,9 @@ const MaximizedCardInfo = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
-  padding: 0 50px 25px 50px;
+  padding: 70px 50px 40px 50px;
 `;
 
 const MaximizedCardTitleHolder = styled.div`
@@ -108,6 +109,12 @@ const MaximizedCardTitle = styled.h3`
 `;
 
 const Desctiption = styled.p``;
+
+const CardClickInfo = styled.p`
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0;
+`;
 
 const MaximazableTag = styled.div<{ tag: ProjectTag; isHovering: boolean }>`
   width: 100px;
@@ -186,10 +193,12 @@ const InteractiveText = styled.p<HoverProp>`
 
 interface Props {
   cardInfo: ProjectCardInfo;
+  onClick: () => void;
 }
 
 const ProjectCard = ({
   cardInfo: { name, description, image, tags, isInteractive },
+  onClick,
 }: Props) => {
   const [isHovering, setIsHovering] = useState<boolean>(false);
 
@@ -216,6 +225,7 @@ const ProjectCard = ({
     <CardHolder
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
+      onClick={onClick}
     >
       <CardPresentation>
         {isInteractive && (
@@ -252,6 +262,7 @@ const ProjectCard = ({
           <CardInfoTagHolder isCentered={true}>
             {renderMaximazibleTags}
           </CardInfoTagHolder>
+          <CardClickInfo>Click for more info</CardClickInfo>
         </MaximizedCardInfo>
       </CardInfo>
     </CardHolder>

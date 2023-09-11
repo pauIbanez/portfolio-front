@@ -11,6 +11,7 @@ interface ProjectCardInfo {
   tags: ProjectTag[];
   description: string;
   isInteractive: boolean;
+  link: string;
 }
 
 export default ProjectCardInfo;

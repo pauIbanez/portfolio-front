@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useRef } from "react";
 import ProjectCards from "../../data/projects/Projects";
 import ProjectCard from "../../components/projects/ProjectCard/ProjectCard";
+import { useNavigate } from "react-router-dom";
 
 const Holder = styled.div`
   display: flex;
@@ -43,8 +44,16 @@ const ProjectsPage = () => {
     });
   };
 
+  const navigate = useNavigate();
+
   const renderProjects = ProjectCards.map((projectCard) => (
-    <ProjectCard cardInfo={projectCard} key={projectCard.name} />
+    <ProjectCard
+      cardInfo={projectCard}
+      key={projectCard.name}
+      onClick={() => {
+        navigate(projectCard.link);
+      }}
+    />
   ));
 
   return (

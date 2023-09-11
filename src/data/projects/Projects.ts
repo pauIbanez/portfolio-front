@@ -18,7 +18,8 @@ const projectTags: { [key: string]: ProjectTag } = {
 const ProjectCards: ProjectCardInfo[] = [
   {
     name: "My Portfolio",
-    description: "My webpagePortfolio",
+    description:
+      "A webpage to showcase my portfolio, CV and a little about myself.",
     image: "logo.svg",
     tags: [
       projectTags.javaScript,
@@ -28,6 +29,7 @@ const ProjectCards: ProjectCardInfo[] = [
       projectTags.javaScript,
     ],
     isInteractive: true,
+    link: "/project/myportfolio",
   },
 ];
 
