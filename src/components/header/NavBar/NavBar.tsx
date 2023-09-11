@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Pages from "../../data/Pages/Pages";
+import Pages from "../../../data/Pages/Pages";
 import { Link, useLocation } from "react-router-dom";
-import Colors from "../../data/style/Colors";
+import Colors from "../../../data/style/Colors";
 import { useTranslation } from "react-i18next";
 
 const NavBarContainer = styled.nav`

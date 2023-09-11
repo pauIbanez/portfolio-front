@@ -1,5 +1,5 @@
 import { screen, render } from "@testing-library/react";
-import { renderInRouter } from "../../setupTests";
+import { renderInRouter } from "../../../setupTests";
 import Layout from "./Layout";
 import { MemoryRouter } from "react-router-dom";
 

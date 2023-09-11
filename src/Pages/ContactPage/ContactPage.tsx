@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import ContactFormValues from "../../Types/ContactFormValues";
-import ContactForm from "../../components/ContactForm/ContactForm";
+import ContactForm from "../../components/formComponents/ContactForm/ContactForm";
 import TiteledText from "../../components/textComponents/TitledText/TiteledText";
 import Colors from "../../data/style/Colors";
 import { useState } from "react";

@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import PageTitle from "./PageTitle";
-import toRGB from "../../utils/toRGB/toRGB";
-import Colors from "../../data/style/Colors";
+import toRGB from "../../../utils/toRGB/toRGB";
+import Colors from "../../../data/style/Colors";
 
 describe("Given the PageTitle component", () => {
   describe("When it's passed a string as title", () => {
