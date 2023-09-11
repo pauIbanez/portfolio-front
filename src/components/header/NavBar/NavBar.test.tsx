@@ -1,8 +1,8 @@
 import { screen } from "@testing-library/react";
 import NavBar from "./NavBar";
-import { renderInRouter } from "../../setupTests";
-import toRGB from "../../utils/toRGB/toRGB";
-import Colors from "../../data/style/Colors";
+import { renderInRouter } from "../../../setupTests";
+import toRGB from "../../../utils/toRGB/toRGB";
+import Colors from "../../../data/style/Colors";
 
 beforeEach(() => {
   jest.resetAllMocks();

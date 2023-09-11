@@ -3,7 +3,7 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import ContactForm from "./ContactForm";
 import userEvent from "@testing-library/user-event";
 import { act } from "react-dom/test-utils";
-import { MessageType } from "../../Types/ContactFormValues";
+import { MessageType } from "../../../Types/ContactFormValues";
 
 describe("Given the ContactForm component", () => {
   describe("When it's instanciated", () => {

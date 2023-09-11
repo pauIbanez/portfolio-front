@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ColoredText from "../ColoredText/ColoredText";
+import ColoredText from "../../textComponents/ColoredText/ColoredText";
 
 const Container = styled.header`
   width: 100%;

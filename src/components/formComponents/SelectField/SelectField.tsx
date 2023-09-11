@@ -1,6 +1,6 @@
 import { ChangeEvent, FocusEvent, useRef, useState } from "react";
 import styled from "styled-components";
-import Colors from "../../data/style/Colors";
+import Colors from "../../../data/style/Colors";
 
 const InputHolder = styled.div`
   position: relative;

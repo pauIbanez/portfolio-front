@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import PresentationInfo from "../PresentationInfo/PresentationInfo";
+import PresentationInfo from "../../textComponents/PresentationInfo/PresentationInfo";
 import NavBar from "../NavBar/NavBar";
 import { useLocation } from "react-router-dom";
-import Pages from "../../data/Pages/Pages";
+import Pages from "../../../data/Pages/Pages";
 import PageTitle from "../PageTitle/PageTitle";
 import { useTranslation } from "react-i18next";
 

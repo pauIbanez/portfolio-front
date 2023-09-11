@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Colors from "../../../data/style/Colors";
-import ColoredText from "../../ColoredText/ColoredText";
+import ColoredText from "../../textComponents/ColoredText/ColoredText";
 
 const Holder = styled.div<{ grow?: boolean }>`
   background-color: ${Colors.backgroundGray};

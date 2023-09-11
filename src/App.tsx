@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Pages from "./data/Pages/Pages";
-import Layout from "./components/Layout/Layout";
+import Layout from "./components/header/Layout/Layout";
 import HomePage from "./Pages/HomePage/HomePage";
 import CVPage from "./Pages/CVPage/CVPage";
 import ContactPage from "./Pages/ContactPage/ContactPage";

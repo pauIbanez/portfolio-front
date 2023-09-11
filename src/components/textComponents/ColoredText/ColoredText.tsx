@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Colors from "../../data/style/Colors";
-import parseAccents from "../../utils/parseAccents/parseAccents";
+import Colors from "../../../data/style/Colors";
+import parseAccents from "../../../utils/parseAccents/parseAccents";
 
 interface Props {
   text: string;

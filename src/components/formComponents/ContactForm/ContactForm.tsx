@@ -4,10 +4,10 @@ import * as Yup from "yup";
 import ContactFormValues, {
   MessageType,
   TypeVariable,
-} from "../../Types/ContactFormValues";
+} from "../../../Types/ContactFormValues";
 import styled from "styled-components";
 import InputField from "../InputField/InputField";
-import Button from "../Button/Button";
+import Button from "../../Button/Button";
 import SelectField from "../SelectField/SelectField";
 import { useTranslation } from "react-i18next";
 import { Errorr, ErrorrContext } from "react-errorr";

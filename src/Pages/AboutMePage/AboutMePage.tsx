@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import TiteledText from "../../components/TitledText/TiteledText";
+import TiteledText from "../../components/textComponents/TitledText/TiteledText";
 import Colors from "../../data/style/Colors";
 import { useTranslation } from "react-i18next";
 

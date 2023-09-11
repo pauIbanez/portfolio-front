@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import ColoredText from "../ColoredText/ColoredText";
-import Button from "../Button/Button";
+import Button from "../../Button/Button";
 
 const Holder = styled.section`
   display: flex;
