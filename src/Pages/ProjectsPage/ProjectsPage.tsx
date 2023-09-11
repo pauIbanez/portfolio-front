@@ -2,6 +2,8 @@ import styled from "styled-components";
 import PresentationText from "../../components/textComponents/PresentationText/PresentationText";
 import { useTranslation } from "react-i18next";
 import { useRef } from "react";
+import ProjectCards from "../../data/projects/Projects";
+import ProjectCard from "../../components/projects/ProjectCard/ProjectCard";
 
 const Holder = styled.div`
   display: flex;
@@ -41,6 +43,10 @@ const ProjectsPage = () => {
     });
   };
 
+  const renderProjects = ProjectCards.map((projectCard) => (
+    <ProjectCard cardInfo={projectCard} key={projectCard.name} />
+  ));
+
   return (
     <Holder>
       <PresentationText
@@ -58,7 +64,7 @@ const ProjectsPage = () => {
 
       <Content ref={projectsRef}>
         <Title>My Projects</Title>
-        <ProjectsHolder></ProjectsHolder>
+        <ProjectsHolder>{renderProjects}</ProjectsHolder>
       </Content>
     </Holder>
   );

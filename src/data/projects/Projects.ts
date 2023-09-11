@@ -1,6 +1,6 @@
 import ProjectCardInfo, { ProjectTag } from "../../Types/ProjectCardInfo";
 
-const ProjectTags: { [key: string]: ProjectTag } = {
+const projectTags: { [key: string]: ProjectTag } = {
   javaScript: {
     name: "JavaScript",
     icon: "javaScript.png",
@@ -13,21 +13,15 @@ const ProjectTags: { [key: string]: ProjectTag } = {
     color: "#61DBFB",
     backgroundColor: "#1C1C1C",
   },
-};
+} as const;
 
 const ProjectCards: ProjectCardInfo[] = [
   {
     name: "My Portfolio",
     description: "My webpagePortfolio",
     image: "logo.svg",
-    tags: [
-      ProjectTags.fullStack,
-      ProjectTags.javaScript,
-      ProjectTags.javaScript,
-      ProjectTags.jest,
-      ProjectTags.react,
-    ],
-    isInteractive: false,
+    tags: [projectTags.javaScript, projectTags.react],
+    isInteractive: true,
   },
 ];
 

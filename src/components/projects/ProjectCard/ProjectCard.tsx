@@ -8,10 +8,12 @@ const CardHolder = styled.div`
   background-color: ${Colors.backgroundGray};
   border-radius: 15px;
   position: relative;
+  overflow: hidden;
 `;
 
 const CardPresentation = styled.div`
   padding-bottom: 85px;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,6 +22,7 @@ const CardPresentation = styled.div`
 const CardTitleHolder = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
 `;
 
@@ -35,13 +38,14 @@ const CardTitle = styled.h3`
 const CardInfo = styled.div`
   position: absolute;
   left: 0;
-  bottom: 85px;
+  right: 0;
+  bottom: 0;
   height: 85px;
   display: flex;
   flex-direction: column;
   background-color: white;
-  align-items: space-between;
-  padding: 13px;
+  justify-content: space-between;
+  padding: 15px 25px;
 `;
 
 const CardInfoName = styled.h4`
@@ -64,17 +68,17 @@ const MinimizedTag = styled.img`
 
 const InteractiveIcon = styled.div`
   position: absolute;
-  top: 13px;
-  right: 13px;
-  height: 25px;
-  width: 25px;
+  top: 18px;
+  right: 18px;
+  height: 30px;
+  width: 30px;
   background-color: ${Colors.disabledMain};
   color: white;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 20px;
   display flex;
   align-items: center;
   justify-content: center;
+  border-radius: 30px;
 `;
 
 interface Props {
@@ -94,9 +98,14 @@ const ProjectCard = ({
   return (
     <CardHolder>
       <CardPresentation>
-        {isInteractive ?? <InteractiveIcon />}
+        {isInteractive && <InteractiveIcon>i</InteractiveIcon>}
         <CardTitleHolder>
-          <CardIcon alt={`${name} logo`} src={image} height={170} width={170} />
+          <CardIcon
+            alt={`${name} logo`}
+            src={`./media/${image}`}
+            height={170}
+            width={170}
+          />
           <CardTitle>{name}</CardTitle>
         </CardTitleHolder>
       </CardPresentation>
