@@ -16,11 +16,6 @@ const Holder = styled.div`
   display: flex;
   justify-content: center;
   padding: 0 75px 200px 75px;
-`;
-
-const Content = styled.div`
-  max-width: 1775px;
-  display: flex;
   flex-direction: column;
 `;
 
@@ -55,43 +50,41 @@ const CVPage = () => {
   return (
     <ScrollContextProvider>
       <Holder>
-        <Content>
-          <PresentationText
-            title={t("CV.presentation.title")}
-            text={t("CV.presentation.text")}
-            button={{
-              content: (
-                <>
-                  <p>{t("CV.presentation.button")}</p>
-                </>
-              ),
-              onClick: onClick,
-            }}
-          />
-          <CVHolder ref={cvRef}>
-            <InternalNavigation />
-            <CVContent>
-              <CVListSection
-                title={sections.education.title}
-                items={sections.education.items}
-              />
-              <CVListSection
-                title={t(sections.experience.title)}
-                items={sections.experience.items}
-              />
-              <LanguagesSection />
-              <TechnologiesSection />
-              <ReferencesSection />
-              <ErrorrContextProvider
-                options={{
-                  activeTime: 300,
-                }}
-              >
-                <DownloadSection />
-              </ErrorrContextProvider>
-            </CVContent>
-          </CVHolder>
-        </Content>
+        <PresentationText
+          title={t("CV.presentation.title")}
+          text={t("CV.presentation.text")}
+          button={{
+            content: (
+              <>
+                <p>{t("CV.presentation.button")}</p>
+              </>
+            ),
+            onClick: onClick,
+          }}
+        />
+        <CVHolder ref={cvRef}>
+          <InternalNavigation />
+          <CVContent>
+            <CVListSection
+              title={sections.education.title}
+              items={sections.education.items}
+            />
+            <CVListSection
+              title={t(sections.experience.title)}
+              items={sections.experience.items}
+            />
+            <LanguagesSection />
+            <TechnologiesSection />
+            <ReferencesSection />
+            <ErrorrContextProvider
+              options={{
+                activeTime: 300,
+              }}
+            >
+              <DownloadSection />
+            </ErrorrContextProvider>
+          </CVContent>
+        </CVHolder>
       </Holder>
     </ScrollContextProvider>
   );
