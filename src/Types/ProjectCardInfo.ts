@@ -1,20 +1,14 @@
-export enum ProjectTags {
-  javaScript,
-  typeScript,
-  react,
-  next,
-  jest,
-  webSockets,
-  backEnd,
-  frontEnd,
-  fullStack,
-  cSharp,
+export interface ProjectTag {
+  name: string;
+  icon: string;
+  color: string;
+  backgroundColor: string;
 }
 
 interface ProjectCardInfo {
   name: string;
   image: string;
-  tags: ProjectTags[];
+  tags: ProjectTag[];
   description: string;
   isInteractive: boolean;
 }
