@@ -20,7 +20,13 @@ const ProjectCards: ProjectCardInfo[] = [
     name: "My Portfolio",
     description: "My webpagePortfolio",
     image: "logo.svg",
-    tags: [projectTags.javaScript, projectTags.react],
+    tags: [
+      projectTags.javaScript,
+      projectTags.react,
+      projectTags.javaScript,
+      projectTags.react,
+      projectTags.javaScript,
+    ],
     isInteractive: true,
   },
 ];

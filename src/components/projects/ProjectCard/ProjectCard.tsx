@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import styled from "styled-components";
-import ProjectCardInfo from "../../../Types/ProjectCardInfo";
+import ProjectCardInfo, { ProjectTag } from "../../../Types/ProjectCardInfo";
 import Colors from "../../../data/style/Colors";
 
 interface HoverProp {
@@ -45,34 +45,107 @@ const CardInfo = styled.div<HoverProp>`
   left: 0;
   right: 0;
   bottom: 0;
-  height: ${(props) => (props.isHovering ? "100%" : "85px")};
+  transform: translateY(${(props) => (props.isHovering ? "0" : "440px")});
+  height: 525px;
+  background-color: white;
   display: flex;
   flex-direction: column;
-  background-color: white;
   justify-content: space-between;
-  padding: 15px 25px;
-  transition: all ease-in-out 0.1s;
+  transition: all ease-in-out 0.2s;
 `;
 
-const CardInfoName = styled.h4<HoverProp>`
+const MinimizedCardInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 85px;
+  padding: 0 25px;
+`;
+
+const CardInfoName = styled.h4`
   margin: 0;
   color: black;
   font-weight: 700;
   font-size: 16px;
-
-  opacity: ${(props) => (props.isHovering ? "0" : "1")};
   transition: all ease-in-out 0.1s;
 `;
 
-const CardInfoTagHolder = styled.div`
+const CardInfoTagHolder = styled.div<{ isCentered: boolean }>`
   display: flex;
   gap: 13px;
+  flex-wrap: wrap;
+  justify-content: ${(props) => (props.isCentered ? "center" : "flex-start")};
 `;
 
 const MinimizedTag = styled.img`
   width: 23px;
   height: 23px;
   border-radius: 3px;
+`;
+
+const MaximizedCardInfo = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 50px 25px 50px;
+`;
+
+const MaximizedCardTitleHolder = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+`;
+
+const MaximizedCardIcon = styled.img``;
+
+const MaximizedCardTitle = styled.h3`
+  margin: 0;
+  color: black;
+  font-weight: 700;
+  font-size: 30px;
+`;
+
+const Desctiption = styled.p``;
+
+const MaximazableTag = styled.div<{ tag: ProjectTag; isHovering: boolean }>`
+  width: 100px;
+  height: 23px;
+  font-size: 15px;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  overflow: ${(props) => (props.isHovering ? "hidden" : "")};
+
+  div {
+    height: ${(props) => (props.isHovering ? "23px" : "20px")};
+    color: ${(props) => props.tag.color};
+    background-color: ${(props) => props.tag.backgroundColor};
+    width: ${(props) => (props.isHovering ? "100%" : "20px")};
+    overflow: hidden;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: ${(props) =>
+      props.isHovering ? "all 0.2s ease-in 0.7s" : "all 0.1s ease-in"};
+  }
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    opacity: ${(props) => (props.isHovering ? "0" : "1")};
+    transition: ${(props) =>
+      props.isHovering ? "all 0.1s ease-in 0.7s" : "all 0.1s ease-in"};
+  }
 `;
 
 const InteractiveIcon = styled.div<HoverProp>`
@@ -84,24 +157,31 @@ const InteractiveIcon = styled.div<HoverProp>`
   background-color: ${(props) =>
     props.isHovering ? Colors.main : Colors.disabledMain};
   color: white;
-  font-size: 15px;
-  // font-weight: 700;
+
   border-radius: 30px;
   z-index: 10;
-
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: cetner;
   transition: all ease-in-out 0.1s;
 `;
 
 const InteractiveText = styled.p<HoverProp>`
   display flex;
   align-items: center;
-  justify-content: center;
   overflow: hidden;
   height: 100%;
-  width: ${(props) => (props.isHovering ? "100%" : "30px")};
-  transition: all  0.1s ease-in-out 0.1s;
   margin: 0;
 
+
+  &::after {
+    content: "${(props) => (props.isHovering ? "nteractive" : "")}";
+    width: ${(props) => (props.isHovering ? "100%" : "0px")};
+    overflow: hidden;
+    transition: ${(props) =>
+      props.isHovering ? "all 0.2s ease-in 0.35s" : "all 0.1s ease-in"};
+  }
 `;
 
 interface Props {
@@ -112,29 +192,25 @@ const ProjectCard = ({
   cardInfo: { name, description, image, tags, isInteractive },
 }: Props) => {
   const [isHovering, setIsHovering] = useState<boolean>(false);
-  const isHoveringRef = useRef<boolean>(false);
-  const [interactiveContent, setInteractiveContent] = useState<string>("i");
 
-  const renderTags = tags.map((tag) => (
+  const renderTags = tags.map((tag, index) => (
     <MinimizedTag
       src={`./media/tags/${tag.icon}`}
       alt={tag.name}
-      key={tag.name}
+      key={tag.name + "-" + index}
     />
   ));
 
-  useEffect(() => {
-    isHoveringRef.current = isHovering;
-    if (isHovering) {
-      setTimeout(() => {
-        if (isHoveringRef.current) {
-          setInteractiveContent("interactive");
-        }
-      }, 100);
-    } else {
-      setInteractiveContent("i");
-    }
-  }, [isHovering]);
+  const renderMaximazibleTags = tags.map((tag, index) => (
+    <MaximazableTag
+      tag={tag}
+      key={tag.name + "-" + index}
+      isHovering={isHovering}
+    >
+      <MinimizedTag src={`./media/tags/${tag.icon}`} alt={tag.name} />
+      <div>{tag.name}</div>
+    </MaximazableTag>
+  ));
 
   return (
     <CardHolder
@@ -144,9 +220,7 @@ const ProjectCard = ({
       <CardPresentation>
         {isInteractive && (
           <InteractiveIcon isHovering={isHovering}>
-            <InteractiveText isHovering={isHovering}>
-              {interactiveContent}
-            </InteractiveText>
+            <InteractiveText isHovering={isHovering}>i</InteractiveText>
           </InteractiveIcon>
         )}
         <CardTitleHolder>
@@ -160,8 +234,25 @@ const ProjectCard = ({
         </CardTitleHolder>
       </CardPresentation>
       <CardInfo isHovering={isHovering}>
-        <CardInfoName isHovering={isHovering}>{name}</CardInfoName>
-        <CardInfoTagHolder>{renderTags}</CardInfoTagHolder>
+        <MinimizedCardInfo>
+          <CardInfoName>{name}</CardInfoName>
+          <CardInfoTagHolder isCentered={false}>{renderTags}</CardInfoTagHolder>
+        </MinimizedCardInfo>
+        <MaximizedCardInfo>
+          <MaximizedCardTitleHolder>
+            <MaximizedCardIcon
+              alt={`${name} logo`}
+              src={`./media/${image}`}
+              height={65}
+              width={65}
+            />
+            <MaximizedCardTitle>{name}</MaximizedCardTitle>
+          </MaximizedCardTitleHolder>
+          <Desctiption>{description}</Desctiption>
+          <CardInfoTagHolder isCentered={true}>
+            {renderMaximazibleTags}
+          </CardInfoTagHolder>
+        </MaximizedCardInfo>
       </CardInfo>
     </CardHolder>
   );
