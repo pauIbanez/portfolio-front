@@ -10,6 +10,25 @@ const Holder = styled.div`
   flex-direction: column;
 `;
 
+const Content = styled.main`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+`;
+
+const Title = styled.h2`
+  font-weight: 700;
+  font-size: 30px;
+  margin: 0;
+  color: black;
+`;
+
+const ProjectsHolder = styled.div`
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
+`;
+
 const ProjectsPage = () => {
   const projectsRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
@@ -36,6 +55,11 @@ const ProjectsPage = () => {
           onClick: onClick,
         }}
       />
+
+      <Content ref={projectsRef}>
+        <Title>My Projects</Title>
+        <ProjectsHolder></ProjectsHolder>
+      </Content>
     </Holder>
   );
 };
