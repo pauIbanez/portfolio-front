@@ -7,7 +7,9 @@ export interface ProjectTag {
 
 interface ProjectCardInfo {
   name: string;
-  image: string;
+  logo: string;
+  backgroundImage?: string;
+  backgroundColor?: string;
   tags: ProjectTag[];
   description: string;
   isInteractive: boolean;

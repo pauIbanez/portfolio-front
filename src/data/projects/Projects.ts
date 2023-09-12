@@ -34,8 +34,8 @@ const projectTags: { [key: string]: ProjectTag } = {
   webSockets: {
     name: "Web Sockets",
     icon: "webSockets.png",
-    color: "white",
-    backgroundColor: "#E69D2D",
+    color: "#231F20",
+    backgroundColor: "#FDC631",
   },
   backEnd: {
     name: "Back-end",
@@ -68,7 +68,8 @@ const ProjectCards: ProjectCardInfo[] = [
     name: "My Portfolio",
     description:
       "A webpage to showcase my portfolio, CV and a little about myself.",
-    image: "logo.svg",
+    logo: "logo.svg",
+    backgroundImage: "portfolio.png",
     tags: [
       projectTags.javaScript,
       projectTags.typeScript,
@@ -76,7 +77,7 @@ const ProjectCards: ProjectCardInfo[] = [
       projectTags.jest,
       projectTags.fullStack,
     ],
-    isInteractive: true,
+    isInteractive: false,
     link: "/project/myportfolio",
   },
 ];

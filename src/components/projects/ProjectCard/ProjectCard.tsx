@@ -7,14 +7,28 @@ interface HoverProp {
   isHovering: boolean;
 }
 
-const CardHolder = styled.div`
+const CardHolder = styled.div<{
+  backgroundColor?: string;
+  backgroundImage?: string;
+}>`
   width: 440px;
   height: 440px;
-  background-color: ${Colors.backgroundGray};
+
+  background-color: ${(props) =>
+    props.backgroundColor ?? Colors.backgroundGray};
+
+  ${(props) =>
+    props.backgroundImage
+      ? 'background-image: url("./media/projects/' +
+        props.backgroundImage +
+        '");'
+      : ""}
+
   border-radius: 15px;
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1), -4px -4px 10px rgba(0, 0, 0, 0.1);
 `;
 
 const CardPresentation = styled.div`
@@ -48,7 +62,7 @@ const CardInfo = styled.div<HoverProp>`
   bottom: 0;
   transform: translateY(${(props) => (props.isHovering ? "0" : "440px")});
   height: 525px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.85);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -197,7 +211,15 @@ interface Props {
 }
 
 const ProjectCard = ({
-  cardInfo: { name, description, image, tags, isInteractive },
+  cardInfo: {
+    name,
+    description,
+    logo,
+    backgroundImage,
+    backgroundColor,
+    tags,
+    isInteractive,
+  },
   onClick,
 }: Props) => {
   const [isHovering, setIsHovering] = useState<boolean>(false);
@@ -226,6 +248,8 @@ const ProjectCard = ({
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       onClick={onClick}
+      backgroundImage={backgroundImage}
+      backgroundColor={backgroundColor}
     >
       <CardPresentation>
         {isInteractive && (
@@ -236,7 +260,7 @@ const ProjectCard = ({
         <CardTitleHolder>
           <CardIcon
             alt={`${name} logo`}
-            src={`./media/${image}`}
+            src={`./media/${logo}`}
             height={170}
             width={170}
           />
@@ -252,7 +276,7 @@ const ProjectCard = ({
           <MaximizedCardTitleHolder>
             <MaximizedCardIcon
               alt={`${name} logo`}
-              src={`./media/${image}`}
+              src={`./media/${logo}`}
               height={65}
               width={65}
             />
