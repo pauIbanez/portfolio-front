@@ -12,7 +12,7 @@ const CardHolder = styled.div<{
   backgroundImage?: string;
 }>`
   width: 440px;
-  height: 440px;
+  height: 300px;
 
   background-color: ${(props) =>
     props.backgroundColor ?? Colors.backgroundGray};
@@ -48,9 +48,9 @@ const CardTitleHolder = styled.div`
 
 const CardIcon = styled.img``;
 
-const CardTitle = styled.h3`
+const CardTitle = styled.h3<{ color?: string }>`
   margin: 0;
-  color: black;
+  color: ${(props) => props.color ?? "black"};
   font-weight: 700;
   font-size: 35px;
 `;
@@ -60,8 +60,8 @@ const CardInfo = styled.div<HoverProp>`
   left: 0;
   right: 0;
   bottom: 0;
-  transform: translateY(${(props) => (props.isHovering ? "0" : "440px")});
-  height: 525px;
+  transform: translateY(${(props) => (props.isHovering ? "0" : "300px")});
+  height: 385px;
   background-color: rgba(255, 255, 255, 0.85);
   display: flex;
   flex-direction: column;
@@ -73,6 +73,7 @@ const MinimizedCardInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 10px;
   height: 85px;
   padding: 0 25px;
 `;
@@ -87,7 +88,7 @@ const CardInfoName = styled.h4`
 
 const CardInfoTagHolder = styled.div<{ isCentered: boolean }>`
   display: flex;
-  gap: 13px;
+  gap: 8px;
   flex-wrap: wrap;
   justify-content: ${(props) => (props.isCentered ? "center" : "flex-start")};
 `;
@@ -104,7 +105,7 @@ const MaximizedCardInfo = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 70px 50px 40px 50px;
+  padding: 40px 50px 20px 50px;
 `;
 
 const MaximizedCardTitleHolder = styled.div`
@@ -113,16 +114,20 @@ const MaximizedCardTitleHolder = styled.div`
   gap: 20px;
 `;
 
-const MaximizedCardIcon = styled.img``;
+const MaximizedCardIcon = styled.img`
+  border-radius: 8px;
+`;
 
 const MaximizedCardTitle = styled.h3`
   margin: 0;
   color: black;
   font-weight: 700;
-  font-size: 30px;
+  font-size: 25px;
 `;
 
-const Desctiption = styled.p``;
+const Desctiption = styled.p`
+  font-size: 14px;
+`;
 
 const CardClickInfo = styled.p`
   font-weight: 700;
@@ -131,9 +136,10 @@ const CardClickInfo = styled.p`
 `;
 
 const MaximazableTag = styled.div<{ tag: ProjectTag; isHovering: boolean }>`
-  width: 100px;
+  width: 60px;
   height: 25px;
-  font-size: 15px;
+  font-size: 10px;
+  font-weight: 600;
 
   position: relative;
   display: flex;
@@ -149,8 +155,6 @@ const MaximazableTag = styled.div<{ tag: ProjectTag; isHovering: boolean }>`
     width: ${(props) => (props.isHovering ? "100%" : "20px")};
     overflow: hidden;
     border-radius: 15px;
-    font-size: 13px;
-    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -173,15 +177,15 @@ const InteractiveIcon = styled.div<HoverProp>`
   position: absolute;
   top: 18px;
   right: 18px;
-  height: 30px;
-  width: ${(props) => (props.isHovering ? "100px" : "30px")};
+  height: 20px;
+  width: ${(props) => (props.isHovering ? "75px" : "20px")};
   background-color: ${(props) =>
     props.isHovering ? Colors.main : Colors.disabledMain};
   color: white;
 
   border-radius: 30px;
   z-index: 10;
-  font-size: 15px;
+  font-size: 10px;
   display: flex;
   justify-content: center;
   align-items: cetner;
@@ -191,6 +195,7 @@ const InteractiveIcon = styled.div<HoverProp>`
 const InteractiveText = styled.p<HoverProp>`
   display flex;
   align-items: center;
+  // justify-content: center;
   overflow: hidden;
   height: 100%;
   margin: 0;
@@ -213,6 +218,7 @@ interface Props {
 const ProjectCard = ({
   cardInfo: {
     name,
+    nameColor,
     description,
     logo,
     backgroundImage,
@@ -260,11 +266,11 @@ const ProjectCard = ({
         <CardTitleHolder>
           <CardIcon
             alt={`${name} logo`}
-            src={`./media/${logo}`}
-            height={170}
-            width={170}
+            src={`./media/logos/${logo}`}
+            height={100}
+            width={100}
           />
-          <CardTitle>{name}</CardTitle>
+          <CardTitle color={nameColor}>{name}</CardTitle>
         </CardTitleHolder>
       </CardPresentation>
       <CardInfo isHovering={isHovering}>
@@ -276,9 +282,9 @@ const ProjectCard = ({
           <MaximizedCardTitleHolder>
             <MaximizedCardIcon
               alt={`${name} logo`}
-              src={`./media/${logo}`}
-              height={65}
-              width={65}
+              src={`./media/logos/${logo}`}
+              height={50}
+              width={50}
             />
             <MaximizedCardTitle>{name}</MaximizedCardTitle>
           </MaximizedCardTitleHolder>

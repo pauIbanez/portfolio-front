@@ -11,6 +11,7 @@ const Holder = styled.div`
   justify-content: center;
   padding: 0 75px 200px 75px;
   flex-direction: column;
+  align-items: center;
 `;
 
 const Content = styled.main`
@@ -28,8 +29,9 @@ const Title = styled.h2`
 
 const ProjectsHolder = styled.div`
   display: grid;
-  grid-template-columns: auto auto auto;
-  grid-template-rows: auto auto;
+  grid-template-columns: 440px 440px 440px;
+  grid-template-rows: 300px 300px;
+  gap: 50px;
 `;
 
 const ProjectsPage = () => {
