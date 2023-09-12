@@ -17,12 +17,17 @@
     }
   },
   "Projects": {
-    "title": "<&>My<&> Projects"
+    "title": "<&>My<&> Projects",
+    "presentation": {
+      "title": "<&>My<&> Project Portfolio",
+      "text": "Here, you'll find a selection of my <&>finest work so far<&>. These projects highlight my proficiency in <&>various technologies<&> and showcase the answers to the problems I’ve faced while building them.  Throughout my portfolio, you'll notice a strong <&>emphasis on the technical aspects<&>, innovative solutions, and challenges overcome. Even in projects that aren’t finished, I strive to <&>highlight the skills and creativity<&> I bring to the table.\n \n <&>Quality<&> is paramount to me, and I believe in showcasing a curated selection of projects that represent <&>my best work<&>. Rather than presenting an extensive list, I have carefully chosen the projects that best exemplify my capabilities as full-stack developer. Even if <&>not all of my projects are websites<&> directly, I strongly believe that <&>my experience in these other platforms helped me become a better web developer<&> and made me a <&>better problem solver<&>.",
+      "button": "Go to Projects"
+    }
   },
   "CV": {
     "title": "<&>My<&> Curriculum",
     "presentation": {
-      "title": "<&>My<&> Curriculum \n Vitae",
+      "title": "<&>My<&> Curriculum Vitae",
       "text": "Take a look at my curriculum, you can explore my <&>educational background<&> and <&>professional experience<&>. Furthermore, I have dedicated a section to outline the various <&>technologies and skills<&> I’ve worked with and developed over the years, along with my <&>proficiency level<&> in each of them. \n \nTo ensure your <&>convenience<&>, I have also created a <&>compact version of my CV in PDF format<&>, which you can easily <&>download<&>. The download options can be found at the <&>bottom of this page<&>.",
       "button": "Go to CV"
     },

@@ -19,6 +19,7 @@ const BarContainer = styled.div`
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  z-index: 10;
 `;
 
 interface Props {
