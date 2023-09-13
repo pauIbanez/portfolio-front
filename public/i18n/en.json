@@ -245,7 +245,7 @@
       },
       {
         "title": "<&>Team<&> Player",
-        "text": "Beyond my individual projects, I’ve found great fulfillment in <&>connecting with other developers<&> and working together as a <&>team<&>. \n \n I’ve worked in a couple of international projects where I was able to <&>expand my abilities by learning and sharing with my peers<&>. This part of my career has been mostly focused on game developing and modding and it helped me develop my skills as a team player and showed me that <&>sharing your code and ideas the allways improves the project<&>."
+        "text": "Beyond my individual projects, I’ve found great fulfillment in <&>connecting with other developers<&> and working together as a <&>team<&>. \n \n I’ve worked in a couple of international projects where I was able to <&>expand my abilities by learning and sharing with my peers<&>. \n \n This part of my career has been mostly focused on game developing and modding and it helped me develop my skills as a team player and showed me that <&>sharing your code and ideas the allways improves the project<&>."
       },
       {
         "title": "<&>Lazy<&> Yet Resourceful",
@@ -256,7 +256,7 @@
         "text": "From a young age, I've been fascinated by programming. It all started with a curiosity for building robots using <&>Arduino<&> with <&>C++<&>. Eventually, my passion shifted towards creating games, starting with Scratch, and eventually finding <&>Unity<&>, where I developed my skills in <&>C#<&>. I immersed myself in learning different programming languages based on my interests at the time. For example, I explored <&>JavaScript<&> with (unfortunatley) <&>JQuery<&> when I built my first user interface, and I learned in <&>Lua<&> and <&>SQL<&> while creating video game mods. This journey helped me become a <&>versatile full-stack developer<&>, familiar with various platforms and technologies.\n \n Although I had a decent understanding of different programming languages, I realized my coding practices were messy and unreliable. That's when I decided to enroll in the <&>ISDI Coders Bootcamp<&> in Barcelona. For three intensive months, I dedicated myself to develop my skills in <&>JavaScript and TypeScript<&>, specially using the <&>MERN stack<&>, spending 12 hours a day, seven days a week creating web pages and entire full-stack apps. The boot-camp not only refined my coding abilities but also taught me how to code while keeping consistency, good practices and scalability in my apps.\n \n After completing the boot-camp, I landed my first full-stack job at Blikk, a banking startup from Iceland. Interestingly, I didn't get to use the programming languages I had learned up to that point. However, my previous experience of learning new languages prepared me for the challenge and I successfully built a <&>full-stack mobile app<&> using <&>Dart<&> and <&>Flutter<&> for the front-end and <&>Golang<&> for the back-end."
       }
     ],
-    "images": ["Some code", "Trust me you don't want to know"]
+    "images": ["3 people with their hands up", "Cartoon man climbing a ladder"]
   },
   "Contact": {
     "title": "Contact <&>me<&>",
