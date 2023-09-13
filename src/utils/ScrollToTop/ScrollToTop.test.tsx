@@ -6,7 +6,7 @@ describe("Given the ScrollToTop component", () => {
     test("Then it should call window.scrollTo", () => {
       renderInRouter(<ScrollToTop />);
 
-      expect(window.scrollTo).toHaveBeenCalled();
+      expect(window.scrollTo).toHaveBeenCalledWith(0, 0);
     });
   });
 });
