@@ -1,34 +1,47 @@
 import styled from "styled-components";
 import TiteledText from "../../components/textComponents/TitledText/TiteledText";
-import Colors from "../../data/style/Colors";
 import { useTranslation } from "react-i18next";
+import ColoredText from "../../components/textComponents/ColoredText/ColoredText";
 
-const AboutMeHolder = styled.div`
-  display: flex;
-  justify-content: center;
-  padding-top: 50px;
-`;
-
-const SectionsHolder = styled.main`
-  display: flex;
-  justify-content: center;
-  padding: 75px;
-  width: 100%;
-  gap: 150px;
-  text-align: justify;
-`;
-
-const Column = styled.div`
+const AboutMeHolder = styled.main`
   display: flex;
   flex-direction: column;
-  gap: 50px;
-  max-width: 700px;
-  flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 125px 0;
+  text-align: justify;
+  gap: 100px;
+  margin: 0 auto;
+  min-width: 1530px;
+  max-width: 1530px;
 `;
 
-const FillerImage = styled.img`
-  background-color: ${Colors.lightTextGray};
-  border-radius: 15px;
+const Row = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 75px;
+`;
+
+const RowItem = styled.div`
+  max-width: 700px;
+  display
+`;
+
+const FloatingImage = styled.img`
+  float: right;
+  margin: 0 80px;
+`;
+
+const TextSection = styled.div`
+  p {
+    margin: 0;
+  }
+
+  h3 {
+    margin: 0;
+    margin-bottom: 15px;
+  }
 `;
 
 const AboutMePage = () => {
@@ -36,38 +49,48 @@ const AboutMePage = () => {
 
   return (
     <AboutMeHolder>
-      <SectionsHolder>
-        <Column>
-          <TiteledText
-            title={t("AboutMe.textSections.0.title")}
-            text={t("AboutMe.textSections.0.text")}
-          />
-          <FillerImage
-            height={250}
-            alt={t("AboutMe.images.0")}
-            src="./media/aboutMe/code.png"
-          />
-          <TiteledText
-            title={t("AboutMe.textSections.1.title")}
-            text={t("AboutMe.textSections.1.text")}
-          />
+      <TiteledText
+        title={t("AboutMe.textSections.0.title")}
+        text={t("AboutMe.textSections.0.text")}
+      />
+      <Row>
+        <RowItem>
+          <div>
+            <div>
+              <FloatingImage
+                src="./media/aboutMe/team.png"
+                alt="a"
+                width={222}
+                height={216}
+              />
+            </div>
+            <TextSection>
+              <ColoredText
+                text={t("AboutMe.textSections.1.title")}
+                styleData={{
+                  heading: 3,
+                  weight: 700,
+                  size: "20px",
+                }}
+              />
+              <ColoredText text={t("AboutMe.textSections.1.text")} />
+            </TextSection>
+          </div>
+        </RowItem>
+        <RowItem>
           <TiteledText
             title={t("AboutMe.textSections.2.title")}
             text={t("AboutMe.textSections.2.text")}
           />
-        </Column>
-        <Column>
-          <TiteledText
-            title={t("AboutMe.textSections.3.title")}
-            text={t("AboutMe.textSections.3.text")}
-          />
-          <FillerImage
-            height={420}
-            alt={t("AboutMe.images.1")}
-            src="./media/aboutMe/wtf.png"
-          />
-        </Column>
-      </SectionsHolder>
+        </RowItem>
+      </Row>
+      <Row>
+        <TiteledText
+          title={t("AboutMe.textSections.3.title")}
+          text={t("AboutMe.textSections.3.text")}
+        />
+        <img src="./media/aboutMe/ladder.png" alt="a" />
+      </Row>
     </AboutMeHolder>
   );
 };
