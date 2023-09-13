@@ -59,7 +59,7 @@ const AboutMePage = () => {
             <div>
               <FloatingImage
                 src="./media/aboutMe/team.png"
-                alt="a"
+                alt={t("AboutMe.images.0")}
                 width={222}
                 height={216}
               />
@@ -89,7 +89,12 @@ const AboutMePage = () => {
           title={t("AboutMe.textSections.3.title")}
           text={t("AboutMe.textSections.3.text")}
         />
-        <img src="./media/aboutMe/ladder.png" alt="a" />
+        <img
+          src="./media/aboutMe/ladder.png"
+          alt={t("AboutMe.images.1")}
+          width={175}
+          height={315}
+        />
       </Row>
     </AboutMeHolder>
   );
