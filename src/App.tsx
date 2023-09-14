@@ -6,6 +6,7 @@ import CVPage from "./Pages/CVPage/CVPage";
 import ContactPage from "./Pages/ContactPage/ContactPage";
 import AboutMePage from "./Pages/AboutMePage/AboutMePage";
 import ProjectsPage from "./Pages/ProjectsPage/ProjectsPage";
+import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         </Route>
         <Route path={Pages.curriculum.path} element={<CVPage />} />
         <Route path={Pages.contact.path} element={<ContactPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Layout>
   );
