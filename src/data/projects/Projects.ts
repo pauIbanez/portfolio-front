@@ -1,67 +1,81 @@
 import ProjectCardInfo, { ProjectTag } from "../../Types/ProjectCardInfo";
 
-const projectTags: { [key: string]: ProjectTag } = {
-  javaScript: {
+export enum ProjectTags {
+  javaScript,
+  typeScript,
+  react,
+  next,
+  jest,
+  webSockets,
+  backEnd,
+  frontEnd,
+  fullStack,
+  cSharp,
+  unity,
+}
+
+export const projectTagData: { [key: number]: ProjectTag } = {
+  0: {
     name: "JavaScript",
     icon: "javaScript.png",
     color: "#323330",
     backgroundColor: "#F0DB4F",
   },
-  typeScript: {
+  1: {
     name: "TypeScript",
     icon: "typeScript.png",
     color: "white",
     backgroundColor: "#007ACC",
   },
-  react: {
+  2: {
     name: "React",
     icon: "react.png",
     color: "#61DBFB",
     backgroundColor: "#1C1C1C",
   },
-  next: {
+  3: {
     name: "Next.js",
     icon: "next.png",
     color: "#F7F7F7",
     backgroundColor: "black",
   },
-  jest: {
+  4: {
     name: "Jest",
     icon: "jest.png",
     color: "#F7F7F7",
     backgroundColor: "#C03B13",
   },
-  webSockets: {
+  5: {
     name: "Web Sockets",
     icon: "webSockets.png",
     color: "#231F20",
     backgroundColor: "#FDC631",
   },
-  backEnd: {
+  6: {
     name: "Back-end",
     icon: "backEnd.png",
     color: "white",
     backgroundColor: "#659F64",
   },
-  frontEnd: {
+  7: {
     name: "Front-end",
     icon: "frontEnd.png",
     color: "white",
     backgroundColor: "#525CB0",
   },
-  fullStack: {
+  8: {
     name: "Full-Stack",
     icon: "fullStack.png",
     color: "white",
     backgroundColor: "#FF25DC",
   },
-  cSharp: {
+  9: {
     name: "CSharp",
     icon: "cSharp.png",
     color: "white",
     backgroundColor: "#A179DC",
   },
-  unity: {
+  10: {
     name: "Unity",
     icon: "unity.png",
     color: "white",
@@ -77,11 +91,11 @@ const ProjectCards: ProjectCardInfo[] = [
     logo: "logo.svg",
     backgroundImage: "portfolio.png",
     tags: [
-      projectTags.javaScript,
-      projectTags.typeScript,
-      projectTags.react,
-      projectTags.jest,
-      projectTags.fullStack,
+      ProjectTags.javaScript,
+      ProjectTags.typeScript,
+      ProjectTags.react,
+      ProjectTags.jest,
+      ProjectTags.fullStack,
     ],
     isInteractive: false,
     link: "/project/myportfolio",
@@ -94,11 +108,11 @@ const ProjectCards: ProjectCardInfo[] = [
     logo: "logo.svg",
     backgroundImage: "mymenu.png",
     tags: [
-      projectTags.javaScript,
-      projectTags.typeScript,
-      projectTags.react,
-      projectTags.jest,
-      projectTags.fullStack,
+      ProjectTags.javaScript,
+      ProjectTags.typeScript,
+      ProjectTags.react,
+      ProjectTags.jest,
+      ProjectTags.fullStack,
     ],
     isInteractive: false,
     link: "/project/myMenu",
@@ -110,11 +124,11 @@ const ProjectCards: ProjectCardInfo[] = [
     logo: "drinkit.png",
     backgroundColor: "#3E51DB",
     tags: [
-      projectTags.javaScript,
-      projectTags.typeScript,
-      projectTags.react,
-      projectTags.jest,
-      projectTags.fullStack,
+      ProjectTags.javaScript,
+      ProjectTags.typeScript,
+      ProjectTags.react,
+      ProjectTags.jest,
+      ProjectTags.fullStack,
     ],
     isInteractive: false,
     link: "/project/drinkit",
@@ -123,7 +137,7 @@ const ProjectCards: ProjectCardInfo[] = [
     name: "Nova",
     description: "An online MOBA game.",
     logo: "logo.svg",
-    tags: [projectTags.cSharp, projectTags.unity, projectTags.fullStack],
+    tags: [ProjectTags.cSharp, ProjectTags.unity, ProjectTags.fullStack],
     isInteractive: false,
     link: "/project/nova",
   },
@@ -132,11 +146,11 @@ const ProjectCards: ProjectCardInfo[] = [
     description: "The client to interact with Nova.",
     logo: "logo.svg",
     tags: [
-      projectTags.javaScript,
-      projectTags.typeScript,
-      projectTags.react,
-      projectTags.jest,
-      projectTags.fullStack,
+      ProjectTags.javaScript,
+      ProjectTags.typeScript,
+      ProjectTags.react,
+      ProjectTags.jest,
+      ProjectTags.fullStack,
     ],
     isInteractive: false,
     link: "/project/nova",
@@ -146,11 +160,11 @@ const ProjectCards: ProjectCardInfo[] = [
     description: "A few minigames to pass the time.",
     logo: "logo.svg",
     tags: [
-      projectTags.javaScript,
-      projectTags.typeScript,
-      projectTags.react,
-      projectTags.jest,
-      projectTags.frontEnd,
+      ProjectTags.javaScript,
+      ProjectTags.typeScript,
+      ProjectTags.react,
+      ProjectTags.jest,
+      ProjectTags.frontEnd,
     ],
     isInteractive: true,
     link: "/project/minigames",

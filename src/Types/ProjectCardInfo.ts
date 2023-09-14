@@ -1,3 +1,5 @@
+import { ProjectTags } from "../data/projects/Projects";
+
 export interface ProjectTag {
   name: string;
   icon: string;
@@ -11,7 +13,7 @@ interface ProjectCardInfo {
   logo: string;
   backgroundImage?: string;
   backgroundColor?: string;
-  tags: ProjectTag[];
+  tags: ProjectTags[];
   description: string;
   isInteractive: boolean;
   link: string;
