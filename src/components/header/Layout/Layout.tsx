@@ -31,12 +31,13 @@ const Layout = ({ children }: Props) => {
 
   const currentPath = useLocation().pathname;
 
-  // const topPath = currentPath.slice(1).includes("/")
-  //   ? currentPath.slice(0, currentPath.slice(1).indexOf("/") + 1)
-  //   : currentPath;
+  const pathNoSlash = currentPath.slice(1);
+  const lastPath = pathNoSlash.includes("/")
+    ? pathNoSlash.slice(pathNoSlash.indexOf("/") + 1, pathNoSlash.length)
+    : currentPath;
 
   const currentPage = Object.values(Pages).find(
-    (page) => page.path === currentPath
+    (page) => page.path === lastPath
   );
 
   const title = currentPage
