@@ -4,6 +4,16 @@ import ProjectsPage from "./ProjectsPage";
 import ProjectCards from "../../data/projects/Projects";
 import userEvent from "@testing-library/user-event";
 
+const mockNavigate = jest.fn();
+
+jest.mock("react-router-dom", () => ({
+  useNavigate: () => mockNavigate,
+}));
+
+beforeEach(() => {
+  jest.resetAllMocks();
+});
+
 describe("Given the Projects page", () => {
   describe("When it's instanciated", () => {
     test("Then it should render a presentation title and text", () => {
@@ -44,6 +54,18 @@ describe("Given the Projects page", () => {
       userEvent.click(foundButton);
 
       expect(window.scrollTo).toHaveBeenCalled();
+    });
+  });
+
+  describe("When it's intanciated and one of the projects is clicked on", () => {
+    test("Then it should call navigate with the project url", () => {
+      renderInRouter(<ProjectsPage />);
+
+      const foundCards = screen.getAllByTestId("project-card");
+
+      userEvent.click(foundCards[0]);
+
+      expect(mockNavigate).toHaveBeenCalledWith(ProjectCards[0].link);
     });
   });
 });
