@@ -256,6 +256,7 @@ const ProjectCard = ({
       onClick={onClick}
       backgroundImage={backgroundImage}
       backgroundColor={backgroundColor}
+      data-testid="project-card"
     >
       <CardPresentation>
         {isInteractive && (
