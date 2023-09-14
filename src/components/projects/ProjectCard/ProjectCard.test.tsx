@@ -3,8 +3,6 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import ProjectCardInfo from "../../../Types/ProjectCardInfo";
 import { ProjectTags } from "../../../data/projects/Projects";
 import ProjectCard from "./ProjectCard";
-import { act } from "react-dom/test-utils";
-import { wait } from "@testing-library/user-event/dist/utils";
 
 describe("Given the ProjectCard component", () => {
   const mockProject: ProjectCardInfo = {
