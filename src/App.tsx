@@ -16,15 +16,9 @@ function App() {
         <Route path={Pages.home.path} element={<HomePage />} />
         <Route path={Pages.aboutMe.path} element={<AboutMePage />} />
         <Route path={Pages.projects.path} element={<ProjectsPage />} />
-        <Route path={Pages.project.path}>
-          <Route
-            path={Pages.project.projectPaths![0]}
-            element={<p>Minigames</p>}
-          />
-          <Route
-            path={Pages.project.projectPaths![1]}
-            element={<p>Portfolio</p>}
-          />
+        <Route path={"/project"}>
+          <Route path={Pages.minigames.path} element={<p>Minigames</p>} />
+          <Route path={Pages.myPortfolio.path} element={<p>Portfolio</p>} />
         </Route>
         <Route path={Pages.curriculum.path} element={<CVPage />} />
         <Route path={Pages.contact.path} element={<ContactPage />} />

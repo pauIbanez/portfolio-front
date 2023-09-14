@@ -3,7 +3,6 @@ interface PageInfo {
   readonly name: string;
   readonly translationKey?: string;
   readonly isDynamic?: boolean;
-  readonly projectPaths?: string[];
 }
 
 export default PageInfo;

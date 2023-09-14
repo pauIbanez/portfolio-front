@@ -11,11 +11,15 @@ const Pages: { [key: string]: PageInfo } = {
     name: "Projects",
     translationKey: "projects",
   },
-  project: {
-    path: "/project",
-    name: "Project",
-    isDynamic: true,
-    projectPaths: ["minigames", "myPortfolio"],
+  minigames: {
+    path: "minigames",
+    name: "Minigames",
+    translationKey: "minigames",
+  },
+  myPortfolio: {
+    path: "myPortfolio",
+    name: "Portfolio website",
+    translationKey: "myPortfolio",
   },
   curriculum: {
     path: "/curriculum",
