@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import ProjectCardInfo, { ProjectTag } from "../../../Types/ProjectCardInfo";
 import Colors from "../../../data/style/Colors";
+import { projectTagData } from "../../../data/projects/Projects";
 
 interface HoverProp {
   isHovering: boolean;
@@ -118,7 +119,7 @@ const MaximizedCardIcon = styled.img`
   border-radius: 8px;
 `;
 
-const MaximizedCardTitle = styled.h3`
+const MaximizedCardTitle = styled.h5`
   margin: 0;
   color: black;
   font-weight: 700;
@@ -230,32 +231,43 @@ const ProjectCard = ({
 }: Props) => {
   const [isHovering, setIsHovering] = useState<boolean>(false);
 
-  const renderTags = tags.map((tag, index) => (
-    <MinimizedTag
-      src={`./media/tags/${tag.icon}`}
-      alt={tag.name}
-      key={tag.name + "-" + index}
-    />
-  ));
+  const renderTags = tags.map((tag, index) => {
+    const tagData: ProjectTag = projectTagData[tag];
 
-  const renderMaximazibleTags = tags.map((tag, index) => (
-    <MaximazableTag
-      tag={tag}
-      key={tag.name + "-" + index}
-      isHovering={isHovering}
-    >
-      <MinimizedTag src={`./media/tags/${tag.icon}`} alt={tag.name} />
-      <div>{tag.name}</div>
-    </MaximazableTag>
-  ));
+    return (
+      <MinimizedTag
+        src={`./media/tags/${tagData.icon}`}
+        alt={tagData.name}
+        key={tagData.name + "-" + index}
+      />
+    );
+  });
+
+  const renderMaximazibleTags = tags.map((tag, index) => {
+    const tagData: ProjectTag = projectTagData[tag];
+
+    return (
+      <MaximazableTag
+        tag={tagData}
+        key={tagData.name + "-" + index}
+        isHovering={isHovering}
+      >
+        <MinimizedTag src={`./media/tags/${tagData.icon}`} alt={tagData.name} />
+        <div>{tagData.name}</div>
+      </MaximazableTag>
+    );
+  });
 
   return (
     <CardHolder
-      onMouseEnter={() => setIsHovering(true)}
+      onMouseEnter={() => {
+        setIsHovering(true);
+      }}
       onMouseLeave={() => setIsHovering(false)}
       onClick={onClick}
       backgroundImage={backgroundImage}
       backgroundColor={backgroundColor}
+      data-testid="project-card"
     >
       <CardPresentation>
         {isInteractive && (
