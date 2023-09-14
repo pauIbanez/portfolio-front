@@ -1,9 +1,13 @@
 import styled from "styled-components";
 import ColoredText from "../ColoredText/ColoredText";
 
-const TextSection = styled.div<{ gap?: number }>`
+const TextSection = styled.div<{ gap?: number; textAlign?: "left" | "center" }>`
   display: flex;
   flex-direction: column;
+  ${(props) =>
+    props.textAlign && props.textAlign === "center"
+      ? "align-items: center;"
+      : ""}
   gap: ${(props) => props.gap ?? 15}px;
 
   h2,
@@ -34,11 +38,12 @@ interface Props {
       accentColor?: string;
     };
     gap?: number;
+    textAlign?: "left" | "center";
   };
 }
 const TiteledText = ({ title, text, styleObject }: Props) => {
   return (
-    <TextSection gap={styleObject?.gap}>
+    <TextSection gap={styleObject?.gap} textAlign={styleObject?.textAlign}>
       <ColoredText
         text={title}
         styleData={{

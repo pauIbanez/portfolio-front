@@ -6,6 +6,7 @@ import CVPage from "./Pages/CVPage/CVPage";
 import ContactPage from "./Pages/ContactPage/ContactPage";
 import AboutMePage from "./Pages/AboutMePage/AboutMePage";
 import ProjectsPage from "./Pages/ProjectsPage/ProjectsPage";
+import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 
 function App() {
   return (
@@ -15,18 +16,13 @@ function App() {
         <Route path={Pages.home.path} element={<HomePage />} />
         <Route path={Pages.aboutMe.path} element={<AboutMePage />} />
         <Route path={Pages.projects.path} element={<ProjectsPage />} />
-        <Route path={Pages.project.path}>
-          <Route
-            path={Pages.project.projectPaths![0]}
-            element={<p>Minigames</p>}
-          />
-          <Route
-            path={Pages.project.projectPaths![1]}
-            element={<p>Portfolio</p>}
-          />
+        <Route path={"/project"}>
+          <Route path={Pages.minigames.path} element={<p>Minigames</p>} />
+          <Route path={Pages.myPortfolio.path} element={<p>Portfolio</p>} />
         </Route>
         <Route path={Pages.curriculum.path} element={<CVPage />} />
         <Route path={Pages.contact.path} element={<ContactPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Layout>
   );

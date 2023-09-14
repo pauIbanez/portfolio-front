@@ -30,17 +30,19 @@ const Layout = ({ children }: Props) => {
   const { t } = useTranslation();
 
   const currentPath = useLocation().pathname;
-  const pathName = currentPath.slice(1).includes("/")
-    ? currentPath.slice(0, currentPath.slice(1).indexOf("/") + 1)
+
+  const pathNoSlash = currentPath.slice(1);
+  const lastPath = pathNoSlash.includes("/")
+    ? pathNoSlash.slice(pathNoSlash.indexOf("/") + 1, pathNoSlash.length)
     : currentPath;
 
   const currentPage = Object.values(Pages).find(
-    (page) => page.path === pathName
+    (page) => page.path === lastPath
   );
 
-  const title = currentPage?.isDynamic
-    ? "Project"
-    : t(`${currentPage?.name}.title`);
+  const title = currentPage
+    ? t(`${currentPage?.name}.title`)
+    : t("NotFound.title");
 
   return (
     <>

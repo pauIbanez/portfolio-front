@@ -86,13 +86,13 @@ const NavBar = () => {
   const { t } = useTranslation();
 
   const pages = Object.values(Pages)
-    .filter((page) => !page.isDynamic && page.name !== "Contact")
+    .filter((page) => !page.isHidden && page.name !== "Contact")
     .map((page) => (
       <NavItem
         key={page.name}
         $active={
           currentPage === page.path ||
-          (page.name === "Projects" && currentPage.includes(Pages.project.path))
+          (page.name === "Projects" && currentPage.includes("project"))
         }
         to={page.path}
       >
