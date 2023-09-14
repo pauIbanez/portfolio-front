@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import TiteledText from "../../components/textComponents/TitledText/TiteledText";
+import { useTranslation } from "react-i18next";
 
 const Holder = styled.main`
   display: flex;
@@ -12,17 +13,19 @@ const Holder = styled.main`
 `;
 
 const NotFoundPage = () => {
+  const { t } = useTranslation();
+
   return (
     <Holder>
       <img
         src="/media/notFound/lost.png"
-        alt="lost man"
+        alt={t("NotFound.image")}
         height={316}
         width={316}
       />
       <TiteledText
-        title="404 Page Not Found"
-        text="How did we end up here?"
+        title={t("NotFound.title")}
+        text={t("NotFound.text")}
         styleObject={{ textAlign: "center" }}
       />
     </Holder>

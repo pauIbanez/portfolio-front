@@ -312,5 +312,10 @@
         "message": "We are missing the message!"
       }
     }
+  },
+  "NotFound": {
+    "title": "<&>404<&> Page Not Found",
+    "text": "How did we end up here?",
+    "image": "A lost man"
   }
 }

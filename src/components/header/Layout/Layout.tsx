@@ -42,7 +42,7 @@ const Layout = ({ children }: Props) => {
 
   const title = currentPage
     ? t(`${currentPage?.name}.title`)
-    : t("notFoundPage.title");
+    : t("NotFound.title");
 
   return (
     <>
