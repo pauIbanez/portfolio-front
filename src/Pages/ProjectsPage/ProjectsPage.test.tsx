@@ -2,6 +2,7 @@ import { screen } from "@testing-library/react";
 import { renderInRouter } from "../../setupTests";
 import ProjectsPage from "./ProjectsPage";
 import ProjectCards from "../../data/projects/Projects";
+import userEvent from "@testing-library/user-event";
 
 describe("Given the Projects page", () => {
   describe("When it's instanciated", () => {
@@ -28,6 +29,21 @@ describe("Given the Projects page", () => {
       const foundCards = screen.getAllByTestId("project-card");
 
       expect(foundCards.length).toBe(expectedNumberOfCards);
+    });
+  });
+  describe("When it's intanciated and the 'Go to projects' button is pressed", () => {
+    test("Then it should call the ref's scrollTo", () => {
+      const expectedButton = "Projects.presentation.button";
+
+      renderInRouter(<ProjectsPage />);
+
+      const foundButton = screen.getByRole("button", {
+        name: expectedButton,
+      });
+
+      userEvent.click(foundButton);
+
+      expect(window.scrollTo).toHaveBeenCalled();
     });
   });
 });
