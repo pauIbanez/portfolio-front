@@ -15,7 +15,7 @@ const Pages: { [key: string]: PageInfo } = {
     path: "/project",
     name: "Project",
     isDynamic: true,
-    id: ":projectId",
+    projectPaths: ["minigames", "myPortfolio"],
   },
   curriculum: {
     path: "/curriculum",

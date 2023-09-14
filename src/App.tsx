@@ -16,7 +16,14 @@ function App() {
         <Route path={Pages.aboutMe.path} element={<AboutMePage />} />
         <Route path={Pages.projects.path} element={<ProjectsPage />} />
         <Route path={Pages.project.path}>
-          <Route path={Pages.project.id} element={<p>Project page</p>} />
+          <Route
+            path={Pages.project.projectPaths![0]}
+            element={<p>Minigames</p>}
+          />
+          <Route
+            path={Pages.project.projectPaths![1]}
+            element={<p>Portfolio</p>}
+          />
         </Route>
         <Route path={Pages.curriculum.path} element={<CVPage />} />
         <Route path={Pages.contact.path} element={<ContactPage />} />
