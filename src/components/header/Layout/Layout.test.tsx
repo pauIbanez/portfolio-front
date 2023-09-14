@@ -24,10 +24,27 @@ describe("Given the Layout component", () => {
     });
   });
 
-  describe("When it's instanciated in a dynamic page", () => {
-    test("Then it should render the Pagetitle with text 'Project'", () => {
-      const pathname = "/project/example";
-      const expectedTitle = "Project";
+  describe("When it's instanciated in a hidden page", () => {
+    test("Then it should still render it's title", () => {
+      const pathname = "/project/minigames";
+      const expectedTitle = "Minigames.title";
+
+      render(
+        <MemoryRouter initialEntries={[pathname]}>
+          <Layout />
+        </MemoryRouter>
+      );
+
+      const foundTitle = screen.getByText(expectedTitle);
+
+      expect(foundTitle).toBeInTheDocument();
+    });
+  });
+
+  describe("When it's instanciated in a missing page", () => {
+    test("Then it should render the notFound title", () => {
+      const pathname = "/paasdasdad";
+      const expectedTitle = "NotFound.title";
 
       render(
         <MemoryRouter initialEntries={[pathname]}>
