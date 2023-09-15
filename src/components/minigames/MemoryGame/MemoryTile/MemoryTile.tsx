@@ -10,30 +10,37 @@ const Tile = styled.div<{
 }>`
   height: 100px;
   width: 100px;
-  border-radius: 10px;
-  background-color: ${Colors.backgroundGray};
-  border: 2px solid ${Colors.disabledMain};
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
   position: relative;
 
   cursor: pointer;
   pointer-events: ${(props) =>
     props.matched || props.isOpen || !props.canClick ? "none" : "all"};
+`;
 
-  img {
-    position: absolute;
-    inset: 0;
-    margin: auto auto;
+const Face = styled.div<{ isBack?: boolean; isOpen: boolean }>`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
 
-    &:nth-child(1) {
-      opacity: ${(props) => (props.isOpen ? "0" : "1")};
-    }
-    &:nth-child(2) {
-      opacity: ${(props) => (props.isOpen ? "1" : "0")};
-    }
-  }
+  transition: transform 0.8s;
+
+  background-color: ${(props) =>
+    props.isBack ? Colors.backgroundGray : Colors.disabledMain};
+  border: 2px solid
+    ${(props) => (props.isBack ? Colors.disabledMain : Colors.main)};
+  border-radius: 10px;
+
+  ${(props) =>
+    props.isBack ? (props.isOpen ? "transform: rotateY(180deg);" : "") : ""}
+
+  ${(props) =>
+    !props.isBack ? (props.isOpen ? "" : "transform: rotateY(180deg);") : ""}
 `;
 
 interface Props {
@@ -92,11 +99,15 @@ const MemoryTile = ({
       matched={matched}
       canClick={canClick}
     >
-      <img src="/media/minigames/memory/back.png" alt="logo" />
-      <img
-        src={`/media/minigames/memory/${currentImage}.png`}
-        alt="tile Icon"
-      />
+      <Face isBack={true} isOpen={isOpen}>
+        <img src="/media/minigames/memory/back.png" alt="logo" />
+      </Face>
+      <Face isOpen={isOpen}>
+        <img
+          src={`/media/minigames/memory/${currentImage}.png`}
+          alt="tile Icon"
+        />
+      </Face>
     </Tile>
   );
 };
