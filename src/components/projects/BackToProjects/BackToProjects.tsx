@@ -5,7 +5,7 @@ import { useContext } from "react";
 import ScrollRestorationContext from "../../../contexts/ScrollRestoration/ScrollRestoration.contextCreator";
 
 const Holder = styled.div`
-  height: 100px;
+  height: 150px;
   display: flex;
   align-items: center;
 `;

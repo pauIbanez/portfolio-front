@@ -1,0 +1,51 @@
+import styled from "styled-components";
+import Colors from "../../../data/style/Colors";
+
+const Container = styled.section`
+  width: 100%;
+  background-color: white;
+  color: ${Colors.textGray};
+  border-radius: 15px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1), -4px -4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 1175px;
+`;
+
+const Title = styled.h3`
+  font-weight: 700;
+  font-size: 20px;
+  color: black;
+  margin: 0;
+`;
+
+const Content = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 70px 20px 70px;
+`;
+
+const Holder = styled.div`
+  padding: 0 70px 40px 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  p {
+    margin: 0;
+  }
+`;
+
+interface Props {
+  title: string;
+  children: JSX.Element;
+}
+const GameSection = ({ title, children }: Props) => {
+  return (
+    <Container>
+      <Content>
+        <Title>{title}</Title>
+      </Content>
+      <Holder>{children}</Holder>
+    </Container>
+  );
+};
+
+export default GameSection;

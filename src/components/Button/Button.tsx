@@ -17,14 +17,15 @@ const ButtonCase = styled.button<ButotnCaseProps>`
   display: flex;
   align-items: center;
   justify-content: center;
+
   padding: ${(props) =>
-    props.styleObject?.padding
+    props.styleObject?.padding || props.styleObject?.padding === 0
       ? `0 ${props.styleObject.padding}px 0 ${props.styleObject.padding}px`
       : "0 30px 0 30px"};
   font-family: inherit;
 
   user-select: none;
-  :gap: 8px;
+  gap: 8px;
   height: ${(props) =>
     props.styleObject?.height ? props.styleObject.height + "px" : "60px"};
   width: ${(props) =>
