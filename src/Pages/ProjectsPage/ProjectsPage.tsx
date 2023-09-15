@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import PresentationText from "../../components/textComponents/PresentationText/PresentationText";
 import { useTranslation } from "react-i18next";
-import { useRef } from "react";
+import { useRef, useContext } from "react";
 import ProjectCards from "../../data/projects/Projects";
 import ProjectCard from "../../components/projects/ProjectCard/ProjectCard";
 import { useNavigate } from "react-router-dom";
+import ScrollRestorationContext from "../../contexts/ScrollRestoration/ScrollRestoration.contextCreator";
+import useEffectOnce from "../../hooks/useEffectOnce";
 
 const Holder = styled.div`
   display: flex;
@@ -38,13 +40,21 @@ const ProjectsPage = () => {
   const projectsRef = useRef<HTMLDivElement>(null);
   const { t } = useTranslation();
 
-  const onClick = () => {
+  const { scrollToMain } = useContext(ScrollRestorationContext);
+
+  const onClick = (smooth = true) => {
     const rect = projectsRef.current?.getBoundingClientRect();
     window.scrollTo({
       top: (rect?.top || 0) + window.scrollY - 100,
-      behavior: "smooth",
+      behavior: smooth ? "smooth" : "auto",
     });
   };
+
+  useEffectOnce(() => {
+    if (scrollToMain) {
+      onClick(false);
+    }
+  });
 
   const navigate = useNavigate();
 

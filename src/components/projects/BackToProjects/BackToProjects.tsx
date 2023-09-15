@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Button from "../../Button/Button";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import ScrollRestorationContext from "../../../contexts/ScrollRestoration/ScrollRestoration.contextCreator";
 
 const Holder = styled.div`
   height: 100px;
@@ -10,13 +12,23 @@ const Holder = styled.div`
 
 const BackToProjects = () => {
   const navigate = useNavigate();
+  const { setScrollToMain } = useContext(ScrollRestorationContext);
 
   const onClick = () => {
+    setScrollToMain();
     navigate("/projects");
   };
   return (
     <Holder>
-      <Button reversed={true} onClick={onClick}>
+      <Button
+        reversed={true}
+        onClick={onClick}
+        styleObject={{
+          fontSize: 15,
+          height: 40,
+          radius: 15,
+        }}
+      >
         Back to projects
       </Button>
     </Holder>
