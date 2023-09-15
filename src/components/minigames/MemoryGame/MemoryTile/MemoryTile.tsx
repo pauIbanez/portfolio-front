@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Colors from "../../../../data/style/Colors";
 import { MemoryDifficulty } from "../../../../Types/MemoryTileData";
 import { useState, useEffect } from "react";
@@ -18,7 +18,11 @@ const Tile = styled.div<{
     props.matched || props.isOpen || !props.canClick ? "none" : "all"};
 `;
 
-const Face = styled.div<{ isBack?: boolean; isOpen: boolean }>`
+const Face = styled.div<{
+  isBack?: boolean;
+  isOpen: boolean;
+  fullyMatched: boolean;
+}>`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -32,15 +36,30 @@ const Face = styled.div<{ isBack?: boolean; isOpen: boolean }>`
 
   background-color: ${(props) =>
     props.isBack ? Colors.backgroundGray : Colors.disabledMain};
+
   border: 2px solid
     ${(props) => (props.isBack ? Colors.disabledMain : Colors.main)};
   border-radius: 10px;
+
+  animation: ${(props) => (props.fullyMatched ? pop : "")} ease-in-out 0.2s;
 
   ${(props) =>
     props.isBack ? (props.isOpen ? "transform: rotateY(180deg);" : "") : ""}
 
   ${(props) =>
     !props.isBack ? (props.isOpen ? "" : "transform: rotateY(180deg);") : ""}
+`;
+
+const pop = keyframes`
+  0%{
+    transform: Scale(1);
+  } 
+  50%{
+    transform: Scale(1.1);
+  }
+  100%{
+    transform: Scale(1);
+  }
 `;
 
 interface Props {
@@ -76,6 +95,7 @@ const MemoryTile = ({
   canClick,
 }: Props) => {
   const [currentImage, setCurrentImage] = useState<string>("");
+  const [fullyMatched, setFullyMatched] = useState<boolean>(false);
 
   useEffect(() => {
     let image = "";
@@ -88,6 +108,16 @@ const MemoryTile = ({
     setCurrentImage(image);
   }, [currentDifficulty, tileValue]);
 
+  useEffect(() => {
+    if (!matched) {
+      setFullyMatched(false);
+    } else {
+      setTimeout(() => {
+        setFullyMatched(true);
+      }, 900);
+    }
+  }, [matched]);
+
   return (
     <Tile
       onClick={() => {
@@ -99,14 +129,14 @@ const MemoryTile = ({
       matched={matched}
       canClick={canClick}
     >
-      <Face isBack={true} isOpen={isOpen}>
+      <Face isBack={true} isOpen={isOpen} fullyMatched={fullyMatched}>
         <img
           src="/media/minigames/memory/back.png"
           alt="logo"
           draggable="false"
         />
       </Face>
-      <Face isOpen={isOpen}>
+      <Face isOpen={isOpen} fullyMatched={fullyMatched}>
         <img
           src={`/media/minigames/memory/${currentImage}.png`}
           alt="tile Icon"
