@@ -109,6 +109,11 @@ const Memory = () => {
 
   const setupGame = useCallback(async () => {
     setCanClick(false);
+    setStats((prevStats) => ({
+      ...prevStats,
+      moves: 0,
+      pairs: 0,
+    }));
 
     const openTiles = tiles.some((tile) => tile.isOpen);
 
@@ -139,11 +144,6 @@ const Memory = () => {
 
     setTiles(newTiles);
     setCanClick(true);
-    setStats((prevStats) => ({
-      ...prevStats,
-      moves: 0,
-      pairs: 0,
-    }));
   }, [tiles]);
 
   useEffectOnce(() => {
@@ -263,7 +263,10 @@ const Memory = () => {
   return (
     <GameSection title="Memory">
       <>
-        <p>The goal of this game is to match all the pairs.</p>
+        <p>
+          The goal of this game is to match all the pairs. Try out a harder
+          difficulty for a bigger challenge!
+        </p>
         <GameHolder>
           <GameRow>
             <TileHolder>{renderTiles}</TileHolder>
