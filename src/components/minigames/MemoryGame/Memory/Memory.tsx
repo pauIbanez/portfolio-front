@@ -165,6 +165,7 @@ const Memory = () => {
     } else {
       setCurrentDifficulty(MemoryDifficulty.Easy);
     }
+    setupGame();
   }, [currentDifficulty]);
 
   const onTileClick = useCallback(
