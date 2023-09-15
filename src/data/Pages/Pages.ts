@@ -14,13 +14,11 @@ const Pages: { [key: string]: PageInfo } = {
   minigames: {
     path: "minigames",
     name: "Minigames",
-    translationKey: "minigames",
     isHidden: true,
   },
   myPortfolio: {
     path: "myPortfolio",
     name: "Portfolio website",
-    translationKey: "myPortfolio",
     isHidden: true,
   },
   curriculum: {

@@ -25,7 +25,6 @@ const Row = styled.div`
 
 const RowItem = styled.div`
   max-width: 700px;
-  display
 `;
 
 const FloatingImage = styled.img`
