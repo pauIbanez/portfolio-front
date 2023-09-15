@@ -12,7 +12,7 @@ const Tile = styled.div<{
   width: 100px;
 
   position: relative;
-
+  user-select: none;
   cursor: pointer;
   pointer-events: ${(props) =>
     props.matched || props.isOpen || !props.canClick ? "none" : "all"};
@@ -100,12 +100,17 @@ const MemoryTile = ({
       canClick={canClick}
     >
       <Face isBack={true} isOpen={isOpen}>
-        <img src="/media/minigames/memory/back.png" alt="logo" />
+        <img
+          src="/media/minigames/memory/back.png"
+          alt="logo"
+          draggable="false"
+        />
       </Face>
       <Face isOpen={isOpen}>
         <img
           src={`/media/minigames/memory/${currentImage}.png`}
           alt="tile Icon"
+          draggable="false"
         />
       </Face>
     </Tile>

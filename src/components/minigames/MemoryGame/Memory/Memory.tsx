@@ -8,7 +8,7 @@ import MemoryTile from "../MemoryTile/MemoryTile";
 import MemoryTileData, {
   MemoryDifficulty,
 } from "../../../../Types/MemoryTileData";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import useEffectOnce from "../../../../hooks/useEffectOnce";
 
 const GameHolder = styled.div`
@@ -91,38 +91,73 @@ const Memory = () => {
   );
   const [matching, setMatching] = useState<boolean>(false);
   const [currentValue, setCurrentValue] = useState<number>(0);
-
   const [canClick, setCanClick] = useState<boolean>(true);
+  const [tiles, setTiles] = useState<MemoryTileData[]>([]);
 
-  const [tiles, setTiles] = useState<MemoryTileData[]>(
-    [...Array(16)].map((_, index) => ({
-      id: index,
-      isOpen: false,
-      tileValue: 0,
-      matched: false,
-    }))
-  );
+  const [stats, setStats] = useState<{
+    pairs: number;
+    moves: number;
+    minMoves: number;
+  }>({
+    minMoves: localStorage.getItem("memoryMoves")
+      ? Number.parseInt(localStorage.getItem("memoryMoves")!)
+      : 0,
+    moves: 0,
+    pairs: 0,
+  });
 
-  const setupGame = () => {
+  const setupGame = async () => {
+    setCanClick(false);
+    setTiles((prevTiles) =>
+      [...prevTiles].map((tile) => ({ ...tile, isOpen: false }))
+    );
+    await new Promise<void>((resolve) =>
+      setTimeout(() => {
+        resolve();
+      }, 1000)
+    );
+
     const tileValues = [...Array(16)].map((_, index) => (index % 8) + 1);
-
-    setTiles((prevTiles) => {
-      const newTiles = [...prevTiles].map((newTile) => {
-        const returnTile = { ...newTile };
-        const randomValueIndex = Math.floor(
-          Math.random() * (tileValues.length - 1)
-        );
-        returnTile.tileValue = tileValues[randomValueIndex];
-        tileValues.splice(randomValueIndex, 1);
-        return returnTile;
-      });
-      return newTiles;
+    const newTiles = [...Array(16)].map((_, index) => {
+      const randomValueIndex = Math.floor(
+        Math.random() * (tileValues.length - 1)
+      );
+      const tileValue = tileValues[randomValueIndex];
+      tileValues.splice(randomValueIndex, 1);
+      return {
+        id: index,
+        isOpen: false,
+        tileValue,
+        matched: false,
+      };
     });
+
+    setTiles(newTiles);
+    setCanClick(true);
+    setStats((prevStats) => ({
+      ...prevStats,
+      moves: 0,
+      pairs: 0,
+    }));
   };
 
   useEffectOnce(() => {
     setupGame();
   });
+
+  useEffect(() => {
+    if (stats.pairs === 8) {
+      let newMinMoves = 0;
+      const prevMoves = localStorage.getItem("memoryMoves");
+      if (!prevMoves || Number.parseInt(prevMoves) > stats.moves) {
+        newMinMoves = stats.moves;
+        localStorage.setItem("memoryMoves", stats.moves.toString());
+        if (newMinMoves !== 0) {
+          setStats({ ...stats, minMoves: newMinMoves });
+        }
+      }
+    }
+  }, [stats]);
 
   const onTileClick = useCallback(
     (tileId: number) => {
@@ -145,6 +180,10 @@ const Memory = () => {
                 : tile
             )
           );
+          setStats((prevStats) => ({
+            ...prevStats,
+            pairs: prevStats.pairs + 1,
+          }));
         }
 
         setTimeout(() => {
@@ -158,6 +197,10 @@ const Memory = () => {
 
         setCanClick(false);
         setCurrentValue(0);
+        setStats((prevStats) => ({
+          ...prevStats,
+          moves: prevStats.moves + 1,
+        }));
       } else {
         setTiles((prevTiles) =>
           [...prevTiles].map((tile) => {
@@ -208,26 +251,32 @@ const Memory = () => {
                 <ContinuousText>
                   <NumberText>
                     <ColoredText
-                      text="15"
+                      text={stats.pairs.toString()}
                       styleData={{ size: "13px", weight: 700 }}
                     />
                   </NumberText>
                   <ColoredText
-                    text="/15"
+                    text="/8"
                     styleData={{ size: "13px", color: Colors.lightTextGray }}
                   />
                 </ContinuousText>
               </PairsSection>
-              <TiteledText title="Moves" text="0" styleObject={statStyle} />
+              <TiteledText
+                title="Moves"
+                text={stats.moves.toString()}
+                styleObject={statStyle}
+              />
               <TiteledText
                 title="Your minimum moves"
-                text="15"
+                text={stats.minMoves.toString()}
                 styleObject={statStyle}
               />
             </StatsHolder>
           </GameRow>
           <ControlsHolder>
-            <Button styleObject={buttonStyle}>Restart Game</Button>
+            <Button styleObject={buttonStyle} onClick={setupGame}>
+              Restart Game
+            </Button>
             <Button styleObject={buttonStyle}>Change Difficulty</Button>
           </ControlsHolder>
         </GameHolder>
