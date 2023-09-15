@@ -159,6 +159,14 @@ const Memory = () => {
     }
   }, [stats]);
 
+  const changeDifficulty = useCallback(() => {
+    if (currentDifficulty !== MemoryDifficulty.Hard) {
+      setCurrentDifficulty(currentDifficulty + 1);
+    } else {
+      setCurrentDifficulty(MemoryDifficulty.Easy);
+    }
+  }, [currentDifficulty]);
+
   const onTileClick = useCallback(
     (tileId: number) => {
       if (matching) {
@@ -240,7 +248,7 @@ const Memory = () => {
             <StatsHolder>
               <TiteledText
                 title="Difficulty"
-                text="Easy"
+                text={MemoryDifficulty[currentDifficulty]}
                 styleObject={statStyle}
               />
               <PairsSection>
@@ -277,7 +285,9 @@ const Memory = () => {
             <Button styleObject={buttonStyle} onClick={setupGame}>
               Restart Game
             </Button>
-            <Button styleObject={buttonStyle}>Change Difficulty</Button>
+            <Button styleObject={buttonStyle} onClick={changeDifficulty}>
+              Change Difficulty
+            </Button>
           </ControlsHolder>
         </GameHolder>
       </>
