@@ -102,21 +102,25 @@ const Memory = () => {
     moves: number;
     minMoves: number;
   }>({
-    minMoves: localStorage.getItem("memoryMoves")
-      ? Number.parseInt(localStorage.getItem("memoryMoves")!)
-      : 0,
+    minMoves: 0,
     moves: 0,
     pairs: 0,
   });
 
-  const setupGame = async () => {
+  const setupGame = useCallback(async () => {
     setCanClick(false);
-    setTiles((prevTiles) =>
-      [...prevTiles].map((tile) => ({ ...tile, isOpen: false }))
-    );
+
+    const openTiles = tiles.some((tile) => tile.isOpen);
+
+    if (openTiles) {
+      setTiles((prevTiles) =>
+        [...prevTiles].map((tile) => ({ ...tile, isOpen: false }))
+      );
+      await Wait(1000);
+    }
+
     setMatching(false);
     setCurrentValue(0);
-    await Wait(1000);
 
     const tileValues = [...Array(16)].map((_, index) => (index % 8) + 1);
     const newTiles = [...Array(16)].map((_, index) => {
@@ -140,7 +144,7 @@ const Memory = () => {
       moves: 0,
       pairs: 0,
     }));
-  };
+  }, [tiles]);
 
   useEffectOnce(() => {
     setupGame();
@@ -149,33 +153,41 @@ const Memory = () => {
   useEffect(() => {
     if (stats.pairs === 8) {
       let newMinMoves = 0;
-      const prevMoves = localStorage.getItem("memoryMoves");
+      const prevMoves = localStorage.getItem(`memoryMoves${currentDifficulty}`);
       if (!prevMoves || Number.parseInt(prevMoves) > stats.moves) {
         newMinMoves = stats.moves;
-        localStorage.setItem("memoryMoves", stats.moves.toString());
+        localStorage.setItem(
+          `memoryMoves${currentDifficulty}`,
+          stats.moves.toString()
+        );
         if (newMinMoves !== 0) {
           setStats({ ...stats, minMoves: newMinMoves });
         }
       }
     }
-  }, [stats]);
+  }, [stats, currentDifficulty]);
 
   const changeDifficulty = useCallback(async () => {
     setCanClick(false);
+    let newDiff = 0;
 
     if (currentDifficulty !== MemoryDifficulty.Hard) {
-      setCurrentRenderDifficulty(currentDifficulty + 1);
+      newDiff = currentDifficulty + 1;
     } else {
-      setCurrentRenderDifficulty(MemoryDifficulty.Easy);
+      newDiff = MemoryDifficulty.Easy;
     }
+
+    setCurrentRenderDifficulty(newDiff);
+    setStats((prevStats) => ({
+      ...prevStats,
+      minMoves: localStorage.getItem(`memoryMoves${newDiff}`)
+        ? Number.parseInt(localStorage.getItem(`memoryMoves${newDiff}`)!)
+        : 0,
+    }));
+
     await setupGame();
-
-    if (currentDifficulty !== MemoryDifficulty.Hard) {
-      setCurrentDifficulty(currentDifficulty + 1);
-    } else {
-      setCurrentDifficulty(MemoryDifficulty.Easy);
-    }
-  }, [currentDifficulty]);
+    setCurrentDifficulty(newDiff);
+  }, [currentDifficulty, setupGame]);
 
   const onTileClick = useCallback(
     (tileId: number) => {
