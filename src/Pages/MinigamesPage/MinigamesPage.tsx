@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import BackToProjects from "../../components/projects/BackToProjects/BackToProjects";
 import TiteledText from "../../components/textComponents/TitledText/TiteledText";
-import Memory from "../../components/minigames/Memory/Memory";
+import Memory from "../../components/minigames/MemoryGame/Memory/Memory";
 
 const Holder = styled.main`
   display: flex;

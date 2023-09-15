@@ -8,6 +8,7 @@ const Container = styled.section`
   border-radius: 15px;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1), -4px -4px 10px rgba(0, 0, 0, 0.1);
   max-width: 1175px;
+  padding: 40px 70px 40px 70px;
 `;
 
 const Title = styled.h3`
@@ -15,19 +16,13 @@ const Title = styled.h3`
   font-size: 20px;
   color: black;
   margin: 0;
-`;
-
-const Content = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 40px 70px 20px 70px;
+  padding-bottom: 10px;
 `;
 
 const Holder = styled.div`
-  padding: 0 70px 40px 70px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 50px;
   p {
     margin: 0;
   }
@@ -40,9 +35,7 @@ interface Props {
 const GameSection = ({ title, children }: Props) => {
   return (
     <Container>
-      <Content>
-        <Title>{title}</Title>
-      </Content>
+      <Title>{title}</Title>
       <Holder>{children}</Holder>
     </Container>
   );
