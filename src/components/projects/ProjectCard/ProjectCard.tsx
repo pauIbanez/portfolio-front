@@ -137,7 +137,7 @@ const CardClickInfo = styled.p`
 `;
 
 const MaximazableTag = styled.div<{ tag: ProjectTag; isHovering: boolean }>`
-  width: 60px;
+  width: 75px;
   height: 25px;
   font-size: 10px;
   font-weight: 600;
@@ -160,7 +160,7 @@ const MaximazableTag = styled.div<{ tag: ProjectTag; isHovering: boolean }>`
     align-items: center;
     justify-content: center;
     transition: ${(props) =>
-      props.isHovering ? "all 0.2s ease-in 0.7s" : "all 0.1s ease-in"};
+      props.isHovering ? "all 0.2s ease-in 0.4s" : "all 0.1s ease-in"};
   }
   img {
     position: absolute;
@@ -170,7 +170,7 @@ const MaximazableTag = styled.div<{ tag: ProjectTag; isHovering: boolean }>`
     margin: 0 auto;
     opacity: ${(props) => (props.isHovering ? "0" : "1")};
     transition: ${(props) =>
-      props.isHovering ? "all 0.1s ease-in 0.7s" : "all 0.1s ease-in"};
+      props.isHovering ? "all 0.1s ease-in 0.4s" : "all 0.1s ease-in"};
   }
 `;
 
