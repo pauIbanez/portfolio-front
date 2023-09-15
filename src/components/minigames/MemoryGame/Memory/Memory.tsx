@@ -10,6 +10,7 @@ import MemoryTileData, {
 } from "../../../../Types/MemoryTileData";
 import { useState, useCallback, useEffect } from "react";
 import useEffectOnce from "../../../../hooks/useEffectOnce";
+import Wait from "../../../../utils/Wait/Wait";
 
 const GameHolder = styled.div`
   display: flex;
@@ -89,6 +90,8 @@ const Memory = () => {
   const [currentDifficulty, setCurrentDifficulty] = useState<MemoryDifficulty>(
     MemoryDifficulty.Easy
   );
+  const [currentRenderDifficulty, setCurrentRenderDifficulty] =
+    useState<MemoryDifficulty>(MemoryDifficulty.Easy);
   const [matching, setMatching] = useState<boolean>(false);
   const [currentValue, setCurrentValue] = useState<number>(0);
   const [canClick, setCanClick] = useState<boolean>(true);
@@ -111,11 +114,9 @@ const Memory = () => {
     setTiles((prevTiles) =>
       [...prevTiles].map((tile) => ({ ...tile, isOpen: false }))
     );
-    await new Promise<void>((resolve) =>
-      setTimeout(() => {
-        resolve();
-      }, 1000)
-    );
+    setMatching(false);
+    setCurrentValue(0);
+    await Wait(1000);
 
     const tileValues = [...Array(16)].map((_, index) => (index % 8) + 1);
     const newTiles = [...Array(16)].map((_, index) => {
@@ -159,13 +160,21 @@ const Memory = () => {
     }
   }, [stats]);
 
-  const changeDifficulty = useCallback(() => {
+  const changeDifficulty = useCallback(async () => {
+    setCanClick(false);
+
+    if (currentDifficulty !== MemoryDifficulty.Hard) {
+      setCurrentRenderDifficulty(currentDifficulty + 1);
+    } else {
+      setCurrentRenderDifficulty(MemoryDifficulty.Easy);
+    }
+    await setupGame();
+
     if (currentDifficulty !== MemoryDifficulty.Hard) {
       setCurrentDifficulty(currentDifficulty + 1);
     } else {
       setCurrentDifficulty(MemoryDifficulty.Easy);
     }
-    setupGame();
   }, [currentDifficulty]);
 
   const onTileClick = useCallback(
@@ -249,7 +258,7 @@ const Memory = () => {
             <StatsHolder>
               <TiteledText
                 title="Difficulty"
-                text={MemoryDifficulty[currentDifficulty]}
+                text={MemoryDifficulty[currentRenderDifficulty]}
                 styleObject={statStyle}
               />
               <PairsSection>

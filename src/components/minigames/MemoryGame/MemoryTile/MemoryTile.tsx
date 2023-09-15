@@ -83,6 +83,26 @@ const tileImages: { [Key: string]: { [key: number]: string } } = {
     7: "backEnd",
     8: "fullStack",
   },
+  normal: {
+    1: "avatar1",
+    2: "avatar2",
+    3: "avatar3",
+    4: "avatar4",
+    5: "avatar5",
+    6: "avatar6",
+    7: "avatar7",
+    8: "avatar8",
+  },
+  hard: {
+    1: "avatar_mono1",
+    2: "avatar_mono2",
+    3: "avatar_mono3",
+    4: "avatar_mono4",
+    5: "avatar_mono5",
+    6: "avatar_mono6",
+    7: "avatar_mono7",
+    8: "avatar_mono8",
+  },
 };
 
 const MemoryTile = ({
@@ -102,7 +122,14 @@ const MemoryTile = ({
     switch (currentDifficulty) {
       case MemoryDifficulty.Easy:
         image = tileImages.easy[tileValue] as string;
+        break;
 
+      case MemoryDifficulty.Normal:
+        image = tileImages.normal[tileValue] as string;
+        break;
+
+      case MemoryDifficulty.Hard:
+        image = tileImages.hard[tileValue] as string;
         break;
     }
     setCurrentImage(image);
@@ -134,6 +161,8 @@ const MemoryTile = ({
           src="/media/minigames/memory/back.png"
           alt="logo"
           draggable="false"
+          height={50}
+          width={50}
         />
       </Face>
       <Face isOpen={isOpen} fullyMatched={fullyMatched}>
@@ -141,6 +170,8 @@ const MemoryTile = ({
           src={`/media/minigames/memory/${currentImage}.png`}
           alt="tile Icon"
           draggable="false"
+          height={50}
+          width={50}
         />
       </Face>
     </Tile>
