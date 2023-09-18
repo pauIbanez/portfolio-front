@@ -1,9 +1,10 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import MemoryTileData, {
   MemoryDifficulty,
 } from "../../../../Types/MemoryTileData";
 import MemoryTile from "./MemoryTile";
 import tileImages from "../../../../data/minigames/memory/tileImages";
+import userEvent from "@testing-library/user-event";
 
 describe("Given the tileImages component", () => {
   describe("When it's instanciated with easy difficulty", () => {
@@ -96,6 +97,40 @@ describe("Given the tileImages component", () => {
       const foundTileIcon = screen.getByAltText(expectedAltText);
 
       expect(foundTileIcon).toBeInTheDocument();
+    });
+  });
+
+  describe("When it's instanciated, not matched, already open and canClick as true and the user clicks on the tile", () => {
+    test("Then it should NOT call onClick and pointer-events should be none", () => {
+      const tileData: MemoryTileData = {
+        id: 1,
+        isOpen: true,
+        matched: false,
+        tileValue: 0,
+      };
+
+      const onClick = jest.fn();
+
+      const expectedStyle = { pointerEvents: "none" };
+
+      render(
+        <MemoryTile
+          canClick={true}
+          currentDifficulty={MemoryDifficulty.Hard}
+          id={tileData.id}
+          isOpen={tileData.isOpen}
+          matched={tileData.matched}
+          onClick={onClick}
+          tileValue={tileData.tileValue}
+        />
+      );
+
+      const foundTile = screen.getByTestId("memoryTile");
+
+      expect(foundTile).toHaveStyle(expectedStyle);
+
+      fireEvent.click(foundTile);
+      expect(onClick).not.toHaveBeenCalled();
     });
   });
 });

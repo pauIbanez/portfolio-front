@@ -123,6 +123,7 @@ const MemoryTile = ({
       isOpen={isOpen}
       matched={matched}
       canClick={canClick}
+      data-testid="memoryTile"
     >
       <Face isBack={true} isOpen={isOpen} fullyMatched={fullyMatched}>
         <img
