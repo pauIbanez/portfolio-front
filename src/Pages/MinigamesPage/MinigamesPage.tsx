@@ -2,6 +2,7 @@ import styled from "styled-components";
 import BackToProjects from "../../components/projects/BackToProjects/BackToProjects";
 import TiteledText from "../../components/textComponents/TitledText/TiteledText";
 import Memory from "../../components/minigames/MemoryGame/Memory/Memory";
+import { useTranslation } from "react-i18next";
 
 const Holder = styled.main`
   display: flex;
@@ -24,13 +25,16 @@ const GamesHolder = styled.div`
 `;
 
 const MinigamesPage = () => {
+  const { t } = useTranslation();
+
   return (
     <Holder>
       <BackToProjects />
       <TextHolder>
         <TiteledText
-          title="Welcome to <&>mini<&>games!"
-          text="I’ve added a couple of minigames design to be <&>light<&> and <&>fast<&>. Feel free to take a break and <&>enjoy disconnecting for a bit<&>!"
+          title={t("Minigames.title")}
+          text={t("Minigames.text")}
+          styleObject={{ title: { heading: 2 } }}
         />
       </TextHolder>
       <GamesHolder>

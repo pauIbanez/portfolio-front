@@ -3,6 +3,7 @@ import { renderInRouter } from "../../setupTests";
 import ProjectsPage from "./ProjectsPage";
 import ProjectCards from "../../data/projects/Projects";
 import userEvent from "@testing-library/user-event";
+import ScrollRestorationContext from "../../contexts/ScrollRestoration/ScrollRestoration.contextCreator";
 
 const mockNavigate = jest.fn();
 
@@ -52,6 +53,20 @@ describe("Given the Projects page", () => {
       });
 
       userEvent.click(foundButton);
+
+      expect(window.scrollTo).toHaveBeenCalled();
+    });
+  });
+
+  describe("When it's intanciated with scrollToMain set to true", () => {
+    test("Then it should call the ref's scrollTo", () => {
+      renderInRouter(
+        <ScrollRestorationContext.Provider
+          value={{ scrollToMain: true, setScrollToMain: () => null }}
+        >
+          <ProjectsPage />
+        </ScrollRestorationContext.Provider>
+      );
 
       expect(window.scrollTo).toHaveBeenCalled();
     });

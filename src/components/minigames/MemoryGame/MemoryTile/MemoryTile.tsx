@@ -2,6 +2,7 @@ import styled, { keyframes } from "styled-components";
 import Colors from "../../../../data/style/Colors";
 import { MemoryDifficulty } from "../../../../Types/MemoryTileData";
 import { useState, useEffect } from "react";
+import tileImages from "../../../../data/minigames/memory/tileImages";
 
 const Tile = styled.div<{
   isOpen: boolean;
@@ -72,39 +73,6 @@ interface Props {
   canClick: boolean;
 }
 
-const tileImages: { [Key: string]: { [key: number]: string } } = {
-  easy: {
-    1: "javaScript",
-    2: "typeScript",
-    3: "react",
-    4: "next",
-    5: "jest",
-    6: "frontEnd",
-    7: "backEnd",
-    8: "fullStack",
-  },
-  normal: {
-    1: "avatar1",
-    2: "avatar2",
-    3: "avatar3",
-    4: "avatar4",
-    5: "avatar5",
-    6: "avatar6",
-    7: "avatar7",
-    8: "avatar8",
-  },
-  hard: {
-    1: "avatar_mono1",
-    2: "avatar_mono2",
-    3: "avatar_mono3",
-    4: "avatar_mono4",
-    5: "avatar_mono5",
-    6: "avatar_mono6",
-    7: "avatar_mono7",
-    8: "avatar_mono8",
-  },
-};
-
 const MemoryTile = ({
   id,
   isOpen,
@@ -155,6 +123,7 @@ const MemoryTile = ({
       isOpen={isOpen}
       matched={matched}
       canClick={canClick}
+      data-testid="memoryTile"
     >
       <Face isBack={true} isOpen={isOpen} fullyMatched={fullyMatched}>
         <img
@@ -168,7 +137,7 @@ const MemoryTile = ({
       <Face isOpen={isOpen} fullyMatched={fullyMatched}>
         <img
           src={`/media/minigames/memory/${currentImage}.png`}
-          alt="tile Icon"
+          alt={`tile icon - ${currentImage}`}
           draggable="false"
           height={50}
           width={50}

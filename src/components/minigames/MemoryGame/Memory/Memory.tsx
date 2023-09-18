@@ -11,6 +11,7 @@ import MemoryTileData, {
 import { useState, useCallback, useEffect } from "react";
 import useEffectOnce from "../../../../hooks/useEffectOnce";
 import Wait from "../../../../utils/Wait/Wait";
+import { useTranslation } from "react-i18next";
 
 const GameHolder = styled.div`
   display: flex;
@@ -107,6 +108,8 @@ const Memory = () => {
     pairs: 0,
   });
 
+  const { t } = useTranslation();
+
   const setupGame = useCallback(async () => {
     setCanClick(false);
     setStats((prevStats) => ({
@@ -148,6 +151,14 @@ const Memory = () => {
 
   useEffectOnce(() => {
     setupGame();
+    setStats((prevStats) => ({
+      ...prevStats,
+      minMoves: localStorage.getItem(`memoryMoves${currentDifficulty}`)
+        ? Number.parseInt(
+            localStorage.getItem(`memoryMoves${currentDifficulty}`)!
+          )
+        : 0,
+    }));
   });
 
   useEffect(() => {
@@ -261,12 +272,9 @@ const Memory = () => {
   ));
 
   return (
-    <GameSection title="Memory">
+    <GameSection title={t("Minigames.memory.title")}>
       <>
-        <p>
-          The goal of this game is to match all the pairs. Try out a harder
-          difficulty for a bigger challenge!
-        </p>
+        <p>{t("Minigames.memory.text")}</p>
         <GameHolder>
           <GameRow>
             <TileHolder>{renderTiles}</TileHolder>

@@ -38,3 +38,29 @@ export const renderInRouter = (
 
 Element.prototype.scrollTo = jest.fn();
 window.scrollTo = jest.fn();
+
+class LocalStorageMock {
+  store = {};
+
+  constructor() {
+    this.store = {};
+  }
+
+  clear() {
+    this.store = {};
+  }
+
+  getItem(key: string) {
+    return (this.store as any)[key] || null;
+  }
+
+  setItem(key: string, value: any) {
+    (this.store as any)[key] = String(value);
+  }
+
+  removeItem(key: string) {
+    delete (this.store as any)[key];
+  }
+}
+
+global.localStorage = new LocalStorageMock() as any;

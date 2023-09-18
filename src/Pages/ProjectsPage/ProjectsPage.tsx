@@ -42,17 +42,18 @@ const ProjectsPage = () => {
 
   const { scrollToMain } = useContext(ScrollRestorationContext);
 
-  const onClick = (smooth = true) => {
+  const onClick = (auto?: boolean) => {
     const rect = projectsRef.current?.getBoundingClientRect();
+    console.log(auto);
     window.scrollTo({
       top: (rect?.top || 0) + window.scrollY - 100,
-      behavior: smooth ? "smooth" : "auto",
+      behavior: auto ? "auto" : "smooth",
     });
   };
 
   useEffectOnce(() => {
     if (scrollToMain) {
-      onClick(false);
+      onClick(true);
     }
   });
 
@@ -79,7 +80,9 @@ const ProjectsPage = () => {
               <p>{t("Projects.presentation.button")}</p>
             </>
           ),
-          onClick: onClick,
+          onClick: () => {
+            onClick();
+          },
         }}
       />
 
