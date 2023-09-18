@@ -136,7 +136,7 @@ const MemoryTile = ({
       <Face isOpen={isOpen} fullyMatched={fullyMatched}>
         <img
           src={`/media/minigames/memory/${currentImage}.png`}
-          alt="tile Icon"
+          alt={`tile icon - ${currentImage}`}
           draggable="false"
           height={50}
           width={50}
