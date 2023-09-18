@@ -319,6 +319,10 @@
     "image": "A lost man"
   },
   "Minigames": {
-    "title": "<&>Mini<&>games"
+    "title": "<&>Mini<&>games",
+    "memory": {
+      "title": "Memory",
+      "text": "The goal of this game is to match all the pairs. Try out a harder difficulty for a bigger challenge!"
+    }
   }
 }
