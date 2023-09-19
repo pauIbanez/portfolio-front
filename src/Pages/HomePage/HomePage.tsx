@@ -105,6 +105,7 @@ const HomePage = () => {
   const goToProjects = () => {
     navigate(Pages.projects.path);
   };
+
   return (
     <Container>
       <Holder>
@@ -121,15 +122,25 @@ const HomePage = () => {
             styleObject={{
               height: 70,
               width: 240,
-              radius: 20,
+              radius: 25,
             }}
           >
             {t("Home.content.button")}
           </Button>
         </InfoSection>
         <PictureSection>
-          <img src="/media/home/me.svg" alt="Pau Ibáñez" />
-          <img src="/media/home/mr_background.svg" alt="Background" />
+          <img
+            src="/media/home/me.svg"
+            alt="Pau Ibáñez"
+            height={506}
+            width={548}
+          />
+          <img
+            src="/media/home/mr_background.svg"
+            alt="Background"
+            height={549}
+            width={703}
+          />
         </PictureSection>
       </Holder>
       <BackgroundTriangles
