@@ -5,8 +5,12 @@ import Button from "../../components/Button/Button";
 import Colors from "../../data/style/Colors";
 import { useTranslation } from "react-i18next";
 import { useContext } from "react";
-// import ResponsiveContext from "../../contexts/responsiveContext/ResponsiveContext.contextCreator";
-import { rightImages } from "../../data/Pages/responsive/HomePage";
+import ResponsiveContext from "../../contexts/responsiveContext/ResponsiveContext.contextCreator";
+import {
+  backgroundTriangles,
+  mainGap,
+  rightImages,
+} from "../../data/Pages/responsive/HomePage";
 
 const Container = styled.div`
   display: flex;
@@ -16,23 +20,22 @@ const Container = styled.div`
   overflow: hidden;
 `;
 
-const Holder = styled.main`
+const Holder = styled.main<{ gap: number }>`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  gap: 250px;
+  gap: ${(props) => props.gap}px;
   height: fit-content;
   margin: 100px 0 100px 0;
 `;
 
-const InfoSection = styled.section`
+const InfoSection = styled.section<{ $width: number }>`
   margin-top: 67px;
   display: flex;
   flex-direction: column;
   position: relative;
-  min-width: 637px;
-  width: 637px;
+  width: ${(props) => props.$width}px;
 
   p {
     margin: 0;
@@ -71,17 +74,17 @@ const BackgroundOrb = styled.img`
   z-index: -1;
 `;
 
-const PictureSection = styled.div`
-  height: 668px;
-  width: 702px;
+const PictureSection = styled.div<{ $height: number; $width: number }>`
+  height: ${(props) => props.$height}px;
+  width: ${(props) => props.$width}px;
   position: relative;
   display: flex;
   justify-content: center;
 
   img {
     &:first-child {
-      width: 548px;
-      height: 506px;
+      position: absolute;
+      top: 0;
     }
 
     &:last-child {
@@ -109,13 +112,14 @@ const HomePage = () => {
     navigate(Pages.projects.path);
   };
 
-  // const { currentWidthBreakPoint } = useContext(ResponsiveContext);
+  const { currentWidthBreakPoint } = useContext(ResponsiveContext);
 
+  console.log(currentWidthBreakPoint);
   return (
     <Container>
-      <Holder>
-        <InfoSection>
-          <BackgroundOrb src="/media/home/background_circle.svg" />
+      <Holder gap={mainGap[currentWidthBreakPoint]}>
+        <InfoSection $width={rightImages[currentWidthBreakPoint][0].width}>
+          <BackgroundOrb alt={"orb"} src="/media/home/background_circle.svg" />
           <AccentText>{t("Home.content.accent")}</AccentText>
           <MyName>{t("Home.content.heading")}</MyName>
           <TextSection>
@@ -133,24 +137,29 @@ const HomePage = () => {
             {t("Home.content.button")}
           </Button>
         </InfoSection>
-        <PictureSection>
+        <PictureSection
+          $height={rightImages[currentWidthBreakPoint][0].height}
+          $width={rightImages[currentWidthBreakPoint][0].width}
+        >
           <img
             src="/media/home/me.svg"
             alt="Pau Ibáñez"
-            // height={rightImages[currentWidthBreakPoint][0].height}
-            // width={rightImages[currentWidthBreakPoint][0].width}
+            height={rightImages[currentWidthBreakPoint][1].height}
+            width={rightImages[currentWidthBreakPoint][1].width}
           />
           <img
             src="/media/home/mr_background.svg"
             alt="Background"
-            // height={rightImages[currentWidthBreakPoint][1].height}
-            // width={rightImages[currentWidthBreakPoint][1].width}
+            height={rightImages[currentWidthBreakPoint][2].height}
+            width={rightImages[currentWidthBreakPoint][2].width}
           />
         </PictureSection>
       </Holder>
       <BackgroundTriangles
         alt="Background"
         src="/media/home/background_triangles.svg"
+        height={backgroundTriangles[currentWidthBreakPoint].height}
+        width={backgroundTriangles[currentWidthBreakPoint].width}
       />
     </Container>
   );
