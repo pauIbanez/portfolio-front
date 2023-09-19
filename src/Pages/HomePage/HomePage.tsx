@@ -4,6 +4,9 @@ import Pages from "../../data/Pages/Pages";
 import Button from "../../components/Button/Button";
 import Colors from "../../data/style/Colors";
 import { useTranslation } from "react-i18next";
+import { useContext } from "react";
+// import ResponsiveContext from "../../contexts/responsiveContext/ResponsiveContext.contextCreator";
+import { rightImages } from "../../data/Pages/responsive/HomePage";
 
 const Container = styled.div`
   display: flex;
@@ -106,6 +109,8 @@ const HomePage = () => {
     navigate(Pages.projects.path);
   };
 
+  // const { currentWidthBreakPoint } = useContext(ResponsiveContext);
+
   return (
     <Container>
       <Holder>
@@ -132,14 +137,14 @@ const HomePage = () => {
           <img
             src="/media/home/me.svg"
             alt="Pau Ibáñez"
-            height={506}
-            width={548}
+            // height={rightImages[currentWidthBreakPoint][0].height}
+            // width={rightImages[currentWidthBreakPoint][0].width}
           />
           <img
             src="/media/home/mr_background.svg"
             alt="Background"
-            height={549}
-            width={703}
+            // height={rightImages[currentWidthBreakPoint][1].height}
+            // width={rightImages[currentWidthBreakPoint][1].width}
           />
         </PictureSection>
       </Holder>
