@@ -7,6 +7,8 @@ import ProjectCard from "../../components/projects/ProjectCard/ProjectCard";
 import { useNavigate } from "react-router-dom";
 import ScrollRestorationContext from "../../contexts/ScrollRestoration/ScrollRestoration.contextCreator";
 import useEffectOnce from "../../hooks/useEffectOnce";
+import { columns } from "../../data/Pages/responsive/projectsPage";
+import ResponsiveContext from "../../contexts/responsiveContext/ResponsiveContext.contextCreator";
 
 const Holder = styled.div`
   display: flex;
@@ -29,9 +31,9 @@ const Title = styled.h2`
   color: black;
 `;
 
-const ProjectsHolder = styled.div`
+const ProjectsHolder = styled.div<{ columns: number }>`
   display: grid;
-  grid-template-columns: 440px 440px 440px;
+  grid-template-columns: repeat(${(props) => props.columns}, 440px);
   grid-template-rows: 300px 300px;
   gap: 50px;
 `;
@@ -44,7 +46,6 @@ const ProjectsPage = () => {
 
   const onClick = (auto?: boolean) => {
     const rect = projectsRef.current?.getBoundingClientRect();
-    console.log(auto);
     window.scrollTo({
       top: (rect?.top || 0) + window.scrollY - 100,
       behavior: auto ? "auto" : "smooth",
@@ -58,6 +59,8 @@ const ProjectsPage = () => {
   });
 
   const navigate = useNavigate();
+
+  const { currentWidthBreakPoint } = useContext(ResponsiveContext);
 
   const renderProjects = ProjectCards.map((projectCard) => (
     <ProjectCard
@@ -88,7 +91,9 @@ const ProjectsPage = () => {
 
       <Content ref={projectsRef}>
         <Title>My Projects</Title>
-        <ProjectsHolder>{renderProjects}</ProjectsHolder>
+        <ProjectsHolder columns={columns[currentWidthBreakPoint]}>
+          {renderProjects}
+        </ProjectsHolder>
       </Content>
     </Holder>
   );
