@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useContext } from "react";
 import PresentationText from "../../components/textComponents/PresentationText/PresentationText";
 import styled from "styled-components";
 import CVListSection from "../../components/CV/CVListSection/CVListSection";
@@ -11,6 +11,8 @@ import ReferencesSection from "../../components/CV/sections/ReferencesSection/Re
 import { ErrorrContextProvider } from "react-errorr";
 import { useTranslation } from "react-i18next";
 import useSections from "../../hooks/useSections";
+import { cvWidth } from "../../data/Pages/responsive/cvPage";
+import ResponsiveContext from "../../contexts/responsiveContext/ResponsiveContext.contextCreator";
 
 const Holder = styled.div`
   display: flex;
@@ -47,6 +49,8 @@ const CVPage = () => {
     });
   };
 
+  const { currentWidthBreakPoint } = useContext(ResponsiveContext);
+
   return (
     <ScrollContextProvider>
       <Holder>
@@ -64,7 +68,7 @@ const CVPage = () => {
         />
         <CVHolder ref={cvRef}>
           <InternalNavigation />
-          <CVContent $width={1175}>
+          <CVContent $width={cvWidth[currentWidthBreakPoint]}>
             <CVListSection
               title={sections.education.title}
               items={sections.education.items}
