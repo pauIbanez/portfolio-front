@@ -11,10 +11,12 @@ import Button from "../../Button/Button";
 import SelectField from "../SelectField/SelectField";
 import { useTranslation } from "react-i18next";
 import { Errorr, ErrorrContext } from "react-errorr";
+import { formSize } from "../../../data/Pages/responsive/contactPage";
+import ResponsiveContext from "../../../contexts/responsiveContext/ResponsiveContext.contextCreator";
 
-const Holder = styled.form`
-  height: 713px;
-  width: 745px;
+const Holder = styled.form<{ $height: number; $width: number }>`
+  height: ${(props) => props.$height}px;
+  width: ${(props) => props.$width}px;
   background-color: white;
   border-radius: 0 25px 25px 0;
   padding: 50px;
@@ -44,6 +46,10 @@ const ArrowWrapper = styled.div<{ animation: string }>`
   opacity: 1;
   bottom: 0;
   height: 40px;
+
+  @media (min-width: 1366px) {
+    height: 35px;
+  }
   width: 30px;
   background-color: red;
 
@@ -194,8 +200,15 @@ const ContactForm = ({ onSubmit }: Props) => {
     }
   }, [contactForm.values.messageType]);
 
+  const { currentWidthBreakPoint } = useContext(ResponsiveContext);
+
   return (
-    <Holder onSubmit={contactForm.handleSubmit} aria-label="Contact form">
+    <Holder
+      onSubmit={contactForm.handleSubmit}
+      aria-label="Contact form"
+      $height={formSize[currentWidthBreakPoint].height}
+      $width={formSize[currentWidthBreakPoint].width}
+    >
       <ContentHolder>
         <Row>
           <Errorr name="firstName" message={contactForm.errors.firstName}>
@@ -332,7 +345,7 @@ const ContactForm = ({ onSubmit }: Props) => {
             styleObject={{
               width: 170,
               fontSize: 14,
-              height: 40,
+              height: currentWidthBreakPoint < 2 ? 40 : 35,
               radius: 10,
               padding: 0,
             }}

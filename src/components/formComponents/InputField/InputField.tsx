@@ -45,6 +45,11 @@ const CustomInputField = styled.input<CustomInputFieldProps>`
   font-family: inherit;
   font-size: 15px;
 
+  @media (max-width: 1366px) {
+    font-size: 13px;
+    height: ${(props) => (props.big ? "130px" : "35px")};
+  }
+
   color: white;
 
   background-color: ${Colors.disabledMain};
@@ -52,6 +57,9 @@ const CustomInputField = styled.input<CustomInputFieldProps>`
   &::placeholder {
     color: white;
     font-size: 15px;
+    @media (max-width: 1366px) {
+      font-size: 13px;
+    }
     font-weight: 400;
   }
 `;

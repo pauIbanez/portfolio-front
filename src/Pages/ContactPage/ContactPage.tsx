@@ -3,38 +3,52 @@ import ContactFormValues from "../../Types/ContactFormValues";
 import ContactForm from "../../components/formComponents/ContactForm/ContactForm";
 import TiteledText from "../../components/textComponents/TitledText/TiteledText";
 import Colors from "../../data/style/Colors";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ErrorrContextProvider } from "react-errorr";
+import {
+  formSize,
+  formTextSizes,
+  textSizes,
+} from "../../data/Pages/responsive/contactPage";
+import ResponsiveContext from "../../contexts/responsiveContext/ResponsiveContext.contextCreator";
 
-const ContactHolder = styled.div`
+const ContactHolder = styled.div<{ isColumn: boolean }>`
   display: flex;
+  ${(props) => (props.isColumn ? "flex-direction: column;" : "")}
   justify-content: center;
   align-items: center;
   padding: 75px;
   gap: 75px;
 `;
 
-const FormHolder = styled.main`
+const FormHolder = styled.main<{ $height: number }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 713px;
+  height: ${(props) => props.$height}px;
 `;
 
-const InfoSection = styled.section`
+const ColumnInfoSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-contnet: center;
+  width: 570px;
   gap: 50px;
-  justify-content: center;
-  max-width: 570px;
 `;
 
-const ContactInfo = styled.section`
+const RowInfoSection = styled.section`
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 100px;
+`;
+
+const ContactInfo = styled.section<{ $width: number }>`
   height: 100%;
-  width: 370px;
+  width: ${(props) => props.$width}px;
   border-radius: 25px 0 0 25px;
   background-color: ${Colors.main};
 
@@ -56,22 +70,21 @@ const ContactInfo = styled.section`
 const ContactInfoSection = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  width: 100%;
   gap: 20px;
 `;
 
-const ContactItem = styled.div`
-  width: 100%;
+const ContactItem = styled.div<{ size: number }>`
   display: flex;
   align-items: center;
   padding-left: 5px;
   gap: 5px;
   p {
-    font-size: 13px;
+    font-size: ${(props) => props.size}px;
   }
   a {
-    font-size: 13px;
+    font-size: ${(props) => props.size}px;
   }
 `;
 
@@ -104,7 +117,7 @@ const ItemValue = styled.div`
   }
 `;
 
-const EmailButton = styled.button`
+const EmailButton = styled.button<{ size: number }>`
   width: 100%;
   display: flex;
   align-items: center;
@@ -112,7 +125,7 @@ const EmailButton = styled.button`
   gap: 5px;
   background-color: transparent;
   padding-left: 5px !important;
-  font-size: 13px;
+  font-size: ${(props) => props.size}px;
   cursor: pointer;
 
   border: none;
@@ -124,7 +137,7 @@ const EmailButtonHolder = styled.div`
   width: 100%;
 `;
 
-const EmailButtonActive = styled.div`
+const EmailButtonActive = styled.div<{ size: number }>`
   width: 100%;
   display: flex;
   align-items: center;
@@ -133,7 +146,7 @@ const EmailButtonActive = styled.div`
   height: 35px;
   gap: 5px;
   background-color: white;
-  font-size: 13px;
+  font-size: ${(props) => props.size}px;
   color: ${Colors.main};
 `;
 
@@ -200,37 +213,53 @@ const ContactPage = () => {
 
   const { t } = useTranslation();
 
-  return (
-    <ContactHolder>
-      <FormHolder>
-        <ContactInfo>
-          <TiteledText
-            title={t("Contact.contactInfo.title")}
-            text={t("Contact.contactInfo.text")}
-            styleObject={{
-              gap: 5,
-              title: { size: 19, heading: 0, color: "white" },
-              text: { size: 14, color: "white" },
-            }}
-          />
-          <ContactInfoSection>
-            <ContactItem>
+  const { currentWidthBreakPoint } = useContext(ResponsiveContext);
+
+  const Form = () => (
+    <FormHolder $height={formSize[currentWidthBreakPoint].height}>
+      <ContactInfo $width={formSize[currentWidthBreakPoint].infoWidth}>
+        <TiteledText
+          title={t("Contact.contactInfo.title")}
+          text={t("Contact.contactInfo.text")}
+          styleObject={{
+            gap: 5,
+            title: { size: 19, heading: 0, color: "white" },
+            text: { size: 14, color: "white" },
+          }}
+        />
+        <ContactInfoSection>
+          <ContactItem
+            size={formTextSizes[currentWidthBreakPoint].constactItem}
+          >
+            <ItemIcon height={30} width={30} />
+            <ItemName>
+              {t("Contact.contactInfo.itemNames.phone") + ":"}
+            </ItemName>
+            <ItemValue>
+              <p>+34 673408670</p>
+            </ItemValue>
+          </ContactItem>
+          <EmailButtonHolder>
+            <EmailButton
+              size={formTextSizes[currentWidthBreakPoint].constactItem}
+              onClick={() => {
+                setIsEmailActive(true);
+              }}
+              onBlur={() => {
+                setTimeout(() => setIsEmailActive(false), 130);
+              }}
+            >
               <ItemIcon height={30} width={30} />
               <ItemName>
-                {t("Contact.contactInfo.itemNames.phone") + ":"}
+                {t("Contact.contactInfo.itemNames.email") + ":"}
               </ItemName>
               <ItemValue>
-                <p>+34 673408670</p>
+                <p>pauibanez2001@gmail.com</p>
               </ItemValue>
-            </ContactItem>
-            <EmailButtonHolder>
-              <EmailButton
-                onClick={() => {
-                  setIsEmailActive(true);
-                }}
-                onBlur={() => {
-                  setTimeout(() => setIsEmailActive(false), 130);
-                }}
+            </EmailButton>
+            <EmailButtonOptions isActive={isEmailActive}>
+              <EmailButtonActive
+                size={formTextSizes[currentWidthBreakPoint].constactItem}
               >
                 <ItemIcon height={30} width={30} />
                 <ItemName>
@@ -239,66 +268,88 @@ const ContactPage = () => {
                 <ItemValue>
                   <p>pauibanez2001@gmail.com</p>
                 </ItemValue>
+              </EmailButtonActive>
+              <CopyEmailButton
+                onClick={() => {
+                  navigator.clipboard.writeText("pauibanez2001@gmail.com");
+                }}
+              >
+                {t("Contact.contactInfo.itemValues.copyEmail")}
+              </CopyEmailButton>
+              <EmailLink to={"mailto:pauibanez2001@gmail.com"} target="_blank">
+                {t("Contact.contactInfo.itemValues.openEmail")}
+              </EmailLink>
+            </EmailButtonOptions>
+          </EmailButtonHolder>
+          <ContactItem
+            size={formTextSizes[currentWidthBreakPoint].constactItem}
+          >
+            <ItemIcon height={30} width={30} />
+            <ItemName>
+              {t("Contact.contactInfo.itemNames.linkedIn") + ":"}
+            </ItemName>
+            <ItemValue>
+              <a
+                href="https://www.linkedin.com/in/pau-ibanez/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {t("Contact.contactInfo.itemValues.linkedIn")}
                 <AfterItemIcon height={15} width={15} />
-              </EmailButton>
-              <EmailButtonOptions isActive={isEmailActive}>
-                <EmailButtonActive>
-                  <ItemIcon height={30} width={30} />
-                  <ItemName>
-                    {t("Contact.contactInfo.itemNames.email") + ":"}
-                  </ItemName>
-                  <ItemValue>
-                    <p>pauibanez2001@gmail.com</p>
-                  </ItemValue>
-                </EmailButtonActive>
-                <CopyEmailButton
-                  onClick={() => {
-                    navigator.clipboard.writeText("pauibanez2001@gmail.com");
-                  }}
-                >
-                  {t("Contact.contactInfo.itemValues.copyEmail")}
-                </CopyEmailButton>
-                <EmailLink
-                  to={"mailto:pauibanez2001@gmail.com"}
-                  target="_blank"
-                >
-                  {t("Contact.contactInfo.itemValues.openEmail")}
-                </EmailLink>
-              </EmailButtonOptions>
-            </EmailButtonHolder>
-            <ContactItem>
-              <ItemIcon height={30} width={30} />
-              <ItemName>
-                {t("Contact.contactInfo.itemNames.linkedIn") + ":"}
-              </ItemName>
-              <ItemValue>
-                <a
-                  href="https://www.linkedin.com/in/pau-ibanez/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {t("Contact.contactInfo.itemValues.linkedIn")}
-                  <AfterItemIcon height={15} width={15} />
-                </a>
-              </ItemValue>
-            </ContactItem>
-          </ContactInfoSection>
-        </ContactInfo>
-        <ErrorrContextProvider>
-          <ContactForm onSubmit={onSubmit} />
-        </ErrorrContextProvider>
-      </FormHolder>
-      <InfoSection>
-        <TiteledText
-          title={t("Contact.textSections.0.title")}
-          text={t("Contact.textSections.0.text")}
-        />
-        <TiteledText
-          title={t("Contact.textSections.1.title")}
-          text={t("Contact.textSections.1.text")}
-          styleObject={{ gap: 0, text: { size: 13 } }}
-        />
-      </InfoSection>
+              </a>
+            </ItemValue>
+          </ContactItem>
+        </ContactInfoSection>
+      </ContactInfo>
+      <ErrorrContextProvider>
+        <ContactForm onSubmit={onSubmit} />
+      </ErrorrContextProvider>
+    </FormHolder>
+  );
+
+  const InfoSection = () => (
+    <>
+      <TiteledText
+        title={t("Contact.textSections.0.title")}
+        text={t("Contact.textSections.0.text")}
+        styleObject={{
+          title: {
+            size: textSizes[currentWidthBreakPoint].title,
+          },
+          text: {
+            size: textSizes[currentWidthBreakPoint].text,
+          },
+        }}
+      />
+      <TiteledText
+        title={t("Contact.textSections.1.title")}
+        text={t("Contact.textSections.1.text")}
+        styleObject={{
+          gap: 0,
+          title: {
+            size: textSizes[currentWidthBreakPoint].title,
+          },
+          text: {
+            size: textSizes[currentWidthBreakPoint].text - 2,
+          },
+        }}
+      />
+    </>
+  );
+  return (
+    <ContactHolder isColumn={currentWidthBreakPoint !== 0}>
+      {currentWidthBreakPoint === 0 && <Form />}
+      {currentWidthBreakPoint === 0 ? (
+        <ColumnInfoSection>
+          <InfoSection />
+        </ColumnInfoSection>
+      ) : (
+        <RowInfoSection>
+          <InfoSection />
+        </RowInfoSection>
+      )}
+
+      {currentWidthBreakPoint !== 0 && <Form />}
     </ContactHolder>
   );
 };
