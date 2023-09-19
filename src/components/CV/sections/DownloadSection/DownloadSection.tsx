@@ -112,7 +112,7 @@ const DownloadSection = () => {
                     styleData={{
                       accentColor: Colors.lightTextGray,
                       color: Colors.textGray,
-                      size: "15px",
+                      size: 15,
                     }}
                   />
                   <Button

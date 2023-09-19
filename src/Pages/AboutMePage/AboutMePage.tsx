@@ -1,19 +1,21 @@
 import styled from "styled-components";
 import TiteledText from "../../components/textComponents/TitledText/TiteledText";
 import { useTranslation } from "react-i18next";
+import { useContext } from "react";
 import ColoredText from "../../components/textComponents/ColoredText/ColoredText";
+import { imageSizes, textSizes } from "../../data/Pages/responsive/aboutMe";
+import ResponsiveContext from "../../contexts/responsiveContext/ResponsiveContext.contextCreator";
 
 const AboutMeHolder = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 125px 0;
+  padding: 125px 100px;
   text-align: justify;
   gap: 100px;
   margin: 0 auto;
-  min-width: 1530px;
-  max-width: 1530px;
+  max-width: 1700px;
 `;
 
 const Row = styled.div`
@@ -27,9 +29,9 @@ const RowItem = styled.div`
   max-width: 700px;
 `;
 
-const FloatingImage = styled.img`
+const FloatingImage = styled.img<{ width: number }>`
   float: right;
-  margin: 0 80px;
+  margin: 0 ${(props) => (props.width * 80) / imageSizes[0][0].width}px;
 `;
 
 const TextSection = styled.div`
@@ -46,11 +48,21 @@ const TextSection = styled.div`
 const AboutMePage = () => {
   const { t } = useTranslation();
 
+  const { currentWidthBreakPoint } = useContext(ResponsiveContext);
+
   return (
     <AboutMeHolder>
       <TiteledText
         title={t("AboutMe.textSections.0.title")}
         text={t("AboutMe.textSections.0.text")}
+        styleObject={{
+          title: {
+            size: textSizes[currentWidthBreakPoint].title,
+          },
+          text: {
+            size: textSizes[currentWidthBreakPoint].text,
+          },
+        }}
       />
       <Row>
         <RowItem>
@@ -59,8 +71,8 @@ const AboutMePage = () => {
               <FloatingImage
                 src="./media/aboutMe/team.png"
                 alt={t("AboutMe.images.0")}
-                width={222}
-                height={216}
+                width={imageSizes[currentWidthBreakPoint][0].width}
+                height={imageSizes[currentWidthBreakPoint][0].height}
               />
             </div>
             <TextSection>
@@ -69,10 +81,15 @@ const AboutMePage = () => {
                 styleData={{
                   heading: 3,
                   weight: 700,
-                  size: "20px",
+                  size: textSizes[currentWidthBreakPoint].title,
                 }}
               />
-              <ColoredText text={t("AboutMe.textSections.1.text")} />
+              <ColoredText
+                text={t("AboutMe.textSections.1.text")}
+                styleData={{
+                  size: textSizes[currentWidthBreakPoint].text,
+                }}
+              />
             </TextSection>
           </div>
         </RowItem>
@@ -80,6 +97,14 @@ const AboutMePage = () => {
           <TiteledText
             title={t("AboutMe.textSections.2.title")}
             text={t("AboutMe.textSections.2.text")}
+            styleObject={{
+              title: {
+                size: textSizes[currentWidthBreakPoint].title,
+              },
+              text: {
+                size: textSizes[currentWidthBreakPoint].text,
+              },
+            }}
           />
         </RowItem>
       </Row>
@@ -87,12 +112,20 @@ const AboutMePage = () => {
         <TiteledText
           title={t("AboutMe.textSections.3.title")}
           text={t("AboutMe.textSections.3.text")}
+          styleObject={{
+            title: {
+              size: textSizes[currentWidthBreakPoint].title,
+            },
+            text: {
+              size: textSizes[currentWidthBreakPoint].text,
+            },
+          }}
         />
         <img
           src="./media/aboutMe/ladder.png"
           alt={t("AboutMe.images.1")}
-          width={175}
-          height={315}
+          width={imageSizes[currentWidthBreakPoint][1].width}
+          height={imageSizes[currentWidthBreakPoint][1].height}
         />
       </Row>
     </AboutMeHolder>

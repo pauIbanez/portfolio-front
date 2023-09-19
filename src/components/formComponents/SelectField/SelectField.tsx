@@ -34,6 +34,11 @@ const Select = styled.select<{ isActive: boolean }>`
   font-family: inherit;
   font-size: 15px;
 
+  @media (max-width: 1366px) {
+    font-size: 13px;
+    height: 35px;
+  }
+
   color: white;
 
   background-color: ${Colors.disabledMain};

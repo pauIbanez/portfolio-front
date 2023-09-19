@@ -168,7 +168,7 @@ const TechnologiesSection = () => {
                       <InSectionHolder key={section.title}>
                         <ColoredText
                           text={section.title}
-                          styleData={{ size: "16px", weight: 700 }}
+                          styleData={{ size: 16, weight: 700 }}
                         />
                         <div style={{ padding: 10 }}>
                           <InSectionText>{section.text}</InSectionText>

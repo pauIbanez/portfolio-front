@@ -79,10 +79,10 @@ const Memory = () => {
 
   const statStyle = {
     title: {
-      size: "15px",
+      size: 15,
     },
     text: {
-      size: "13px",
+      size: 13,
       color: Colors.lightTextGray,
     },
     gap: 3,
@@ -287,18 +287,18 @@ const Memory = () => {
               <PairsSection>
                 <ColoredText
                   text="Pairs Matched"
-                  styleData={{ size: "15px", weight: 700 }}
+                  styleData={{ size: 15, weight: 700 }}
                 />
                 <ContinuousText>
                   <NumberText>
                     <ColoredText
                       text={stats.pairs.toString()}
-                      styleData={{ size: "13px", weight: 700 }}
+                      styleData={{ size: 13, weight: 700 }}
                     />
                   </NumberText>
                   <ColoredText
                     text="/8"
-                    styleData={{ size: "13px", color: Colors.lightTextGray }}
+                    styleData={{ size: 13, color: Colors.lightTextGray }}
                   />
                 </ContinuousText>
               </PairsSection>
