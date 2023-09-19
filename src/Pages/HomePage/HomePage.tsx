@@ -8,9 +8,16 @@ import { useContext } from "react";
 import ResponsiveContext from "../../contexts/responsiveContext/ResponsiveContext.contextCreator";
 import {
   backgroundTriangles,
+  button,
   mainGap,
+  orb,
   rightImages,
-} from "../../data/Pages/responsive/HomePage";
+  textSizes,
+} from "../../data/Pages/responsive/homePage";
+
+interface TextSize {
+  size: number;
+}
 
 const Container = styled.div`
   display: flex;
@@ -42,35 +49,33 @@ const InfoSection = styled.section<{ $width: number }>`
   }
 `;
 
-const AccentText = styled.p`
+const AccentText = styled.p<TextSize>`
   color: ${Colors.main};
-  font-size: 18px;
+  font-size: ${(props) => props.size}px;
 `;
 
-const MyName = styled.h2`
+const MyName = styled.h2<TextSize>`
   margin: 0;
 
-  font-size: 75px;
+  font-size: ${(props) => props.size}px;
   color: black;
   font-weight: 700;
   width: 100%;
 `;
 
-const TextSection = styled.div`
-  margin: 30px 0 85px 0;
+const TextSection = styled.div<TextSize>`
+  margin: 30px 0 ${(props) => props.size * 3.6}px 0;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  font-size: 16px;
+  font-size: ${(props) => props.size}px;
   color: ${Colors.textGray};
 `;
 
-const BackgroundOrb = styled.img`
-  height: 260px;
-  width: 260px;
+const BackgroundOrb = styled.img<{ offset: number }>`
   position: absolute;
   right: 6px;
-  top: -25px;
+  top: -${(props) => props.offset}px;
   z-index: -1;
 `;
 
@@ -119,19 +124,30 @@ const HomePage = () => {
     <Container>
       <Holder gap={mainGap[currentWidthBreakPoint]}>
         <InfoSection $width={rightImages[currentWidthBreakPoint][0].width}>
-          <BackgroundOrb alt={"orb"} src="/media/home/background_circle.svg" />
-          <AccentText>{t("Home.content.accent")}</AccentText>
-          <MyName>{t("Home.content.heading")}</MyName>
-          <TextSection>
+          <BackgroundOrb
+            alt={"orb"}
+            src="/media/home/background_circle.svg"
+            offset={textSizes[currentWidthBreakPoint].name - 50}
+            height={orb[currentWidthBreakPoint]}
+            width={orb[currentWidthBreakPoint]}
+          />
+          <AccentText size={textSizes[currentWidthBreakPoint].accent}>
+            {t("Home.content.accent")}
+          </AccentText>
+          <MyName size={textSizes[currentWidthBreakPoint].name}>
+            {t("Home.content.heading")}
+          </MyName>
+          <TextSection size={textSizes[currentWidthBreakPoint].textSection}>
             <p>{t("Home.content.info1")}</p>
             <p>{t("Home.content.info2")}</p>
           </TextSection>
           <Button
             onClick={goToProjects}
             styleObject={{
-              height: 70,
-              width: 240,
-              radius: 25,
+              height: button[currentWidthBreakPoint].height,
+              width: button[currentWidthBreakPoint].width,
+              radius: button[currentWidthBreakPoint].radius,
+              fontSize: button[currentWidthBreakPoint].size,
             }}
           >
             {t("Home.content.button")}
