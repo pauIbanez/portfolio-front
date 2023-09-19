@@ -13,7 +13,7 @@ import {
   orb,
   rightImages,
   textSizes,
-} from "../../data/Pages/responsive/homePage";
+} from "../../data/Pages/responsive/homeage";
 
 interface TextSize {
   size: number;
