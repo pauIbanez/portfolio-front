@@ -19,18 +19,18 @@ const Holder = styled.div`
   flex-direction: column;
 `;
 
-const CVContent = styled.main`
+const CVHolder = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+`;
+
+const CVContent = styled.main<{ $width: number }>`
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  width: 100%;
-  max-width: 1175px;
-`;
-const CVHolder = styled.div`
-  display: flex;
-  gap: 50px;
-  padding: 0 50px;
+  width: ${(props) => props.$width}px;
 `;
 
 const CVPage = () => {
@@ -64,7 +64,7 @@ const CVPage = () => {
         />
         <CVHolder ref={cvRef}>
           <InternalNavigation />
-          <CVContent>
+          <CVContent $width={1175}>
             <CVListSection
               title={sections.education.title}
               items={sections.education.items}

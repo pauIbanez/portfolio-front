@@ -119,7 +119,6 @@ const HomePage = () => {
 
   const { currentWidthBreakPoint } = useContext(ResponsiveContext);
 
-  console.log(currentWidthBreakPoint);
   return (
     <Container>
       <Holder gap={mainGap[currentWidthBreakPoint]}>

@@ -25,14 +25,14 @@ interface Props {
   text: string;
   styleObject?: {
     title?: {
-      size?: string;
+      size?: number;
       weight?: number;
       color?: string;
       accentColor?: string;
       heading?: number;
     };
     text?: {
-      size?: string;
+      size?: number;
       weight?: number;
       color?: string;
       accentColor?: string;
@@ -49,7 +49,7 @@ const TiteledText = ({ title, text, styleObject }: Props) => {
         styleData={{
           heading: styleObject?.title?.heading ?? 3,
           weight: styleObject?.title?.weight ?? 700,
-          size: styleObject?.title?.size ?? "20px",
+          size: styleObject?.title?.size ?? 20,
           accentColor: styleObject?.title?.accentColor,
           color: styleObject?.title?.color,
         }}

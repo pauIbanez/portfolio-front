@@ -5,7 +5,7 @@ import parseAccents from "../../../utils/parseAccents/parseAccents";
 interface Props {
   text: string;
   styleData?: {
-    size?: string;
+    size?: number;
     weight?: number;
     color?: string;
     accentColor?: string;
@@ -20,13 +20,13 @@ const ColoredSection = styled.span<ColoredSectionProps>`
 `;
 
 interface Section {
-  size?: string;
+  size?: number;
   weight?: number;
   color?: string;
   accentColor?: string;
 }
 const Text = styled.div<Section>`
-  font-size: ${(props) => props.size || "14px"};
+  font-size: ${(props) => props.size || "14"}px;
   font-weight: ${(props) => props.weight || 400};
   color: ${(props) => props.color || "black"};
   white-space: pre-line;

@@ -209,8 +209,8 @@ const ContactPage = () => {
             text={t("Contact.contactInfo.text")}
             styleObject={{
               gap: 5,
-              title: { size: "19px", heading: 0, color: "white" },
-              text: { size: "14px", color: "white" },
+              title: { size: 19, heading: 0, color: "white" },
+              text: { size: 14, color: "white" },
             }}
           />
           <ContactInfoSection>
@@ -296,7 +296,7 @@ const ContactPage = () => {
         <TiteledText
           title={t("Contact.textSections.1.title")}
           text={t("Contact.textSections.1.text")}
-          styleObject={{ gap: 0, text: { size: "13px" } }}
+          styleObject={{ gap: 0, text: { size: 13 } }}
         />
       </InfoSection>
     </ContactHolder>

@@ -63,7 +63,7 @@ describe("Given the ColoredText component", () => {
 
       const styleData = {
         color: "red",
-        size: "50px",
+        size: 50,
         weight: 300,
         accentColor: "blue",
       };

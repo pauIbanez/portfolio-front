@@ -96,7 +96,7 @@ const RatedSection = ({ title, items, notRated, grow }: Props) => {
 
   return (
     <Holder grow={grow}>
-      <ColoredText text={title} styleData={{ size: "16px", weight: 700 }} />
+      <ColoredText text={title} styleData={{ size: 16, weight: 700 }} />
       <Content>{renderItems}</Content>
     </Holder>
   );

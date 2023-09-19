@@ -34,7 +34,7 @@ const PresentationText = ({ title, text, button }: Props) => {
       <TextSection>
         <ColoredText
           text={title}
-          styleData={{ heading: 2, weight: 700, size: "30px" }}
+          styleData={{ heading: 2, weight: 700, size: 30 }}
         />
         <ColoredText text={text} />
       </TextSection>
