@@ -41,16 +41,6 @@ export const rightImages = [
       width: 475,
     },
   ],
-  [
-    {
-      height: 506,
-      width: 548,
-    },
-    {
-      height: 549,
-      width: 703,
-    },
-  ],
 ];
 
 export const textSizes = [
@@ -108,17 +98,5 @@ export const backgroundTriangles = [
   {
     height: 969,
     width: 1365,
-  },
-  {
-    height: 1,
-    width: 4,
-  },
-  {
-    height: 1,
-    width: 4,
-  },
-  {
-    height: 1,
-    width: 4,
   },
 ];
