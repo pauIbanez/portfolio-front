@@ -38,18 +38,14 @@ const Row = styled.div`
   gap: 30px;
   position: relative;
 `;
-const ArrowWrapper = styled.div<{ animation: string }>`
+const ArrowWrapper = styled.div<{ animation: string; $height: number }>`
   position: absolute;
   left: 50%;
   transform: translateX(-150%);
   z-index: 0;
   opacity: 1;
   bottom: 0;
-  height: 40px;
-
-  @media (min-width: 1366px) {
-    height: 35px;
-  }
+  height: ${(props) => props.$height}px;
   width: 30px;
   background-color: red;
 
@@ -262,6 +258,7 @@ const ContactForm = ({ onSubmit }: Props) => {
             }))}
           />
           <ArrowWrapper
+            $height={formSize[currentWidthBreakPoint].fieldHeight}
             animation={
               arrowTouched ? (visibleVariableField ? "comeIn" : "goOut") : ""
             }
