@@ -34,8 +34,8 @@ export const navBar = [
     barHeight: 75,
   },
   {
-    itemWidth: 140,
-    itemSize: 16,
-    barHeight: 75,
+    itemWidth: 100,
+    itemSize: 13,
+    barHeight: 70,
   },
 ];

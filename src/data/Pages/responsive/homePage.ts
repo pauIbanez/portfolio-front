@@ -41,6 +41,20 @@ export const rightImages = [
       width: 475,
     },
   ],
+  [
+    {
+      height: 377,
+      width: 380,
+    },
+    {
+      height: 277,
+      width: 304,
+    },
+    {
+      height: 296,
+      width: 380,
+    },
+  ],
 ];
 
 export const textSizes = [
@@ -59,9 +73,14 @@ export const textSizes = [
     name: 60,
     textSection: 13,
   },
+  {
+    accent: 13,
+    name: 50,
+    textSection: 11,
+  },
 ];
 
-export const orb = [260, 208, 177];
+export const orb = [260, 208, 177, 140];
 
 export const button = [
   {
@@ -82,9 +101,13 @@ export const button = [
     radius: 15,
     size: 15,
   },
+  {
+    height: 34,
+    width: 117,
+    radius: 10,
+    size: 12,
+  },
 ];
-
-export const mainGap = [250, 150, 200, 200, 200];
 
 export const backgroundTriangles = [
   {
@@ -98,5 +121,9 @@ export const backgroundTriangles = [
   {
     height: 969,
     width: 1365,
+  },
+  {
+    height: 727,
+    width: 1024,
   },
 ];
