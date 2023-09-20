@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import CVListItemData from "../../../Types/CVListItem";
 import Colors from "../../../data/style/Colors";
-
+import { textSizes } from "../../../data/Pages/responsive/cvPage";
+import ResponsiveContext from "../../../contexts/responsiveContext/ResponsiveContext.contextCreator";
+import { useContext } from "react";
 interface Props {
   item: CVListItemData;
   order: number;
@@ -10,7 +12,7 @@ interface Props {
 const Holder = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 30px;
 
   p,
   h4,
@@ -32,12 +34,17 @@ const Icon = styled.img`
   object-fit: contain;
 `;
 
-const InfoItems = styled.div`
+const InfoItems = styled.div<{ $size: number }>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 70px;
   margin-left: 15px;
+  font-size: ${(props) => props.$size}px;
+
+  h4 {
+    font-size: ${(props) => props.$size + 3}px;
+  }
 `;
 
 const NameSection = styled.div`
@@ -47,39 +54,37 @@ const NameSection = styled.div`
 `;
 
 const Name = styled.h4`
-  font-size: 20px;
   font-weight: 700;
 `;
 
-const Location = styled.p`
-  font-size: 15px;
-`;
+const Location = styled.p``;
 
-const Concept = styled.p`
-  font-size: 15px;
-`;
+const Concept = styled.p``;
 
 const Date = styled.p`
-  font-size: 15px;
   color: ${Colors.lightTextGray} !important;
 `;
 
-const TextSection = styled.div`
+const TextSection = styled.div<{ $size: number }>`
   display: flex;
   flex-direction: column;
   gap: 15px;
+  font-size: ${(props) => props.$size}px;
+
+  h5 {
+    font-size: ${(props) => props.$size}px;
+  }
 `;
 
 const TextTitle = styled.h5`
-  font-size: 15px;
   font-weight: 700;
   margin-bottom: 5px !important;
 `;
-const TextContent = styled.p`
-  font-size: 15px;
-`;
+const TextContent = styled.p``;
 
 const CVListItem = ({ item }: Props) => {
+  const { currentWidthBreakPoint } = useContext(ResponsiveContext);
+
   const renderTexts = item.textSections.map((section) => (
     <div key={section.title}>
       <TextTitle>{section.title}</TextTitle>
@@ -91,7 +96,7 @@ const CVListItem = ({ item }: Props) => {
     <Holder>
       <InfoSection>
         <Icon alt={`${item.name} logo`} src={`/media/logos/${item.image}`} />
-        <InfoItems>
+        <InfoItems $size={textSizes[currentWidthBreakPoint].texts}>
           <NameSection>
             <Name>{item.name}</Name>
             <Location>-</Location>
@@ -101,7 +106,9 @@ const CVListItem = ({ item }: Props) => {
           <Date>{`${item.dates.startDate} - ${item.dates.endDate}`}</Date>
         </InfoItems>
       </InfoSection>
-      <TextSection>{renderTexts}</TextSection>
+      <TextSection $size={textSizes[currentWidthBreakPoint].texts}>
+        {renderTexts}
+      </TextSection>
     </Holder>
   );
 };
