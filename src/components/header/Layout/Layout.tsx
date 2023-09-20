@@ -5,10 +5,13 @@ import { useLocation } from "react-router-dom";
 import Pages from "../../../data/Pages/Pages";
 import PageTitle from "../PageTitle/PageTitle";
 import { useTranslation } from "react-i18next";
+import { useContext } from "react";
+import ResponsiveContext from "../../../contexts/responsiveContext/ResponsiveContext.contextCreator";
+import { navBar } from "../../../data/Pages/responsive/layout";
 
-const BarContainer = styled.div`
+const BarContainer = styled.div<{ $height: number }>`
   width: 100%;
-  height: 75px;
+  height: ${(props) => props.$height}px;
 
   display: flex;
   justify-content: space-between;
@@ -28,6 +31,7 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
   const { t } = useTranslation();
+  const { currentWidthBreakPoint } = useContext(ResponsiveContext);
 
   const currentPath = useLocation().pathname;
 
@@ -47,7 +51,7 @@ const Layout = ({ children }: Props) => {
   return (
     <>
       <PageTitle title={title} />
-      <BarContainer>
+      <BarContainer $height={navBar[currentWidthBreakPoint].barHeight}>
         <PresentationInfo />
         <NavBar />
       </BarContainer>
