@@ -8,6 +8,7 @@ export const textSizes = [
     internalText: 14,
     ratedSectionStar: 24,
     sectionText: 15,
+    letterSize: 14,
   },
   {
     titles: 20,
@@ -16,6 +17,7 @@ export const textSizes = [
     internalText: 14,
     ratedSectionStar: 22,
     sectionText: 15,
+    letterSize: 14,
   },
   {
     titles: 18,
@@ -24,13 +26,42 @@ export const textSizes = [
     internalText: 13,
     ratedSectionStar: 20,
     sectionText: 13,
+    letterSize: 13,
   },
   {
-    titles: 16,
-    texts: 12,
-    internalTitle: 15,
-    internalText: 11,
+    titles: 17,
+    texts: 14,
+    internalTitle: 13,
+    internalText: 12,
     ratedSectionStar: 15,
     sectionText: 12,
+    letterSize: 13,
+  },
+];
+
+export const downloadButtons = [
+  {
+    height: 40,
+    width: 156,
+    radius: 15,
+    size: 12,
+  },
+  {
+    height: 40,
+    width: 156,
+    radius: 15,
+    size: 12,
+  },
+  {
+    height: 34,
+    width: 117,
+    radius: 10,
+    size: 12,
+  },
+  {
+    height: 28,
+    width: 95,
+    radius: 10,
+    size: 11,
   },
 ];
