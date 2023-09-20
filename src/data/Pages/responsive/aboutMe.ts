@@ -11,6 +11,14 @@ export const textSizes = [
     title: 17,
     text: 12,
   },
+  {
+    title: 17,
+    text: 12,
+  },
+  {
+    title: 17,
+    text: 12,
+  },
 ];
 
 export const imageSizes = [
@@ -28,6 +36,26 @@ export const imageSizes = [
     {
       height: 216,
       width: 222,
+    },
+    {
+      height: 315,
+      width: 175,
+    },
+  ],
+  [
+    {
+      height: 170,
+      width: 175,
+    },
+    {
+      height: 315,
+      width: 175,
+    },
+  ],
+  [
+    {
+      height: 170,
+      width: 175,
     },
     {
       height: 315,

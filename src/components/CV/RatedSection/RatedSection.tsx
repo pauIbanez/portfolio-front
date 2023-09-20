@@ -1,6 +1,9 @@
 import styled from "styled-components";
+import { useContext } from "react";
 import Colors from "../../../data/style/Colors";
 import ColoredText from "../../textComponents/ColoredText/ColoredText";
+import ResponsiveContext from "../../../contexts/responsiveContext/ResponsiveContext.contextCreator";
+import { textSizes } from "../../../data/Pages/responsive/cvPage";
 
 const Holder = styled.div<{ grow?: boolean }>`
   background-color: ${Colors.backgroundGray};
@@ -17,13 +20,13 @@ const Content = styled.div`
   gap: 15px;
 `;
 
-const Item = styled.div<{ notRated: boolean }>`
+const Item = styled.div<{ notRated: boolean; $size: number }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 
-  font-size: 15px;
+  font-size: ${(props) => props.$size}px;
   color: ${Colors.textGray};
 `;
 
@@ -51,11 +54,14 @@ interface Props {
 }
 
 const RatedSection = ({ title, items, notRated, grow }: Props) => {
+  const { currentWidthBreakPoint } = useContext(ResponsiveContext);
+
   const renderItems = items.map((item, index) => (
     <Item
       notRated={notRated || false}
       key={item.name}
       data-testid={`item-${index}`}
+      $size={textSizes[currentWidthBreakPoint].sectionText}
     >
       <p>{item.name}</p>
       {notRated ? (
@@ -72,8 +78,10 @@ const RatedSection = ({ title, items, notRated, grow }: Props) => {
                       key={i}
                       alt={`Full star ${i} out of 5`}
                       src="/media/icons/rating_star_full.svg"
-                      height={23}
-                      width={24}
+                      height={
+                        textSizes[currentWidthBreakPoint].ratedSectionStar
+                      }
+                      width={textSizes[currentWidthBreakPoint].ratedSectionStar}
                     />
                   )
                 : renderStars.push(
@@ -81,8 +89,10 @@ const RatedSection = ({ title, items, notRated, grow }: Props) => {
                       key={i}
                       alt={`Empty star ${i} out of 5`}
                       src="/media/icons/rating_star_empty.svg"
-                      height={23}
-                      width={24}
+                      height={
+                        textSizes[currentWidthBreakPoint].ratedSectionStar
+                      }
+                      width={textSizes[currentWidthBreakPoint].ratedSectionStar}
                     />
                   );
             }
@@ -96,7 +106,13 @@ const RatedSection = ({ title, items, notRated, grow }: Props) => {
 
   return (
     <Holder grow={grow}>
-      <ColoredText text={title} styleData={{ size: 16, weight: 700 }} />
+      <ColoredText
+        text={title}
+        styleData={{
+          size: textSizes[currentWidthBreakPoint].internalTitle,
+          weight: 700,
+        }}
+      />
       <Content>{renderItems}</Content>
     </Holder>
   );

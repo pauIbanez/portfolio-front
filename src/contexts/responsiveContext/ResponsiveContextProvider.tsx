@@ -26,19 +26,16 @@ const ResponsiveContextProvider = ({ children }: Props) => {
     useMediaQuery({ minWidth: 1920 }, undefined, () => {
       handleWidthChange(screenWidths);
     }),
-    useMediaQuery({ minWidth: 1536 }, undefined, () => {
+    useMediaQuery({ maxWidth: 1920, minWidth: 1536 }, undefined, () => {
       handleWidthChange(screenWidths);
     }),
-    useMediaQuery({ minWidth: 1366 }, undefined, () => {
+    useMediaQuery({ maxWidth: 1536, minWidth: 1366 }, undefined, () => {
       handleWidthChange(screenWidths);
     }),
-    useMediaQuery({ minWidth: 414 }, undefined, () => {
+    useMediaQuery({ maxWidth: 1366, minWidth: 1024 }, undefined, () => {
       handleWidthChange(screenWidths);
     }),
-    useMediaQuery({ minWidth: 360 }, undefined, () => {
-      handleWidthChange(screenWidths);
-    }),
-    useMediaQuery({ minWidth: 10 }, undefined, () => {
+    useMediaQuery({ maxWidth: 1024 }, undefined, () => {
       handleWidthChange(screenWidths);
     }),
   ];

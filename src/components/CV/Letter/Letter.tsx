@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Colors from "../../../data/style/Colors";
-
+import ResponsiveContext from "../../../contexts/responsiveContext/ResponsiveContext.contextCreator";
+import { useContext } from "react";
+import { textSizes } from "../../../data/Pages/responsive/cvPage";
 interface Props {
   item: {
     name: string;
@@ -12,10 +14,11 @@ interface Props {
   };
 }
 
-const Holder = styled.div`
+const Holder = styled.div<{ $size: number }>`
   display: flex;
   flex-direction: column;
   gap: 30px;
+  font-size: ${(props) => props.$size}px;
 
   p,
   h4,
@@ -51,20 +54,19 @@ const Name = styled.h4`
 `;
 
 const InfoText = styled.p`
-  font-size: 14px;
   color: ${Colors.lightTextGray};
 `;
 
 const TextContent = styled.p`
   white-space: pre-line;
-  font-size: 14px;
 `;
 
 const Letter = ({
   item: { email, name, linkedIn, position, picture, letter },
 }: Props) => {
+  const { currentWidthBreakPoint } = useContext(ResponsiveContext);
   return (
-    <Holder>
+    <Holder $size={textSizes[currentWidthBreakPoint].letterSize}>
       <InfoSection>
         <Icon alt={name} src={`/media/references/${picture}`} />
         <InfoItems>

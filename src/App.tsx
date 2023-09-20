@@ -8,8 +8,17 @@ import AboutMePage from "./Pages/AboutMePage/AboutMePage";
 import ProjectsPage from "./Pages/ProjectsPage/ProjectsPage";
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
 import MinigamesPage from "./Pages/MinigamesPage/MinigamesPage";
+import { useContext, useState } from "react";
+import ResponsiveContext from "./contexts/responsiveContext/ResponsiveContext.contextCreator";
+import NoMobilePage from "./Pages/NoMobilePage/NoMobilePage";
 
 function App() {
+  const { currentWidthBreakPoint } = useContext(ResponsiveContext);
+  const [acceptedMobile, setAcceptedMobile] = useState<boolean>(false);
+
+  if (currentWidthBreakPoint === 4 && !acceptedMobile) {
+    return <NoMobilePage onClick={() => setAcceptedMobile(true)} />;
+  }
   return (
     <Layout>
       <Routes>

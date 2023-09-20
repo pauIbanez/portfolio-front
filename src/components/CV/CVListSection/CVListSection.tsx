@@ -5,6 +5,8 @@ import CVListItemData from "../../../Types/CVListItem";
 import useEffectOnce from "../../../hooks/useEffectOnce";
 import CVListItem from "../CVListItem/CVListItem";
 import ScrollContext from "../../../contexts/scrollContext/ScrollContext.contextCreator";
+import ResponsiveContext from "../../../contexts/responsiveContext/ResponsiveContext.contextCreator";
+import { textSizes } from "../../../data/Pages/responsive/cvPage";
 
 const Container = styled.section`
   width: 100%;
@@ -27,9 +29,9 @@ const Line = styled.div<{ order: number }>`
   height: 2px;
 `;
 
-const Title = styled.h3`
+const Title = styled.h3<{ $size: number }>`
   font-weight: 700;
-  font-size: 20px;
+  font-size: ${(props) => props.$size}px;
   color: black;
   margin: 0;
 `;
@@ -78,6 +80,7 @@ const CVListSection = ({ title, items }: Props) => {
   const section = useRef(null);
 
   const { loadItem } = useContext(ScrollContext);
+  const { currentWidthBreakPoint } = useContext(ResponsiveContext);
 
   useEffectOnce(() => {
     loadItem({ name: title, ref: section });
@@ -112,7 +115,7 @@ const CVListSection = ({ title, items }: Props) => {
   return (
     <Container ref={section}>
       <Content>
-        <Title>{title}</Title>
+        <Title $size={textSizes[currentWidthBreakPoint].titles}>{title}</Title>
         <Order onClick={changeOrder} isDateUp={isDateUp}>
           Order:
           <div>

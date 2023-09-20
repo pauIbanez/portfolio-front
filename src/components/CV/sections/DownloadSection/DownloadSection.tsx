@@ -6,18 +6,23 @@ import Colors from "../../../../data/style/Colors";
 import { useState, useCallback, useContext } from "react";
 import { Errorr, ErrorrContext } from "react-errorr";
 import useSections from "../../../../hooks/useSections";
+import ResponsiveContext from "../../../../contexts/responsiveContext/ResponsiveContext.contextCreator";
+import {
+  downloadButtons,
+  textSizes,
+} from "../../../../data/Pages/responsive/cvPage";
 
-const Content = styled.div`
+const Content = styled.div<{ $size: number }>`
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 30px;
+  font-size: ${(props) => props.$size}px;
 `;
 
 const DownloadHolder = styled.div`
   display: flex;
-  justify-content: center;
-  margin: 0 50px;
-  gap: 10%;
+  justify-content: space-between;
+  margin: 0 10%;
 `;
 
 const Column = styled.div`
@@ -76,7 +81,7 @@ const DownloadSection = () => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
   const [isErrorActive, setErrorActive] = useState<boolean>(false);
   const { activateErrorr, forceRemoveErrorr } = useContext(ErrorrContext);
-
+  const { currentWidthBreakPoint } = useContext(ResponsiveContext);
   const { sections } = useSections();
 
   const onClick = useCallback(
@@ -100,7 +105,7 @@ const DownloadSection = () => {
 
   return (
     <CVSection title={sections.download.title}>
-      <Content>
+      <Content $size={textSizes[currentWidthBreakPoint].texts}>
         <p>{sections.download.text}</p>
         <DownloadHolder>
           {sections.download.items.map((column, index) => (
@@ -112,16 +117,16 @@ const DownloadSection = () => {
                     styleData={{
                       accentColor: Colors.lightTextGray,
                       color: Colors.textGray,
-                      size: 15,
+                      size: downloadButtons[currentWidthBreakPoint].size,
                     }}
                   />
                   <Button
                     onClick={() => onClick(item.link)}
                     styleObject={{
-                      height: 40,
-                      width: 156,
-                      radius: 10,
-                      fontSize: 15,
+                      height: downloadButtons[currentWidthBreakPoint].height,
+                      width: downloadButtons[currentWidthBreakPoint].width,
+                      radius: downloadButtons[currentWidthBreakPoint].radius,
+                      fontSize: downloadButtons[currentWidthBreakPoint].size,
                     }}
                     disabled={isErrorActive}
                   >

@@ -228,9 +228,7 @@ const ContactPage = () => {
           }}
         />
         <ContactInfoSection>
-          <ContactItem
-            size={formTextSizes[currentWidthBreakPoint].constactItem}
-          >
+          <ContactItem size={formTextSizes[currentWidthBreakPoint].contactItem}>
             <ItemIcon height={30} width={30} />
             <ItemName>
               {t("Contact.contactInfo.itemNames.phone") + ":"}
@@ -241,7 +239,7 @@ const ContactPage = () => {
           </ContactItem>
           <EmailButtonHolder>
             <EmailButton
-              size={formTextSizes[currentWidthBreakPoint].constactItem}
+              size={formTextSizes[currentWidthBreakPoint].contactItem}
               onClick={() => {
                 setIsEmailActive(true);
               }}
@@ -259,7 +257,7 @@ const ContactPage = () => {
             </EmailButton>
             <EmailButtonOptions isActive={isEmailActive}>
               <EmailButtonActive
-                size={formTextSizes[currentWidthBreakPoint].constactItem}
+                size={formTextSizes[currentWidthBreakPoint].contactItem}
               >
                 <ItemIcon height={30} width={30} />
                 <ItemName>
@@ -281,9 +279,7 @@ const ContactPage = () => {
               </EmailLink>
             </EmailButtonOptions>
           </EmailButtonHolder>
-          <ContactItem
-            size={formTextSizes[currentWidthBreakPoint].constactItem}
-          >
+          <ContactItem size={formTextSizes[currentWidthBreakPoint].contactItem}>
             <ItemIcon height={30} width={30} />
             <ItemName>
               {t("Contact.contactInfo.itemNames.linkedIn") + ":"}

@@ -23,6 +23,10 @@ const Row = styled.div`
   justify-content: space-between;
   width: 100%;
   gap: 75px;
+
+  img {
+    align-self: center;
+  }
 `;
 
 const RowItem = styled.div`

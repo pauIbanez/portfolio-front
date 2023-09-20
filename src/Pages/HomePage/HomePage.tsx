@@ -9,7 +9,6 @@ import ResponsiveContext from "../../contexts/responsiveContext/ResponsiveContex
 import {
   backgroundTriangles,
   button,
-  mainGap,
   orb,
   rightImages,
   textSizes,
@@ -27,12 +26,12 @@ const Container = styled.div`
   overflow: hidden;
 `;
 
-const Holder = styled.main<{ gap: number }>`
+const Holder = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  gap: ${(props) => props.gap}px;
+  gap: 250px;
   height: fit-content;
   margin: 100px 0 100px 0;
 `;
@@ -121,7 +120,7 @@ const HomePage = () => {
 
   return (
     <Container>
-      <Holder gap={mainGap[currentWidthBreakPoint]}>
+      <Holder>
         <InfoSection $width={rightImages[currentWidthBreakPoint][0].width}>
           <BackgroundOrb
             alt={"orb"}
