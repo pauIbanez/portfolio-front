@@ -16,6 +16,7 @@ interface NavItemProps {
   $active?: boolean;
   $width: number;
   size: number;
+  $height?: number;
 }
 
 const NavItem = styled(Link)<NavItemProps>`
@@ -71,7 +72,7 @@ const ContactLink = styled(Link)<NavItemProps>`
   border: ${(props) =>
     props.$active ? "3px solid " + Colors.main : "3px solid transparent"};
 
-  border-radius: 25px;
+  border-radius: ${(props) => props.$height! - 53}px;
 
   font-size: ${(props) => props.size}px;
   font-weight: 700;
@@ -117,6 +118,7 @@ const NavBar = () => {
           $active={currentPage === Pages.contact.path}
           $width={navBar[currentWidthBreakPoint].itemWidth}
           size={navBar[currentWidthBreakPoint].itemSize}
+          $height={navBar[currentWidthBreakPoint].barHeight}
           to={Pages.contact.path}
         >
           {t("navBar.contact")}
