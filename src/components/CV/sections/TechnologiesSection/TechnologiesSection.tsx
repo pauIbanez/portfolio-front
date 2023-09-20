@@ -1,16 +1,19 @@
 import styled from "styled-components";
 import CVSection from "../../CVSection/CVSection";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import Button from "../../../Button/Button";
 import Colors from "../../../../data/style/Colors";
 import RatedSection from "../../RatedSection/RatedSection";
 import ColoredText from "../../../textComponents/ColoredText/ColoredText";
 import useSections from "../../../../hooks/useSections";
+import ResponsiveContext from "../../../../contexts/responsiveContext/ResponsiveContext.contextCreator";
+import { textSizes } from "../../../../data/Pages/responsive/cvPage";
 
-const SectionContent = styled.div`
+const SectionContent = styled.div<{ $size: number }>`
   display: flex;
   flex-direction: column;
   gap: 30px;
+  font-size: ${(props) => props.$size}px;
 `;
 
 const ButtonHolder = styled.div`
@@ -64,29 +67,27 @@ const Page = styled.div`
   min-width: 100%;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  height: 560px;
+  justify-content: flex-start;
+  gap: 15px;
 `;
 
 const PageTitle = styled.h4`
   margin: 0;
-  flex: 1;
   font-weight: 700;
   font-size: 18px;
   color: black;
 `;
 
-const SectionsHolder = styled.div`
+const SectionsHolder = styled.div<{ gap: boolean }>`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  gap: 20px;
-  height: 520px;
+  ${(props) => props.gap && "gap: 20px;"}
 `;
 
-const Column = styled.div`
+const Column = styled.div<{ grow: boolean }>`
   display: flex;
-  flex: 1;
+  ${(props) => (props.grow ? "flex: 1" : "width: 32%")};
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
@@ -100,14 +101,15 @@ const InSectionHolder = styled.div`
   flex: 1;
 `;
 
-const InSectionText = styled.p`
-  font-size: 14px;
+const InSectionText = styled.p<{ $size: number }>`
+  font-size: ${(props) => props.$size}px;
 `;
 
 const TechnologiesSection = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const pageViewRef = useRef<HTMLDivElement>(null);
   const { sections } = useSections();
+  const { currentWidthBreakPoint } = useContext(ResponsiveContext);
 
   useEffect(() => {
     switch (currentPage) {
@@ -133,7 +135,7 @@ const TechnologiesSection = () => {
       name={sections.technologies.name}
     >
       <>
-        <SectionContent>
+        <SectionContent $size={textSizes[currentWidthBreakPoint].texts}>
           <p>{sections.technologies.text}</p>
         </SectionContent>
         <PageView ref={pageViewRef}>
@@ -141,10 +143,10 @@ const TechnologiesSection = () => {
             <PageTitle>
               {sections.technologies.pages.technologies.name}
             </PageTitle>
-            <SectionsHolder>
+            <SectionsHolder gap={false}>
               {sections.technologies.pages.technologies.sections.map(
                 (column, index) => (
-                  <Column key={index}>
+                  <Column key={index} grow={false}>
                     {column.map((section) => (
                       <RatedSection
                         key={section.title}
@@ -160,18 +162,28 @@ const TechnologiesSection = () => {
           </Page>
           <Page>
             <PageTitle>{sections.technologies.pages.skills.name}</PageTitle>
-            <SectionsHolder>
+            <SectionsHolder gap={true}>
               {sections.technologies.pages.skills.sections.map(
                 (column, index) => (
-                  <Column key={index}>
+                  <Column key={index} grow={true}>
                     {column.map((section) => (
                       <InSectionHolder key={section.title}>
                         <ColoredText
                           text={section.title}
-                          styleData={{ size: 16, weight: 700 }}
+                          styleData={{
+                            size: textSizes[currentWidthBreakPoint]
+                              .internalTitle,
+                            weight: 700,
+                          }}
                         />
                         <div style={{ padding: 10 }}>
-                          <InSectionText>{section.text}</InSectionText>
+                          <InSectionText
+                            $size={
+                              textSizes[currentWidthBreakPoint].internalText
+                            }
+                          >
+                            {section.text}
+                          </InSectionText>
                         </div>
                       </InSectionHolder>
                     ))}
