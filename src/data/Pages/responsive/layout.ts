@@ -15,6 +15,10 @@ export const presentation = [
     height: 150,
     size: 35,
   },
+  {
+    height: 150,
+    size: 35,
+  },
 ];
 
 export const navBar = [
@@ -32,6 +36,11 @@ export const navBar = [
     itemWidth: 120,
     itemSize: 15,
     barHeight: 75,
+  },
+  {
+    itemWidth: 100,
+    itemSize: 13,
+    barHeight: 70,
   },
   {
     itemWidth: 100,

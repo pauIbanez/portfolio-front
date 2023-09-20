@@ -1,4 +1,4 @@
-export const cvWidth = [1175, 1175, 950, 800];
+export const cvWidth = [1175, 1175, 950, 800, 800];
 
 export const textSizes = [
   {
@@ -37,6 +37,15 @@ export const textSizes = [
     sectionText: 12,
     letterSize: 13,
   },
+  {
+    titles: 17,
+    texts: 14,
+    internalTitle: 13,
+    internalText: 12,
+    ratedSectionStar: 15,
+    sectionText: 12,
+    letterSize: 13,
+  },
 ];
 
 export const downloadButtons = [
@@ -57,6 +66,12 @@ export const downloadButtons = [
     width: 117,
     radius: 10,
     size: 12,
+  },
+  {
+    height: 28,
+    width: 95,
+    radius: 10,
+    size: 11,
   },
   {
     height: 28,

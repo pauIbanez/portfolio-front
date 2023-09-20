@@ -15,6 +15,10 @@ export const textSizes = [
     title: 17,
     text: 12,
   },
+  {
+    title: 17,
+    text: 12,
+  },
 ];
 
 export const formSize = [
@@ -42,6 +46,12 @@ export const formSize = [
     height: 607,
     fieldHeight: 35,
   },
+  {
+    infoWidth: 314,
+    width: 634,
+    height: 607,
+    fieldHeight: 35,
+  },
 ];
 
 export const formTextSizes = [
@@ -50,6 +60,9 @@ export const formTextSizes = [
   },
   {
     contactItem: 13,
+  },
+  {
+    contactItem: 11,
   },
   {
     contactItem: 11,
