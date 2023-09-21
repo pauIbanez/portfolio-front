@@ -147,6 +147,8 @@ const HomePage = () => {
               radius: button[currentWidthBreakPoint].radius,
               fontSize: button[currentWidthBreakPoint].size,
             }}
+            icon="chevron.svg"
+            hoverIcon="chevron_main.svg"
           >
             {t("Home.content.button")}
           </Button>

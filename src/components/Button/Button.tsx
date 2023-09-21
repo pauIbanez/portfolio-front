@@ -4,6 +4,8 @@ import Colors from "../../data/style/Colors";
 interface ButotnCaseProps {
   reversed?: boolean;
   $active?: boolean;
+  hoverIcon?: string;
+  iconRotation?: number;
   styleObject?: {
     height?: number;
     width?: number;
@@ -64,12 +66,31 @@ const ButtonCase = styled.button<ButotnCaseProps>`
     color: ${(props) => (props.reversed ? "white" : Colors.main)};
 
     border: ${(props) => (props.reversed ? "none" : "3px solid" + Colors.main)};
+
+    ${(props) =>
+      props.hoverIcon &&
+      `div:last-child img {
+        transform: RotateX(${props.iconRotation ?? 0}deg);
+      content: url(/media/icons/${props.hoverIcon});
+    }`}
   }
 
   &:disabled {
     cursor: inherit;
     color: ${Colors.disabledTextGray};
     background-color: ${Colors.disabledMain};
+  }
+`;
+
+const IconHolder = styled.div<{ $size: number }>`
+  height: ${(props) => props.$size}px;
+  width: ${(props) => props.$size}px;
+  position: relative;
+  background-color: transparent;
+
+  img {
+    position: absolute;
+    inset: 0;
   }
 `;
 
@@ -80,6 +101,9 @@ interface Props {
   children: JSX.Element | string;
   disabled?: boolean;
   submit?: boolean;
+  icon?: string;
+  hoverIcon?: string;
+  iconRotation?: number;
   styleObject?: {
     width?: number;
     height?: number;
@@ -98,6 +122,9 @@ const Button = ({
   styleObject,
   submit,
   active,
+  icon,
+  hoverIcon,
+  iconRotation,
 }: Props) => {
   return (
     <ButtonCase
@@ -107,8 +134,20 @@ const Button = ({
       reversed={reversed}
       styleObject={styleObject}
       $active={active}
+      hoverIcon={hoverIcon}
+      iconRotation={iconRotation}
     >
       {children}
+      {icon && (
+        <IconHolder $size={styleObject?.fontSize!}>
+          <img
+            src={`/media/icons/${icon}`}
+            alt="chevron"
+            height={styleObject?.fontSize}
+            width={styleObject?.fontSize}
+          />
+        </IconHolder>
+      )}
     </ButtonCase>
   );
 };

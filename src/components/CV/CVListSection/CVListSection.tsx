@@ -119,7 +119,7 @@ const CVListSection = ({ title, items }: Props) => {
         <Order onClick={changeOrder} isDateUp={isDateUp}>
           Order:
           <div>
-            Date <img src="/media/icons/arrowUp.svg" alt="arrowUp" />
+            Date <img src="/media/icons/arrow.svg" alt="arrow" />
           </div>
         </Order>
       </Content>
