@@ -58,12 +58,16 @@ const CVPage = () => {
           title={t("CV.presentation.title")}
           text={t("CV.presentation.text")}
           button={{
-            content: (
-              <>
-                <p>{t("CV.presentation.button")}</p>
-              </>
-            ),
+            content: t("CV.presentation.button"),
             onClick: onClick,
+            buttonProps: {
+              icon: "chevron.svg",
+              hoverIcon: "chevron_main.svg",
+              iconRotation: 90,
+              styleObject: {
+                fontSize: 20,
+              },
+            },
           }}
         />
         <CVHolder ref={cvRef}>

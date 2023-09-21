@@ -29,7 +29,7 @@ describe("Given the CVPage page", () => {
 
   describe("When it's intanciated and the GoToCV button is pressed", () => {
     test("Then it should call the ref's scrollTo", () => {
-      const expectedButton = "CV.presentation.button";
+      const expectedButton = "CV.presentation.button chevron";
 
       render(<CVPage />);
 

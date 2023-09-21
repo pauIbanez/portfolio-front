@@ -88,15 +88,9 @@ const ContactItem = styled.div<{ size: number }>`
   }
 `;
 
-const ItemIcon = styled.img`
-  background-color: white;
-  border-radius: 10px;
-`;
+const ItemIcon = styled.img``;
 
-const AfterItemIcon = styled.img`
-  background-color: white;
-  border-radius: 10px;
-`;
+const AfterItemIcon = styled.img``;
 
 const ItemName = styled.p`
   font-weight: 700;
@@ -203,6 +197,10 @@ const EmailLink = styled(Link)`
   &:hover {
     color: white;
     background-color: ${Colors.main};
+
+    img {
+      content: url(/media/icons/link.svg);
+    }
   }
 `;
 
@@ -229,7 +227,12 @@ const ContactPage = () => {
         />
         <ContactInfoSection>
           <ContactItem size={formTextSizes[currentWidthBreakPoint].contactItem}>
-            <ItemIcon height={30} width={30} />
+            <ItemIcon
+              src="/media/icons/phone.svg"
+              alt="phone"
+              height={30}
+              width={30}
+            />
             <ItemName>
               {t("Contact.contactInfo.itemNames.phone") + ":"}
             </ItemName>
@@ -247,7 +250,12 @@ const ContactPage = () => {
                 setTimeout(() => setIsEmailActive(false), 130);
               }}
             >
-              <ItemIcon height={30} width={30} />
+              <ItemIcon
+                src="/media/icons/email.svg"
+                alt="email"
+                height={30}
+                width={30}
+              />
               <ItemName>
                 {t("Contact.contactInfo.itemNames.email") + ":"}
               </ItemName>
@@ -259,7 +267,12 @@ const ContactPage = () => {
               <EmailButtonActive
                 size={formTextSizes[currentWidthBreakPoint].contactItem}
               >
-                <ItemIcon height={30} width={30} />
+                <ItemIcon
+                  height={30}
+                  width={30}
+                  src="/media/icons/email_main.svg"
+                  alt="email"
+                />
                 <ItemName>
                   {t("Contact.contactInfo.itemNames.email") + ":"}
                 </ItemName>
@@ -276,11 +289,22 @@ const ContactPage = () => {
               </CopyEmailButton>
               <EmailLink to={"mailto:pauibanez2001@gmail.com"} target="_blank">
                 {t("Contact.contactInfo.itemValues.openEmail")}
+                <AfterItemIcon
+                  height={15}
+                  width={15}
+                  src="/media/icons/link_textGray.svg"
+                  alt="newscreen"
+                />
               </EmailLink>
             </EmailButtonOptions>
           </EmailButtonHolder>
           <ContactItem size={formTextSizes[currentWidthBreakPoint].contactItem}>
-            <ItemIcon height={30} width={30} />
+            <ItemIcon
+              height={30}
+              width={30}
+              src="/media/icons/linkedIn.svg"
+              alt="linkedIn"
+            />
             <ItemName>
               {t("Contact.contactInfo.itemNames.linkedIn") + ":"}
             </ItemName>
@@ -291,7 +315,12 @@ const ContactPage = () => {
                 rel="noreferrer"
               >
                 {t("Contact.contactInfo.itemValues.linkedIn")}
-                <AfterItemIcon height={15} width={15} />
+                <AfterItemIcon
+                  height={15}
+                  width={15}
+                  src="/media/icons/link.svg"
+                  alt="newscreen"
+                />
               </a>
             </ItemValue>
           </ContactItem>

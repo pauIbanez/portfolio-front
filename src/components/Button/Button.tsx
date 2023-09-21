@@ -4,6 +4,8 @@ import Colors from "../../data/style/Colors";
 interface ButotnCaseProps {
   reversed?: boolean;
   $active?: boolean;
+  hoverIcon?: string;
+  iconRotation?: number;
   styleObject?: {
     height?: number;
     width?: number;
@@ -59,11 +61,23 @@ const ButtonCase = styled.button<ButotnCaseProps>`
     margin: 0;
   }
 
+  ${(props) =>
+    props.iconRotation &&
+    `div:last-child {
+      transform: RotateZ(${props.iconRotation}deg);
+    }`}
+
   &:hover:enabled {
     background-color: ${(props) => (props.reversed ? Colors.main : "white")};
     color: ${(props) => (props.reversed ? "white" : Colors.main)};
 
     border: ${(props) => (props.reversed ? "none" : "3px solid" + Colors.main)};
+
+    ${(props) =>
+      props.hoverIcon &&
+      `div:last-child img {
+      content: url(/media/icons/${props.hoverIcon});
+    }`}
   }
 
   &:disabled {
@@ -73,13 +87,28 @@ const ButtonCase = styled.button<ButotnCaseProps>`
   }
 `;
 
-interface Props {
+const IconHolder = styled.div<{ $size: number }>`
+  height: ${(props) => props.$size}px;
+  width: ${(props) => props.$size}px;
+  position: relative;
+  background-color: transparent;
+
+  img {
+    position: absolute;
+    inset: 0;
+  }
+`;
+
+export interface ButtonProps {
   onClick?: () => void;
   reversed?: boolean;
   active?: boolean;
-  children: JSX.Element | string;
+  children?: JSX.Element | string;
   disabled?: boolean;
   submit?: boolean;
+  icon?: string;
+  hoverIcon?: string;
+  iconRotation?: number;
   styleObject?: {
     width?: number;
     height?: number;
@@ -98,7 +127,10 @@ const Button = ({
   styleObject,
   submit,
   active,
-}: Props) => {
+  icon,
+  hoverIcon,
+  iconRotation,
+}: ButtonProps) => {
   return (
     <ButtonCase
       onClick={onClick}
@@ -107,8 +139,20 @@ const Button = ({
       reversed={reversed}
       styleObject={styleObject}
       $active={active}
+      hoverIcon={hoverIcon}
+      iconRotation={iconRotation}
     >
       {children}
+      {icon && (
+        <IconHolder $size={styleObject?.fontSize!}>
+          <img
+            src={`/media/icons/${icon}`}
+            alt="chevron"
+            height={styleObject?.fontSize}
+            width={styleObject?.fontSize}
+          />
+        </IconHolder>
+      )}
     </ButtonCase>
   );
 };

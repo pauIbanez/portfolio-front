@@ -78,13 +78,17 @@ const ProjectsPage = () => {
         title={t("Projects.presentation.title")}
         text={t("Projects.presentation.text")}
         button={{
-          content: (
-            <>
-              <p>{t("Projects.presentation.button")}</p>
-            </>
-          ),
+          content: t("Projects.presentation.button"),
           onClick: () => {
             onClick();
+          },
+          buttonProps: {
+            icon: "chevron.svg",
+            hoverIcon: "chevron_main.svg",
+            iconRotation: 90,
+            styleObject: {
+              fontSize: 20,
+            },
           },
         }}
       />
