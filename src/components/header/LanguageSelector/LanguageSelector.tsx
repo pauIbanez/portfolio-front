@@ -5,23 +5,26 @@ import { useEffect, useState, useRef, useCallback } from "react";
 import languages from "../../../data/languages/languages";
 
 const Holder = styled.div`
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  height: 37px;
 `;
 
 const SelectorWrapper = styled.div<{ $visible: boolean }>`
   background-color: ${(props) =>
-    props.$visible ? Colors.backgroundGray : "transparent"};
+    !props.$visible ? Colors.backgroundGray : "white"};
+
+  height: ${(props) => (!props.$visible ? "37px" : "103px")};
+  width: ${(props) => (!props.$visible ? "70px" : "80px")};
+
+  transition: all ease-in-out 0.2s;
 
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+
   ${(props) =>
     props.$visible &&
     "box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1), -4px -4px 10px rgba(0, 0, 0, 0.1);"}
   overflow: hidden;
-  width: 80px;
 `;
 const Selector = styled.button`
   font-family: inherit;
@@ -32,7 +35,7 @@ const Selector = styled.button`
 
   margin: 0;
 
-  padding: 7px 10px 5px 10px;
+  padding: 6px 10px 5px 10px;
 
   font-size: 16px;
   color: ${Colors.textGray};
@@ -41,7 +44,7 @@ const Selector = styled.button`
   cursor: pointer;
 `;
 
-const LanguageItem = styled.button`
+const LanguageItem = styled.button<{ $visible: boolean }>`
   font-family: inherit;
   border: none;
   display: flex;
@@ -57,6 +60,10 @@ const LanguageItem = styled.button`
   color: ${Colors.textGray};
 
   cursor: pointer;
+
+  opacity: ${(props) => (props.$visible ? "1" : "0")};
+
+  pointer-events: ${(props) => (props.$visible ? "all" : "none")};
 
   &:hover {
     background-color: ${Colors.main};
@@ -81,6 +88,7 @@ const LanguageSelector = () => {
 
   const renderItems = languages.map((language) => (
     <LanguageItem
+      $visible={active}
       key={language.code}
       onClick={() => onLanguageClick(language.code)}
     >
@@ -116,7 +124,7 @@ const LanguageSelector = () => {
             width={25}
           />
         </Selector>
-        {active && renderItems}
+        {renderItems}
       </SelectorWrapper>
     </Holder>
   );

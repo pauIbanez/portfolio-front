@@ -3,7 +3,6 @@ import { useContext } from "react";
 import ColoredText from "../../textComponents/ColoredText/ColoredText";
 import ResponsiveContext from "../../../contexts/responsiveContext/ResponsiveContext.contextCreator";
 import { presentation } from "../../../data/Pages/responsive/layout";
-import LanguageSelector from "../LanguageSelector/LanguageSelector";
 
 const Container = styled.header<{ $height: number; size: number }>`
   width: 100%;
@@ -40,7 +39,6 @@ const PageTitle = ({ title }: Props) => {
           heading: 1,
         }}
       />
-      <LanguageSelector />
     </Container>
   );
 };
