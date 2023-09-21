@@ -44,7 +44,7 @@ describe("Given the Projects page", () => {
   });
   describe("When it's intanciated and the 'Go to projects' button is pressed", () => {
     test("Then it should call the ref's scrollTo", () => {
-      const expectedButton = "Projects.presentation.button";
+      const expectedButton = "Projects.presentation.button chevron";
 
       renderInRouter(<ProjectsPage />);
 
