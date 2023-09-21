@@ -26,9 +26,10 @@ describe("Given the ContactPage Page", () => {
   describe("When the email button is clicked", () => {
     test("Then it should render a butotn and a Link", async () => {
       const expectedButtonName =
-        "Contact.contactInfo.itemNames.email: pauibanez2001@gmail.com";
+        "email Contact.contactInfo.itemNames.email: pauibanez2001@gmail.com";
       const expectedCopyButtonName = "Contact.contactInfo.itemValues.copyEmail";
-      const expectedEmailLinkName = "Contact.contactInfo.itemValues.openEmail";
+      const expectedEmailLinkName =
+        "Contact.contactInfo.itemValues.openEmail newscreen";
 
       renderInRouter(<ContactPage />);
 
@@ -68,7 +69,7 @@ describe("Given the ContactPage Page", () => {
     });
     test("Then it should coppy the email 'pauibanez2001@gmail.com' to the clipboard", async () => {
       const expectedButtonName =
-        "Contact.contactInfo.itemNames.email: pauibanez2001@gmail.com";
+        "email Contact.contactInfo.itemNames.email: pauibanez2001@gmail.com";
       const expectedCopyButtonName = "Contact.contactInfo.itemValues.copyEmail";
       const expectedTextToCoppy = "pauibanez2001@gmail.com";
 
