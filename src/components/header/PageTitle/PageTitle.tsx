@@ -13,6 +13,7 @@ const Container = styled.header<{ $height: number; size: number }>`
   justify-content: center;
 
   background-color: white;
+  position: relative;
 
   h1 {
     font-size: ${(props) => props.size}px;
