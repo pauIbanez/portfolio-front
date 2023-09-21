@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import ColoredText from "../ColoredText/ColoredText";
-import Button from "../../Button/Button";
+import Button, { ButtonProps } from "../../Button/Button";
 
 const Holder = styled.section`
   display: flex;
@@ -24,8 +24,9 @@ interface Props {
   title: string;
   text: string;
   button: {
-    content: JSX.Element;
+    content: JSX.Element | string;
     onClick(): void;
+    buttonProps?: ButtonProps;
   };
 }
 const PresentationText = ({ title, text, button }: Props) => {
@@ -38,7 +39,9 @@ const PresentationText = ({ title, text, button }: Props) => {
         />
         <ColoredText text={text} />
       </TextSection>
-      <Button onClick={button.onClick}>{button.content}</Button>
+      <Button onClick={button.onClick} {...button.buttonProps}>
+        {button.content}
+      </Button>
     </Holder>
   );
 };

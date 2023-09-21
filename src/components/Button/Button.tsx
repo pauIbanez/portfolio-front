@@ -61,6 +61,12 @@ const ButtonCase = styled.button<ButotnCaseProps>`
     margin: 0;
   }
 
+  ${(props) =>
+    props.iconRotation &&
+    `div:last-child {
+      transform: RotateZ(${props.iconRotation}deg);
+    }`}
+
   &:hover:enabled {
     background-color: ${(props) => (props.reversed ? Colors.main : "white")};
     color: ${(props) => (props.reversed ? "white" : Colors.main)};
@@ -70,7 +76,6 @@ const ButtonCase = styled.button<ButotnCaseProps>`
     ${(props) =>
       props.hoverIcon &&
       `div:last-child img {
-        transform: RotateX(${props.iconRotation ?? 0}deg);
       content: url(/media/icons/${props.hoverIcon});
     }`}
   }
@@ -94,11 +99,11 @@ const IconHolder = styled.div<{ $size: number }>`
   }
 `;
 
-interface Props {
+export interface ButtonProps {
   onClick?: () => void;
   reversed?: boolean;
   active?: boolean;
-  children: JSX.Element | string;
+  children?: JSX.Element | string;
   disabled?: boolean;
   submit?: boolean;
   icon?: string;
@@ -125,7 +130,7 @@ const Button = ({
   icon,
   hoverIcon,
   iconRotation,
-}: Props) => {
+}: ButtonProps) => {
   return (
     <ButtonCase
       onClick={onClick}
