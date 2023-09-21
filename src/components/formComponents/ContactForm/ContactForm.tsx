@@ -47,27 +47,38 @@ const ArrowWrapper = styled.div<{ animation: string; $height: number }>`
   bottom: 0;
   height: ${(props) => props.$height}px;
   width: 30px;
-  background-color: red;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   user-select: none;
   pointer-events: none;
 
   ${(props) => "animation: " + props.animation + " 500ms forwards"};
 
+  img {
+    transform: RotateZ(90deg);
+  }
+
   @keyframes comeIn {
     0% {
       transform: translateX(-150%);
+      opacity: 0;
     }
     100% {
       transform: translateX(-50%);
+      opacity: 1;
     }
   }
   @keyframes goOut {
     0% {
       transform: translateX(-50%);
+      opacity: 1;
     }
     100% {
       transform: translateX(-150%);
+      opacity: 0;
     }
   }
 `;
@@ -262,7 +273,14 @@ const ContactForm = ({ onSubmit }: Props) => {
             animation={
               arrowTouched ? (visibleVariableField ? "comeIn" : "goOut") : ""
             }
-          />
+          >
+            <img
+              src="/media/icons/arrow.svg"
+              alt="arrow"
+              height={formSize[currentWidthBreakPoint].fieldHeight - 15}
+              width={formSize[currentWidthBreakPoint].fieldHeight - 15}
+            />
+          </ArrowWrapper>
           <VisibleWrapper
             visible={visibleVariableField}
             data-testid="visible-wrapper"
