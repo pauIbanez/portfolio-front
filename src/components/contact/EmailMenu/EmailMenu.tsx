@@ -179,14 +179,14 @@ const EmailMenu = () => {
             <ItemValue>pauibanez2001@gmail.com</ItemValue>
           </EmailButton>
           <CopyEmailButton $visible={active} onClick={onCopyEmailClick}>
-            Copy email
+            {t("Contact.contactInfo.itemValues.copyEmail")}
           </CopyEmailButton>
           <EmailLink
             to={"mailto:pauibanez2001@gmail.com"}
             target="_blank"
             $visible={active}
           >
-            Open email
+            {t("Contact.contactInfo.itemValues.openEmail")}
             <img
               height={15}
               width={15}

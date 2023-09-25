@@ -14,5 +14,27 @@ describe("Given the EmailMenu component", () => {
 
       expect(foundButton).toBeInTheDocument();
     });
+
+    test("Then it should render a coppy email button and a open email link, but not visible", () => {
+      const expectedCopyButton = "Contact.contactInfo.itemValues.copyEmail";
+      const expectedOpenLink =
+        "Contact.contactInfo.itemValues.openEmail newscreen";
+
+      renderInRouter(<EmailMenu />);
+
+      const foundButton = screen.getByRole("button", {
+        name: expectedCopyButton,
+      });
+
+      const foundEmailLink = screen.getByRole("link", {
+        name: expectedOpenLink,
+      });
+
+      expect(foundButton).toBeInTheDocument();
+      expect(foundButton).not.toBeVisible();
+
+      expect(foundEmailLink).toBeInTheDocument();
+      expect(foundEmailLink).not.toBeVisible();
+    });
   });
 });
