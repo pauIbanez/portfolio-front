@@ -13,6 +13,7 @@ import {
   textSizes,
 } from "../../data/Pages/responsive/contactPage";
 import ResponsiveContext from "../../contexts/responsiveContext/ResponsiveContext.contextCreator";
+import EmailMenu from "../../components/contact/EmailMenu/EmailMenu";
 
 const ContactHolder = styled.div<{ isColumn: boolean }>`
   display: flex;
@@ -75,16 +76,16 @@ const ContactInfoSection = styled.div`
   gap: 20px;
 `;
 
-const ContactItem = styled.div<{ size: number }>`
+const ContactItem = styled.div<{ $size: number }>`
   display: flex;
   align-items: center;
   padding-left: 5px;
   gap: 5px;
   p {
-    font-size: ${(props) => props.size}px;
+    font-size: ${(props) => props.$size}px;
   }
   a {
-    font-size: ${(props) => props.size}px;
+    font-size: ${(props) => props.$size}px;
   }
 `;
 
@@ -95,6 +96,7 @@ const AfterItemIcon = styled.img``;
 const ItemName = styled.p`
   font-weight: 700;
 `;
+
 const ItemValue = styled.div`
   * {
     color: inherit;
@@ -109,26 +111,6 @@ const ItemValue = styled.div`
       text-decoration: underline;
     }
   }
-`;
-
-const EmailButton = styled.button<{ size: number }>`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  color: white;
-  gap: 5px;
-  background-color: transparent;
-  padding-left: 5px !important;
-  font-size: ${(props) => props.size}px;
-  cursor: pointer;
-
-  border: none;
-  font-family: inherit;
-`;
-
-const EmailButtonHolder = styled.div`
-  position: relative;
-  width: 100%;
 `;
 
 const EmailButtonActive = styled.div<{ size: number }>`
@@ -207,8 +189,6 @@ const EmailLink = styled(Link)`
 const ContactPage = () => {
   const onSubmit = (contactFormValues: ContactFormValues) => {};
 
-  const [isEmailActive, setIsEmailActive] = useState<boolean>(false);
-
   const { t } = useTranslation();
 
   const { currentWidthBreakPoint } = useContext(ResponsiveContext);
@@ -226,7 +206,9 @@ const ContactPage = () => {
           }}
         />
         <ContactInfoSection>
-          <ContactItem size={formTextSizes[currentWidthBreakPoint].contactItem}>
+          <ContactItem
+            $size={formTextSizes[currentWidthBreakPoint].contactItem}
+          >
             <ItemIcon
               src="/media/icons/phone.svg"
               alt="phone"
@@ -240,65 +222,14 @@ const ContactPage = () => {
               <p>+34 673408670</p>
             </ItemValue>
           </ContactItem>
-          <EmailButtonHolder>
-            <EmailButton
-              size={formTextSizes[currentWidthBreakPoint].contactItem}
-              onClick={() => {
-                setIsEmailActive(true);
-              }}
-              onBlur={() => {
-                setTimeout(() => setIsEmailActive(false), 130);
-              }}
-            >
-              <ItemIcon
-                src="/media/icons/email.svg"
-                alt="email"
-                height={30}
-                width={30}
-              />
-              <ItemName>
-                {t("Contact.contactInfo.itemNames.email") + ":"}
-              </ItemName>
-              <ItemValue>
-                <p>pauibanez2001@gmail.com</p>
-              </ItemValue>
-            </EmailButton>
-            <EmailButtonOptions isActive={isEmailActive}>
-              <EmailButtonActive
-                size={formTextSizes[currentWidthBreakPoint].contactItem}
-              >
-                <ItemIcon
-                  height={30}
-                  width={30}
-                  src="/media/icons/email_main.svg"
-                  alt="email"
-                />
-                <ItemName>
-                  {t("Contact.contactInfo.itemNames.email") + ":"}
-                </ItemName>
-                <ItemValue>
-                  <p>pauibanez2001@gmail.com</p>
-                </ItemValue>
-              </EmailButtonActive>
-              <CopyEmailButton
-                onClick={() => {
-                  navigator.clipboard.writeText("pauibanez2001@gmail.com");
-                }}
-              >
-                {t("Contact.contactInfo.itemValues.copyEmail")}
-              </CopyEmailButton>
-              <EmailLink to={"mailto:pauibanez2001@gmail.com"} target="_blank">
-                {t("Contact.contactInfo.itemValues.openEmail")}
-                <AfterItemIcon
-                  height={15}
-                  width={15}
-                  src="/media/icons/link_textGray.svg"
-                  alt="newscreen"
-                />
-              </EmailLink>
-            </EmailButtonOptions>
-          </EmailButtonHolder>
-          <ContactItem size={formTextSizes[currentWidthBreakPoint].contactItem}>
+          <ContactItem
+            $size={formTextSizes[currentWidthBreakPoint].contactItem}
+          >
+            <EmailMenu />
+          </ContactItem>
+          <ContactItem
+            $size={formTextSizes[currentWidthBreakPoint].contactItem}
+          >
             <ItemIcon
               height={30}
               width={30}
