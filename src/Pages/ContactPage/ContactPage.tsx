@@ -3,8 +3,7 @@ import ContactFormValues from "../../Types/ContactFormValues";
 import ContactForm from "../../components/formComponents/ContactForm/ContactForm";
 import TiteledText from "../../components/textComponents/TitledText/TiteledText";
 import Colors from "../../data/style/Colors";
-import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { ErrorrContextProvider } from "react-errorr";
 import {
@@ -109,79 +108,6 @@ const ItemValue = styled.div`
 
     &:hover {
       text-decoration: underline;
-    }
-  }
-`;
-
-const EmailButtonActive = styled.div<{ size: number }>`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  padding: 0;
-  padding-left: 5px;
-  height: 35px;
-  gap: 5px;
-  background-color: white;
-  font-size: ${(props) => props.size}px;
-  color: ${Colors.main};
-`;
-
-const EmailButtonOptions = styled.div<{ isActive: boolean }>`
-  display: ${(props) => (props.isActive ? "flex" : "none")};
-  flex-direction: column;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  border-radius: 10px;
-  color: ${Colors.textGray};
-  overflow: hidden;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(0, 0, 0, 0.2);
-`;
-
-const CopyEmailButton = styled.button`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  border: none;
-  font-family: inherit;
-  cursor: pointer;
-  color: inherit;
-
-  height: 30px;
-  padding-left: 40px;
-
-  font-size: 13px;
-  background-color: white;
-  &:hover {
-    color: white;
-    background-color: ${Colors.main};
-  }
-`;
-
-const EmailLink = styled(Link)`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  border: none;
-  font-family: inherit;
-  cursor: pointer;
-  color: inherit;
-
-  height: 30px;
-  padding-left: 40px;
-
-  font-size: 13px;
-  background-color: white;
-  text-decoration: none;
-  &:hover {
-    color: white;
-    background-color: ${Colors.main};
-
-    img {
-      content: url(/media/icons/link.svg);
     }
   }
 `;
