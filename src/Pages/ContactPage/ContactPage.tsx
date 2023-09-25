@@ -3,8 +3,7 @@ import ContactFormValues from "../../Types/ContactFormValues";
 import ContactForm from "../../components/formComponents/ContactForm/ContactForm";
 import TiteledText from "../../components/textComponents/TitledText/TiteledText";
 import Colors from "../../data/style/Colors";
-import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
 import { useTranslation } from "react-i18next";
 import { ErrorrContextProvider } from "react-errorr";
 import {
@@ -13,6 +12,7 @@ import {
   textSizes,
 } from "../../data/Pages/responsive/contactPage";
 import ResponsiveContext from "../../contexts/responsiveContext/ResponsiveContext.contextCreator";
+import EmailMenu from "../../components/contact/EmailMenu/EmailMenu";
 
 const ContactHolder = styled.div<{ isColumn: boolean }>`
   display: flex;
@@ -75,16 +75,16 @@ const ContactInfoSection = styled.div`
   gap: 20px;
 `;
 
-const ContactItem = styled.div<{ size: number }>`
+const ContactItem = styled.div<{ $size: number }>`
   display: flex;
   align-items: center;
   padding-left: 5px;
   gap: 5px;
   p {
-    font-size: ${(props) => props.size}px;
+    font-size: ${(props) => props.$size}px;
   }
   a {
-    font-size: ${(props) => props.size}px;
+    font-size: ${(props) => props.$size}px;
   }
 `;
 
@@ -95,6 +95,7 @@ const AfterItemIcon = styled.img``;
 const ItemName = styled.p`
   font-weight: 700;
 `;
+
 const ItemValue = styled.div`
   * {
     color: inherit;
@@ -111,103 +112,8 @@ const ItemValue = styled.div`
   }
 `;
 
-const EmailButton = styled.button<{ size: number }>`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  color: white;
-  gap: 5px;
-  background-color: transparent;
-  padding-left: 5px !important;
-  font-size: ${(props) => props.size}px;
-  cursor: pointer;
-
-  border: none;
-  font-family: inherit;
-`;
-
-const EmailButtonHolder = styled.div`
-  position: relative;
-  width: 100%;
-`;
-
-const EmailButtonActive = styled.div<{ size: number }>`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  padding: 0;
-  padding-left: 5px;
-  height: 35px;
-  gap: 5px;
-  background-color: white;
-  font-size: ${(props) => props.size}px;
-  color: ${Colors.main};
-`;
-
-const EmailButtonOptions = styled.div<{ isActive: boolean }>`
-  display: ${(props) => (props.isActive ? "flex" : "none")};
-  flex-direction: column;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  border-radius: 10px;
-  color: ${Colors.textGray};
-  overflow: hidden;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2), -4px -4px 10px rgba(0, 0, 0, 0.2);
-`;
-
-const CopyEmailButton = styled.button`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  border: none;
-  font-family: inherit;
-  cursor: pointer;
-  color: inherit;
-
-  height: 30px;
-  padding-left: 40px;
-
-  font-size: 13px;
-  background-color: white;
-  &:hover {
-    color: white;
-    background-color: ${Colors.main};
-  }
-`;
-
-const EmailLink = styled(Link)`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  border: none;
-  font-family: inherit;
-  cursor: pointer;
-  color: inherit;
-
-  height: 30px;
-  padding-left: 40px;
-
-  font-size: 13px;
-  background-color: white;
-  text-decoration: none;
-  &:hover {
-    color: white;
-    background-color: ${Colors.main};
-
-    img {
-      content: url(/media/icons/link.svg);
-    }
-  }
-`;
-
 const ContactPage = () => {
   const onSubmit = (contactFormValues: ContactFormValues) => {};
-
-  const [isEmailActive, setIsEmailActive] = useState<boolean>(false);
 
   const { t } = useTranslation();
 
@@ -226,7 +132,9 @@ const ContactPage = () => {
           }}
         />
         <ContactInfoSection>
-          <ContactItem size={formTextSizes[currentWidthBreakPoint].contactItem}>
+          <ContactItem
+            $size={formTextSizes[currentWidthBreakPoint].contactItem}
+          >
             <ItemIcon
               src="/media/icons/phone.svg"
               alt="phone"
@@ -240,65 +148,14 @@ const ContactPage = () => {
               <p>+34 673408670</p>
             </ItemValue>
           </ContactItem>
-          <EmailButtonHolder>
-            <EmailButton
-              size={formTextSizes[currentWidthBreakPoint].contactItem}
-              onClick={() => {
-                setIsEmailActive(true);
-              }}
-              onBlur={() => {
-                setTimeout(() => setIsEmailActive(false), 130);
-              }}
-            >
-              <ItemIcon
-                src="/media/icons/email.svg"
-                alt="email"
-                height={30}
-                width={30}
-              />
-              <ItemName>
-                {t("Contact.contactInfo.itemNames.email") + ":"}
-              </ItemName>
-              <ItemValue>
-                <p>pauibanez2001@gmail.com</p>
-              </ItemValue>
-            </EmailButton>
-            <EmailButtonOptions isActive={isEmailActive}>
-              <EmailButtonActive
-                size={formTextSizes[currentWidthBreakPoint].contactItem}
-              >
-                <ItemIcon
-                  height={30}
-                  width={30}
-                  src="/media/icons/email_main.svg"
-                  alt="email"
-                />
-                <ItemName>
-                  {t("Contact.contactInfo.itemNames.email") + ":"}
-                </ItemName>
-                <ItemValue>
-                  <p>pauibanez2001@gmail.com</p>
-                </ItemValue>
-              </EmailButtonActive>
-              <CopyEmailButton
-                onClick={() => {
-                  navigator.clipboard.writeText("pauibanez2001@gmail.com");
-                }}
-              >
-                {t("Contact.contactInfo.itemValues.copyEmail")}
-              </CopyEmailButton>
-              <EmailLink to={"mailto:pauibanez2001@gmail.com"} target="_blank">
-                {t("Contact.contactInfo.itemValues.openEmail")}
-                <AfterItemIcon
-                  height={15}
-                  width={15}
-                  src="/media/icons/link_textGray.svg"
-                  alt="newscreen"
-                />
-              </EmailLink>
-            </EmailButtonOptions>
-          </EmailButtonHolder>
-          <ContactItem size={formTextSizes[currentWidthBreakPoint].contactItem}>
+          <ContactItem
+            $size={formTextSizes[currentWidthBreakPoint].contactItem}
+          >
+            <EmailMenu />
+          </ContactItem>
+          <ContactItem
+            $size={formTextSizes[currentWidthBreakPoint].contactItem}
+          >
             <ItemIcon
               height={30}
               width={30}
