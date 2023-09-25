@@ -74,4 +74,54 @@ describe("Given the EmailMenu component", () => {
       expect(foundEmailLink).toBeVisible();
     });
   });
+
+  describe("When it's instanciated and the coppy email button is clicked", () => {
+    const mockWriteText = jest.fn();
+    let originalClippboard = { ...navigator.clipboard };
+
+    beforeAll(() => {
+      originalClippboard = { ...navigator.clipboard };
+
+      Object.assign(navigator, {
+        clipboard: {
+          writeText: mockWriteText,
+        },
+      });
+    });
+
+    afterAll(() => {
+      Object.assign(navigator, {
+        clipboard: originalClippboard,
+      });
+    });
+
+    test("Then it should call mockWriteText", () => {
+      const expectedButton =
+        "email Contact.contactInfo.itemNames.email: pauibanez2001@gmail.com";
+      const expectedCopyButton = "Contact.contactInfo.itemValues.copyEmail";
+
+      renderInRouter(<EmailMenu />);
+
+      const foundButton = screen.getByRole("button", {
+        name: expectedButton,
+      });
+
+      act(() => {
+        userEvent.click(foundButton);
+      });
+
+      const foundCopyButton = screen.getByRole("button", {
+        name: expectedCopyButton,
+      });
+
+      act(() => {
+        userEvent.click(foundCopyButton);
+      });
+
+      expect(foundCopyButton).toBeInTheDocument();
+      expect(foundCopyButton).not.toBeVisible();
+
+      expect(mockWriteText).toHaveBeenCalledWith("pauibanez2001@gmail.com");
+    });
+  });
 });
