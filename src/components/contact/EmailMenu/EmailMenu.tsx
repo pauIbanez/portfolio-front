@@ -103,6 +103,7 @@ const EmailLink = styled(Link)<{ $visible: boolean }>`
 const CoppiedAlert = styled.div<{ $active: boolean }>`
   position: fixed;
   top: ${(props) => (props.$active ? "40px" : "-70px")};
+  opacity: ${(props) => (props.$active ? "1" : "0")};
   left: 50%;
   transform: translateX(-50%);
   padding: 15px 20px;
@@ -182,6 +183,9 @@ const EmailMenu = () => {
             {t("Contact.contactInfo.itemValues.copyEmail")}
           </CopyEmailButton>
           <EmailLink
+            onClick={() => {
+              setActive(false);
+            }}
             to={"mailto:pauibanez2001@gmail.com"}
             target="_blank"
             $visible={active}
