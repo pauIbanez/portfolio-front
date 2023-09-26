@@ -83,7 +83,6 @@ const Simon = () => {
   });
 
   const startRound = useCallback(async () => {
-    console.log(sequence.current);
     for (let i = 0; i < sequence.current.length; i++) {
       setTiles((prevTiles) =>
         prevTiles.map((prevTile) =>
@@ -92,7 +91,6 @@ const Simon = () => {
             : { ...prevTile }
         )
       );
-      console.log("showing tile ", sequence.current[i]);
       await Wait(700);
       setTiles((prevTiles) =>
         prevTiles.map((prevTile) => ({ ...prevTile, isShowing: false }))
@@ -142,8 +140,6 @@ const Simon = () => {
 
   const onTileClick = useCallback(
     async (value: number) => {
-      console.log("clicked", value);
-
       if (expectedSequence.current[0] === value) {
         expectedSequence.current.shift();
         if (expectedSequence.current.length === 0) {
@@ -156,7 +152,6 @@ const Simon = () => {
           calculateRound();
         }
       } else {
-        console.log("FAILED");
         setCanClick(false);
         setIsPlaying(false);
         let newMaxStreak = 0;
