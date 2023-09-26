@@ -3,6 +3,7 @@ import BackToProjects from "../../components/projects/BackToProjects/BackToProje
 import TiteledText from "../../components/textComponents/TitledText/TiteledText";
 import Memory from "../../components/minigames/MemoryGame/Memory/Memory";
 import { useTranslation } from "react-i18next";
+import Simon from "../../components/minigames/SimonGame/Simon/Simon";
 
 const Holder = styled.main`
   display: flex;
@@ -39,6 +40,7 @@ const MinigamesPage = () => {
       </TextHolder>
       <GamesHolder>
         <Memory />
+        <Simon />
       </GamesHolder>
     </Holder>
   );
