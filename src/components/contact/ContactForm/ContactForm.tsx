@@ -6,9 +6,9 @@ import ContactFormValues, {
   TypeVariable,
 } from "../../../Types/ContactFormValues";
 import styled from "styled-components";
-import InputField from "../InputField/InputField";
+import InputField from "../../formComponents/InputField/InputField";
 import Button from "../../Button/Button";
-import SelectField from "../SelectField/SelectField";
+import SelectField from "../../formComponents/SelectField/SelectField";
 import { useTranslation } from "react-i18next";
 import { Errorr, ErrorrContext } from "react-errorr";
 import { formSize } from "../../../data/Pages/responsive/contactPage";
@@ -209,6 +209,10 @@ const ContactForm = ({ onSubmit }: Props) => {
 
   const { currentWidthBreakPoint } = useContext(ResponsiveContext);
 
+  const errorStyle = {
+    grow: true,
+  };
+
   return (
     <Holder
       onSubmit={contactForm.handleSubmit}
@@ -218,7 +222,11 @@ const ContactForm = ({ onSubmit }: Props) => {
     >
       <ContentHolder>
         <Row>
-          <Errorr name="firstName" message={contactForm.errors.firstName}>
+          <Errorr
+            name="firstName"
+            message={contactForm.errors.firstName}
+            styleData={errorStyle}
+          >
             <InputField
               id="firstName"
               name="firstName"
@@ -236,7 +244,11 @@ const ContactForm = ({ onSubmit }: Props) => {
               }
             />
           </Errorr>
-          <Errorr name="lastName" message={contactForm.errors.lastName}>
+          <Errorr
+            name="lastName"
+            message={contactForm.errors.lastName}
+            styleData={errorStyle}
+          >
             <InputField
               id="lastName"
               name="lastName"
@@ -303,7 +315,11 @@ const ContactForm = ({ onSubmit }: Props) => {
             />
           </VisibleWrapper>
         </Row>
-        <Errorr name="email" message={contactForm.errors.email}>
+        <Errorr
+          name="email"
+          message={contactForm.errors.email}
+          styleData={errorStyle}
+        >
           <InputField
             id="email"
             name="email"
@@ -318,7 +334,11 @@ const ContactForm = ({ onSubmit }: Props) => {
             }
           />
         </Errorr>
-        <Errorr name="subject" message={contactForm.errors.subject}>
+        <Errorr
+          name="subject"
+          message={contactForm.errors.subject}
+          styleData={errorStyle}
+        >
           <InputField
             id="subject"
             name="subject"
@@ -335,7 +355,11 @@ const ContactForm = ({ onSubmit }: Props) => {
             }
           />
         </Errorr>
-        <Errorr name="message" message={contactForm.errors.message}>
+        <Errorr
+          name="message"
+          message={contactForm.errors.message}
+          styleData={errorStyle}
+        >
           <InputField
             id="message"
             name="message"
