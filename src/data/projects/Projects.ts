@@ -118,11 +118,11 @@ const ProjectCards: ProjectCardInfo[] = [
     link: "/project/myMenu",
   },
   {
-    name: "My NPM packages",
-    nameColor: "white",
+    name: "NPM packages",
     description: "Check out my published NPM packages",
     logo: "npm.png",
-    backgroundColor: "#3E51DB",
+    nameColor: "white",
+    backgroundColor: "#c93838",
     tags: [
       ProjectTags.javaScript,
       ProjectTags.typeScript,

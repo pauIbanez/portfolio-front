@@ -93,7 +93,7 @@ describe("Given the Projects page", () => {
         nameColor: "white",
         description: "tets project",
         logo: "image.png",
-        backgroundColor: "#3E51DB",
+        backgroundColor: "#FAFAFA",
         tags: [
           ProjectTags.javaScript,
           ProjectTags.typeScript,
