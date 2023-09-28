@@ -1,5 +1,5 @@
-const MessageSentPage = () => {
+const MessageSent = () => {
   return <></>;
 };
 
-export default MessageSentPage;
+export default MessageSent;
