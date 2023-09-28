@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import ContactFormValues from "../../Types/ContactFormValues";
 import ContactForm from "../../components/contact/ContactForm/ContactForm";
 import TiteledText from "../../components/textComponents/TitledText/TiteledText";
 import Colors from "../../data/style/Colors";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ErrorrContextProvider } from "react-errorr";
 import {
@@ -13,6 +12,8 @@ import {
 } from "../../data/Pages/responsive/contactPage";
 import ResponsiveContext from "../../contexts/responsiveContext/ResponsiveContext.contextCreator";
 import EmailMenu from "../../components/contact/EmailMenu/EmailMenu";
+import MessageSent from "../../components/contact/MessageSent/MessageSent";
+import ContactFormValues from "../../Types/ContactFormValues";
 
 const ContactHolder = styled.div<{ isColumn: boolean }>`
   display: flex;
@@ -112,12 +113,38 @@ const ItemValue = styled.div`
   }
 `;
 
+const FormContent = styled.div<{ $width: number }>`
+  height: 100%;
+  width: ${(props) => props.$width}px;
+  background-color: white;
+  border-radius: 0 25px 25px 0;
+`;
+
 const ContactPage = () => {
-  const onSubmit = (contactFormValues: ContactFormValues) => {};
+  const onSubmit = (contactFormValues: ContactFormValues) => {
+    setMessageLoading(true);
+
+    setTimeout(() => {
+      setMessageSent(true);
+      setSavedMessage({ ...contactFormValues });
+      setMessageLoading(false);
+    }, 2000);
+  };
+
+  const [messageSent, setMessageSent] = useState<boolean>(false);
+  const [messageLoading, setMessageLoading] = useState<boolean>(false);
+
+  const [savedMessage, setSavedMessage] = useState<
+    ContactFormValues | undefined
+  >();
 
   const { t } = useTranslation();
 
   const { currentWidthBreakPoint } = useContext(ResponsiveContext);
+
+  const onSendAnother = () => {
+    setMessageSent(false);
+  };
 
   const Form = () => (
     <FormHolder $height={formSize[currentWidthBreakPoint].height}>
@@ -183,9 +210,15 @@ const ContactPage = () => {
           </ContactItem>
         </ContactInfoSection>
       </ContactInfo>
-      <ErrorrContextProvider>
-        <ContactForm onSubmit={onSubmit} />
-      </ErrorrContextProvider>
+      <FormContent $width={formSize[currentWidthBreakPoint].width}>
+        {messageSent || messageLoading ? (
+          <MessageSent onResetClick={onSendAnother} loading={messageLoading} />
+        ) : (
+          <ErrorrContextProvider>
+            <ContactForm onSubmit={onSubmit} savedMessage={savedMessage} />
+          </ErrorrContextProvider>
+        )}
+      </FormContent>
     </FormHolder>
   );
 

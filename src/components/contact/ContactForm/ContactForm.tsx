@@ -14,9 +14,9 @@ import { Errorr, ErrorrContext } from "react-errorr";
 import { formSize } from "../../../data/Pages/responsive/contactPage";
 import ResponsiveContext from "../../../contexts/responsiveContext/ResponsiveContext.contextCreator";
 
-const Holder = styled.form<{ $height: number; $width: number }>`
-  height: ${(props) => props.$height}px;
-  width: ${(props) => props.$width}px;
+const Holder = styled.form`
+  height: 100%;
+  width: 100%;
   background-color: white;
   border-radius: 0 25px 25px 0;
   padding: 50px;
@@ -92,9 +92,10 @@ const VisibleWrapper = styled.div<{ visible: boolean }>`
 
 interface Props {
   onSubmit(contactFormValues: ContactFormValues): void;
+  savedMessage?: ContactFormValues;
 }
 
-const ContactForm = ({ onSubmit }: Props) => {
+const ContactForm = ({ onSubmit, savedMessage }: Props) => {
   const [isErrorShowing, setIsErrorShowing] = useState<boolean>(false);
 
   const [isFilled, setIsFilled] = useState<boolean>(false);
@@ -121,13 +122,13 @@ const ContactForm = ({ onSubmit }: Props) => {
 
   const contactForm = useFormik<ContactFormValues>({
     initialValues: {
-      email: "",
-      firstName: "",
-      lastName: "",
-      message: "",
-      messageType: MessageType.default,
-      subject: "",
-      typeVariable: "",
+      email: savedMessage?.email ?? "",
+      firstName: savedMessage?.firstName ?? "",
+      lastName: savedMessage?.lastName ?? "",
+      message: savedMessage?.message ?? "",
+      messageType: savedMessage?.messageType ?? MessageType.default,
+      subject: savedMessage?.subject ?? "",
+      typeVariable: savedMessage?.typeVariable ?? "",
     },
     onSubmit: (values, { validateForm }) => {
       validateForm(values);
@@ -214,12 +215,7 @@ const ContactForm = ({ onSubmit }: Props) => {
   };
 
   return (
-    <Holder
-      onSubmit={contactForm.handleSubmit}
-      aria-label="Contact form"
-      $height={formSize[currentWidthBreakPoint].height}
-      $width={formSize[currentWidthBreakPoint].width}
-    >
+    <Holder onSubmit={contactForm.handleSubmit} aria-label="Contact form">
       <ContentHolder>
         <Row>
           <Errorr

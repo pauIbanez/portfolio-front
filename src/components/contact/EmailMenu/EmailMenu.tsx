@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const EmailButtonHolder = styled.div`
   height: 30px;
-  z-index: 10;
+  z-index: 5;
 `;
 
 const ItemName = styled.p`
