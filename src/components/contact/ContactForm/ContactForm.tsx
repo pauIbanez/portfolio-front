@@ -2,7 +2,6 @@ import { useFormik } from "formik";
 import { useEffect, useState, useContext, useRef } from "react";
 import * as Yup from "yup";
 import ContactFormValues, {
-  MessageSender,
   MessageType,
   TypeVariable,
 } from "../../../Types/ContactFormValues";
@@ -93,10 +92,10 @@ const VisibleWrapper = styled.div<{ visible: boolean }>`
 
 interface Props {
   onSubmit(contactFormValues: ContactFormValues): void;
-  sender?: MessageSender;
+  savedMessage?: ContactFormValues;
 }
 
-const ContactForm = ({ onSubmit, sender }: Props) => {
+const ContactForm = ({ onSubmit, savedMessage }: Props) => {
   const [isErrorShowing, setIsErrorShowing] = useState<boolean>(false);
 
   const [isFilled, setIsFilled] = useState<boolean>(false);
@@ -123,13 +122,13 @@ const ContactForm = ({ onSubmit, sender }: Props) => {
 
   const contactForm = useFormik<ContactFormValues>({
     initialValues: {
-      email: sender?.email ?? "",
-      firstName: sender?.firstName ?? "",
-      lastName: sender?.lastName ?? "",
-      message: "",
-      messageType: MessageType.default,
-      subject: "",
-      typeVariable: "",
+      email: savedMessage?.email ?? "",
+      firstName: savedMessage?.firstName ?? "",
+      lastName: savedMessage?.lastName ?? "",
+      message: savedMessage?.message ?? "",
+      messageType: savedMessage?.messageType ?? MessageType.default,
+      subject: savedMessage?.subject ?? "",
+      typeVariable: savedMessage?.typeVariable ?? "",
     },
     onSubmit: (values, { validateForm }) => {
       validateForm(values);

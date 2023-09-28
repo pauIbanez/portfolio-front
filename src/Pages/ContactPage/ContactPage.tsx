@@ -128,11 +128,7 @@ const ContactPage = () => {
 
     setTimeout(() => {
       setMessageSent(true);
-      setMessageSender({
-        firstName: contactFormValues.firstName,
-        lastName: contactFormValues.lastName,
-        email: contactFormValues.email,
-      });
+      setSavedMessage({ ...contactFormValues });
       setMessageLoading(false);
     }, 2000);
   };
@@ -140,8 +136,8 @@ const ContactPage = () => {
   const [messageSent, setMessageSent] = useState<boolean>(false);
   const [messageLoading, setMessageLoading] = useState<boolean>(false);
 
-  const [messageSender, setMessageSender] = useState<
-    MessageSender | undefined
+  const [savedMessage, setSavedMessage] = useState<
+    ContactFormValues | undefined
   >();
 
   const { t } = useTranslation();
@@ -217,11 +213,11 @@ const ContactPage = () => {
         </ContactInfoSection>
       </ContactInfo>
       <FormContent $width={formSize[currentWidthBreakPoint].width}>
-        {messageSent ? (
-          <MessageSent onResetClick={onSendAnother} />
+        {messageSent || messageLoading ? (
+          <MessageSent onResetClick={onSendAnother} loading={messageLoading} />
         ) : (
           <ErrorrContextProvider>
-            <ContactForm onSubmit={onSubmit} sender={messageSender} />
+            <ContactForm onSubmit={onSubmit} savedMessage={savedMessage} />
           </ErrorrContextProvider>
         )}
       </FormContent>
