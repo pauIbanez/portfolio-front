@@ -1,7 +1,4 @@
 import styled from "styled-components";
-import ContactFormValues, {
-  MessageSender,
-} from "../../Types/ContactFormValues";
 import ContactForm from "../../components/contact/ContactForm/ContactForm";
 import TiteledText from "../../components/textComponents/TitledText/TiteledText";
 import Colors from "../../data/style/Colors";
@@ -16,6 +13,7 @@ import {
 import ResponsiveContext from "../../contexts/responsiveContext/ResponsiveContext.contextCreator";
 import EmailMenu from "../../components/contact/EmailMenu/EmailMenu";
 import MessageSent from "../../components/contact/MessageSent/MessageSent";
+import ContactFormValues from "../../Types/ContactFormValues";
 
 const ContactHolder = styled.div<{ isColumn: boolean }>`
   display: flex;
