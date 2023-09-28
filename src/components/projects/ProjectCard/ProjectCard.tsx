@@ -48,6 +48,7 @@ const CardTitleHolder = styled.div`
 `;
 
 const CardIcon = styled.img`
+  object-fit: contain;
   border-radius: 10px;
 `;
 
@@ -119,6 +120,7 @@ const MaximizedCardTitleHolder = styled.div`
 
 const MaximizedCardIcon = styled.img`
   border-radius: 5px;
+  object-fit: contain;
 `;
 
 const MaximizedCardTitle = styled.h5`
