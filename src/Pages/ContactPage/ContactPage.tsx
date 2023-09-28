@@ -124,14 +124,27 @@ const ContactPage = () => {
   const onSubmit = async (contactFormValues: ContactFormValues) => {
     setMessageLoading(true);
     setSavedMessage({ ...contactFormValues });
-    const response = await fetch(
-      `${process.env.REACT_APP_API_URL}/newMessage` ?? ""
-    );
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/newMessage` ?? "",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(contactFormValues),
+        }
+      );
 
-    if (response.ok) {
-      setSuccess(true);
+      if (response.ok) {
+        setSuccess(true);
+      } else {
+        setSuccess(false);
+      }
+    } catch (error) {
+      setSuccess(false);
     }
-    setSuccess(false);
+
     setMessageLoading(false);
     setMessageSent(true);
   };
