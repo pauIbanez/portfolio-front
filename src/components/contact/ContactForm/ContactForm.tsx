@@ -14,9 +14,9 @@ import { Errorr, ErrorrContext } from "react-errorr";
 import { formSize } from "../../../data/Pages/responsive/contactPage";
 import ResponsiveContext from "../../../contexts/responsiveContext/ResponsiveContext.contextCreator";
 
-const Holder = styled.form<{ $height: number; $width: number }>`
-  height: ${(props) => props.$height}px;
-  width: ${(props) => props.$width}px;
+const Holder = styled.form`
+  height: 100%;
+  width: 100%;
   background-color: white;
   border-radius: 0 25px 25px 0;
   padding: 50px;
@@ -214,12 +214,7 @@ const ContactForm = ({ onSubmit }: Props) => {
   };
 
   return (
-    <Holder
-      onSubmit={contactForm.handleSubmit}
-      aria-label="Contact form"
-      $height={formSize[currentWidthBreakPoint].height}
-      $width={formSize[currentWidthBreakPoint].width}
-    >
+    <Holder onSubmit={contactForm.handleSubmit} aria-label="Contact form">
       <ContentHolder>
         <Row>
           <Errorr
