@@ -47,7 +47,9 @@ const CardTitleHolder = styled.div`
   gap: 20px;
 `;
 
-const CardIcon = styled.img``;
+const CardIcon = styled.img`
+  border-radius: 10px;
+`;
 
 const CardTitle = styled.h3<{ color?: string }>`
   margin: 0;
