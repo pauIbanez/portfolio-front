@@ -8,6 +8,8 @@ import { ReactNode, ReactElement } from "react";
 import { render } from "@testing-library/react";
 
 export const mockChangeLanguage = jest.fn();
+
+// i18n
 jest.mock("react-i18next", () => ({
   // this mock makes sure any components using the translate hook can use it without a warning being shown
   useTranslation: () => {
@@ -25,22 +27,14 @@ jest.mock("react-i18next", () => ({
   },
 }));
 
-export const renderInRouter = (
-  component: ReactElement,
-  initialEntries?: string[]
-) => {
-  const Bocata = ({ children }: { children: ReactNode }) => (
-    <MemoryRouter initialEntries={initialEntries || ["/home"]}>
-      {children}
-    </MemoryRouter>
-  );
+//Window open
+window.open = jest.fn();
 
-  render(component, { wrapper: Bocata });
-};
-
+// Local scrollTo
 Element.prototype.scrollTo = jest.fn();
 window.scrollTo = jest.fn();
 
+// Local storage
 class LocalStorageMock {
   store = {};
 
@@ -66,3 +60,18 @@ class LocalStorageMock {
 }
 
 global.localStorage = new LocalStorageMock() as any;
+
+//Wrappers
+
+export const renderInRouter = (
+  component: ReactElement,
+  initialEntries?: string[]
+) => {
+  const Bocata = ({ children }: { children: ReactNode }) => (
+    <MemoryRouter initialEntries={initialEntries || ["/home"]}>
+      {children}
+    </MemoryRouter>
+  );
+
+  render(component, { wrapper: Bocata });
+};

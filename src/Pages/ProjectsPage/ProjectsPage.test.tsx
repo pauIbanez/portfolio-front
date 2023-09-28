@@ -1,7 +1,7 @@
 import { screen } from "@testing-library/react";
 import { renderInRouter } from "../../setupTests";
 import ProjectsPage from "./ProjectsPage";
-import ProjectCards from "../../data/projects/Projects";
+import ProjectCards, { ProjectTags } from "../../data/projects/Projects";
 import userEvent from "@testing-library/user-event";
 import ScrollRestorationContext from "../../contexts/ScrollRestoration/ScrollRestoration.contextCreator";
 
@@ -72,7 +72,7 @@ describe("Given the Projects page", () => {
     });
   });
 
-  describe("When it's intanciated and one of the projects is clicked on", () => {
+  describe("When it's intanciated and one of the projects is clicked on (internal)", () => {
     test("Then it should call navigate with the project url", () => {
       renderInRouter(<ProjectsPage />);
 
@@ -81,6 +81,41 @@ describe("Given the Projects page", () => {
       userEvent.click(foundCards[0]);
 
       expect(mockNavigate).toHaveBeenCalledWith(ProjectCards[0].link);
+    });
+  });
+
+  describe("When it's intanciated and one of the projects is clicked on (external)", () => {
+    test("Then it should call window.open", () => {
+      const originalProjects = [...ProjectCards];
+      ProjectCards.length = 0;
+      ProjectCards.push({
+        name: "test external",
+        nameColor: "white",
+        description: "tets project",
+        logo: "image.png",
+        backgroundColor: "#3E51DB",
+        tags: [
+          ProjectTags.javaScript,
+          ProjectTags.typeScript,
+          ProjectTags.react,
+          ProjectTags.jest,
+        ],
+        isInteractive: false,
+        externalLink: true,
+        link: "some external link",
+      });
+
+      renderInRouter(<ProjectsPage />);
+
+      const foundCards = screen.getAllByTestId("project-card");
+
+      userEvent.click(foundCards[0]);
+
+      expect(mockNavigate).not.toHaveBeenCalled();
+      expect(window.open).toHaveBeenCalledWith(ProjectCards[0].link, "_blank");
+
+      ProjectCards.length = 0;
+      ProjectCards.push(...originalProjects);
     });
   });
 });
