@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import { useEffect, useState, useContext, useRef } from "react";
 import * as Yup from "yup";
 import ContactFormValues, {
+  MessageSender,
   MessageType,
   TypeVariable,
 } from "../../../Types/ContactFormValues";
@@ -92,9 +93,10 @@ const VisibleWrapper = styled.div<{ visible: boolean }>`
 
 interface Props {
   onSubmit(contactFormValues: ContactFormValues): void;
+  sender?: MessageSender;
 }
 
-const ContactForm = ({ onSubmit }: Props) => {
+const ContactForm = ({ onSubmit, sender }: Props) => {
   const [isErrorShowing, setIsErrorShowing] = useState<boolean>(false);
 
   const [isFilled, setIsFilled] = useState<boolean>(false);
@@ -121,9 +123,9 @@ const ContactForm = ({ onSubmit }: Props) => {
 
   const contactForm = useFormik<ContactFormValues>({
     initialValues: {
-      email: "",
-      firstName: "",
-      lastName: "",
+      email: sender?.email ?? "",
+      firstName: sender?.firstName ?? "",
+      lastName: sender?.lastName ?? "",
       message: "",
       messageType: MessageType.default,
       subject: "",

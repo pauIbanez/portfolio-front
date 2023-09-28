@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import ContactFormValues from "../../Types/ContactFormValues";
+import ContactFormValues, {
+  MessageSender,
+} from "../../Types/ContactFormValues";
 import ContactForm from "../../components/contact/ContactForm/ContactForm";
 import TiteledText from "../../components/textComponents/TitledText/TiteledText";
 import Colors from "../../data/style/Colors";
@@ -121,12 +123,34 @@ const FormContent = styled.div<{ $width: number }>`
 `;
 
 const ContactPage = () => {
-  const onSubmit = (contactFormValues: ContactFormValues) => {};
+  const onSubmit = (contactFormValues: ContactFormValues) => {
+    setMessageLoading(true);
 
-  const [messageSent, setMessageSent] = useState<boolean>(true);
+    setTimeout(() => {
+      setMessageSent(true);
+      setMessageSender({
+        firstName: contactFormValues.firstName,
+        lastName: contactFormValues.lastName,
+        email: contactFormValues.email,
+      });
+      setMessageLoading(false);
+    }, 2000);
+  };
+
+  const [messageSent, setMessageSent] = useState<boolean>(false);
+  const [messageLoading, setMessageLoading] = useState<boolean>(false);
+
+  const [messageSender, setMessageSender] = useState<
+    MessageSender | undefined
+  >();
+
   const { t } = useTranslation();
 
   const { currentWidthBreakPoint } = useContext(ResponsiveContext);
+
+  const onSendAnother = () => {
+    setMessageSent(false);
+  };
 
   const Form = () => (
     <FormHolder $height={formSize[currentWidthBreakPoint].height}>
@@ -194,10 +218,10 @@ const ContactPage = () => {
       </ContactInfo>
       <FormContent $width={formSize[currentWidthBreakPoint].width}>
         {messageSent ? (
-          <MessageSent onResetClick={() => setMessageSent(false)} />
+          <MessageSent onResetClick={onSendAnother} />
         ) : (
           <ErrorrContextProvider>
-            <ContactForm onSubmit={onSubmit} />
+            <ContactForm onSubmit={onSubmit} sender={messageSender} />
           </ErrorrContextProvider>
         )}
       </FormContent>

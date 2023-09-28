@@ -44,4 +44,10 @@ interface ContactFormValues {
   message: string;
 }
 
+export interface MessageSender {
+  firstName: string;
+  lastName: string;
+  email: string;
+}
+
 export default ContactFormValues;
