@@ -118,7 +118,7 @@ const MaximizedCardTitleHolder = styled.div`
 `;
 
 const MaximizedCardIcon = styled.img`
-  border-radius: 8px;
+  border-radius: 5px;
 `;
 
 const MaximizedCardTitle = styled.h5`
