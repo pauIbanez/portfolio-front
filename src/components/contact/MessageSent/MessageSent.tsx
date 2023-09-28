@@ -25,7 +25,7 @@ const fadeIn = keyframes`
 
 const Content = styled.div`
   width: 500px;
-  height: 160px;
+  height: 200px;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -37,9 +37,10 @@ const Content = styled.div`
 interface Props {
   onResetClick: () => void;
   loading: boolean;
+  success: boolean;
 }
 
-const MessageSent = ({ onResetClick, loading }: Props) => {
+const MessageSent = ({ onResetClick, loading, success: sucess }: Props) => {
   return (
     <Holder>
       <Icon
@@ -50,11 +51,19 @@ const MessageSent = ({ onResetClick, loading }: Props) => {
       />
       <Content>
         <TiteledText
-          title={loading ? "<&>Sending<&> message" : "Mesage <&>Sent<&>"}
+          title={
+            loading
+              ? "<&>Sending<&> message"
+              : sucess
+              ? "Mesage <&>Sent<&>"
+              : "Something went <&>wrong<&>"
+          }
           text={
             loading
               ? "Your message is being sent, this should not take long..."
-              : "Thank you for geting in contact with me. I've receivced your message and I'll be in contact ASAP!"
+              : sucess
+              ? "Thank you for geting in contact with me. I've receivced your message and I'll be in contact ASAP!"
+              : "I'm sorry! It appears your message was not sucessfuly sent, please check the data or try again later. If this issue persists please feel free to contact me directly with the provided info."
           }
           styleObject={{
             gap: 10,
@@ -67,10 +76,10 @@ const MessageSent = ({ onResetClick, loading }: Props) => {
               fontSize: 14,
               padding: 15,
               height: 40,
-              radius: 13,
+              radius: 10,
             }}
           >
-            Writte another!
+            {sucess ? "Writte another!" : "Try again"}
           </Button>
         )}
       </Content>

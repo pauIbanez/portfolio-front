@@ -121,18 +121,37 @@ const FormContent = styled.div<{ $width: number }>`
 `;
 
 const ContactPage = () => {
-  const onSubmit = (contactFormValues: ContactFormValues) => {
+  const onSubmit = async (contactFormValues: ContactFormValues) => {
     setMessageLoading(true);
+    setSavedMessage({ ...contactFormValues });
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/newMessage` ?? "",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(contactFormValues),
+        }
+      );
 
-    setTimeout(() => {
-      setMessageSent(true);
-      setSavedMessage({ ...contactFormValues });
-      setMessageLoading(false);
-    }, 2000);
+      if (response.ok) {
+        setSuccess(true);
+      } else {
+        setSuccess(false);
+      }
+    } catch (error) {
+      setSuccess(false);
+    }
+
+    setMessageLoading(false);
+    setMessageSent(true);
   };
 
   const [messageSent, setMessageSent] = useState<boolean>(false);
   const [messageLoading, setMessageLoading] = useState<boolean>(false);
+  const [sentSucess, setSuccess] = useState<boolean>(false);
 
   const [savedMessage, setSavedMessage] = useState<
     ContactFormValues | undefined
@@ -212,7 +231,11 @@ const ContactPage = () => {
       </ContactInfo>
       <FormContent $width={formSize[currentWidthBreakPoint].width}>
         {messageSent || messageLoading ? (
-          <MessageSent onResetClick={onSendAnother} loading={messageLoading} />
+          <MessageSent
+            onResetClick={onSendAnother}
+            loading={messageLoading}
+            success={sentSucess}
+          />
         ) : (
           <ErrorrContextProvider>
             <ContactForm onSubmit={onSubmit} savedMessage={savedMessage} />
