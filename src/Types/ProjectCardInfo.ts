@@ -16,6 +16,7 @@ interface ProjectCardInfo {
   tags: ProjectTags[];
   description: string;
   isInteractive: boolean;
+  externalLink?: boolean;
   link: string;
 }
 
