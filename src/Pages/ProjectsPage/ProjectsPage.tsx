@@ -67,6 +67,10 @@ const ProjectsPage = () => {
       cardInfo={projectCard}
       key={projectCard.name}
       onClick={() => {
+        if (projectCard.externalLink) {
+          window.open(projectCard.link, "_blank");
+          return;
+        }
         navigate(projectCard.link);
       }}
     />
