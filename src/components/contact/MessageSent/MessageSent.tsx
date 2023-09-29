@@ -1,6 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import TiteledText from "../../textComponents/TitledText/TiteledText";
 import Button from "../../Button/Button";
+import { Link } from "react-router-dom";
 
 const Holder = styled.div`
   height: 100%;
@@ -23,15 +24,20 @@ const fadeIn = keyframes`
   opacity: 1;
 }`;
 
-const Content = styled.div`
+const Content = styled.div<{ loading: boolean }>`
   width: 500px;
   height: 200px;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: ${(props) => (props.loading ? 5 : 30)}px;
   opacity: 0;
 
   animation: ${fadeIn} ease-in 0.3s forwards;
+
+  a {
+    text-decoration: none;
+    font-size: 14px;
+  }
 `;
 
 interface Props {
@@ -49,7 +55,7 @@ const MessageSent = ({ onResetClick, loading, success: sucess }: Props) => {
         height={200}
         width={265}
       />
-      <Content>
+      <Content loading={loading}>
         <TiteledText
           title={
             loading
@@ -60,7 +66,7 @@ const MessageSent = ({ onResetClick, loading, success: sucess }: Props) => {
           }
           text={
             loading
-              ? "Your message is being sent, this should not take long..."
+              ? "Your message is being sent... \n \nIf the back-end server is spinned down this may take a up to a minute."
               : sucess
               ? "Thank you for geting in contact with me. I've receivced your message and I'll be in contact ASAP!"
               : "I'm sorry! It appears your message was not sucessfuly sent, please check the data or try again later. If this issue persists please feel free to contact me directly with the provided info."
@@ -69,6 +75,15 @@ const MessageSent = ({ onResetClick, loading, success: sucess }: Props) => {
             gap: 10,
           }}
         />
+        {loading && (
+          <Link
+            to={"https://render.com/docs/free#spinning-down-on-idle"}
+            target="_blank"
+          >
+            Render docummentation
+          </Link>
+        )}
+
         {!loading && (
           <Button
             onClick={onResetClick}
