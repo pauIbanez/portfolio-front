@@ -149,8 +149,8 @@ const ContactPage = () => {
     setMessageSent(true);
   };
 
-  const [messageSent, setMessageSent] = useState<boolean>(true);
-  const [messageLoading, setMessageLoading] = useState<boolean>(true);
+  const [messageSent, setMessageSent] = useState<boolean>(false);
+  const [messageLoading, setMessageLoading] = useState<boolean>(false);
   const [sentSucess, setSuccess] = useState<boolean>(false);
 
   const [savedMessage, setSavedMessage] = useState<
