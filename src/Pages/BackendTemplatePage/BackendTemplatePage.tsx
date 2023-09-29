@@ -73,21 +73,21 @@ const BackendTemplatePage = () => {
   const { t } = useTranslation();
 
   const renderMainFeatures = [...Array(7)].map((_, index) => (
-    <FeatureHolder>
+    <FeatureHolder key={index}>
       <Bullet />
       <p>{t(`BackendTemplate.sections.0.features.${index}`)}</p>
     </FeatureHolder>
   ));
 
   const renderUserFeatures = [...Array(5)].map((_, index) => (
-    <FeatureHolder>
+    <FeatureHolder key={index}>
       <Bullet />
       <p>{t(`BackendTemplate.sections.1.features.${index}`)}</p>
     </FeatureHolder>
   ));
 
   const renderTestingFeatures = [...Array(3)].map((_, index) => (
-    <FeatureHolder>
+    <FeatureHolder key={index}>
       <Bullet />
       <ColoredText text={t(`BackendTemplate.sections.2.features.${index}`)} />
     </FeatureHolder>
@@ -108,7 +108,7 @@ const BackendTemplatePage = () => {
           <TiteledText
             title={t("BackendTemplate.sections.0.title")}
             text={t("BackendTemplate.sections.0.text")}
-            styleObject={{ title: { heading: 2 } }}
+            styleObject={{ title: { heading: 4 } }}
           />
           <FeatureList>{renderMainFeatures}</FeatureList>
         </Section>
@@ -116,7 +116,7 @@ const BackendTemplatePage = () => {
           <TiteledText
             title={t("BackendTemplate.sections.1.title")}
             text={t("BackendTemplate.sections.1.text")}
-            styleObject={{ title: { heading: 2 } }}
+            styleObject={{ title: { heading: 4 } }}
           />
           <FeatureList>{renderUserFeatures}</FeatureList>
           <TiteledText
@@ -128,7 +128,7 @@ const BackendTemplatePage = () => {
           <TiteledText
             title={t("BackendTemplate.sections.2.title")}
             text={t("BackendTemplate.sections.2.text")}
-            styleObject={{ title: { heading: 2 } }}
+            styleObject={{ title: { heading: 4 } }}
           />
           <FeatureList>{renderTestingFeatures}</FeatureList>
           <TiteledText
@@ -144,7 +144,7 @@ const BackendTemplatePage = () => {
           <TiteledText
             title={t("BackendTemplate.sections.3.title")}
             text={t("BackendTemplate.sections.3.text")}
-            styleObject={{ title: { heading: 2 } }}
+            styleObject={{ title: { heading: 4 } }}
           />
           <Link
             to={"https://github.com/pauIbanez/Template-Backend-Typescript"}
