@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const EmailButtonHolder = styled.div`
   height: 30px;
+  width: 100%;
   z-index: 5;
 `;
 
@@ -20,7 +21,6 @@ const ItemValue = styled.p`
 `;
 
 const EmailButton = styled.button<{ $active: boolean }>`
-  width: 100%;
   display: flex;
   align-items: center;
   color: ${(props) => (props.$active ? Colors.main : "white")};
