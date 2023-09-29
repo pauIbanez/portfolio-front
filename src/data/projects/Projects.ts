@@ -101,21 +101,20 @@ const ProjectCards: ProjectCardInfo[] = [
     link: "/project/myportfolio",
   },
   {
-    name: "My menu",
+    name: "Minigames",
+    description: "A few minigames to pass the time.",
     nameColor: "white",
-    description:
-      "An assistant tool for menu organization and creation aimed for catering and central kitchens.",
+    backgroundColor: "#2555FF",
     logo: "logo.svg",
-    backgroundImage: "mymenu.png",
     tags: [
       ProjectTags.javaScript,
       ProjectTags.typeScript,
       ProjectTags.react,
       ProjectTags.jest,
-      ProjectTags.fullStack,
+      ProjectTags.frontEnd,
     ],
-    isInteractive: false,
-    link: "/project/myMenu",
+    isInteractive: true,
+    link: "/project/minigames",
   },
   {
     name: "NPM packages",
@@ -134,12 +133,17 @@ const ProjectCards: ProjectCardInfo[] = [
     link: "https://www.npmjs.com/~pau678?activeTab=packages",
   },
   {
-    name: "Nova",
-    description: "An online MOBA game.",
+    name: "Backend Template",
+    description: "A Backend typescript emplate for a REST APi with users",
     logo: "logo.svg",
-    tags: [ProjectTags.cSharp, ProjectTags.unity, ProjectTags.fullStack],
+    tags: [
+      ProjectTags.javaScript,
+      ProjectTags.typeScript,
+      ProjectTags.backEnd,
+      ProjectTags.jest,
+    ],
     isInteractive: false,
-    link: "/project/nova",
+    link: "/project/backendTemplate",
   },
   {
     name: "Nova client",
@@ -156,18 +160,21 @@ const ProjectCards: ProjectCardInfo[] = [
     link: "/project/nova",
   },
   {
-    name: "Minigames",
-    description: "A few minigames to pass the time.",
+    name: "My menu",
+    nameColor: "white",
+    description:
+      "An assistant tool for menu organization and creation aimed for catering and central kitchens.",
     logo: "logo.svg",
+    backgroundImage: "mymenu.png",
     tags: [
       ProjectTags.javaScript,
       ProjectTags.typeScript,
       ProjectTags.react,
       ProjectTags.jest,
-      ProjectTags.frontEnd,
+      ProjectTags.fullStack,
     ],
-    isInteractive: true,
-    link: "/project/minigames",
+    isInteractive: false,
+    link: "/project/myMenu",
   },
 ];
 
