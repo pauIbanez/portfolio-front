@@ -325,5 +325,13 @@
       "title": "Memory",
       "text": "The goal of this game is to match all the pairs. Try out a harder difficulty for a bigger challenge!"
     }
+  },
+  "BackendTemplate": {
+    "title": "<&>Backend<&> template",
+    "text": "I’ve added a couple of minigames design to be <&>light<&> and <&>fast<&>. Feel free to take a break and <&>enjoy disconnecting for a bit<&>!",
+    "memory": {
+      "title": "Memory",
+      "text": "The goal of this game is to match all the pairs. Try out a harder difficulty for a bigger challenge!"
+    }
   }
 }

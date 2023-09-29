@@ -16,6 +16,11 @@ const Pages: { [key: string]: PageInfo } = {
     name: "Minigames",
     isHidden: true,
   },
+  backendTemplate: {
+    path: "backendTemplate",
+    name: "BackendTemplate",
+    isHidden: true,
+  },
   myPortfolio: {
     path: "myPortfolio",
     name: "Portfolio website",
