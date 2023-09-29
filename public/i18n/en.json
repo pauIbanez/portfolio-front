@@ -328,7 +328,7 @@
   },
   "BackendTemplate": {
     "title": "<&>Backend<&> template",
-    "text": "I’ve created a fully set up`and tested REST API template complete with a database connection and full user support.",
+    "text": "I’ve created a fully set up and tested REST API template complete with a database connection and full user support.",
     "sections": [
       {
         "title": "Features",

@@ -134,8 +134,10 @@ const ProjectCards: ProjectCardInfo[] = [
   },
   {
     name: "Backend Template",
-    description: "A Backend typescript emplate for a REST APi with users",
-    logo: "logo.svg",
+    description: "A complete typescript REST API template with users",
+    logo: "backendTemplate.png",
+    nameColor: "white",
+    backgroundColor: "#659f64",
     tags: [
       ProjectTags.javaScript,
       ProjectTags.typeScript,
