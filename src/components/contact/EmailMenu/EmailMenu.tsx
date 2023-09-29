@@ -63,8 +63,6 @@ const CopyEmailButton = styled.button<{ $visible: boolean }>`
   height: 30px;
   padding-left: 40px;
 
-  font-size: 13px;
-
   &:hover {
     color: white;
     background-color: ${Colors.main};
@@ -87,7 +85,6 @@ const EmailLink = styled(Link)<{ $visible: boolean }>`
   height: 30px;
   padding-left: 40px;
 
-  font-size: 13px;
   text-decoration: none;
 
   &:hover {

@@ -84,6 +84,9 @@ const ContactItem = styled.div<{ $size: number }>`
   p {
     font-size: ${(props) => props.$size}px;
   }
+  button {
+    font-size: ${(props) => props.$size}px;
+  }
   a {
     font-size: ${(props) => props.$size}px;
   }
