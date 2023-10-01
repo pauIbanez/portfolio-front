@@ -1,11 +1,11 @@
 import { useMediaQuery } from "react-responsive";
 import ResponsiveContextData from "../../Types/contextData/ResponsiveContextData";
 import ResponsiveContext from "./ResponsiveContext.contextCreator";
-import { useCallback, useState } from "react";
+import React, { useCallback, useState } from "react";
 import useEffectOnce from "../../hooks/useEffectOnce";
 
 interface Props {
-  children: JSX.Element;
+  children: React.JSX.Element;
 }
 
 const ResponsiveContextProvider = ({ children }: Props) => {

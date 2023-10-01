@@ -3,7 +3,7 @@ import CVSection from "../../CVSection/CVSection";
 import Colors from "../../../../data/style/Colors";
 import Letter from "../../Letter/Letter";
 import useEffectOnce from "../../../../hooks/useEffectOnce";
-import { useState } from "react";
+import React, { useState } from "react";
 import useSections from "../../../../hooks/useSections";
 
 const Content = styled.div`
@@ -19,12 +19,12 @@ const Line = styled.div`
 `;
 
 const ReferencesSection = () => {
-  const [renderItems, setRenderItems] = useState<JSX.Element[]>([]);
+  const [renderItems, setRenderItems] = useState<React.JSX.Element[]>([]);
 
   const { sections } = useSections();
 
   useEffectOnce(() => {
-    const allItems: JSX.Element[] = [];
+    const allItems: React.JSX.Element[] = [];
 
     sections.references.items.forEach((item, index) => {
       allItems.push(<Letter item={item} key={item.name} />);

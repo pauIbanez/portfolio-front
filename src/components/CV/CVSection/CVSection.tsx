@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Colors from "../../../data/style/Colors";
 import ScrollContext from "../../../contexts/scrollContext/ScrollContext.contextCreator";
-import { useContext, useRef } from "react";
+import React, { useContext, useRef } from "react";
 import useEffectOnce from "../../../hooks/useEffectOnce";
 import ResponsiveContext from "../../../contexts/responsiveContext/ResponsiveContext.contextCreator";
 import { textSizes } from "../../../data/Pages/responsive/cvPage";
@@ -38,7 +38,7 @@ const Holder = styled.div`
 interface Props {
   title: string;
   name?: string;
-  children: JSX.Element;
+  children: React.JSX.Element;
 }
 const CVSection = ({ name, title, children }: Props) => {
   const section = useRef(null);

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Colors from "../../../data/style/Colors";
-import { useContext, useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import CVListItemData from "../../../Types/CVListItem";
 import useEffectOnce from "../../../hooks/useEffectOnce";
 import CVListItem from "../CVListItem/CVListItem";
@@ -75,7 +75,7 @@ interface Props {
 }
 const CVListSection = ({ title, items }: Props) => {
   const [isDateUp, setIsDateUp] = useState(true);
-  const [renderItems, setRenderItems] = useState<JSX.Element[]>([]);
+  const [renderItems, setRenderItems] = useState<React.JSX.Element[]>([]);
 
   const section = useRef(null);
 
@@ -85,7 +85,7 @@ const CVListSection = ({ title, items }: Props) => {
   useEffectOnce(() => {
     loadItem({ name: title, ref: section });
 
-    const allItems: JSX.Element[] = [];
+    const allItems: React.JSX.Element[] = [];
 
     let currentIndex = 0;
     items

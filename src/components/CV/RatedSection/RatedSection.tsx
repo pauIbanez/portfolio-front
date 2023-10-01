@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import Colors from "../../../data/style/Colors";
 import ColoredText from "../../textComponents/ColoredText/ColoredText";
 import ResponsiveContext from "../../../contexts/responsiveContext/ResponsiveContext.contextCreator";
@@ -58,7 +58,7 @@ const RatedSection = ({ title, items, notRated, grow }: Props) => {
 
   const renderItems = items.map((item, index) => (
     <Item
-      notRated={notRated || false}
+      notRated={notRated ?? false}
       key={item.name}
       data-testid={`item-${index}`}
       $size={textSizes[currentWidthBreakPoint].sectionText}
@@ -69,7 +69,7 @@ const RatedSection = ({ title, items, notRated, grow }: Props) => {
       ) : (
         <RatingHolder>
           {(() => {
-            let renderStars: JSX.Element[] = [];
+            let renderStars: React.JSX.Element[] = [];
 
             for (let i = 0; i < 5; i++) {
               (item.rating as number) > i

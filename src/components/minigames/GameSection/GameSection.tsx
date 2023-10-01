@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Colors from "../../../data/style/Colors";
+import React from "react";
 
 const Container = styled.section`
   width: 100%;
@@ -30,7 +31,7 @@ const Holder = styled.div`
 
 interface Props {
   title: string;
-  children: JSX.Element;
+  children: React.JSX.Element;
 }
 const GameSection = ({ title, children }: Props) => {
   return (

@@ -372,5 +372,9 @@
         "link": "GitHub Repository page"
       }
     ]
+  },
+  "MyPortfolio": {
+    "title": "<&>My<&> portfolio",
+    "text": "Explore with me all the details about my portfolio website (this one). Check out the development, testing and production deployment details."
   }
 }

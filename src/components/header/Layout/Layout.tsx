@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import Pages from "../../../data/Pages/Pages";
 import PageTitle from "../PageTitle/PageTitle";
 import { useTranslation } from "react-i18next";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import ResponsiveContext from "../../../contexts/responsiveContext/ResponsiveContext.contextCreator";
 import { navBar } from "../../../data/Pages/responsive/layout";
 
@@ -26,7 +26,7 @@ const BarContainer = styled.div<{ $height: number }>`
 `;
 
 interface Props {
-  children?: JSX.Element;
+  children?: React.JSX.Element;
 }
 
 const Layout = ({ children }: Props) => {
