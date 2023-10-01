@@ -44,7 +44,7 @@ const CVPage = () => {
   const onClick = () => {
     const rect = cvRef.current?.getBoundingClientRect();
     window.scrollTo({
-      top: (rect?.top || 0) + window.scrollY - 100,
+      top: (rect?.top ?? 0) + window.scrollY - 100,
       behavior: "smooth",
     });
   };

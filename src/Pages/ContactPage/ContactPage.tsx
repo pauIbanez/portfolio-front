@@ -14,6 +14,7 @@ import ResponsiveContext from "../../contexts/responsiveContext/ResponsiveContex
 import EmailMenu from "../../components/contact/EmailMenu/EmailMenu";
 import MessageSent from "../../components/contact/MessageSent/MessageSent";
 import ContactFormValues from "../../Types/ContactFormValues";
+import { TFunction } from "i18next";
 
 const ContactHolder = styled.div<{ isColumn: boolean }>`
   display: flex;
@@ -123,6 +124,133 @@ const FormContent = styled.div<{ $width: number }>`
   border-radius: 0 25px 25px 0;
 `;
 
+interface FormProps {
+  t: TFunction<"translation", undefined>;
+  currentWidthBreakPoint: number;
+  messageSent: boolean;
+  messageLoading: boolean;
+  onSubmit: (contactFormValues: ContactFormValues) => Promise<void>;
+  savedMessage: ContactFormValues | undefined;
+  onSendAnother: () => void;
+  sentSucess: boolean;
+}
+const Form = ({
+  t,
+  currentWidthBreakPoint,
+  messageSent,
+  messageLoading,
+  onSubmit,
+  savedMessage,
+  onSendAnother,
+  sentSucess,
+}: FormProps) => (
+  <FormHolder $height={formSize[currentWidthBreakPoint].height}>
+    <ContactInfo $width={formSize[currentWidthBreakPoint].infoWidth}>
+      <TiteledText
+        title={t("Contact.contactInfo.title")}
+        text={t("Contact.contactInfo.text")}
+        styleObject={{
+          gap: 5,
+          title: { size: 19, heading: 0, color: "white" },
+          text: { size: 14, color: "white" },
+        }}
+      />
+      <ContactInfoSection>
+        <ContactItem $size={formTextSizes[currentWidthBreakPoint].contactItem}>
+          <ItemIcon
+            src="/media/icons/phone.svg"
+            alt="phone"
+            height={30}
+            width={30}
+          />
+          <ItemName>{t("Contact.contactInfo.itemNames.phone") + ":"}</ItemName>
+          <ItemValue>
+            <p>+34 673408670</p>
+          </ItemValue>
+        </ContactItem>
+        <ContactItem $size={formTextSizes[currentWidthBreakPoint].contactItem}>
+          <EmailMenu />
+        </ContactItem>
+        <ContactItem $size={formTextSizes[currentWidthBreakPoint].contactItem}>
+          <ItemIcon
+            height={30}
+            width={30}
+            src="/media/icons/linkedIn.svg"
+            alt="linkedIn"
+          />
+          <ItemName>
+            {t("Contact.contactInfo.itemNames.linkedIn") + ":"}
+          </ItemName>
+          <ItemValue>
+            <a
+              href="https://www.linkedin.com/in/pau-ibanez/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t("Contact.contactInfo.itemValues.linkedIn")}
+              <AfterItemIcon
+                height={15}
+                width={15}
+                src="/media/icons/link.svg"
+                alt="newscreen"
+              />
+            </a>
+          </ItemValue>
+        </ContactItem>
+      </ContactInfoSection>
+    </ContactInfo>
+    <FormContent $width={formSize[currentWidthBreakPoint].width}>
+      {messageSent || messageLoading ? (
+        <MessageSent
+          onResetClick={onSendAnother}
+          loading={messageLoading}
+          success={sentSucess}
+        />
+      ) : (
+        <ErrorrContextProvider>
+          <ContactForm onSubmit={onSubmit} savedMessage={savedMessage} />
+        </ErrorrContextProvider>
+      )}
+    </FormContent>
+  </FormHolder>
+);
+
+const InfoSection = ({
+  t,
+  currentWidthBreakPoint,
+}: {
+  t: TFunction<"translation", undefined>;
+  currentWidthBreakPoint: number;
+}) => (
+  <>
+    <TiteledText
+      title={t("Contact.textSections.0.title")}
+      text={t("Contact.textSections.0.text")}
+      styleObject={{
+        title: {
+          size: textSizes[currentWidthBreakPoint].title,
+        },
+        text: {
+          size: textSizes[currentWidthBreakPoint].text,
+        },
+      }}
+    />
+    <TiteledText
+      title={t("Contact.textSections.1.title")}
+      text={t("Contact.textSections.1.text")}
+      styleObject={{
+        gap: 0,
+        title: {
+          size: textSizes[currentWidthBreakPoint].title,
+        },
+        text: {
+          size: textSizes[currentWidthBreakPoint].text - 2,
+        },
+      }}
+    />
+  </>
+);
+
 const ContactPage = () => {
   const onSubmit = async (contactFormValues: ContactFormValues) => {
     setMessageLoading(true);
@@ -168,129 +296,42 @@ const ContactPage = () => {
     setMessageSent(false);
   };
 
-  const Form = () => (
-    <FormHolder $height={formSize[currentWidthBreakPoint].height}>
-      <ContactInfo $width={formSize[currentWidthBreakPoint].infoWidth}>
-        <TiteledText
-          title={t("Contact.contactInfo.title")}
-          text={t("Contact.contactInfo.text")}
-          styleObject={{
-            gap: 5,
-            title: { size: 19, heading: 0, color: "white" },
-            text: { size: 14, color: "white" },
-          }}
-        />
-        <ContactInfoSection>
-          <ContactItem
-            $size={formTextSizes[currentWidthBreakPoint].contactItem}
-          >
-            <ItemIcon
-              src="/media/icons/phone.svg"
-              alt="phone"
-              height={30}
-              width={30}
-            />
-            <ItemName>
-              {t("Contact.contactInfo.itemNames.phone") + ":"}
-            </ItemName>
-            <ItemValue>
-              <p>+34 673408670</p>
-            </ItemValue>
-          </ContactItem>
-          <ContactItem
-            $size={formTextSizes[currentWidthBreakPoint].contactItem}
-          >
-            <EmailMenu />
-          </ContactItem>
-          <ContactItem
-            $size={formTextSizes[currentWidthBreakPoint].contactItem}
-          >
-            <ItemIcon
-              height={30}
-              width={30}
-              src="/media/icons/linkedIn.svg"
-              alt="linkedIn"
-            />
-            <ItemName>
-              {t("Contact.contactInfo.itemNames.linkedIn") + ":"}
-            </ItemName>
-            <ItemValue>
-              <a
-                href="https://www.linkedin.com/in/pau-ibanez/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                {t("Contact.contactInfo.itemValues.linkedIn")}
-                <AfterItemIcon
-                  height={15}
-                  width={15}
-                  src="/media/icons/link.svg"
-                  alt="newscreen"
-                />
-              </a>
-            </ItemValue>
-          </ContactItem>
-        </ContactInfoSection>
-      </ContactInfo>
-      <FormContent $width={formSize[currentWidthBreakPoint].width}>
-        {messageSent || messageLoading ? (
-          <MessageSent
-            onResetClick={onSendAnother}
-            loading={messageLoading}
-            success={sentSucess}
-          />
-        ) : (
-          <ErrorrContextProvider>
-            <ContactForm onSubmit={onSubmit} savedMessage={savedMessage} />
-          </ErrorrContextProvider>
-        )}
-      </FormContent>
-    </FormHolder>
-  );
-
-  const InfoSection = () => (
-    <>
-      <TiteledText
-        title={t("Contact.textSections.0.title")}
-        text={t("Contact.textSections.0.text")}
-        styleObject={{
-          title: {
-            size: textSizes[currentWidthBreakPoint].title,
-          },
-          text: {
-            size: textSizes[currentWidthBreakPoint].text,
-          },
-        }}
-      />
-      <TiteledText
-        title={t("Contact.textSections.1.title")}
-        text={t("Contact.textSections.1.text")}
-        styleObject={{
-          gap: 0,
-          title: {
-            size: textSizes[currentWidthBreakPoint].title,
-          },
-          text: {
-            size: textSizes[currentWidthBreakPoint].text - 2,
-          },
-        }}
-      />
-    </>
-  );
   return (
     <ContactHolder isColumn={currentWidthBreakPoint !== 0}>
-      {currentWidthBreakPoint === 0 && <Form />}
+      {currentWidthBreakPoint === 0 && (
+        <Form
+          t={t}
+          currentWidthBreakPoint={currentWidthBreakPoint}
+          messageLoading={messageLoading}
+          messageSent={messageSent}
+          sentSucess={sentSucess}
+          onSendAnother={onSendAnother}
+          onSubmit={onSubmit}
+          savedMessage={savedMessage}
+        />
+      )}
       {currentWidthBreakPoint === 0 ? (
         <ColumnInfoSection>
-          <InfoSection />
+          <InfoSection t={t} currentWidthBreakPoint={currentWidthBreakPoint} />
         </ColumnInfoSection>
       ) : (
         <RowInfoSection>
-          <InfoSection />
+          <InfoSection t={t} currentWidthBreakPoint={currentWidthBreakPoint} />
         </RowInfoSection>
       )}
 
-      {currentWidthBreakPoint !== 0 && <Form />}
+      {currentWidthBreakPoint !== 0 && (
+        <Form
+          t={t}
+          currentWidthBreakPoint={currentWidthBreakPoint}
+          messageLoading={messageLoading}
+          messageSent={messageSent}
+          sentSucess={sentSucess}
+          onSendAnother={onSendAnother}
+          onSubmit={onSubmit}
+          savedMessage={savedMessage}
+        />
+      )}
     </ContactHolder>
   );
 };

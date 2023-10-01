@@ -68,7 +68,7 @@ export const renderInRouter = (
   initialEntries?: string[]
 ) => {
   const Bocata = ({ children }: { children: ReactNode }) => (
-    <MemoryRouter initialEntries={initialEntries || ["/home"]}>
+    <MemoryRouter initialEntries={initialEntries ?? ["/home"]}>
       {children}
     </MemoryRouter>
   );

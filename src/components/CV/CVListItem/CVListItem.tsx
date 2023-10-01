@@ -61,7 +61,7 @@ const Location = styled.p``;
 
 const Concept = styled.p``;
 
-const Date = styled.p`
+const DateRange = styled.p`
   color: ${Colors.lightTextGray} !important;
 `;
 
@@ -103,7 +103,7 @@ const CVListItem = ({ item }: Props) => {
             <Location>{item.location}</Location>
           </NameSection>
           <Concept>{item.concept}</Concept>
-          <Date>{`${item.dates.startDate} - ${item.dates.endDate}`}</Date>
+          <DateRange>{`${item.dates.startDate} - ${item.dates.endDate}`}</DateRange>
         </InfoItems>
       </InfoSection>
       <TextSection $size={textSizes[currentWidthBreakPoint].texts}>
