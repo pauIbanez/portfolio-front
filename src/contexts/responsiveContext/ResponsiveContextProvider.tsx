@@ -1,7 +1,7 @@
 import { useMediaQuery } from "react-responsive";
 import ResponsiveContextData from "../../Types/contextData/ResponsiveContextData";
 import ResponsiveContext from "./ResponsiveContext.contextCreator";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import useEffectOnce from "../../hooks/useEffectOnce";
 
 interface Props {
@@ -44,9 +44,12 @@ const ResponsiveContextProvider = ({ children }: Props) => {
     handleWidthChange(screenWidths);
   });
 
-  const contextValue: ResponsiveContextData = {
-    currentWidthBreakPoint,
-  };
+  const contextValue: ResponsiveContextData = useMemo(
+    () => ({
+      currentWidthBreakPoint,
+    }),
+    [currentWidthBreakPoint]
+  );
 
   return (
     <ResponsiveContext.Provider value={contextValue}>

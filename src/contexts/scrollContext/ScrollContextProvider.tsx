@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import ScrollItem from "../../Types/ScrollItem";
 import ScrollContext from "./ScrollContext.contextCreator";
 import ScrollContextData from "../../Types/contextData/ScrollContextData";
@@ -94,13 +100,16 @@ const ScrollContextProvider = ({ children }: Props) => {
 
   const getItems = (): ScrollItem[] => scrollItems.current;
 
-  const contextValue: ScrollContextData = {
-    items: scrollItems.current,
-    loadItem,
-    scrollToItem,
-    getItems,
-    currentActive,
-  };
+  const contextValue: ScrollContextData = useMemo(
+    () => ({
+      items: scrollItems.current,
+      loadItem,
+      scrollToItem,
+      getItems,
+      currentActive,
+    }),
+    [currentActive]
+  );
 
   return (
     <ScrollContext.Provider value={contextValue}>
