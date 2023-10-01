@@ -33,7 +33,7 @@ const ScrollContextProvider = ({ children }: Props) => {
     setCurrentActive(name);
     const rect = foundItem.ref.current?.getBoundingClientRect();
     window.scrollTo({
-      top: (rect?.top || 0) + window.scrollY - (offsetY || 100),
+      top: (rect?.top ?? 0) + window.scrollY - (offsetY ?? 100),
       behavior: "smooth",
     });
   };
@@ -49,7 +49,7 @@ const ScrollContextProvider = ({ children }: Props) => {
     scrollItems.current.forEach((item) => {
       const visible =
         window.innerHeight -
-        Math.abs(item.ref.current?.getBoundingClientRect().y || 0);
+        Math.abs(item.ref.current?.getBoundingClientRect().y ?? 0);
 
       if (visible > closestItemHeight) {
         closestItemHeight = visible;
