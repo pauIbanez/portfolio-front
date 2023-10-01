@@ -98,7 +98,7 @@ const ProjectCards: ProjectCardInfo[] = [
       ProjectTags.fullStack,
     ],
     isInteractive: false,
-    link: "/project/myportfolio",
+    link: "/project/myPortfolio",
   },
   {
     name: "Minigames",

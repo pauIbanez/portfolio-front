@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import ColoredText from "../ColoredText/ColoredText";
 import Button, { ButtonProps } from "../../Button/Button";
+import React from "react";
 
 const Holder = styled.section`
   display: flex;
@@ -24,7 +25,7 @@ interface Props {
   title: string;
   text: string;
   button: {
-    content: JSX.Element | string;
+    content: React.JSX.Element | string;
     onClick(): void;
     buttonProps?: ButtonProps;
   };

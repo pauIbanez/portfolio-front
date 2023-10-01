@@ -43,7 +43,7 @@ const Item = styled.button<{ $active: boolean }>`
 
 const InternalNavigation = () => {
   const { scrollToItem, getItems, currentActive } = useContext(ScrollContext);
-  const [renderItems, setRenderItems] = useState<JSX.Element[]>([]);
+  const [renderItems, setRenderItems] = useState<React.JSX.Element[]>([]);
 
   useEffect(() => {
     setRenderItems(

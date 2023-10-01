@@ -1,10 +1,10 @@
 import { useLocation } from "react-router-dom";
 import ScrollRestorationData from "../../Types/contextData/ScrollRestorationData";
 import ScrollRestorationContext from "./ScrollRestoration.contextCreator";
-import { useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 
 interface Props {
-  children: JSX.Element;
+  children: React.JSX.Element;
 }
 
 const ScrollRestorationProvider = ({ children }: Props) => {

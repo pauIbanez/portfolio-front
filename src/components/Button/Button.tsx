@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Colors from "../../data/style/Colors";
+import React from "react";
 
 interface ButotnCaseProps {
   reversed?: boolean;
@@ -103,7 +104,7 @@ export interface ButtonProps {
   onClick?: () => void;
   reversed?: boolean;
   active?: boolean;
-  children?: JSX.Element | string;
+  children?: React.JSX.Element | string;
   disabled?: boolean;
   submit?: boolean;
   icon?: string;

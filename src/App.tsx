@@ -12,6 +12,7 @@ import { useContext, useState } from "react";
 import ResponsiveContext from "./contexts/responsiveContext/ResponsiveContext.contextCreator";
 import NoMobilePage from "./Pages/NoMobilePage/NoMobilePage";
 import BackendTemplatePage from "./Pages/BackendTemplatePage/BackendTemplatePage";
+import MyPortfolioPage from "./Pages/MyPortfolioPage/MyPortfolioPage";
 
 function App() {
   const { currentWidthBreakPoint } = useContext(ResponsiveContext);
@@ -33,6 +34,7 @@ function App() {
             path={Pages.backendTemplate.path}
             element={<BackendTemplatePage />}
           />
+          <Route path={Pages.myPortfolio.path} element={<MyPortfolioPage />} />
           <Route path={Pages.myPortfolio.path} element={<p>Portfolio</p>} />
         </Route>
         <Route path={Pages.curriculum.path} element={<CVPage />} />

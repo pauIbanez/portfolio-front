@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import ScrollItem from "../../Types/ScrollItem";
 import ScrollContext from "./ScrollContext.contextCreator";
 import ScrollContextData from "../../Types/contextData/ScrollContextData";
 
 interface Props {
-  children: JSX.Element;
+  children: React.JSX.Element;
 }
 
 const ScrollContextProvider = ({ children }: Props) => {

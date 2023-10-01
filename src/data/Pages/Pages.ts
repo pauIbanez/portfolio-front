@@ -23,7 +23,7 @@ const Pages: { [key: string]: PageInfo } = {
   },
   myPortfolio: {
     path: "myPortfolio",
-    name: "Portfolio website",
+    name: "MyPortfolio",
     isHidden: true,
   },
   curriculum: {
