@@ -83,10 +83,10 @@ const Simon = () => {
   });
 
   const startRound = useCallback(async () => {
-    for (let i = 0; i < sequence.current.length; i++) {
+    for (const currentSequence of sequence.current) {
       setTiles((prevTiles) =>
         prevTiles.map((prevTile) =>
-          prevTile.tileValue === sequence.current[i]
+          prevTile.tileValue === currentSequence
             ? { ...prevTile, isShowing: true }
             : { ...prevTile }
         )

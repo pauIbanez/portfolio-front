@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Colors from "../../../data/style/Colors";
 import parseAccents from "../../../utils/parseAccents/parseAccents";
+import React from "react";
 
 interface Props {
   text: string;
@@ -16,7 +17,7 @@ interface ColoredSectionProps {
   color?: string;
 }
 const ColoredSection = styled.span<ColoredSectionProps>`
-  color: ${(props) => props.color || Colors.main};
+  color: ${(props) => props.color ?? Colors.main};
 `;
 
 interface Section {
@@ -26,18 +27,18 @@ interface Section {
   accentColor?: string;
 }
 const Text = styled.div<Section>`
-  font-size: ${(props) => props.size || "14"}px;
-  font-weight: ${(props) => props.weight || 400};
-  color: ${(props) => props.color || "black"};
+  font-size: ${(props) => props.size ?? "14"}px;
+  font-weight: ${(props) => props.weight ?? 400};
+  color: ${(props) => props.color ?? "black"};
   white-space: pre-line;
 `;
 
 const ColoredText = ({ text, styleData }: Props) => {
   const textArray = [...parseAccents(text)];
 
-  let renderElement = <></>;
+  let renderElement: React.JSX.Element;
 
-  if (!styleData || !styleData.heading) {
+  if (!styleData?.heading) {
     renderElement = (
       <Text
         color={styleData?.color}
@@ -66,7 +67,7 @@ const ColoredText = ({ text, styleData }: Props) => {
       >
         {textArray.map((text, index) =>
           index % 2 ? (
-            <ColoredSection color={styleData?.accentColor} key={index}>
+            <ColoredSection color={styleData?.accentColor} key={text}>
               {text}
             </ColoredSection>
           ) : (

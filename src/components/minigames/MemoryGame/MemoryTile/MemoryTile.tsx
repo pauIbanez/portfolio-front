@@ -89,15 +89,15 @@ const MemoryTile = ({
     let image = "";
     switch (currentDifficulty) {
       case MemoryDifficulty.Easy:
-        image = tileImages.easy[tileValue] as string;
+        image = tileImages.easy[tileValue];
         break;
 
       case MemoryDifficulty.Normal:
-        image = tileImages.normal[tileValue] as string;
+        image = tileImages.normal[tileValue];
         break;
 
       case MemoryDifficulty.Hard:
-        image = tileImages.hard[tileValue] as string;
+        image = tileImages.hard[tileValue];
         break;
     }
     setCurrentImage(image);
