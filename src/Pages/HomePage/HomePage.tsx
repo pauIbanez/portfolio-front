@@ -13,6 +13,8 @@ import {
   rightImages,
   textSizes,
 } from "../../data/Pages/responsive/homePage";
+import ReactGA from "react-ga4";
+import useEffectOnce from "../../hooks/useEffectOnce";
 
 interface TextSize {
   size: number;
@@ -115,6 +117,14 @@ const HomePage = () => {
   const goToProjects = () => {
     navigate(Pages.projects.path);
   };
+
+  useEffectOnce(() => {
+    ReactGA.send({
+      hitType: "pageview",
+      page: "/home",
+      title: "Home page",
+    });
+  });
 
   const { currentWidthBreakPoint } = useContext(ResponsiveContext);
 
