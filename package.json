@@ -72,7 +72,8 @@
       "!src/Types/**/*.ts",
       "!src/data/**/*.ts",
       "!src/hooks/useEffectOnce.ts",
-      "!src/contexts/**/*.contextCreator.ts"
+      "!src/contexts/**/*.contextCreator.ts",
+      "!src/contexts/**/*.tsx"
     ]
   }
 }
