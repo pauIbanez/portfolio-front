@@ -105,7 +105,7 @@ const ProjectCards: ProjectCardInfo[] = [
     description: "A few minigames to pass the time.",
     nameColor: "white",
     backgroundColor: "#2555FF",
-    logo: "logo.svg",
+    logo: "logo_white.svg",
     tags: [
       ProjectTags.javaScript,
       ProjectTags.typeScript,
