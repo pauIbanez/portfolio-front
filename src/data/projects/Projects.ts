@@ -105,7 +105,7 @@ const ProjectCards: ProjectCardInfo[] = [
     description: "A few minigames to pass the time.",
     nameColor: "white",
     backgroundColor: "#2555FF",
-    logo: "logo.svg",
+    logo: "logo_white.svg",
     tags: [
       ProjectTags.javaScript,
       ProjectTags.typeScript,
@@ -146,37 +146,6 @@ const ProjectCards: ProjectCardInfo[] = [
     ],
     isInteractive: false,
     link: "/project/backendTemplate",
-  },
-  {
-    name: "Nova client",
-    description: "The client to interact with Nova.",
-    logo: "logo.svg",
-    tags: [
-      ProjectTags.javaScript,
-      ProjectTags.typeScript,
-      ProjectTags.react,
-      ProjectTags.jest,
-      ProjectTags.fullStack,
-    ],
-    isInteractive: false,
-    link: "/project/nova",
-  },
-  {
-    name: "My menu",
-    nameColor: "white",
-    description:
-      "An assistant tool for menu organization and creation aimed for catering and central kitchens.",
-    logo: "logo.svg",
-    backgroundImage: "mymenu.png",
-    tags: [
-      ProjectTags.javaScript,
-      ProjectTags.typeScript,
-      ProjectTags.react,
-      ProjectTags.jest,
-      ProjectTags.fullStack,
-    ],
-    isInteractive: false,
-    link: "/project/myMenu",
   },
 ];
 

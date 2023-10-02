@@ -184,8 +184,7 @@ const InteractiveIcon = styled.div<HoverProp>`
   right: 18px;
   height: 20px;
   width: ${(props) => (props.isHovering ? "75px" : "20px")};
-  background-color: ${(props) =>
-    props.isHovering ? Colors.main : Colors.disabledMain};
+  background-color: ${Colors.main};
   color: white;
 
   border-radius: 30px;
