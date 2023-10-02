@@ -1,12 +1,11 @@
 /* eslint-disable testing-library/no-unnecessary-act */
-import { fireEvent, screen, waitFor } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 import ContactPage from "./ContactPage";
 import { renderInRouter } from "../../setupTests";
 import ResponsiveContext from "../../contexts/responsiveContext/ResponsiveContext.contextCreator";
 import { act } from "react-dom/test-utils";
 import { MessageType } from "../../Types/ContactFormValues";
 import userEvent from "@testing-library/user-event";
-import Wait from "../../utils/Wait/Wait";
 
 describe("Given the ContactPage Page", () => {
   describe("When it's intanciated", () => {
@@ -96,7 +95,79 @@ describe("Given the ContactPage Page", () => {
         });
         foundInputs.forEach((input) => {
           if (input.getAttribute("placeholder") !== "Placeholder") {
-            userEvent.type(input, "o@a");
+            userEvent.type(input, "i@a");
+          }
+        });
+      });
+
+      const foundSubmitButton = screen.getByRole("button", {
+        name: "Contact.contactForm.sendMessage",
+      });
+      act(() => {
+        userEvent.click(foundSubmitButton);
+      });
+
+      const foundFailButton = await screen.findByRole("button", {
+        name: expectedButtonName,
+      });
+
+      expect(foundFailButton).toBeInTheDocument();
+    });
+  });
+  describe("When it's intanciated and fetch fails", () => {
+    test("Then it should render a button with name 'Try again'", async () => {
+      const expectedButtonName = "Try again";
+      const expectedFormSelect = "Contact.contactForm.labels.messageType";
+
+      renderInRouter(<ContactPage />);
+
+      const foundInputs = screen.getAllByRole("textbox");
+      const foundSelect = screen.getByLabelText(expectedFormSelect);
+
+      act(() => {
+        fireEvent.change(foundSelect, {
+          target: { value: MessageType.JobOportunity },
+        });
+        foundInputs.forEach((input) => {
+          if (input.getAttribute("placeholder") !== "Placeholder") {
+            userEvent.type(input, "m@a");
+          }
+        });
+      });
+
+      const foundSubmitButton = screen.getByRole("button", {
+        name: "Contact.contactForm.sendMessage",
+      });
+      act(() => {
+        userEvent.click(foundSubmitButton);
+      });
+
+      const foundFailButton = await screen.findByRole("button", {
+        name: expectedButtonName,
+      });
+
+      expect(foundFailButton).toBeInTheDocument();
+    });
+  });
+
+  describe("When it's intanciated and the form is sent with sucess, and the user presses on 'Write another!'", () => {
+    test("Then it should render the form", async () => {
+      const expectedButtonName = "Writte another!";
+      const expectedFormSelect = "Contact.contactForm.labels.messageType";
+
+      renderInRouter(<ContactPage />);
+
+      const foundInputs = screen.getAllByRole("textbox");
+      const foundSelect = screen.getByLabelText(expectedFormSelect);
+
+      act(() => {
+        fireEvent.change(foundSelect, {
+          target: { value: MessageType.JobOportunity },
+        });
+
+        foundInputs.forEach((input) => {
+          if (input.getAttribute("placeholder") !== "Placeholder") {
+            userEvent.type(input, "c@a");
           }
         });
       });
@@ -112,7 +183,13 @@ describe("Given the ContactPage Page", () => {
         name: expectedButtonName,
       });
 
-      expect(foundSuccessButton).toBeInTheDocument();
+      act(() => {
+        userEvent.click(foundSuccessButton);
+      });
+
+      const foundForm = screen.getByRole("form");
+
+      expect(foundForm).toBeInTheDocument();
     });
   });
 });

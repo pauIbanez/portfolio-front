@@ -257,7 +257,7 @@ const ContactPage = () => {
     setSavedMessage({ ...contactFormValues });
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/newMessage` ?? "",
+        `${process.env.REACT_APP_API_URL}/newMessage`,
         {
           method: "POST",
           headers: {
