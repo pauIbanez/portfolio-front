@@ -102,7 +102,7 @@ const DownloadSection = () => {
               {column.map((item) => (
                 <DownloadItem key={item.name}>
                   <ColoredText
-                    text={`${item.name}<&> - 13MB`}
+                    text={`${item.name}<&> - ${item.size}KB`}
                     styleData={{
                       accentColor: Colors.lightTextGray,
                       color: Colors.textGray,

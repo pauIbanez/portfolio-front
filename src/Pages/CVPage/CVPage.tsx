@@ -8,7 +8,6 @@ import TechnologiesSection from "../../components/CV/sections/TechnologiesSectio
 import DownloadSection from "../../components/CV/sections/DownloadSection/DownloadSection";
 import LanguagesSection from "../../components/CV/sections/LanguagesSection/LanguagesSection";
 import ReferencesSection from "../../components/CV/sections/ReferencesSection/ReferencesSection";
-import { ErrorrContextProvider } from "react-errorr";
 import { useTranslation } from "react-i18next";
 import useSections from "../../hooks/useSections";
 import { cvWidth } from "../../data/Pages/responsive/cvPage";
