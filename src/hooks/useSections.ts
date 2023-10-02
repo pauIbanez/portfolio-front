@@ -345,11 +345,11 @@ const useSections = () => {
           [
             {
               name: t("CV.sections.download.items.0"),
-              link: "static.CV",
+              link: "PauIbanezCV.pdf",
             },
             {
               name: t("CV.sections.download.items.1"),
-              link: "static.RL",
+              link: "PauIbanezCV_RecomendationLetter.pdf",
             },
           ],
           [
@@ -359,7 +359,7 @@ const useSections = () => {
             },
             {
               name: t("CV.sections.download.items.3"),
-              link: "static.CC",
+              link: "PauIbanezCV_Combined.pdf",
             },
           ],
         ],

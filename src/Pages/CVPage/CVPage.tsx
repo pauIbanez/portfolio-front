@@ -84,13 +84,7 @@ const CVPage = () => {
             <LanguagesSection />
             <TechnologiesSection />
             <ReferencesSection />
-            <ErrorrContextProvider
-              options={{
-                activeTime: 300,
-              }}
-            >
-              <DownloadSection />
-            </ErrorrContextProvider>
+            <DownloadSection />
           </CVContent>
         </CVHolder>
       </Holder>
