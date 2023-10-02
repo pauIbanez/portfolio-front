@@ -4,7 +4,6 @@ import Button from "../../../Button/Button";
 import ColoredText from "../../../textComponents/ColoredText/ColoredText";
 import Colors from "../../../../data/style/Colors";
 import { useState, useCallback, useContext } from "react";
-import { Errorr, ErrorrContext } from "react-errorr";
 import useSections from "../../../../hooks/useSections";
 import ResponsiveContext from "../../../../contexts/responsiveContext/ResponsiveContext.contextCreator";
 import {
@@ -38,6 +37,11 @@ const DownloadItem = styled.div`
   justify-content: flex-end;
   align-items: center;
   gap: 20px;
+`;
+
+const DownloadButtonLink = styled.a`
+  text-decoration: none;
+  color: inherit;
 `;
 
 const DisclaimerHolder = styled.div`
@@ -79,29 +83,14 @@ const CheckMark = styled.div<{ isChecked: boolean; hasError: boolean }>`
 
 const DownloadSection = () => {
   const [isChecked, setIsChecked] = useState<boolean>(false);
-  const [isErrorActive, setErrorActive] = useState<boolean>(false);
-  const { activateErrorr, forceRemoveErrorr } = useContext(ErrorrContext);
+  const [isErrorActive, setErrorActive] = useState<boolean>(true);
   const { currentWidthBreakPoint } = useContext(ResponsiveContext);
   const { sections } = useSections();
 
-  const onClick = useCallback(
-    (link: string) => {
-      if (isChecked) {
-        console.log("download: " + link);
-        return;
-      }
-
-      setErrorActive(true);
-      activateErrorr("tos");
-    },
-    [activateErrorr, isChecked]
-  );
-
   const toggleCheck = useCallback(() => {
     setIsChecked(!isChecked);
-    setErrorActive(false);
-    forceRemoveErrorr("tos");
-  }, [forceRemoveErrorr, isChecked]);
+    setErrorActive(isChecked);
+  }, [isChecked]);
 
   return (
     <CVSection title={sections.download.title}>
@@ -113,7 +102,7 @@ const DownloadSection = () => {
               {column.map((item) => (
                 <DownloadItem key={item.name}>
                   <ColoredText
-                    text={`${item.name}<&> - 13MB`}
+                    text={`${item.name}<&> - ${item.size}KB`}
                     styleData={{
                       accentColor: Colors.lightTextGray,
                       color: Colors.textGray,
@@ -121,7 +110,6 @@ const DownloadSection = () => {
                     }}
                   />
                   <Button
-                    onClick={() => onClick(item.link)}
                     styleObject={{
                       height: downloadButtons[currentWidthBreakPoint].height,
                       width: downloadButtons[currentWidthBreakPoint].width,
@@ -130,7 +118,12 @@ const DownloadSection = () => {
                     }}
                     disabled={isErrorActive}
                   >
-                    Download
+                    <DownloadButtonLink
+                      href={`/cv/${item.link}`}
+                      download={item.name}
+                    >
+                      Download
+                    </DownloadButtonLink>
                   </Button>
                 </DownloadItem>
               ))}
@@ -140,22 +133,11 @@ const DownloadSection = () => {
         <DisclaimerHolder>
           <p>{sections.download.disclaimer}</p>
           <BlueLabel htmlFor="tos">
-            <Errorr
-              name="tos"
-              message={sections.download.checkmarkError}
-              options={{
-                positioning: {
-                  inline: "center",
-                },
-                activeTime: 3000,
-              }}
-            >
-              <CheckMark
-                isChecked={isChecked}
-                hasError={isErrorActive}
-                data-testid="checkmark"
-              />
-            </Errorr>
+            <CheckMark
+              isChecked={isChecked}
+              hasError={isErrorActive}
+              data-testid="checkmark"
+            />
             <input
               type="checkbox"
               name="tos"

@@ -29,7 +29,7 @@ describe("Given the Button component", () => {
   });
 
   describe("When it's intanciated as disabled", () => {
-    test("Then it should not call the function", () => {
+    test("Then it should render as disabled", () => {
       const text = "test button";
       const onClick = jest.fn();
 
@@ -40,9 +40,8 @@ describe("Given the Button component", () => {
       );
 
       const foundButton = screen.getByRole("button", { name: text });
-      userEvent.click(foundButton);
 
-      expect(onClick).not.toHaveBeenCalled();
+      expect(foundButton).toBeDisabled();
     });
   });
 

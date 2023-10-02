@@ -345,21 +345,20 @@ const useSections = () => {
           [
             {
               name: t("CV.sections.download.items.0"),
-              link: "static.CV",
+              link: "PauIbanezCV.pdf",
+              size: 139,
             },
             {
               name: t("CV.sections.download.items.1"),
-              link: "static.RL",
+              link: "PauIbanezCV_RecLetter.pdf",
+              size: 90,
             },
           ],
           [
             {
               name: t("CV.sections.download.items.2"),
-              link: "static.CL",
-            },
-            {
-              name: t("CV.sections.download.items.3"),
-              link: "static.CC",
+              link: "PauIbanezCV_Combined.pdf",
+              size: 152,
             },
           ],
         ],

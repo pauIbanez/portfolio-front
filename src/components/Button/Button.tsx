@@ -85,6 +85,7 @@ const ButtonCase = styled.button<ButotnCaseProps>`
     cursor: inherit;
     color: ${Colors.disabledTextGray};
     background-color: ${Colors.disabledMain};
+    pointer-events: none;
   }
 `;
 
