@@ -2,9 +2,9 @@ import { rest } from "msw";
 
 const handlers = [
   rest.post(
-    `${process.env.REACT_APP_BACKEND_URL}/newMessage`,
+    `${process.env.REACT_APP_API_URL}/newMessage`,
     async (req, res, ctx) => {
-      if ((await req.json()).mockOk) {
+      if ((await req.json()).email === "c@a") {
         return res(
           ctx.status(200),
           ctx.json({

@@ -9,7 +9,7 @@ import { render } from "@testing-library/react";
 
 //msw
 
-import server from "./mocks/server.js";
+import server from "./mocks/server";
 
 export const mockChangeLanguage = jest.fn();
 

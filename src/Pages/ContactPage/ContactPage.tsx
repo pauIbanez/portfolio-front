@@ -203,7 +203,7 @@ const Form = ({
       {messageSent || messageLoading ? (
         <MessageSent
           onResetClick={onSendAnother}
-          loading={messageLoading}
+          $loading={messageLoading}
           success={sentSucess}
         />
       ) : (
@@ -297,7 +297,10 @@ const ContactPage = () => {
   };
 
   return (
-    <ContactHolder isColumn={currentWidthBreakPoint !== 0}>
+    <ContactHolder
+      isColumn={currentWidthBreakPoint !== 0}
+      data-testid="contact-holder"
+    >
       {currentWidthBreakPoint === 0 && (
         <Form
           t={t}

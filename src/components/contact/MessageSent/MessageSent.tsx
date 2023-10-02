@@ -24,12 +24,12 @@ const fadeIn = keyframes`
   opacity: 1;
 }`;
 
-const Content = styled.div<{ loading: boolean }>`
+const Content = styled.div<{ $loading: boolean }>`
   width: 500px;
   height: 200px;
   display: flex;
   flex-direction: column;
-  gap: ${(props) => (props.loading ? 5 : 30)}px;
+  gap: ${(props) => (props.$loading ? 5 : 30)}px;
   opacity: 0;
 
   animation: ${fadeIn} ease-in 0.3s forwards;
@@ -42,11 +42,11 @@ const Content = styled.div<{ loading: boolean }>`
 
 interface Props {
   onResetClick: () => void;
-  loading: boolean;
+  $loading: boolean;
   success: boolean;
 }
 
-const MessageSent = ({ onResetClick, loading, success: sucess }: Props) => {
+const MessageSent = ({ onResetClick, $loading, success: sucess }: Props) => {
   return (
     <Holder>
       <Icon
@@ -55,17 +55,17 @@ const MessageSent = ({ onResetClick, loading, success: sucess }: Props) => {
         height={200}
         width={265}
       />
-      <Content loading={loading}>
+      <Content $loading={$loading}>
         <TiteledText
           title={
-            loading
+            $loading
               ? "<&>Sending<&> message"
               : sucess
               ? "Mesage <&>Sent<&>"
               : "Something went <&>wrong<&>"
           }
           text={
-            loading
+            $loading
               ? "Your message is being sent... \n \nIf the back-end server is spinned down this may take a up to a minute."
               : sucess
               ? "Thank you for geting in contact with me. I've receivced your message and I'll be in contact ASAP!"
@@ -75,7 +75,7 @@ const MessageSent = ({ onResetClick, loading, success: sucess }: Props) => {
             gap: 10,
           }}
         />
-        {loading && (
+        {$loading && (
           <Link
             to={"https://render.com/docs/free#spinning-down-on-idle"}
             target="_blank"
@@ -84,7 +84,7 @@ const MessageSent = ({ onResetClick, loading, success: sucess }: Props) => {
           </Link>
         )}
 
-        {!loading && (
+        {!$loading && (
           <Button
             onClick={onResetClick}
             styleObject={{
