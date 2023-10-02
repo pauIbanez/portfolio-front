@@ -350,7 +350,7 @@ const useSections = () => {
             },
             {
               name: t("CV.sections.download.items.1"),
-              link: "PauIbanezCV_RecomendationLetter.pdf",
+              link: "PauIbanezCV_RecLetter.pdf",
               size: 90,
             },
           ],
