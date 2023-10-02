@@ -147,37 +147,6 @@ const ProjectCards: ProjectCardInfo[] = [
     isInteractive: false,
     link: "/project/backendTemplate",
   },
-  {
-    name: "Nova client",
-    description: "The client to interact with Nova.",
-    logo: "logo.svg",
-    tags: [
-      ProjectTags.javaScript,
-      ProjectTags.typeScript,
-      ProjectTags.react,
-      ProjectTags.jest,
-      ProjectTags.fullStack,
-    ],
-    isInteractive: false,
-    link: "/project/nova",
-  },
-  {
-    name: "My menu",
-    nameColor: "white",
-    description:
-      "An assistant tool for menu organization and creation aimed for catering and central kitchens.",
-    logo: "logo.svg",
-    backgroundImage: "mymenu.png",
-    tags: [
-      ProjectTags.javaScript,
-      ProjectTags.typeScript,
-      ProjectTags.react,
-      ProjectTags.jest,
-      ProjectTags.fullStack,
-    ],
-    isInteractive: false,
-    link: "/project/myMenu",
-  },
 ];
 
 export default ProjectCards;
