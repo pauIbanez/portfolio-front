@@ -1,9 +1,11 @@
+/* eslint-disable testing-library/no-unnecessary-act */
 import { screen } from "@testing-library/react";
 import { renderInRouter } from "../../setupTests";
 import ProjectsPage from "./ProjectsPage";
 import ProjectCards, { ProjectTags } from "../../data/projects/Projects";
 import userEvent from "@testing-library/user-event";
 import ScrollRestorationContext from "../../contexts/ScrollRestoration/ScrollRestoration.contextCreator";
+import { act } from "react-dom/test-utils";
 
 const mockNavigate = jest.fn();
 
@@ -78,7 +80,9 @@ describe("Given the Projects page", () => {
 
       const foundCards = screen.getAllByTestId("project-card");
 
-      userEvent.click(foundCards[0]);
+      act(() => {
+        userEvent.click(foundCards[0]);
+      });
 
       expect(mockNavigate).toHaveBeenCalledWith(ProjectCards[0].link);
     });
@@ -109,7 +113,9 @@ describe("Given the Projects page", () => {
 
       const foundCards = screen.getAllByTestId("project-card");
 
-      userEvent.click(foundCards[0]);
+      act(() => {
+        userEvent.click(foundCards[0]);
+      });
 
       expect(mockNavigate).not.toHaveBeenCalled();
       expect(window.open).toHaveBeenCalledWith(ProjectCards[0].link, "_blank");
