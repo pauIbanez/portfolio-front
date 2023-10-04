@@ -4,7 +4,7 @@ const handlers = [
   rest.post(
     `${process.env.REACT_APP_API_URL}/newMessage`,
     async (req, res, ctx) => {
-      const email = ((await req.json()) as any).email;
+      const email = (await req.json()).email;
       if (email === "c@a") {
         return res(
           ctx.status(200),
