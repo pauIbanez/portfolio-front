@@ -29,6 +29,11 @@ const NoMobilePage = ({ onClick }: { onClick: () => void }) => {
         <TiteledText
           title="No <&>mobile<&>"
           text="Since I expect 99% of the trafic to this website to be from desktop, and for time management reasons, <&>I have not implemented a mobile version<&>. If you wish to comfortably visit my portfolio, please do so in a Desktop, laptop or tablet. \n \n You can still visit by pressing the button bellow, but understand this site is not <&>currently<&> built for mobile."
+          styleObject={{
+            title: {
+              heading: 1,
+            },
+          }}
         />
       </Content>
       <Button

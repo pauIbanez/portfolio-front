@@ -203,7 +203,7 @@ const Form = ({
       {messageSent || messageLoading ? (
         <MessageSent
           onResetClick={onSendAnother}
-          loading={messageLoading}
+          $loading={messageLoading}
           success={sentSucess}
         />
       ) : (
@@ -257,7 +257,7 @@ const ContactPage = () => {
     setSavedMessage({ ...contactFormValues });
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/newMessage` ?? "",
+        `${process.env.REACT_APP_API_URL}/newMessage`,
         {
           method: "POST",
           headers: {
@@ -297,7 +297,10 @@ const ContactPage = () => {
   };
 
   return (
-    <ContactHolder isColumn={currentWidthBreakPoint !== 0}>
+    <ContactHolder
+      isColumn={currentWidthBreakPoint !== 0}
+      data-testid="contact-holder"
+    >
       {currentWidthBreakPoint === 0 && (
         <Form
           t={t}

@@ -65,6 +65,7 @@ const SimonTile = ({ id, onClick, tileValue, canClick, isShowing }: Props) => {
         onClick();
         pulsate();
       }}
+      data-testid="simontile"
     >
       <p>{simonColors[tileValue].name}</p>
     </Tile>
