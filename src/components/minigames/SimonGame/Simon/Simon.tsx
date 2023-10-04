@@ -97,7 +97,6 @@ const Simon = () => {
       );
       await Wait(300);
     }
-
     setCanClick(true);
   }, []);
 
@@ -146,8 +145,9 @@ const Simon = () => {
           setCanClick(false);
           setStats((prevStats) => ({
             ...prevStats,
-            streak: prevStats.streak++,
+            streak: prevStats.streak + 1,
           }));
+
           await Wait(1500);
           calculateRound();
         }
