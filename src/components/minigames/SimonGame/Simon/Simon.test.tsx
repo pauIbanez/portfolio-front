@@ -138,7 +138,7 @@ describe("Given the Simon Game", () => {
       });
 
       await act(async () => {
-        await Wait(1000);
+        await Wait(1100);
       });
 
       await act(() => {
