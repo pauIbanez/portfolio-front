@@ -286,21 +286,6 @@ const MyPortfolioPage = () => {
             styleObject={{ title: { heading: 4 } }}
           />
           <TiteledText
-            title={"Jest and Testing-library"}
-            text={
-              "I use jest with the react/testing-library when testing my react apps. I find it easy to use and super complete for what it was designed to do. Here are my latests jest coverage metrics by file:"
-            }
-            styleObject={{ title: { heading: 5, size: 16 }, gap: 5 }}
-          />
-          <ImageHolder>
-            <img
-              src="/media/portfolio/test.png"
-              alt="jest coverage terminal"
-              height={1552}
-              width={770}
-            />
-          </ImageHolder>
-          <TiteledText
             title={"SonarQube"}
             text={
               "I like to use SonarQube and Sonar Scanner as my static analizer to keep a more acturate track of my coverage, possible bugs or code smells. This is why I've included my sonar-project.properties file in the repo, allowing a propper implementation in any terminal in a cople clicks. Tis is my last analized summary:"
@@ -312,6 +297,21 @@ const MyPortfolioPage = () => {
               src="/media/portfolio/sonarQube.png"
               alt="SonarQube summary - 0 Bugs | 0 Code Smells | 0 Vulnerabilities | 0 Security Hotspots | 80.7% Coverage | 1.8% Duplications on 6 blocks"
               height={400}
+              width={770}
+            />
+          </ImageHolder>
+          <TiteledText
+            title={"Jest and Testing-library"}
+            text={
+              "I use jest with the react/testing-library when testing my react apps. I find it easy to use and super complete for what it was designed to do. Here are my latests jest coverage metrics by file:"
+            }
+            styleObject={{ title: { heading: 5, size: 16 }, gap: 5 }}
+          />
+          <ImageHolder>
+            <img
+              src="/media/portfolio/test.png"
+              alt="jest coverage terminal"
+              height={2193}
               width={770}
             />
           </ImageHolder>
