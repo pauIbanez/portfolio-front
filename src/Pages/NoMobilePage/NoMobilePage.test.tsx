@@ -11,7 +11,7 @@ describe("Given the NoMobile Page", () => {
       render(<NoMobilePage onClick={() => null} />);
 
       const foundTitle = screen.getByRole("heading", {
-        level: 3,
+        level: 1,
         name: expectedTitle,
       });
       const foundText = screen.getByText(expectedText);

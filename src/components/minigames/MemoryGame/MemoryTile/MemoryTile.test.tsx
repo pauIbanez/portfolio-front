@@ -1,3 +1,4 @@
+/* eslint-disable testing-library/no-unnecessary-act */
 import { fireEvent, render, screen } from "@testing-library/react";
 import MemoryTileData, {
   MemoryDifficulty,
@@ -6,6 +7,7 @@ import MemoryTile from "./MemoryTile";
 import tileImages from "../../../../data/minigames/memory/tileImages";
 import userEvent from "@testing-library/user-event";
 import Wait from "../../../../utils/Wait/Wait";
+import { act } from "react-dom/test-utils";
 
 describe("Given the tileImages component", () => {
   describe("When it's instanciated with easy difficulty", () => {
@@ -129,14 +131,13 @@ describe("Given the tileImages component", () => {
       const foundTile = screen.getByTestId("memoryTile");
 
       expect(foundTile).toHaveStyle(expectedStyle);
-
       fireEvent.click(foundTile);
       expect(onClick).not.toHaveBeenCalled();
     });
   });
 
   describe("When it's instanciated, not matched, not open and canClick as true and the user clicks on the tile", () => {
-    test("Then it should call onClick", () => {
+    test("Then it should call onClick", async () => {
       const tileData: MemoryTileData = {
         id: 1,
         isOpen: false,
@@ -159,8 +160,9 @@ describe("Given the tileImages component", () => {
       );
 
       const foundTile = screen.getByTestId("memoryTile");
-
-      userEvent.click(foundTile);
+      await act(() => {
+        userEvent.click(foundTile);
+      });
       expect(onClick).toHaveBeenCalled();
     });
   });
@@ -189,10 +191,16 @@ describe("Given the tileImages component", () => {
       );
 
       const foundTile = screen.getByTestId("memoryTile");
+
       fireEvent.click(foundTile);
       expect(foundTile).toHaveStyle(expectedStyle);
-      await Wait(1000);
+
+      await act(async () => {
+        await Wait(1000);
+      });
+
       fireEvent.click(foundTile);
+
       expect(foundTile).toHaveStyle(expectedStyle);
       expect(onClick).not.toHaveBeenCalled();
     });
