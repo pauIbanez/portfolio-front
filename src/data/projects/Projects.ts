@@ -85,9 +85,8 @@ export const projectTagData: { [key: number]: ProjectTag } = {
 
 const ProjectCards: ProjectCardInfo[] = [
   {
-    name: "My Portfolio",
-    description:
-      "A webpage to showcase my portfolio, CV and a little about myself.",
+    name: "MyPortfolio.projectCard.name",
+    description: "MyPortfolio.projectCard.description",
     logo: "logo.svg",
     backgroundImage: "portfolio.png",
     tags: [
@@ -101,11 +100,12 @@ const ProjectCards: ProjectCardInfo[] = [
     link: "/project/myPortfolio",
   },
   {
-    name: "Minigames",
-    description: "A few minigames to pass the time.",
+    name: "Minigames.projectCard.name",
+    description: "Minigames.projectCard.description",
     nameColor: "white",
     backgroundColor: "#2555FF",
     logo: "logo_white.svg",
+    logoMini: "logo.svg",
     tags: [
       ProjectTags.javaScript,
       ProjectTags.typeScript,
@@ -117,8 +117,8 @@ const ProjectCards: ProjectCardInfo[] = [
     link: "/project/minigames",
   },
   {
-    name: "NPM packages",
-    description: "Check out my published NPM packages",
+    name: "NPM.projectCard.name",
+    description: "NPM.projectCard.description",
     logo: "npm.png",
     nameColor: "white",
     backgroundColor: "#c93838",
@@ -133,8 +133,8 @@ const ProjectCards: ProjectCardInfo[] = [
     link: "https://www.npmjs.com/~pau678?activeTab=packages",
   },
   {
-    name: "Backend Template",
-    description: "A complete typescript REST API template with users",
+    name: "BackendTemplate.projectCard.name",
+    description: "BackendTemplate.projectCard.description",
     logo: "backendTemplate.png",
     nameColor: "white",
     backgroundColor: "#659f64",

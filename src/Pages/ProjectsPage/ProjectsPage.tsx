@@ -98,7 +98,7 @@ const ProjectsPage = () => {
       />
 
       <Content ref={projectsRef}>
-        <Title>My Projects</Title>
+        <Title>{t("Projects.presentation.title2")}</Title>
         <ProjectsHolder columns={columns[currentWidthBreakPoint]}>
           {renderProjects}
         </ProjectsHolder>

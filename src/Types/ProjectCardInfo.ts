@@ -11,6 +11,7 @@ interface ProjectCardInfo {
   name: string;
   nameColor?: string;
   logo: string;
+  logoMini?: string;
   backgroundImage?: string;
   backgroundColor?: string;
   tags: ProjectTags[];

@@ -83,6 +83,7 @@ const LanguageSelector = () => {
 
   const onLanguageClick = (lanuageCode: string) => {
     i18n.changeLanguage(lanuageCode);
+    localStorage.setItem("locale", lanuageCode);
     setActive(false);
   };
 
