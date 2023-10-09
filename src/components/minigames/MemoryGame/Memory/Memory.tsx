@@ -280,13 +280,15 @@ const Memory = () => {
             <TileHolder>{renderTiles}</TileHolder>
             <StatsHolder>
               <TiteledText
-                title="Difficulty"
-                text={MemoryDifficulty[currentRenderDifficulty]}
+                title={t("Minigames.memory.stats.difficulty")}
+                text={t(
+                  `Minigames.memory.stats.difficulties.${currentRenderDifficulty}`
+                )}
                 styleObject={statStyle}
               />
               <PairsSection>
                 <ColoredText
-                  text="Pairs Matched"
+                  text={t("Minigames.memory.stats.pairs")}
                   styleData={{ size: 15, weight: 700 }}
                 />
                 <ContinuousText>
@@ -303,12 +305,12 @@ const Memory = () => {
                 </ContinuousText>
               </PairsSection>
               <TiteledText
-                title="Moves"
+                title={t("Minigames.memory.stats.moves")}
                 text={stats.moves.toString()}
                 styleObject={statStyle}
               />
               <TiteledText
-                title="Your minimum moves"
+                title={t("Minigames.memory.stats.minMoves")}
                 text={stats.minMoves.toString()}
                 styleObject={statStyle}
               />
@@ -316,10 +318,10 @@ const Memory = () => {
           </GameRow>
           <ControlsHolder>
             <Button styleObject={buttonStyle} onClick={setupGame}>
-              Restart Game
+              {t("Minigames.memory.buttons.reset")}
             </Button>
             <Button styleObject={buttonStyle} onClick={changeDifficulty}>
-              Change Difficulty
+              {t("Minigames.memory.buttons.difficulty")}
             </Button>
           </ControlsHolder>
         </GameHolder>

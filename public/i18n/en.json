@@ -326,6 +326,7 @@
       "title": "Memory",
       "text": "The goal of this game is to match pairs of cards. The cards are placed face down, you have to flip  them over to 2 at a time to find the matching pairs. You have to remember the positions of the cards and complete all the pairs in the shorest amout of moves possible. Try out a harder difficulty for a bigger challenge!",
       "stats": {
+        "difficulty": "Difficulty",
         "difficulties": ["Easy", "Normal", "Hard"],
         "pairs": "Matched pairs",
         "moves": "Moves",
@@ -338,7 +339,7 @@
     },
     "simon": {
       "title": "Simon",
-      "text": "",
+      "text": "The goal of this game is to repeat a sequence of colors. Simon will display a sequence, and you must repeat it by pressing the corresponding buttons. The challenge is to remember and replicate the sequence accurately for as long as possible.",
       "stats": {
         "streak": "Steak",
         "maxStreak": "Your best streak"
@@ -346,7 +347,8 @@
       "buttons": {
         "notPlaying": "Play Simon",
         "playing": "Restart Game"
-      }
+      },
+      "colorNames": ["YELLOW", "BLUE", "GREEN", "RED"]
     },
     "projectCard": {
       "name": "Minigames",

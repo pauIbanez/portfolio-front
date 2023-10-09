@@ -530,6 +530,7 @@
       "title": "Memory",
       "text": "El objetivo de este juego es emparejar cartas. Las cartas se colocan boca abajo, y debes voltearlas de dos en dos para encontrar las parejas. Debes recordar la posición de las cartas y completar todas las parejas en la menor cantidad de movimientos posible.¡Prueba una dificultad más alta para un desafío mayor!",
       "stats": {
+        "difficulty": "Dificultad",
         "difficulties": ["Fácil", "Normal", "Difícil"],
         "pairs": "Parejas encontradas",
         "moves": "Movimientos",
@@ -542,7 +543,7 @@
     },
     "simon": {
       "title": "Simon",
-      "text": "",
+      "text": "El objetivo de este juego es repetir una secuencia de colores. Simon mostrará una secuencia, y debes repetirla presionando los botones correspondientes. El desafío consiste en recordar y replicar la secuencia con precisión durante el mayor tiempo posible.",
       "stats": {
         "streak": "Racha",
         "maxStreak": "Tu mejor racha"
@@ -550,7 +551,8 @@
       "buttons": {
         "notPlaying": "Jugar Simon",
         "playing": "Reiniciar Juego"
-      }
+      },
+      "colorNames": ["AMARILLO", "AZUL", "VERDE", "ROJO"]
     },
     "projectCard": {
       "name": "Minijuegos",
