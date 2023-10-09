@@ -26,9 +26,6 @@
     },
     "click": "Ház clic para más detalles"
   },
-  "About me": {
-    "title": "Un poquito sobre <&>mi<&>!"
-  },
   "CV": {
     "title": "<&>Mi<&> Curriculum",
     "presentation": {
@@ -443,6 +440,28 @@
         ]
       }
     }
+  },
+  "AboutMe": {
+    "title": "Un poquito sobre <&>mi<&>!",
+    "textSections": [
+      {
+        "title": "Quien <&>Soy<&>?",
+        "text": "Soy <&>Pau Ibáñez<&>, un programador de 21 años de Barcelona, estoy especializado en desarrollo web <&>full-stack<&>. Siento una profunda motivación por concebir ideas novedosas e innovadoras, sabiendo que en esta industria <&>nunca dejamos de aprender<&>. Me encanta ser un desarrollador porque me brinda la libertad de convertir mis ideas en realidad."
+      },
+      {
+        "title": "Jugador de <&>Equipo<&>",
+        "text": "Más allá de mis proyectos individuales, he encontrado una gran satisfacción en <&>conectar con otros desarrolladores<&> y trabajar juntos como un <&>equipo<&>. \n \n He trabajado en un par de proyectos internacionales donde pude <&>expandir mis habilidades al aprender y compartir con mis compañeros<&>. \n \n Esta etapa de mi carrera se ha centrado principalmente en el desarrollo de juegos y modding, lo que me ayudó a desarrollar mis habilidades como jugador de equipo y me demostró que <&>compartir tu código e ideas siempre mejora el proyecto<&>."
+      },
+      {
+        "title": "<&>Perezoso<&> pero Ingenioso",
+        "text": "Soy <&>perezoso<&>, pero como programador considero que esta es <&>una habilidad excelente<&>. La pereza me impulsa a <&>encontrar soluciones eficientes y creativas<&> a problemas complejos. Creo en trabajar de forma más eficiente, no en hacer un esfuerzo extra innecesario. \n \n Ser perezoso no significa que comprometa la calidad; en cambio, encuentro formas de <&>optimizar<&> mi trabajo y eliminar tareas innecesarias o tediosas. ¡Al final del día, de eso se trata la <&>optimización del flujo de trabajo<&>! \n Por ejemplo, este texto podría o no haber sido creado con la ayuda de ChatGPT 😜. \n \n Estoy dispuesto a pasar 5 horas trabajando en una solución para una tarea de 1 hora si eso significa que nunca tendré que hacerla de nuevo."
+      },
+      {
+        "title": "<&>Mi<&> Trayectoria como Programador",
+        "text": "Desde que era pequeño, me ha fascinado la programación. Empecé construyendo robots usando <&>Arduino<&> con <&>C++<&>. Con el tiempo, mi pasión se inclinó hacia la creación de juegos, comenzando con Scratch y finalmente encontrando <&>Unity<&>, donde desarrollé mis habilidades en <&>C#<&>. Me sumergí en el aprendizaje de diferentes lenguajes de programación basados en mis intereses del momento. Por ejemplo, exploré <&>JavaScript<&> con (desafortunadamente) <&>JQuery<&> cuando construí mi primera interfaz de usuario, y aprendí <&>Lua<&> y <&>SQL<&> mientras creaba modificaciones para videojuegos. Este viaje me ayudó a convertirme en un <&>desarrollador full-stack versátil<&>, familiarizado con diversas plataformas y tecnologías. \n \n A pesar de tener un conocimiento decente de diferentes lenguajes de programación, me di cuenta de que mi codigo era desordenado y poco fiable. Fue entonces cuando decidí inscribirme en el <&>ISDI Coders Bootcamp<&> en Barcelona. Durante tres ntensivos meses, me dediqué a desarrollar mis habilidades en <&>JavaScript y TypeScript<&>, especialmente utilizando el <&>MERN stack<&>, pasando 12 horas al día, siete días a la semana creando páginas web y aplicaciones full-stack completas. El bootcamp no solo refinó mis habilidades de codificación, sino que también me enseñó cómo escribir codigo manteniendo la consistencia, buenas prácticas y escalabilidad en mis aplicaciones. \n \n Después de completar el bootcamp, conseguí mi primer trabajo full-stack en Blikk, una startup bancaria de Islandia. Curiosamente, no pude utilizar los lenguajes de programación que había aprendido hasta ese momento. Sin embargo, mi experiencia previa en aprender nuevos lenguajes me preparó para el desafío y construí con éxito una <&>aplicación móvil full-stack<&> utilizando <&>Dart<&> y <&>Flutter<&> para el frontend y <&>Golang<&> para el backend."
+      }
+    ],
+    "images": ["3 people with their hands up", "Cartoon man climbing a ladder"]
   },
   "Contact": {
     "title": "Contacta <&>conmigo<&>",
