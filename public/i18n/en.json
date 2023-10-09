@@ -456,7 +456,7 @@
       "text": "I've implemented i18n with i18n-react to be able to present my portfolio en english and spanish, this was my 2nd time ever using i18n, with the first one being at Blikk, using it with Flutter, so kind of the first time. I've learned that It's super easy to use, but translating 800 different texts takes a lot of time 😩. \n \n You can find the language toggle on the top left in case you missed it."
     },
     "coding": {
-      "title": "",
+      "title": "Coding",
       "text": "As you've seen in the project tags, this website is built with react and typescript, my favorite platforms for constructiong web elements! I've focused on writing clean and mantainable code, adhering to a DRY mentality, but not going so obverboard that I restrict myself on design changes in the future. \n I strongly invite you to visit the GitHub page linked above and check out some of my code. \n \n This time, for the back-end, I've used my own template for the server base, even though I don't need any users for this website it was still easier to use that template and strip the user parts than to construct a new server yet again!",
       "linkSection": {
         "name": "You can find my emplate in the projects page or here:",
@@ -475,7 +475,7 @@
         {
           "name": "Jest and Testing-library",
           "text": "I use jest with the react/testing-library when testing my react apps. I find it easy to use and super complete for what it was designed to do. \n Here are my latests jest coverage metrics by file:",
-          "image": "jest coverage terminal - 0 Failed tests | 146 Passed tests | 44 Test suites - Statements covered 95.41% |  Branches covered 94.07% | Functions covered 95.12% | Lines covered 95.85%"
+          "image": "Jest coverage terminal - 0 Failed tests | 146 Passed tests | 44 Test suites - Statements covered 95.41% |  Branches covered 94.07% | Functions covered 95.12% | Lines covered 95.85%"
         }
       ]
     }
