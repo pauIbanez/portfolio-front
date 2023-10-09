@@ -524,11 +524,33 @@
     "image": "Un hombre prerdido"
   },
   "Minigames": {
-    "title": "<&>Mini<&>games",
-    "text": "I’ve added a couple of minigames design to be <&>light<&> and <&>fast<&>. Feel free to take a break and <&>enjoy disconnecting for a bit<&>!",
+    "title": "<&>Mini<&>juegos",
+    "text": "He agregado un par de minijuegos diseñados para ser <&>ligeros<&> y <&>rápidos<&>. ¡Toma un descanso y <&>disfruta de desconectar un rato<&>!",
     "memory": {
       "title": "Memory",
-      "text": "The goal of this game is to match all the pairs. Try out a harder difficulty for a bigger challenge!"
+      "text": "El objetivo de este juego es emparejar cartas. Las cartas se colocan boca abajo, y debes voltearlas de dos en dos para encontrar las parejas. Debes recordar la posición de las cartas y completar todas las parejas en la menor cantidad de movimientos posible.¡Prueba una dificultad más alta para un desafío mayor!",
+      "stats": {
+        "difficulties": ["Fácil", "Normal", "Difícil"],
+        "pairs": "Parejas encontradas",
+        "moves": "Movimientos",
+        "minMoves": "Tus minimos movimientos"
+      },
+      "buttons": {
+        "reset": "Reiniciar Juego",
+        "difficulty": "Cambiar Dificultad"
+      }
+    },
+    "simon": {
+      "title": "Simon",
+      "text": "",
+      "stats": {
+        "streak": "Racha",
+        "maxStreak": "Tu mejor racha"
+      },
+      "buttons": {
+        "notPlaying": "Jugar Simon",
+        "playing": "Reiniciar Juego"
+      }
     },
     "projectCard": {
       "name": "Minijuegos",
