@@ -617,6 +617,71 @@
     "projectCard": {
       "name": "Mi Portfolio",
       "description": "Una página web para mostrar mi portfolio, CV y un poquito sobre mi."
+    },
+    "management": {
+      "title": "Gestión del proyecto",
+      "text": "Para mantenerme organizado, he utilizado varias herramientas de gestión de tareas y diseño. Aparte del obvio control de versiones, git. \n \n Para este proyecto, he utilizado <&>GitHub<&> para alojar el control de versiones, <&>Monday<&>, una herramienta de gestión de tareas y <&>Figma<&> para el diseño del sitio web. Echa un vistazo a estos enlaces relevantes para obtener una visión de mi gestión de proyectos mientras construía este sitio web.",
+      "linkSections": [
+        {
+          "name": "GitHub",
+          "links": ["Front-End", "Back-End"]
+        },
+        {
+          "name": "Mis tablas de Monday ",
+          "links": ["Gestión del proyecto", "Front-End", "Back-End"]
+        },
+        {
+          "name": "Figma",
+          "links": ["Diseño Figma", "Prototipo Figma"]
+        }
+      ]
+    },
+    "enviroments": {
+      "title": "Entornos",
+      "text": "Este sitio web ha sido construido usando Webpack, la solución embedida en React, para el front-end y utilizando Nodemon para el back-end. \n Mi entorno de producción ha sido implementado utilizando el servicio de alojamiento de <&>Netlify<&> para el front-end y <&>Render<&> para el back-end.",
+      "text2": "También he utilizado tanto las acciones de Netlify como mi propia <&>acción de auditoría<&> que realiza algunas comprobaciones antes de permitirme hacer push a producción. Las comprobaciones más importantes que realiza son la validación de <&>ESLint<&> (formato de código) y la validación de <&>testing<&> que asegura que todos los tests pasan.",
+      "linkSections": [
+        {
+          "name": "Provedores:",
+          "links": ["Netlify Front-End", "Render Back-End"]
+        },
+        {
+          "name": "Echa un vistazo al workflow:",
+          "links": ["Acción de auditoría"]
+        }
+      ]
+    },
+    "design": {
+      "title": "Diseño",
+      "text": "Este sitio web es casi completamente de mi propio diseño, excepto mi página de inicio, que fue fuertemente inspirada por un diseño de plantilla publicado por un diseñador de UX/UI. Desafortunadamente, no puedo encontrar la imagen original. Si es tu diseño, ¡por favor contáctame para que pueda agregar los créditos adecuados!"
+    },
+    "languages": {
+      "title": "Languages",
+      "text": "He implementado la internacionalización (i18n) con i18n-react para poder presentar mi portafolio en inglés y español. Esta fue la segunda vez que utilizo i18n, la primera siendo en Blikk, donde lo usé con Flutter, por lo que podría decirse que es la primera vez. He aprendido que es muy fácil de usar, pero traducir 800 textos diferentes lleva mucho tiempo 😩.\n \n Puedes encontrar el selector de idioma en la parte superior izquierda en caso de que no lo hayas visto."
+    },
+    "coding": {
+      "title": "Codigo",
+      "text": "Como has visto en las etiquetas del proyecto, este sitio web está construido con React y TypeScript, mis plataformas favoritas para construir elementos web. Me he enfocado en escribir código limpio y mantenible, siguiendo una mentalidad DRY, pero sin exagerar al punto de restringirme en futuros cambios de diseño. \n Te invito a visitar la página de GitHub enlazada arriba y echar un vistazo a parte de mi código. \n \n En esta ocasión, para el back-end, he utilizado mi propia plantilla como base para el servidor. Aunque no necesito usuarios para este sitio web, es más fácil usar esa plantilla y eliminar las partes relacionadas con usuarios que construir un nuevo servidor una vez más.",
+      "linkSection": {
+        "name": "Puedes encontrar la plantilla de back-end aquí:",
+        "link": "Plantilla Back-End"
+      }
+    },
+    "testing": {
+      "title": "Testing",
+      "text": "Desde el principio del proyecto, he estado probando la mayor parte de mi código. A pesar de que la cobertura del <&>80%<&> es estándar, generalmente me esfuerzo por alcanzar ese dulce <&>100%<&>. ¿Quién no siente la dopamina al ver todos los 100's verdes? Jaja. La mayor parte de mi código ha sido probada a fondo, pero he encontrado algunos problemas, principalmente relacionados con las funcionalidades de scroll, aparentemente <&>Jest<&> y <&>testing-library<&> aún no tienen soporte para tests de scroll, ya que son entornos de prueba basados en Node.",
+      "sections": [
+        {
+          "name": "SonarQube",
+          "text": "Me gusta usar SonarQube y Sonar Scanner como mi analizador estático para llevar un seguimiento más preciso de mi cobertura, posibles errores o problemas de código. Por eso he incluido mi archivo sonar-project.properties en el repositorio, permitiendo una implementación fácil y rápiuda en cualquier terminal en un par de clics. \n \n En mi última revisión, la mayoría de los problemas estaban resultos, con la excepción de las duplicaciones, que están en un 7.0%. Esto se debe a repeticiones en los tests, ya que los tests deben realizarse de forma separada en cada caso, lo que lleva a bloques duplicados que decidí mantener para mantener la integridad de los tests. Este es el resumen de mi último análisis:",
+          "image": "SonarQube summary - 0 Bugs | 0 Code Smells | 0 Vulnerabilities | 0 Security Hotspots | 92.4% Coverage | 7.0% Duplications on 34 blocks"
+        },
+        {
+          "name": "Jest y Testing-library",
+          "text": "Uso Jest junto con react/testing-library cuando pruebo mis aplicaciones React. Lo encuentro fácil de usar y muy completo para lo que fue diseñado. \n Aquí están las últimas métricas de cobertura de Jest por archivo:",
+          "image": "Cobertura de Jest - 0 Pruebas fallidas | 146 Pruebas pasadas | 44 Suites de pruebas - Declaraciones cubiertas 95.41% | Ramas cubiertas 94.07% | Funciones cubiertas 95.12% | Líneas cubiertas 95.85%"
+        }
+      ]
     }
   },
   "NPM": {
