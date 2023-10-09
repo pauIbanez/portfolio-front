@@ -24,7 +24,8 @@
       "button": "Go to Projects",
       "title2": "My Projects"
     },
-    "click": "Click for more info"
+    "click": "Click for more info",
+    "backToProjects": "Back to projects"
   },
   "CV": {
     "title": "<&>My<&> Curriculum",

@@ -24,7 +24,8 @@
       "button": "Ir a proyectos",
       "title2": "Mis Proyectos"
     },
-    "click": "Ház clic para más detalles"
+    "click": "Ház clic para más detalles",
+    "backToProjects": "Todos los proyectos"
   },
   "CV": {
     "title": "<&>Mi<&> Curriculum",
