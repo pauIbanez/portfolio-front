@@ -519,9 +519,9 @@
     }
   },
   "NotFound": {
-    "title": "<&>404<&> Page Not Found",
-    "text": "How did we end up here?",
-    "image": "A lost man"
+    "title": "<&>404<&> not Found",
+    "text": "¿Como hemos llegado aquí?",
+    "image": "Un hombre prerdido"
   },
   "Minigames": {
     "title": "<&>Mini<&>games",
