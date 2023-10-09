@@ -612,11 +612,11 @@
     }
   },
   "MyPortfolio": {
-    "title": "<&>My<&> portfolio",
-    "text": "Explore with me all the details about my portfolio website (this one). Check out the development, testing and production deployment details.",
+    "title": "<&>Mi<&> portfolio",
+    "text": "Explora conmigo todos los detalles sobre mi portfolio web (esta). Consulta los detalles de desarrollo, testing y despliegue en producción.",
     "projectCard": {
       "name": "Mi Portfolio",
-      "description": "Una página web para mostrar mi portfolio (esta página). Consulta los detalles de desarrollo, testing y producción."
+      "description": "Una página web para mostrar mi portfolio, CV y un poquito sobre mi."
     }
   },
   "NPM": {
