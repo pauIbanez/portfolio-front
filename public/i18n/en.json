@@ -313,6 +313,23 @@
         "subject": "Subject is required",
         "message": "We are missing the message!"
       }
+    },
+    "messageSent": {
+      "title": {
+        "loading": "<&>Sending<&> message",
+        "success": "Mesage <&>Sent<&>",
+        "fail": "Something went <&>wrong<&>"
+      },
+      "text": {
+        "loading": "Your message is being sent... \n \nIf the back-end server is spinned down this may take a up to a minute.",
+        "success": "Thank you for geting in contact with me. I've receivced your message and I'll be in contact ASAP!",
+        "fail": "I'm sorry! It appears your message was not sucessfuly sent, please check the data or try again later. If this issue persists please feel free to contact me directly with the provided info."
+      },
+      "link": "Render docummentation about spinned-down servers",
+      "button": {
+        "success": "Writte another!",
+        "fail": "Try again"
+      }
     }
   },
   "NotFound": {

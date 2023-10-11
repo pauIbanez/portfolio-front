@@ -514,8 +514,25 @@
         "email": ["Intruduce tu email", "Formato invalido"],
         "firstName": "Introduce tu numbre",
         "lastName": "Introduce tu apellido",
-        "subject": "Falta el título",
+        "subject": "Falta el asunto",
         "message": "Nos falta el mensaje!"
+      }
+    },
+    "messageSent": {
+      "title": {
+        "loading": "<&>Enviando<&> el mensaje",
+        "success": "Mensaje <&>Enviado<&>",
+        "fail": "Algo ha <&>fallado<&>"
+      },
+      "text": {
+        "loading": "Su mensaje se está enviando... \n \nSi el servidor esta 'spinned-down', esto podría tardar hasta un minuto.",
+        "success": "Gracias por ponerte en contacto conmigo. He recibido tu mensaje y estaré en contacto lo antes posible.",
+        "fail": "¡Lo siento! Parece que su mensaje no se envió correctamente. Por favor, verifique los datos o intente nuevamente más tarde. Si el problema persiste, no dude en ponerse en contacto conmigo directamente utilizando la información proporcionada."
+      },
+      "link": "Documentación de Render sobre servidores 'spinned-down'",
+      "button": {
+        "success": "Escribe otro!",
+        "fail": "Prueba de nuevo"
       }
     }
   },
