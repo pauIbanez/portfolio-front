@@ -541,6 +541,11 @@
     "text": "¿Como hemos llegado aquí?",
     "image": "Un hombre prerdido"
   },
+  "NoMobile": {
+    "title": "<&>Móvil<&> no soportado",
+    "text": "Como espero que el 99% del tráfico a este sitio web sea desde escritorio y por razones de gestión del tiempo, <&>no he implementado una versión móvil<&>. Si desea visitar cómodamente mi portafolio, házlo desde un escritorio, laptop o tablet.\n \nDe todas formas, puedes visitar la página presionando el botón de abajo, pero por favor comprenda que <&>este sitio no está diseñado para dispositivos móviles<&>.",
+    "button": "Visitar igualmente"
+  },
   "Minigames": {
     "title": "<&>Mini<&>juegos",
     "text": "He agregado un par de minijuegos diseñados para ser <&>ligeros<&> y <&>rápidos<&>. ¡Toma un descanso y <&>disfruta de desconectar un rato<&>!",

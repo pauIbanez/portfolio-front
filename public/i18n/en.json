@@ -337,6 +337,11 @@
     "text": "How did we end up here?",
     "image": "A lost man"
   },
+  "NoMobile": {
+    "title": "No <&>mobile<&>",
+    "text": "Since I expect 99% of the trafic to this website to be from desktop, and for time management reasons, <&>I have not implemented a mobile version<&>. If you wish to comfortably visit my portfolio, please do so in a Desktop, laptop or tablet. \n \n You can still visit by pressing the button bellow, but understand this site is not <&>currently<&> built for mobile.",
+    "button": "Visit anyway"
+  },
   "Minigames": {
     "title": "<&>Mini<&>games",
     "text": "I’ve added a couple of minigames designed to be <&>light<&> and <&>fast<&>. Feel free to take a break and <&>enjoy disconnecting for a bit<&>!",
