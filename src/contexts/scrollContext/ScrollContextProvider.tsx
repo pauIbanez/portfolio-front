@@ -4,6 +4,7 @@ import React, {
   useMemo,
   useRef,
   useState,
+  RefObject,
 } from "react";
 import ScrollItem from "../../Types/ScrollItem";
 import ScrollContext from "./ScrollContext.contextCreator";
@@ -17,9 +18,29 @@ const ScrollContextProvider = ({ children }: Props) => {
   const scrollItems = useRef<ScrollItem[]>([]);
   const [currentActive, setCurrentActive] = useState<string>("");
   const [isAutoScrolling, setIsAutoScrolling] = useState<boolean>(false);
+  const [storedItems, setStoredItems] = useState<ScrollItem[]>([]);
 
   const loadItem = (item: ScrollItem) => {
     scrollItems.current.push(item);
+    setStoredItems((prevStoredItems) => [...prevStoredItems, item]);
+  };
+
+  const updateItem = (itemRef: RefObject<HTMLDivElement>, itemName: string) => {
+    scrollItems.current.map((item) => {
+      if (item.ref === itemRef) {
+        item.name = itemName;
+      }
+      return item;
+    });
+
+    setStoredItems((prevStoredItems) =>
+      prevStoredItems.map((item) => {
+        if (item.ref === itemRef) {
+          item.name = itemName;
+        }
+        return item;
+      })
+    );
   };
 
   const scrollToItem = (name: string, offsetY?: number) => {
@@ -102,13 +123,14 @@ const ScrollContextProvider = ({ children }: Props) => {
 
   const contextValue: ScrollContextData = useMemo(
     () => ({
-      items: scrollItems.current,
+      items: storedItems,
       loadItem,
       scrollToItem,
       getItems,
+      updateItem,
       currentActive,
     }),
-    [currentActive]
+    [currentActive, storedItems]
   );
 
   return (

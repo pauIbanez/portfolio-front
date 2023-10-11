@@ -42,12 +42,12 @@ const Item = styled.button<{ $active: boolean }>`
 `;
 
 const InternalNavigation = () => {
-  const { scrollToItem, getItems, currentActive } = useContext(ScrollContext);
+  const { scrollToItem, items, currentActive } = useContext(ScrollContext);
   const [renderItems, setRenderItems] = useState<React.JSX.Element[]>([]);
 
   useEffect(() => {
     setRenderItems(
-      getItems().map((item) => (
+      items.map((item) => (
         <Item
           key={item.name}
           onClick={() => {
@@ -59,7 +59,7 @@ const InternalNavigation = () => {
         </Item>
       ))
     );
-  }, [currentActive, getItems, scrollToItem]);
+  }, [currentActive, items, scrollToItem]);
 
   return (
     <Stickyy offset={30}>

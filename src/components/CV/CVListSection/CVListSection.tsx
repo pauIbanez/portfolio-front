@@ -76,15 +76,23 @@ interface Props {
 const CVListSection = ({ title, items }: Props) => {
   const [isDateUp, setIsDateUp] = useState(true);
   const [renderItems, setRenderItems] = useState<React.JSX.Element[]>([]);
+  const [prevTitle, setPrevTitle] = useState<string>("");
 
   const section = useRef(null);
 
-  const { loadItem } = useContext(ScrollContext);
+  const { loadItem, updateItem } = useContext(ScrollContext);
   const { currentWidthBreakPoint } = useContext(ResponsiveContext);
 
   useEffectOnce(() => {
     loadItem({ name: title, ref: section });
   });
+
+  useEffect(() => {
+    if (prevTitle !== title) {
+      setPrevTitle(title);
+      updateItem(section, title);
+    }
+  }, [prevTitle, title, updateItem]);
 
   useEffect(() => {
     const allItems: React.JSX.Element[] = [];
