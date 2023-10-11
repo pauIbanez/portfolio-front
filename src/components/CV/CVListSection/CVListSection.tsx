@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Colors from "../../../data/style/Colors";
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import CVListItemData from "../../../Types/CVListItem";
 import useEffectOnce from "../../../hooks/useEffectOnce";
 import CVListItem from "../CVListItem/CVListItem";
@@ -84,7 +84,9 @@ const CVListSection = ({ title, items }: Props) => {
 
   useEffectOnce(() => {
     loadItem({ name: title, ref: section });
+  });
 
+  useEffect(() => {
     const allItems: React.JSX.Element[] = [];
 
     let currentIndex = 0;
@@ -105,7 +107,7 @@ const CVListSection = ({ title, items }: Props) => {
       });
 
     setRenderItems(allItems);
-  });
+  }, [items, loadItem, title]);
 
   const changeOrder = () => {
     setRenderItems(renderItems.reverse());

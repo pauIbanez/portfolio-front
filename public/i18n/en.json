@@ -68,11 +68,11 @@
             "textSections": [
               {
                 "title": "What I learned",
-                "text": "In this course I learned the ins and outs of PCs and Server Systems. I built both hardware and software, from assembling a PC to creating an HTTP Apache server. We did a lot of system virtualization and we worked on HTTP, Static and SMTP servers. We also learned to correctly use the consoles in different Operating Systems as well as to create scripts for task automation with them."
+                "text": "In this course I learned the in's and out's of PCs and Server Systems. I built both hardware and software, from assembling a PC to creating an HTTP Apache server. We did a lot of system virtualization and we worked on HTTP, Static and SMTP servers. We also learned to correctly use the consoles in different Operating Systems as well as to create scripts for task automation with them."
               },
               {
                 "title": "Remarks",
-                "text": "In this course, we did not have any programming classes, but I already loved it, so I spent a lot of free time in them trying out stuff. It’s while coursing in here that I was developing mini-games in unity."
+                "text": "We did not have any programming classes, but I already loved it, so I spent a lot of free time in them trying out stuff. It’s while coursing in here that I was developing mini-games in unity."
               }
             ]
           }
@@ -157,7 +157,7 @@
       },
       "technologies": {
         "name": "Technologies",
-        "title": "Technbologies and Skills",
+        "title": "Technologies and Skills",
         "text": "These are my most developed technologies and methodologies with an added rating. Note that the ratings reflect my evaluation of my general knowledge and proficiency in each respective area. However, understand that a high rating does not mean I claim to know everything about the given skill.",
         "pages": {
           "technologies": {
@@ -182,7 +182,7 @@
                 "text": "I thrive in collaborative environments, fostering open communication, trust, and mutual respect. I actively contribute to group dynamics, valuing diverse perspectives and working towards shared goals."
               },
               {
-                "title": "Problem <&>Thinking",
+                "title": "Problem <&>Solving",
                 "text": "I excel at breaking down complex problems, anticipating obstacles, and devising innovative solutions. I strongly believe that troubleshooting is the most important skill to have as a programmer. No one's code always works the first time, and it's important to know how to find what's causing the error."
               },
 
@@ -195,7 +195,7 @@
                 "text": "I do not consider myself to be a designer, but I have an eye for it. I won’t create the best design, but I’ll know when something doesn’t work right. I put myself in the position of the end user and I try to figure out the best layout and style for the desired  purpose of the page."
               },
               {
-                "title": "<&>Fast <&>learning",
+                "title": "<&>Fast <&>learner",
                 "text": "I think of myself as a fast learner. My experience with such varies technologies and developing enviroments allows me to adapt to new ones with ease."
               }
             ]
@@ -209,10 +209,6 @@
       },
       "references": {
         "title": "References",
-        "button": {
-          "original": "View original (english)",
-          "translated": "View translated"
-        },
         "items": [
           {
             "name": "Gunnar Kolbeinsson",
