@@ -34,6 +34,10 @@
       "text": " Aquí tienes mi currículum, puedes explorar mi <&>formación educativa<&> y mi <&>experiencia profesional<&>. Además, he dedicado una sección para detallar las diferentes <&>tecnologías y habilidades<&> con las que he trabajado y desarrollado a lo largo de los años, junto con mi nivel de <&>competencia<&> en cada una de ellas. \n \nPara garantizar tu <&>comodidad<&>, también he creado una <&>versión compacta de mi currículum en formato PDF<&>, que puedes <&>descargar<&> fácilmente. Las opciones de descarga se encuentran en la <&>parte inferior de esta página<&>.",
       "button": "Ir al CV"
     },
+    "shared": {
+      "order": "Orden",
+      "date": "Fecha"
+    },
     "sections": {
       "education": {
         "title": "Educación",

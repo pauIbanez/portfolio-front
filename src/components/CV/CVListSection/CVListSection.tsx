@@ -7,6 +7,7 @@ import CVListItem from "../CVListItem/CVListItem";
 import ScrollContext from "../../../contexts/scrollContext/ScrollContext.contextCreator";
 import ResponsiveContext from "../../../contexts/responsiveContext/ResponsiveContext.contextCreator";
 import { textSizes } from "../../../data/Pages/responsive/cvPage";
+import { useTranslation } from "react-i18next";
 
 const Container = styled.section`
   width: 100%;
@@ -77,8 +78,8 @@ const CVListSection = ({ title, items }: Props) => {
   const [isDateUp, setIsDateUp] = useState(true);
   const [renderItems, setRenderItems] = useState<React.JSX.Element[]>([]);
   const [prevTitle, setPrevTitle] = useState<string>("");
-
   const section = useRef(null);
+  const { t } = useTranslation();
 
   const { loadItem, updateItem } = useContext(ScrollContext);
   const { currentWidthBreakPoint } = useContext(ResponsiveContext);
@@ -127,9 +128,10 @@ const CVListSection = ({ title, items }: Props) => {
       <Content>
         <Title $size={textSizes[currentWidthBreakPoint].titles}>{title}</Title>
         <Order onClick={changeOrder} isDateUp={isDateUp}>
-          Order:
+          {t("CV.shared.order")}:
           <div>
-            Date <img src="/media/icons/arrow.svg" alt="arrow" />
+            {t("CV.shared.date")}{" "}
+            <img src="/media/icons/arrow.svg" alt="arrow" />
           </div>
         </Order>
       </Content>
