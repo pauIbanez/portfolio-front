@@ -561,49 +561,49 @@
     }
   },
   "BackendTemplate": {
-    "title": "<&>Backend<&> template",
-    "text": "I’ve created a fully set up and tested REST API template complete with a database connection and full user support.",
+    "title": "Plantilla de <&>backend<&>",
+    "text": "He creado una plantilla de API REST completamente configurada y testeada, que incluye una conexión a base de datos <&>MongoDB<&> y soporte para usuarios completo.",
     "sections": [
       {
-        "title": "Features",
-        "text": "The key features included in this template are:",
+        "title": "Características",
+        "text": "Las características clave incluidas en esta plantilla son:",
         "features": [
-          "MongoDB Database connection.",
-          "Created file structure.",
-          "User authentication with a boilerplate user schema.",
-          "Email service integration for user creation, verification and recovery.",
-          "Error handling.",
-          "100% tested (unit and integration).",
-          "Automated scripts for build, start, development watch build and testing."
+          "Conexión a base de datos MongoDB",
+          "Estructura de archivos.",
+          "Autenticación de usuarios con un esquema base de usuario.",
+          "Integración de servicio de correo electrónico para la creación, verificación y recuperación de usuarios.",
+          "Gestión de errores.",
+          "Testeado al 100% (con tests de unidad e integración)",
+          "Scripts automatizadas para la transpilación, iniciación, desarrollo y testing."
         ]
       },
       {
-        "title": "Users",
-        "text": "The template has user support built-in, these are the features it contains:",
+        "title": "Usuarios",
+        "text": "La plantilla tiene soporte para usuarios integrado. Estas son las características que contiene:",
         "features": [
-          "User registration with email verification. by email",
-          "User login.",
-          "User login via OTP via email.",
-          "Password recovery.",
-          "User session auto-refresh."
+          "Registro y verificaión de usuarios por email.",
+          "Login.",
+          "Generación y login a través de OTP enviada por email.",
+          "Recuperación de cointaseña.",
+          "Refresco automático de sesion de usuario."
         ],
-        "text2": "The user autentication is built with JsonWebToken. The standard token session is 2h, but this is customizable to your needs."
+        "text2": "La autenticación de usuario se realiza con JsonWebToken. La sesión estándar del token es de 2 horas, pero esto es personalizable según sus necesidades."
       },
       {
         "title": "Testing",
-        "text": "This template is fully tested with jest and SonarQube Scanner. This has a 100% coverage in unit tests plus some integration tests for the endpoints. \n \n Testing commands:",
+        "text": "Esta plantilla está completamente probada con jest y SonarQube Scanner. Esto tiene una cobertura del 100% en pruebas unitarias más algunas pruebas de integración para los endpoints. \n \n Comandos de prueba:",
         "features": [
-          "<&>npm test<&> - This command will run all the tests once.",
-          "<&>npm run testCov<&> - This command will run al tests and the coverage in watch mode.",
-          "<&>npm run testCovNoWatch<&> - This command will run all tests and their coverage once."
+          "<&>npm test<&> - Este comando corre los tests una vez.",
+          "<&>npm run testCov<&> - Este comando corre los tests con su coverage y en modo watch",
+          "<&>npm run testCovNoWatch<&> - Este comando corre los tests una vez con su coverage."
         ],
-        "text2": "To run SonarQube Scanner and see a detialed breakdown of the tests, create a new SonarQube project with your prefeered settings. After thar update the sonar-project.propperties file with your project name and you are all set. \n \n To run it simply, asuming u already have SonarQube up and running, run:",
+        "text2": "Para ejecutar SonarQube Scanner y ver un desglose detallado de las pruebas, cree un nuevo proyecto de SonarQube con la configuración que prefiera. Después de eso, actualice el archivo sonar-project.properties con el nombre de su proyecto y estará listo. \n \n Para ejecutarlo de manera sencilla, asumiendo que ya tiene SonarQube en funcionamiento, ejecute:",
         "feature2": "sonar-scanner.bat -D\"sonar.login=YOUR_SONAR_PROJECT_KEY_HERE\""
       },
       {
         "title": "Links",
-        "text": "Feel free to visit the gitHub page and take a look at the code. \n This repo is marked as a template so you can create your own API with a couple of clicks!",
-        "link": "GitHub Repository page"
+        "text": "Visita la página de GitHub y eche un vistazo al código. \n Este repositorio está marcado como una plantilla, por lo que puedes crear tu propia API con solo un par de clics.",
+        "link": "Repositorio de GitHub"
       }
     ],
     "projectCard": {

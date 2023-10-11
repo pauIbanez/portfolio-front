@@ -358,7 +358,7 @@
   },
   "BackendTemplate": {
     "title": "<&>Backend<&> template",
-    "text": "I’ve created a fully set up and tested REST API template complete with a database connection and full user support.",
+    "text": "I’ve created a fully set up and tested REST API template complete with a <&>MongoDB<&> database connection and full user support.",
     "sections": [
       {
         "title": "Features",
@@ -377,7 +377,7 @@
         "title": "Users",
         "text": "The template has user support built-in, these are the features it contains:",
         "features": [
-          "User registration with email verification. by email",
+          "User registration with email verification.",
           "User login.",
           "User login via OTP via email.",
           "Password recovery.",
@@ -398,7 +398,7 @@
       },
       {
         "title": "Links",
-        "text": "Feel free to visit the gitHub page and take a look at the code. \n This repo is marked as a template so you can create your own API with a couple of clicks!",
+        "text": "Feel free to visit the GitHub page and take a look at the code. \n This repo is marked as a template so you can create your own API with a couple of clicks!",
         "link": "GitHub Repository page"
       }
     ],
