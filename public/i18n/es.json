@@ -472,46 +472,46 @@
         "text": "Si tienes alguna pregunta o simplemente quieres <&>ponerte en contacto conmigo<&>, me encantaria conocernos. Si estas interesado en una <&>collaboración<&> en tu proyecto, comentar una <&>oportunidad<&>, o simplemente quiieres <&>saludar<&>, este es el sitio donde hacerlo. Puedes contactarme a través del formulario y contestaré lo antes posible. Tambés puedes contacter directamente a través de mi email o numero de telefono. \n \n <&>Muchas grácias<&> por visitar mi portfolio website, <&>espero con ganas tu mensaje!<&>"
       },
       {
-        "title": "Privacy Notice",
-        "text": "By contacting me via this form or sending an email, you acknowledge and consent that the information you provide, including your name and email address, will be collected and stored for the purpose of responding to your inquiry."
+        "title": "Terminos de privacidad",
+        "text": "Al contactarme a través de este formulario o enviando un correo electrónico, usted reconoce y consiente que la información que proporcione, incluyendo su nombre y dirección de correo electrónico, será recopilada y almacenada con el fin de responder a su consulta."
       }
     ],
     "contactInfo": {
-      "title": "Let’s get in touch!",
-      "text": "Feel free to contact me directly through any of the options bellow:",
+      "title": "¡Contactemos!",
+      "text": "Puedes ponerte en contacto conmigo a través de estos medios:",
       "itemNames": {
-        "phone": "Phone",
+        "phone": "Móbil",
         "email": "Email",
         "linkedIn": "LinkedIn"
       },
       "itemValues": {
-        "copyEmail": "Copy email",
-        "openEmail": "Open email",
-        "linkedIn": "My LinkedIn profile"
+        "copyEmail": "Copiar email",
+        "openEmail": "Enviar email",
+        "linkedIn": "Mi perfil de LinkedIn"
       }
     },
     "contactForm": {
       "labels": {
-        "firstName": "First Name",
-        "lastName": "Last Name",
-        "messageType": "Message Type",
-        "projectName": "Project Name",
-        "companyName": "Company Name",
+        "firstName": "Nombre",
+        "lastName": "Apellidos",
+        "messageType": "Tipo de mensaje",
+        "projectName": "Nombre del proyecto",
+        "companyName": "Compañia",
         "applicable": "if applicable",
         "email": "Email",
-        "subject": "Subject",
-        "message": "Message"
+        "subject": "Asunto",
+        "message": "Mensaje"
       },
-      "sendMessage": "Send Message",
+      "sendMessage": "Enviar Message",
       "messageTypes": {
-        "select": "Select One",
-        "jobOpportunity": "Job Opportunity",
-        "collaboration": "Collaboration",
-        "generalQuestion": "General Question",
-        "other": "Other..."
+        "select": "Elige Uno",
+        "jobOpportunity": "Oportunidad de trabajo",
+        "collaboration": "Colaboración",
+        "generalQuestion": "Pregunta general",
+        "other": "Otros..."
       },
       "errors": {
-        "email": ["An email is required", "Formato invalido"],
+        "email": ["Intruduce tu email", "Formato invalido"],
         "firstName": "Introduce tu numbre",
         "lastName": "Introduce tu apellido",
         "subject": "Falta el título",
