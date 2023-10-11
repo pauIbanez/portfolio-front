@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import ScrollRestorationData from "../../Types/contextData/ScrollRestorationData";
 import ScrollRestorationContext from "./ScrollRestoration.contextCreator";
-import React, { useRef, useEffect, useMemo } from "react";
+import React, { useRef, useEffect } from "react";
 
 interface Props {
   children: React.JSX.Element;
@@ -22,13 +22,10 @@ const ScrollRestorationProvider = ({ children }: Props) => {
     scrollToMain.current = false;
   }, [pathname]);
 
-  const contextValue: ScrollRestorationData = useMemo(
-    () => ({
-      scrollToMain: scrollToMain.current,
-      setScrollToMain,
-    }),
-    []
-  );
+  const contextValue: ScrollRestorationData = {
+    scrollToMain: scrollToMain.current,
+    setScrollToMain,
+  };
 
   return (
     <ScrollRestorationContext.Provider value={contextValue}>
