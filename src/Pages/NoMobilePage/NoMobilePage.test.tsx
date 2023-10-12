@@ -5,8 +5,8 @@ import userEvent from "@testing-library/user-event";
 describe("Given the NoMobile Page", () => {
   describe("When it's instanciated", () => {
     test("Then it should render the disclaimer", () => {
-      const expectedTitle = "No mobile";
-      const expectedText = "mobile";
+      const expectedTitle = "NoMobile.title";
+      const expectedText = "NoMobile.text";
 
       render(<NoMobilePage onClick={() => null} />);
 
@@ -21,7 +21,7 @@ describe("Given the NoMobile Page", () => {
     });
 
     test("Then it should render a button", () => {
-      const expectedButtonName = "Visit anyway";
+      const expectedButtonName = "NoMobile.button";
 
       render(<NoMobilePage onClick={() => null} />);
 
@@ -34,7 +34,7 @@ describe("Given the NoMobile Page", () => {
   });
   describe("When the button is clcked", () => {
     test("Then it should call the passed onClick func", () => {
-      const expectedButtonName = "Visit anyway";
+      const expectedButtonName = "NoMobile.button";
       const onClick = jest.fn();
 
       render(<NoMobilePage onClick={onClick} />);
