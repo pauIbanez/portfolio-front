@@ -44,7 +44,7 @@ describe("Given the ContactPage Page", () => {
 
   describe("When it's intanciated and the form is sent with sucess", () => {
     test("Then it should render a button with name 'Writte another!'", async () => {
-      const expectedButtonName = "Writte another!";
+      const expectedButtonName = "Contact.messageSent.button.success";
       const expectedFormSelect = "Contact.contactForm.labels.messageType";
 
       renderInRouter(<ContactPage />);
@@ -81,7 +81,7 @@ describe("Given the ContactPage Page", () => {
 
   describe("When it's intanciated and the form is sent without sucess", () => {
     test("Then it should render a button with name 'Try again'", async () => {
-      const expectedButtonName = "Try again";
+      const expectedButtonName = "Contact.messageSent.button.fail";
       const expectedFormSelect = "Contact.contactForm.labels.messageType";
 
       renderInRouter(<ContactPage />);
@@ -116,7 +116,7 @@ describe("Given the ContactPage Page", () => {
   });
   describe("When it's intanciated and fetch fails", () => {
     test("Then it should render a button with name 'Try again'", async () => {
-      const expectedButtonName = "Try again";
+      const expectedButtonName = "Contact.messageSent.button.fail";
       const expectedFormSelect = "Contact.contactForm.labels.messageType";
 
       renderInRouter(<ContactPage />);
@@ -152,7 +152,7 @@ describe("Given the ContactPage Page", () => {
 
   describe("When it's intanciated and the form is sent with sucess, and the user presses on 'Write another!'", () => {
     test("Then it should render the form", async () => {
-      const expectedButtonName = "Writte another!";
+      const expectedButtonName = "Contact.messageSent.button.success";
       const expectedFormSelect = "Contact.contactForm.labels.messageType";
 
       renderInRouter(<ContactPage />);
