@@ -8,7 +8,7 @@ import Wait from "../../../../utils/Wait/Wait";
 describe("Given the simonTile component", () => {
   describe("When it's instanciated with a tileValue", () => {
     test("Then it should render the corresponding color", () => {
-      const expectedColor = "YELLOW";
+      const expectedColor = "Minigames.simon.colorNames.0";
 
       render(
         <SimonTile
