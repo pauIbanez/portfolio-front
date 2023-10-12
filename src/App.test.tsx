@@ -22,9 +22,26 @@ describe("Given App", () => {
     });
   });
 
+  describe("When it's instanciated with a language stored", () => {
+    test("Then it should render the home page title", () => {
+      localStorage.setItem("locale", "es");
+      const expectedTitle = "Home.title";
+
+      renderInRouter(<App />);
+
+      const foundHomeTitle = screen.getByRole("heading", {
+        level: 1,
+        name: expectedTitle,
+      });
+
+      expect(foundHomeTitle).toBeInTheDocument();
+      localStorage.clear();
+    });
+  });
+
   describe("When it's instanciate as mobile", () => {
     test("Then it should render the noMobile page", () => {
-      const expectedTitle = "No mobile";
+      const expectedTitle = "NoMobile.title";
 
       renderInRouter(
         <ResponsiveContext.Provider value={{ currentWidthBreakPoint: 4 }}>
@@ -44,7 +61,7 @@ describe("Given App", () => {
   describe("When it's instanciate as mobile and the user clicks on 'Visit anyway'", () => {
     test("Then it should render the home page title", () => {
       const expectedTitle = "Home.title";
-      const expectedButton = "Visit anyway";
+      const expectedButton = "NoMobile.button";
 
       renderInRouter(
         <ResponsiveContext.Provider value={{ currentWidthBreakPoint: 4 }}>
