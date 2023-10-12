@@ -17,7 +17,7 @@ afterEach(() => {
 describe("Given the BackToProjects component", () => {
   describe("When it's intanciated", () => {
     test("Then it should render a button", () => {
-      const expectedName = "Back to projects";
+      const expectedName = "Projects.backToProjects";
 
       renderInRouter(<BackToProjects />);
 
@@ -29,7 +29,7 @@ describe("Given the BackToProjects component", () => {
 
   describe("When it's intanciated and the button is clicked", () => {
     test("Then it should call navigate and scrollRestoration setScrollToMain", () => {
-      const expectedName = "Back to projects";
+      const expectedName = "Projects.backToProjects";
       const mockSetScrollToMain = jest.fn();
       renderInRouter(
         <ScrollRestorationContext.Provider
