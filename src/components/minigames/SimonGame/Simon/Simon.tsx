@@ -8,6 +8,7 @@ import Wait from "../../../../utils/Wait/Wait";
 import Button from "../../../Button/Button";
 import TiteledText from "../../../textComponents/TitledText/TiteledText";
 import Colors from "../../../../data/style/Colors";
+import { useTranslation } from "react-i18next";
 
 const GameHolder = styled.div`
   display: flex;
@@ -73,6 +74,8 @@ const Simon = () => {
   const expectedSequence = useRef<number[]>([]);
   const [canClick, setCanClick] = useState<boolean>(false);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
+
+  const { t } = useTranslation();
 
   const [stats, setStats] = useState<{
     streak: number;
@@ -200,11 +203,9 @@ const Simon = () => {
   };
 
   return (
-    <GameSection title="Simon">
+    <GameSection title={t("Minigames.simon.title")}>
       <>
-        <p>
-          The goal of simon is to repeat the sequence for as long as you can!
-        </p>
+        <p>{t("Minigames.simon.text")}</p>
         <GameHolder>
           <GameRow>
             <TileBackground>
@@ -219,12 +220,12 @@ const Simon = () => {
             </TileBackground>
             <StatsHolder>
               <TiteledText
-                title="Streak"
+                title={t("Minigames.simon.stats.streak")}
                 text={stats.streak.toString()}
                 styleObject={statStyle}
               />
               <TiteledText
-                title="Best Streak"
+                title={t("Minigames.simon.stats.maxStreak")}
                 text={stats.maxStreak.toString()}
                 styleObject={statStyle}
               />
@@ -232,7 +233,9 @@ const Simon = () => {
           </GameRow>
           <ControlsHolder>
             <Button styleObject={buttonStyle} onClick={setupGame}>
-              {!isPlaying ? "Play Simon" : "Restart Game"}
+              {!isPlaying
+                ? t("Minigames.simon.buttons.notPlaying")
+                : t("Minigames.simon.buttons.playing")}
             </Button>
           </ControlsHolder>
         </GameHolder>

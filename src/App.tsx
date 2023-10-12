@@ -13,10 +13,23 @@ import ResponsiveContext from "./contexts/responsiveContext/ResponsiveContext.co
 import NoMobilePage from "./Pages/NoMobilePage/NoMobilePage";
 import BackendTemplatePage from "./Pages/BackendTemplatePage/BackendTemplatePage";
 import MyPortfolioPage from "./Pages/MyPortfolioPage/MyPortfolioPage";
+import useEffectOnce from "./hooks/useEffectOnce";
+import languages from "./data/languages/languages";
+import { useTranslation } from "react-i18next";
 
 function App() {
   const { currentWidthBreakPoint } = useContext(ResponsiveContext);
   const [acceptedMobile, setAcceptedMobile] = useState<boolean>(false);
+  const { i18n } = useTranslation();
+
+  useEffectOnce(() => {
+    const prevLang = localStorage.getItem("locale");
+    if (!prevLang || !languages.some((lang) => prevLang === lang.code)) {
+      localStorage.setItem("locale", "en");
+      return;
+    }
+    i18n.changeLanguage(prevLang);
+  });
 
   if (currentWidthBreakPoint === 4 && !acceptedMobile) {
     return <NoMobilePage onClick={() => setAcceptedMobile(true)} />;

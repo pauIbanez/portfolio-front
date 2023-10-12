@@ -5,7 +5,7 @@ import { renderInRouter } from "../../../setupTests";
 describe("Given the MessageSent component", () => {
   describe("When it's instanciated as loading", () => {
     test("Then it should render the title a heading 3 with name 'Sending message", () => {
-      const expectedTitle = "Sending message";
+      const expectedTitle = "Contact.messageSent.title.loading";
 
       renderInRouter(
         <MessageSent
@@ -26,7 +26,7 @@ describe("Given the MessageSent component", () => {
 
   describe("When it's instanciated as sucess", () => {
     test("Then it should render the title a heading 3 with name 'Mesage Sent'", () => {
-      const expectedTitle = "Mesage Sent";
+      const expectedTitle = "Contact.messageSent.title.success";
 
       renderInRouter(
         <MessageSent
@@ -47,7 +47,7 @@ describe("Given the MessageSent component", () => {
 
   describe("When it's instanciated as fail", () => {
     test("Then it should render the title a heading 3 with name 'Something went wrong'", () => {
-      const expectedTitle = "Something went wrong";
+      const expectedTitle = "Contact.messageSent.title.fail";
 
       renderInRouter(
         <MessageSent

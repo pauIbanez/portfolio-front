@@ -2,22 +2,22 @@ const simonColors = [
   {
     showing: "#FAFF00",
     normal: "#DAAA00",
-    name: "YELLOW",
+    name: "0",
   },
   {
     showing: "#1400FF",
     normal: "#5E50FF",
-    name: "BLUE",
+    name: "1",
   },
   {
     showing: "#00D715",
     normal: "#10861B",
-    name: "GREEN",
+    name: "2",
   },
   {
     showing: "#FF0000",
     normal: "#AD0707",
-    name: "RED",
+    name: "3",
   },
 ];
 

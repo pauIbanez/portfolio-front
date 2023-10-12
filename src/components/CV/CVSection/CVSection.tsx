@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Colors from "../../../data/style/Colors";
 import ScrollContext from "../../../contexts/scrollContext/ScrollContext.contextCreator";
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState, useEffect } from "react";
 import useEffectOnce from "../../../hooks/useEffectOnce";
 import ResponsiveContext from "../../../contexts/responsiveContext/ResponsiveContext.contextCreator";
 import { textSizes } from "../../../data/Pages/responsive/cvPage";
@@ -42,12 +42,20 @@ interface Props {
 }
 const CVSection = ({ name, title, children }: Props) => {
   const section = useRef(null);
-  const { loadItem } = useContext(ScrollContext);
+  const [prevTitle, setPrevTitle] = useState<string>("");
+  const { loadItem, updateItem } = useContext(ScrollContext);
   const { currentWidthBreakPoint } = useContext(ResponsiveContext);
 
   useEffectOnce(() => {
     loadItem({ name: name ? name : title, ref: section });
   });
+
+  useEffect(() => {
+    if (prevTitle !== title) {
+      setPrevTitle(title);
+      updateItem(section, name ? name : title);
+    }
+  }, [name, prevTitle, title, updateItem]);
 
   return (
     <Container ref={section}>

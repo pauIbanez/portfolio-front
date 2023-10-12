@@ -26,8 +26,9 @@ describe("Given the InternalNavigation component", () => {
 
       const contextValue: ScrollContextData = {
         getItems: () => items,
-        items: [],
+        items,
         loadItem: () => null,
+        updateItem: () => null,
         scrollToItem: mockScrollToItem,
         currentActive: "",
       };
@@ -62,8 +63,9 @@ describe("Given the InternalNavigation component", () => {
 
       const contextValue: ScrollContextData = {
         getItems: () => items,
-        items: [],
+        items,
         loadItem: () => null,
+        updateItem: () => null,
         scrollToItem: mockScrollToItem,
         currentActive: "",
       };
@@ -103,9 +105,10 @@ describe("Given the InternalNavigation component", () => {
 
       const contextValue: ScrollContextData = {
         getItems: () => items,
-        items: [],
+        items,
         loadItem: () => null,
         scrollToItem: () => null,
+        updateItem: () => null,
         currentActive: items[0].name,
       };
 

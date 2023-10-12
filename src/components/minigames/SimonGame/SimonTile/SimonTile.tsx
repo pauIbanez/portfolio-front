@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import simonColors from "../../../../data/minigames/simon/tileColors";
+import { useTranslation } from "react-i18next";
 
 const Tile = styled.div<{
   isShowing: boolean;
@@ -43,6 +44,8 @@ interface Props {
 const SimonTile = ({ id, onClick, tileValue, canClick, isShowing }: Props) => {
   const [isPulsing, setIsPulsing] = useState<boolean>(false);
 
+  const { t } = useTranslation();
+
   useEffect(() => {
     if (isShowing) {
       pulsate();
@@ -67,7 +70,7 @@ const SimonTile = ({ id, onClick, tileValue, canClick, isShowing }: Props) => {
       }}
       data-testid="simontile"
     >
-      <p>{simonColors[tileValue].name}</p>
+      <p>{t(`Minigames.simon.colorNames.${simonColors[tileValue].name}`)}</p>
     </Tile>
   );
 };

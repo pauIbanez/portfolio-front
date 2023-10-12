@@ -20,8 +20,8 @@ describe("Given MyPortoflio Page", () => {
       expect(foundText).toBeInTheDocument();
     });
 
-    test("Then it should render 6 section titles", () => {
-      const expectedNumberOfSections = 6;
+    test("Then it should render 7 section titles", () => {
+      const expectedNumberOfSections = 7;
 
       renderInRouter(<MyPortfolioPage />);
 

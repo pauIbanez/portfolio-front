@@ -11,9 +11,8 @@ import toRGB from "../../../../utils/toRGB/toRGB";
 describe("Given the Simon Game", () => {
   describe("When it's instanciated", () => {
     test("Then it should render a title and text", () => {
-      const expectedTitle = "Simon";
-      const expectedText =
-        "The goal of simon is to repeat the sequence for as long as you can!";
+      const expectedTitle = "Minigames.simon.title";
+      const expectedText = "Minigames.simon.text";
 
       render(<Simon />);
 
@@ -39,8 +38,8 @@ describe("Given the Simon Game", () => {
   });
   describe("When the user clicks on play", () => {
     test("Then the button should change to 'Restart Game'", async () => {
-      const expectedPlayButton = "Play Simon";
-      const expectedRestartButton = "Restart Game";
+      const expectedPlayButton = "Minigames.simon.buttons.notPlaying";
+      const expectedRestartButton = "Minigames.simon.buttons.playing";
 
       render(<Simon />);
 
@@ -72,8 +71,8 @@ describe("Given the Simon Game", () => {
 
   describe("When the user clicks play and then clicks on correct tile", () => {
     test("Then the button should still say 'Restart Game'", async () => {
-      const expectedPlayButton = "Play Simon";
-      const expectedRestartButton = "Restart Game";
+      const expectedPlayButton = "Minigames.simon.buttons.notPlaying";
+      const expectedRestartButton = "Minigames.simon.buttons.playing";
 
       render(<Simon />);
 
@@ -112,7 +111,7 @@ describe("Given the Simon Game", () => {
 
   describe("When the user clicks play and then clicks on incorrect tile", () => {
     test("Then the button should say 'Play Game'", async () => {
-      const expectedPlayButton = "Play Simon";
+      const expectedPlayButton = "Minigames.simon.buttons.notPlaying";
 
       render(<Simon />);
 
@@ -151,7 +150,7 @@ describe("Given the Simon Game", () => {
 
   describe("When the user gets a streak with no previous max streak", () => {
     test("Then the UI should update", async () => {
-      const expectedPlayButton = "Play Simon";
+      const expectedPlayButton = "Minigames.simon.buttons.notPlaying";
       const expectedMaxStreak = "1";
 
       render(<Simon />);
@@ -214,9 +213,9 @@ describe("Given the Simon Game", () => {
     });
   });
 
-  describe("When the user gets a streak higher than the  previous max streak", () => {
+  describe("When the user gets a streak higher than the previous max streak", () => {
     test("Then the UI should update", async () => {
-      const expectedPlayButton = "Play Simon";
+      const expectedPlayButton = "Minigames.simon.buttons.notPlaying";
       const expectedMaxStreak = "1";
 
       localStorage.setItem("simonStreak", "0");
@@ -282,7 +281,7 @@ describe("Given the Simon Game", () => {
   });
   describe("When the user gets a streak lower than the previous max streak", () => {
     test("Then the UI should NOT update", async () => {
-      const expectedPlayButton = "Play Simon";
+      const expectedPlayButton = "Minigames.simon.buttons.notPlaying";
       const expectedMaxStreak = "10";
 
       localStorage.setItem("simonStreak", expectedMaxStreak);

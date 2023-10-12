@@ -9,25 +9,34 @@
   "Home": {
     "title": "Presentación",
     "content": {
-      "accent": "CONOCEME!",
+      "accent": "CONÓCEME!",
       "heading": "Hola! Soy Pau Ibáñez",
       "info1": "Este sitio web tiene todo lo que necesitas saber sobre mí y mi trabajo. Te invito a explorarla mientras consideras también su impacto como representación de mi portfolio.",
-      "info2": "Espero con entusiasmo la posibilidad de conectarme contigo y colaborar en proyectos emocionantes.",
+      "info2": "Espero con entusiasmo la posibilidad de conectarme contigo y colaborar en proyectos interesantes.",
       "button": "Mi Portfolio"
     }
   },
-  "About me": {
-    "title": "Un poquito sobre <&>mi<&>!"
-  },
   "Projects": {
-    "title": "<&>Mis<&> Proyectos"
+    "title": "<&>Mis<&> Proyectos",
+    "presentation": {
+      "title": "<&>Mi<&> Portfolio",
+      "text": "Aquí encontrarás una selección de <&>mi mejor trabajo hasta el momento<&>. Estos proyectos resaltan mi talento en <&>varias technologías<&> y muestran las respuestas a los problemas que me he encontrado construyéndolos. A lo largo de mi portfolio, notarás un fuerte <&>énfasis en los aspectos técnicos<&>, soluciones innovadoras y desafíos superados.\n \n La<&>calidad<&> es primordial para mí, así que aquí encontrarás la selección de mi trabajo que mejor representa mis habilidades como desarrollador full-stack. Incluso si <&>no todos mis proyectos son sitios web<&> directamente, creo firmemente que <&>mi experiencia en estas otras plataformas me ayudó a convertirme en un mejor desarrollador web<&> y me hace un mejor <&>problem solver<&>.",
+      "button": "Ir a proyectos",
+      "title2": "Mis Proyectos"
+    },
+    "click": "Ház clic para más detalles",
+    "backToProjects": "Todos los proyectos"
   },
   "CV": {
-    "title": "<&>Mi<&> Curriculum",
+    "title": "<&>Mi<&> Currículum",
     "presentation": {
-      "title": "<&>Mi<&> Curriculum Vitae",
-      "text": "Take a look at my curriculum, you can explore my <&>educational background<&> and <&>professional experience<&>. Furthermore, I have dedicated a section to outline the various <&>technologies and skills<&> I’ve worked with and developed over the years, along with my <&>proficiency level<&> in each of them. \n \nTo ensure your <&>convenience<&>, I have also created a <&>compact version of my CV in PDF format<&>, which you can easily <&>download<&>. The download options can be found at the <&>bottom of this page<&>.",
-      "button": "Go to CV"
+      "title": "<&>Mi<&> Currículum Vitae",
+      "text": " Aquí tienes mi currículum, puedes explorar mi <&>formación educativa<&> y mi <&>experiencia profesional<&>. Además, he dedicado una sección para detallar las diferentes <&>tecnologías y habilidades<&> con las que he trabajado y desarrollado a lo largo de los años, junto con mi nivel de <&>competencia<&> en cada una de ellas. \n \nPara garantizar tu <&>comodidad<&>, también he creado una <&>versión compacta de mi currículum en formato PDF<&>, que puedes <&>descargar<&> fácilmente. Las opciones de descarga se encuentran en la <&>parte inferior de esta página<&>.",
+      "button": "Ir al CV"
+    },
+    "shared": {
+      "order": "Orden",
+      "date": "Fecha"
     },
     "sections": {
       "education": {
@@ -35,407 +44,221 @@
         "items": [
           {
             "name": "ISDI Coders Bootcamp",
-            "location": "Barcelona, Spain",
-            "concept": "Bootcamp in Full-Stack Web Development",
+            "location": "Barcelona, España",
+            "concept": "Bootcamp de Desarrollo Web Full-Stack",
             "dates": {
-              "startDate": "Jan 2022",
+              "startDate": "Ene 2022",
               "endDate": "Mar 2022"
             },
-            "image": "ISDI_Coders.jpg",
             "textSections": [
               {
-                "title": "What I learned",
-                "text": "During my tenure at the ISDI Coders bootcamp, I had the opportunity to work extensively with some of my favorite technologies, including React, Node, Express, MongoDB, and Git. The program played a crucial role in deepening my understanding of JavaScript, enabling me to enhance my coding efficiency and sharpen my troubleshooting skills."
+                "title": "Que aprendí?",
+                "text": "Durante mi tiempo en el bootcamp ISDI Coders, tuve la oportunidad de trabajar extensamente con algunas de mis tecnologías favoritas, incluyendo React, Node, Express, MongoDB y Git. El programa desempeñó un papel crucial en profundizar mi comprensión de JavaScript, permitiéndome mejorar mi eficiencia en la codificación y afilar mis habilidades de resolución de problemas."
               },
               {
-                "title": "Projects",
-                "text": "Throughout my academic journey, I successfully completed a diverse range of projects, showcasing my expertise in various areas of software development. These projects encompassed front-end, back-end, and full-stack development, involving both native applications and framework-like apps."
+                "title": "Proyectos",
+                "text": "A lo largo de mi trayectoria académica, completé con éxito una amplia variedad de proyectos que demostraron mi experiencia en diversas áreas del desarrollo de software. Estos proyectos abarcaron el desarrollo de front-end, back-end y aplicaciones de pila completa, incluyendo tanto aplicaciones nativas como aplicaciones similares a frameworks."
               }
             ]
           },
           {
             "name": "Jesuïtes El Clot",
-            "location": "Barcelona, Spain",
-            "concept": "Professional Formation in Computer Systems and Networks",
+            "location": "Barcelona, España",
+            "concept": "Formación Professional en Sistemas Microinformáticos y Redes",
             "dates": {
               "startDate": "Sep 2017",
               "endDate": "Jun 2019"
             },
-            "image": "jesuites.png",
             "textSections": [
               {
-                "title": "What I learned",
-                "text": "In this course I learned the ins and outs of PCs and Server Systems. I built both hardware and software, from assembling a PC to creating an HTTP Apache server. We did a lot of system virtualization and we worked on HTTP, Static and SMTP servers. We also learned to correctly use the consoles in different Operating Systems as well as to create scripts for task automation with them."
+                "title": "Que aprendí?",
+                "text": "En este curso, aprendí los mucho sobre las computadoras personales y los sistemas de servidor. Construí tanto hardware como software, desde ensamblar una PC hasta crear un servidor HTTP Apache. Realizamos mucha virtualización de sistemas y trabajamos en servidores HTTP, estáticos y SMTP. También aprendimos a utilizar correctamente las consolas en diferentes sistemas operativos y a crear scripts para la automatización de tareas con ellas."
               },
               {
-                "title": "Remarks",
-                "text": "In this course, we did not have any programming classes, but I already loved it, so I spent a lot of free time in them trying out stuff. It’s while coursing in here that I was developing mini-games in unity."
+                "title": "Comentarios",
+                "text": "No tuvimos clases de programación, pero yo ya la amaba, así que pasé mucho tiempo libre probando cosas. Fue mientras cursaba aquí que estaba desarrollando mini-juegos en Unity."
               }
             ]
           }
         ]
       },
       "experience": {
-        "title": "Experience",
+        "title": "Experiencia",
         "items": [
           {
             "name": "Blikk",
-            "location": "Reykjavik, Iceland (Remote)",
-            "concept": "Full-Stack developer",
+            "location": "Reykjavik, Islandia (Remoto)",
+            "concept": "Desarollador full-Stack",
             "dates": {
               "startDate": "Jun 2022",
               "endDate": "Sep 2022"
             },
-            "image": "blikk.png",
             "textSections": [
               {
-                "title": "My Tasks",
-                "text": "I Developed a Full-Stack banking application with Flutter, Dart and Go. My responsibilities included the architecture of the front-end app, the styling, some design (both design creation of certain elements and design interpretation). Development of both front and back-end with user authentication including OAuth and user recovery."
+                "title": "Mis tareas",
+                "text": "Desarrollé una aplicación bancaria de pila completa con Flutter, Dart y Go. Mis responsabilidades incluyeron la arquitectura de la aplicación de front-end, el diseño, parte del diseño (tanto la creación de ciertos elementos de diseño como la interpretación del diseño). Desarrollo tanto del front-end como del back-end con autenticación de usuario, que incluyó OAuth y la recuperación de usuarios."
               }
             ]
           },
           {
             "name": "WebHelp / Google",
-            "location": "Barcelona, Spain (Remote)",
+            "location": "Barcelona, España (Remoto)",
             "concept": "Technical Support Engineer",
             "dates": {
               "startDate": "Jun 2021",
               "endDate": "Sep 2021"
             },
-            "image": "webhelp.png",
             "textSections": [
               {
-                "title": "My Tasks",
-                "text": "I Provided top tier customer support for Google Workspace. I investigated bugs and errors in the program and provided workaround solutions to the clients if available. My tasks focused primarily on investigation and client communication for companies using Google Workspace. I also provided consults for lower tiers of support that were in charge of individual or smaller clients."
+                "title": "Mis tareas",
+                "text": "Proporcioné soporte al cliente de primer nivel para Google Workspace. Investigé errores y fallos en el programa y proporcioné soluciones temporales a los clientes si estaban disponibles. Mis tareas se centraron principalmente en la investigación y la comunicación con los clientes para las empresas que utilizaban Google Workspace. También proporcioné consultas para los niveles de soporte inferiores que se encargaban de clientes individuales o más pequeños."
               }
             ]
           },
           {
             "name": "i3e Informática",
-            "location": "Mataró, Spain",
-            "concept": "OS Technician",
+            "location": "Mataró, España",
+            "concept": "Técnico de sistemas",
             "dates": {
               "startDate": "Jan 2021",
               "endDate": "Feb 2021"
             },
-            "image": "i3e.jpg",
             "textSections": [
               {
-                "title": "My Tasks",
-                "text": "I installed and configured a customized Windows OS on hundreds of PC’s for their use in the vaccination posts during the pandemic."
+                "title": "Mis tareas",
+                "text": "Instalé y configuré un sistema operativo Windows personalizado en cientos de PC para su uso en los puntos de vacunación durante la pandemia."
               }
             ]
           },
           {
             "name": "Laforja Sistemas S.L",
-            "location": "Cabrera de mar, Spain",
-            "concept": "Machine building technician",
+            "location": "Cabrera de mar, España",
+            "concept": "Técnico de montaje",
             "dates": {
               "startDate": "Nov 2018",
               "endDate": "Apr 2019"
             },
-            "image": "laforja.png",
             "textSections": [
               {
-                "title": "My Tasks",
-                "text": "I soldered and mounted logic boards for use in public transportation LED panels. I also mounted some of the LED panels themselves. Other than public transport, I configured and tested android players for their use in digital signage for hotels, companies’ internal channels, shop showcases, restaurant menus..."
+                "title": "Mis tareas",
+                "text": "Soldé y monté placas lógicas para su uso en paneles LED de transporte público. También ensamblé algunos de los paneles LED en sí. Además del transporte público, configuré y probé reproductores de Android para su uso en señalización digital en hoteles, canales internos de empresas, escaparates de tiendas, menús de restaurantes, y más."
               }
             ]
           }
         ]
       },
       "languages": {
-        "title": "Languages",
-        "text": "These are the lanaguages I speak and write along with my level at them.",
+        "title": "Lenguajes",
+        "text": "Estos són las lenguags que hablo y escribo con un resumen de mi nivel",
+        "languages": ["Catalán", "Español", "Inglés"],
+        "native": "Nativo",
+        "fluent": "Fluido",
         "sections": [
-          {
-            "title": "<&>Lan<&>guages",
-            "items": [
-              {
-                "name": "Catalan",
-                "text": "Native"
-              },
-              {
-                "name": "Spanish",
-                "text": "Native"
-              },
-              {
-                "name": "English",
-                "text": "Fluent"
-              }
-            ],
-            "notRated": true
-          },
-          {
-            "title": "Programmin <&>Languages",
-            "items": [
-              {
-                "name": "JavaScript",
-                "rating": 5
-              },
-              {
-                "name": "TypeScript",
-                "rating": 5
-              },
-              {
-                "name": "C#",
-                "rating": 3
-              },
-              {
-                "name": "C++",
-                "rating": 2
-              },
-              {
-                "name": "Lua",
-                "rating": 4
-              },
-              {
-                "name": "SQL",
-                "rating": 4
-              }
-            ]
-          },
-          {
-            "title": "Other <&>Languages",
-            "items": [
-              {
-                "name": "HTML / JSX",
-                "rating": 5
-              },
-              {
-                "name": "JSON",
-                "rating": 5
-              },
-              {
-                "name": "XML",
-                "rating": 5
-              }
-            ]
-          }
+          "Lenguajes",
+          "Lenguajes de <&>Programación",
+          "Otros <&>Lenguajes"
         ]
       },
       "technologies": {
-        "name": "Technologies",
-        "title": "Technbologies and Skills",
-        "text": "These are my most developed technologies and methodologies with an added rating. Note that the ratings reflect my evaluation of my general knowledge and proficiency in each respective area. However, understand that a high rating does not mean I claim to know everything about the given skill.",
+        "name": "Tecnologías",
+        "title": "Tecnologías y habilidades",
+        "text": "Estas son las tecnologías y metodologías en las que tengo más experiencia, junto con una calificación agregada. Ten en cuenta que las calificaciones reflejan mi evaluación de mi conocimiento general y habilidad en cada área respectiva. Sin embargo, debes entender que una calificación alta no significa que yo afirme saberlo todo sobre esa habilidad.",
         "pages": {
           "technologies": {
-            "name": "Technologies",
-            "sections": [
-              [
-                {
-                  "title": "Frameworks",
-                  "items": [
-                    {
-                      "name": "React",
-                      "rating": 5
-                    },
-                    {
-                      "name": "Next.js",
-                      "rating": 4
-                    },
-                    {
-                      "name": "Express",
-                      "rating": 5
-                    },
-                    {
-                      "name": "JQuery",
-                      "rating": 2
-                    },
-                    {
-                      "name": "Flutter",
-                      "rating": 3
-                    }
-                  ]
-                },
-                {
-                  "title": "Databases",
-                  "items": [
-                    {
-                      "name": "MongoDB",
-                      "rating": 5
-                    },
-                    {
-                      "name": "MySQL",
-                      "rating": 4
-                    },
-                    {
-                      "name": "PostgresSQL",
-                      "rating": 3
-                    }
-                  ]
-                }
-              ],
-              [
-                {
-                  "title": "Testing",
-                  "items": [
-                    {
-                      "name": "Jest",
-                      "rating": 5
-                    },
-                    {
-                      "name": "Supertest",
-                      "rating": 4
-                    },
-                    {
-                      "name": "Testing-library",
-                      "rating": 5
-                    }
-                  ]
-                },
-                {
-                  "title": "Unidirectional data flows",
-                  "items": [
-                    {
-                      "name": "Flux",
-                      "rating": 5
-                    },
-                    {
-                      "name": "Redux",
-                      "rating": 5
-                    }
-                  ]
-                },
-                {
-                  "title": "Version control",
-                  "items": [
-                    {
-                      "name": "Git",
-                      "rating": 5
-                    },
-                    {
-                      "name": "GitHub",
-                      "rating": 5
-                    }
-                  ]
-                }
-              ],
-              [
-                {
-                  "title": "Styling",
-                  "items": [
-                    {
-                      "name": "CSS",
-                      "rating": 5
-                    },
-                    {
-                      "name": "SCSS",
-                      "rating": 5
-                    },
-                    {
-                      "name": "Styled-components",
-                      "rating": 5
-                    },
-                    {
-                      "name": "CSS Modules",
-                      "rating": 5
-                    }
-                  ]
-                },
-                {
-                  "title": "Methodologies",
-                  "items": [
-                    {
-                      "name": "CI/CD",
-                      "rating": 5
-                    },
-                    {
-                      "name": "SOLID Principles",
-                      "rating": 4
-                    },
-                    {
-                      "name": "Test driven p.",
-                      "rating": 3
-                    },
-                    {
-                      "name": "Agile development",
-                      "rating": 4
-                    }
-                  ]
-                }
-              ]
-            ]
+            "name": "Tecnologías",
+            "names": {
+              "databases": "Bases de datos",
+              "dataflow": "Flujos de datos unidireccionales",
+              "versioncontrol": "Control de versiones",
+              "styling": "Estilización",
+              "methodology": "Metodologías"
+            }
           },
           "skills": {
-            "name": "Skills",
+            "name": "Habilidades",
             "sections": [
-              [
-                {
-                  "title": "Critical <&>Thinking",
-                  "text": "I possess a keen analytical mindset, evaluating information objectively and drawing logical conclusions."
-                },
-                {
-                  "title": "<&>Team<&>work",
-                  "text": "I thrive in collaborative environments, fostering open communication, trust, and mutual respect. I actively contribute to group dynamics, valuing diverse perspectives and working towards shared goals."
-                },
-                {
-                  "title": "Problem <&>Thinking",
-                  "text": "I excel at breaking down complex problems, anticipating obstacles, and devising innovative solutions. I strongly believe that troubleshooting is the most important skill to have as a programmer. No one's code always works the first time, and it's important to know how to find what's causing the error."
-                }
-              ],
-              [
-                {
-                  "title": "<&>Flex<&>ibility",
-                  "text": " I thrive in dynamic and changing environments. I embrace new challenges, willingly take on different roles, and effectively contribute to team objectives."
-                },
-                {
-                  "title": "De<&>sign (me, xd)",
-                  "text": "I do not consider myself to be a designer, but I have an eye for it. I won’t create the best design, but I’ll know when something doesn’t work right. I put myself in the position of the end user and I try to figure out the best layout and style for the desired  purpose of the page."
-                },
-                {
-                  "title": "<&>Fast <&>learning",
-                  "text": "I think of myself as a fast learner. My experience with such varies technologies and developing enviroments allows me to adapt to new ones with ease."
-                }
-              ]
+              {
+                "title": "Pensamiento <&>Crítico<&>",
+                "text": "Poseo una mentalidad analítica aguda, evaluando la información de manera objetiva y llegando a conclusiones lógicas."
+              },
+              {
+                "title": "Trabajo en <&>equipo<&>",
+                "text": "Prospero en entornos colaborativos, fomentando la comunicación abierta, la confianza y el respeto mutuo. Contribuyo activamente a la dinámica del grupo, valorando perspectivas diversas y trabajando hacia objetivos compartidos."
+              },
+              {
+                "title": "Resolución de <&>problemas<&>",
+                "text": "Destaco en descomponer problemas complejos, anticipar obstáculos y elaborar soluciones innovadoras. Creo firmemente que la resolución de problemas es la habilidad más importante que debe tener un programador. El código de nadie siempre funciona a la primera, y es fundamental saber cómo encontrar qué está causando el error."
+              },
+
+              {
+                "title": "<&>Flex<&>ibilidad",
+                "text": "Prospero en entornos dinámicos y cambiantes. Acepto con entusiasmo nuevos desafíos, asumo diferentes roles de manera voluntaria y contribuyo eficazmente a los objetivos del equipo."
+              },
+              {
+                "title": "Diseño",
+                "text": "No me considero un diseñador, pero tengo un ojo para ello. No crearé el mejor diseño, pero sabré cuándo algo no funciona correctamente. Me pongo en la posición del usuario final y trato de descubrir la mejor disposición y estilo para el propósito deseado de la página."
+              },
+              {
+                "title": "Aprendizaje <&>rápido<&>",
+                "text": "Me considero un aprendiz rápido. Mi experiencia con diversas tecnologías y entornos de desarrollo me permite adaptarme a nuevos con facilidad."
+              }
             ]
+          },
+          "controls": {
+            "prev": "Anterior",
+            "page": "Página",
+            "next": "Siguiente"
           }
         }
       },
       "references": {
-        "title": "References",
+        "title": "Referencias",
         "items": [
           {
             "name": "Gunnar Kolbeinsson",
             "position": "CTO at Blikk Hugbúnaðarþjónusta hf.",
             "email": "gunnar@getblikk.is",
             "linkedIn": "linkedin.com/in/gunnarkolbeinsson",
-            "picture": "gunnar.jpg",
             "letter": "It is my pleasure to recommend Pau Ibáñez for employment.\n I was Pau’s immediate supervisor at Blikk Hugbúnaðarþjónusta hf. in Iceland. Pau was hired for a 2-month internship as a remote frontend developer and managed to deliver a prototype mobile application written in Dart with the Flutter framework, along with a backend server written in Go.\n\n We are a small open banking software company in Iceland applying for a financial license and looking to create a platform for open banking services. Unfortunately, we could not hire Pau full-time due to uncertainty regarding the operating license of the company and a lack of resources thereof.\n\n Pau is a talented and driven programmer. He managed to research and come up with solutions to problems and was very keen to figure out how to implement a number of different aspects of the prototype app. He even offered some interesting ideas on how to improve the codebase and coding in a somewhat immature development environment of our small and recently founded startup. He finished tasks according to plan, on time and according to specification and design immaculately.\n\n Pau is a very skilled communicator, both in written and spoken language. He is Spanish but speaks English fluently and with an excellent technical vocabulary. We communicated mostly on Slack but shared a Zoom call every few days and more often if needed. Pau had the initiative to propose some ideas of features to add to the project as well ideas for different implementations on some features. Pau could deliver those ideas concisely and clearly while still maintaining coding velocity. He was also very easy to get along with and chat with and is really friendly.\n\n Pau managed to complete his assignments brilliantly and made an impact on our organization despite his short tenure. I am confident that he will continue to grow as a programmer and make an impact everywhere he goes. Please feel free to contact me if there is anything you would like to discuss further with Pau Ibáñez and I will happily have a chat.\n\n Best Regards \n Gunnar Kolbeinsson\n Head of Product\n Blikk"
           }
         ]
       },
       "download": {
-        "title": "Download",
-        "text": "Having read or not my curriculum in this format, I’ve prepared some PDF files so you can download them. These files contain my CV, a recommendation letter and a cover letter. You can also find the option to download them combined into a single PDF file.",
-        "disclaimer": "By downloading the files listed here, you are granted permission to store and review them. However, you are strictly prohibited from sharing these files without obtaining explicit written consent from me. If you wish to share these files with a 3rd party, please contact me to obtain the necessary permissions.\n\n Job search agencies are authorized to share the CV with the end employer company solely for the purpose of employment consideration. However, they must ensure the confidentiality and proper handling of the CV during the recruitment process.",
-        "checkmark": "I accept the terms and conditions.",
-        "checkmarkError": "Accept terms and conditions",
-        "buttonText": "Download",
+        "title": "Descarga",
+        "text": "Habiendo leído o no mi currículum en este formato, he preparado algunos archivos PDF para que los descargues. Estos archivos contienen mi CV, una carta de recomendación y una carta de presentación. También puedes encontrar la opción de descargarlos combinados en un solo archivo PDF.",
+        "disclaimer": "Al descargar los archivos mencionados aquí, se le concede permiso para almacenarlos y revisarlos. Sin embargo, está estrictamente prohibido compartir estos archivos sin obtener un consentimiento explícito y por escrito de mi parte. Si desea compartir estos archivos con un tercero, por favor contácteme para obtener las autorizaciones necesarias.\n \nLas agencias de búsqueda de empleo tienen autorización para compartir el CV con la empresa empleadora final únicamente con el propósito de consideración para el empleo. Sin embargo, deben asegurarse de la confidencialidad y el manejo adecuado de estos archivos durante el proceso de reclutamiento.",
+        "checkmark": "Acepto las condiciones.",
+        "checkmarkError": "Acepta las condiciones.",
+        "buttonText": "Descargar",
         "items": [
-          [
-            {
-              "name": "My Curriculum Vitae",
-              "link": "static.CV"
-            },
-            {
-              "name": "Recommendation letter",
-              "link": "static.RL"
-            }
-          ],
-          [
-            {
-              "name": "Cover letter",
-              "link": "static.CL"
-            },
-            {
-              "name": "Combined PDF",
-              "link": "static.CC"
-            }
-          ]
+          "Mi Currículum Vitae",
+          "Carta de recomendación (Inglés)",
+          "PDF Combinado"
         ]
       }
     }
+  },
+  "AboutMe": {
+    "title": "Un poquito sobre <&>mi<&>!",
+    "textSections": [
+      {
+        "title": "Quien <&>Soy<&>?",
+        "text": "Soy <&>Pau Ibáñez<&>, un programador de 21 años de Barcelona, estoy especializado en desarrollo web <&>full-stack<&>. Siento una profunda motivación por concebir ideas novedosas e innovadoras, sabiendo que en esta industria <&>nunca dejamos de aprender<&>. Me encanta ser un desarrollador porque me brinda la libertad de convertir mis ideas en realidad."
+      },
+      {
+        "title": "Jugador de <&>Equipo<&>",
+        "text": "Más allá de mis proyectos individuales, he encontrado una gran satisfacción en <&>conectar con otros desarrolladores<&> y trabajar juntos como un <&>equipo<&>. \n \n He trabajado en un par de proyectos internacionales donde pude <&>expandir mis habilidades al aprender y compartir con mis compañeros<&>. \n \n Esta etapa de mi carrera se ha centrado principalmente en el desarrollo de juegos y modding, lo que me ayudó a desarrollar mis habilidades como jugador de equipo y me demostró que <&>compartir tu código e ideas siempre mejora el proyecto<&>."
+      },
+      {
+        "title": "<&>Perezoso<&> pero Ingenioso",
+        "text": "Soy <&>perezoso<&>, pero como programador considero que esta es <&>una habilidad excelente<&>. La pereza me impulsa a <&>encontrar soluciones eficientes y creativas<&> a problemas complejos. Creo en trabajar de forma más eficiente, no en hacer un esfuerzo extra innecesario. \n \n Ser perezoso no significa que comprometa la calidad; en cambio, encuentro formas de <&>optimizar<&> mi trabajo y eliminar tareas innecesarias o tediosas. ¡Al final del día, de eso se trata la <&>optimización del flujo de trabajo<&>! \n Por ejemplo, este texto podría o no haber sido creado con la ayuda de ChatGPT 😜. \n \n Estoy dispuesto a pasar 5 horas trabajando en una solución para una tarea de 1 hora si eso significa que nunca tendré que hacerla de nuevo."
+      },
+      {
+        "title": "<&>Mi<&> Trayectoria como Programador",
+        "text": "Desde que era pequeño, me ha fascinado la programación. Empecé construyendo robots usando <&>Arduino<&> con <&>C++<&>. Con el tiempo, mi pasión se inclinó hacia la creación de juegos, comenzando con Scratch y finalmente encontrando <&>Unity<&>, donde desarrollé mis habilidades en <&>C#<&>. Me sumergí en el aprendizaje de diferentes lenguajes de programación basados en mis intereses del momento. Por ejemplo, exploré <&>JavaScript<&> con (desafortunadamente) <&>JQuery<&> cuando construí mi primera interfaz de usuario, y aprendí <&>Lua<&> y <&>SQL<&> mientras creaba modificaciones para videojuegos. Este viaje me ayudó a convertirme en un <&>desarrollador full-stack versátil<&>, familiarizado con diversas plataformas y tecnologías. \n \n A pesar de tener un conocimiento decente de diferentes lenguajes de programación, me di cuenta de que mi codigo era desordenado y poco fiable. Fue entonces cuando decidí inscribirme en el <&>ISDI Coders Bootcamp<&> en Barcelona. Durante tres ntensivos meses, me dediqué a desarrollar mis habilidades en <&>JavaScript y TypeScript<&>, especialmente utilizando el <&>MERN stack<&>, pasando 12 horas al día, siete días a la semana creando páginas web y aplicaciones full-stack completas. El bootcamp no solo refinó mis habilidades de codificación, sino que también me enseñó cómo escribir codigo manteniendo la consistencia, buenas prácticas y escalabilidad en mis aplicaciones. \n \n Después de completar el bootcamp, conseguí mi primer trabajo full-stack en Blikk, una startup bancaria de Islandia. Curiosamente, no pude utilizar los lenguajes de programación que había aprendido hasta ese momento. Sin embargo, mi experiencia previa en aprender nuevos lenguajes me preparó para el desafío y construí con éxito una <&>aplicación móvil full-stack<&> utilizando <&>Dart<&> y <&>Flutter<&> para el frontend y <&>Golang<&> para el backend."
+      }
+    ],
+    "images": ["3 people with their hands up", "Cartoon man climbing a ladder"]
   },
   "Contact": {
     "title": "Contacta <&>conmigo<&>",
@@ -445,51 +268,244 @@
         "text": "Si tienes alguna pregunta o simplemente quieres <&>ponerte en contacto conmigo<&>, me encantaria conocernos. Si estas interesado en una <&>collaboración<&> en tu proyecto, comentar una <&>oportunidad<&>, o simplemente quiieres <&>saludar<&>, este es el sitio donde hacerlo. Puedes contactarme a través del formulario y contestaré lo antes posible. Tambés puedes contacter directamente a través de mi email o numero de telefono. \n \n <&>Muchas grácias<&> por visitar mi portfolio website, <&>espero con ganas tu mensaje!<&>"
       },
       {
-        "title": "Privacy Notice",
-        "text": "By contacting me via this form or sending an email, you acknowledge and consent that the information you provide, including your name and email address, will be collected and stored for the purpose of responding to your inquiry."
+        "title": "Terminos de privacidad",
+        "text": "Al contactarme a través de este formulario o enviando un correo electrónico, usted reconoce y consiente que la información que proporcione, incluyendo su nombre y dirección de correo electrónico, será recopilada y almacenada con el fin de responder a su consulta."
       }
     ],
     "contactInfo": {
-      "title": "Let’s get in touch!",
-      "text": "Feel free to contact me directly through any of the options bellow:",
+      "title": "¡Contactemos!",
+      "text": "Puedes ponerte en contacto conmigo a través de estos medios:",
       "itemNames": {
-        "phone": "Phone",
+        "phone": "Móbil",
         "email": "Email",
         "linkedIn": "LinkedIn"
       },
       "itemValues": {
-        "copyEmail": "Copy email",
-        "openEmail": "Open email",
-        "linkedIn": "My LinkedIn profile"
+        "copyEmail": "Copiar email",
+        "openEmail": "Enviar email",
+        "linkedIn": "Mi perfil de LinkedIn"
       }
     },
     "contactForm": {
       "labels": {
-        "firstName": "First Name",
-        "lastName": "Last Name",
-        "messageType": "Message Type",
-        "projectName": "Project Name",
-        "companyName": "Company Name",
+        "firstName": "Nombre",
+        "lastName": "Apellidos",
+        "messageType": "Tipo de mensaje",
+        "projectName": "Nombre del proyecto",
+        "companyName": "Compañia",
         "applicable": "if applicable",
         "email": "Email",
-        "subject": "Subject",
-        "message": "Message"
+        "subject": "Asunto",
+        "message": "Mensaje"
       },
-      "sendMessage": "Send Message",
+      "sendMessage": "Enviar Message",
       "messageTypes": {
-        "select": "Select One",
-        "jobOpportunity": "Job Opportunity",
-        "collaboration": "Collaboration",
-        "generalQuestion": "General Question",
-        "other": "Other..."
+        "select": "Elige Uno",
+        "jobOpportunity": "Oportunidad de trabajo",
+        "collaboration": "Colaboración",
+        "generalQuestion": "Pregunta general",
+        "other": "Otros..."
       },
       "errors": {
-        "email": ["An email is required", "Formato invalido"],
+        "email": ["Intruduce tu email", "Formato invalido"],
         "firstName": "Introduce tu numbre",
         "lastName": "Introduce tu apellido",
-        "subject": "Falta el título",
+        "subject": "Falta el asunto",
         "message": "Nos falta el mensaje!"
       }
+    },
+    "messageSent": {
+      "title": {
+        "loading": "<&>Enviando<&> el mensaje",
+        "success": "Mensaje <&>Enviado<&>",
+        "fail": "Algo ha <&>fallado<&>"
+      },
+      "text": {
+        "loading": "Su mensaje se está enviando... \n \nSi el servidor esta 'spinned-down', esto podría tardar hasta un minuto.",
+        "success": "Gracias por ponerte en contacto conmigo. He recibido tu mensaje y estaré en contacto lo antes posible.",
+        "fail": "¡Lo siento! Parece que su mensaje no se envió correctamente. Por favor, verifique los datos o intente nuevamente más tarde. Si el problema persiste, no dude en ponerse en contacto conmigo directamente utilizando la información proporcionada."
+      },
+      "link": "Documentación de Render sobre servidores 'spinned-down'",
+      "button": {
+        "success": "Escribe otro!",
+        "fail": "Prueba de nuevo"
+      }
+    }
+  },
+  "NotFound": {
+    "title": "<&>404<&> not Found",
+    "text": "¿Como hemos llegado aquí?",
+    "image": "Un hombre prerdido"
+  },
+  "NoMobile": {
+    "title": "<&>Móvil<&> no soportado",
+    "text": "Como espero que el 99% del tráfico a este sitio web sea desde escritorio y por razones de gestión del tiempo, <&>no he implementado una versión móvil<&>. Si desea visitar cómodamente mi portafolio, házlo desde un escritorio, laptop o tablet.\n \nDe todas formas, puedes visitar la página presionando el botón de abajo, pero por favor comprenda que <&>este sitio no está diseñado para dispositivos móviles<&>.",
+    "button": "Visitar igualmente"
+  },
+  "Minigames": {
+    "title": "<&>Mini<&>juegos",
+    "text": "He agregado un par de minijuegos diseñados para ser <&>ligeros<&> y <&>rápidos<&>. ¡Toma un descanso y <&>disfruta de desconectar un rato<&>!",
+    "memory": {
+      "title": "Memory",
+      "text": "El objetivo de este juego es emparejar cartas. Las cartas se colocan boca abajo, y debes voltearlas de dos en dos para encontrar las parejas. Debes recordar la posición de las cartas y completar todas las parejas en la menor cantidad de movimientos posible.¡Prueba una dificultad más alta para un desafío mayor!",
+      "stats": {
+        "difficulty": "Dificultad",
+        "difficulties": ["Fácil", "Normal", "Difícil"],
+        "pairs": "Parejas encontradas",
+        "moves": "Movimientos",
+        "minMoves": "Tus minimos movimientos"
+      },
+      "buttons": {
+        "reset": "Reiniciar Juego",
+        "difficulty": "Cambiar Dificultad"
+      }
+    },
+    "simon": {
+      "title": "Simon",
+      "text": "El objetivo de este juego es repetir una secuencia de colores. Simon mostrará una secuencia, y debes repetirla presionando los botones correspondientes. El desafío consiste en recordar y replicar la secuencia con precisión durante el mayor tiempo posible.",
+      "stats": {
+        "streak": "Racha",
+        "maxStreak": "Tu mejor racha"
+      },
+      "buttons": {
+        "notPlaying": "Jugar Simon",
+        "playing": "Reiniciar Juego"
+      },
+      "colorNames": ["AMARILLO", "AZUL", "VERDE", "ROJO"]
+    },
+    "projectCard": {
+      "name": "Minijuegos",
+      "description": "Un par de minijuegos para pasar el rato."
+    }
+  },
+  "BackendTemplate": {
+    "title": "Plantilla de <&>backend<&>",
+    "text": "He creado una plantilla de API REST completamente configurada y testeada, que incluye una conexión a base de datos <&>MongoDB<&> y soporte para usuarios completo.",
+    "sections": [
+      {
+        "title": "Características",
+        "text": "Las características clave incluidas en esta plantilla son:",
+        "features": [
+          "Conexión a base de datos MongoDB",
+          "Estructura de archivos.",
+          "Autenticación de usuarios con un esquema base de usuario.",
+          "Integración de servicio de correo electrónico para la creación, verificación y recuperación de usuarios.",
+          "Gestión de errores.",
+          "Testeado al 100% (con tests de unidad e integración)",
+          "Scripts automatizadas para la transpilación, iniciación, desarrollo y testing."
+        ]
+      },
+      {
+        "title": "Usuarios",
+        "text": "La plantilla tiene soporte para usuarios integrado. Estas son las características que contiene:",
+        "features": [
+          "Registro y verificaión de usuarios por email.",
+          "Login.",
+          "Generación y login a través de OTP enviada por email.",
+          "Recuperación de cointaseña.",
+          "Refresco automático de sesion de usuario."
+        ],
+        "text2": "La autenticación de usuario se realiza con JsonWebToken. La sesión estándar del token es de 2 horas, pero esto es personalizable según sus necesidades."
+      },
+      {
+        "title": "Testing",
+        "text": "Esta plantilla está completamente probada con jest y SonarQube Scanner. Esto tiene una cobertura del 100% en pruebas unitarias más algunas pruebas de integración para los endpoints. \n \n Comandos de prueba:",
+        "features": [
+          "<&>npm test<&> - Este comando corre los tests una vez.",
+          "<&>npm run testCov<&> - Este comando corre los tests con su coverage y en modo watch",
+          "<&>npm run testCovNoWatch<&> - Este comando corre los tests una vez con su coverage."
+        ],
+        "text2": "Para ejecutar SonarQube Scanner y ver un desglose detallado de las pruebas, cree un nuevo proyecto de SonarQube con la configuración que prefiera. Después de eso, actualice el archivo sonar-project.properties con el nombre de su proyecto y estará listo. \n \n Para ejecutarlo de manera sencilla, asumiendo que ya tiene SonarQube en funcionamiento, ejecute:",
+        "feature2": "sonar-scanner.bat -D\"sonar.login=YOUR_SONAR_PROJECT_KEY_HERE\""
+      },
+      {
+        "title": "Links",
+        "text": "Visita la página de GitHub y eche un vistazo al código. \n Este repositorio está marcado como una plantilla, por lo que puedes crear tu propia API con solo un par de clics.",
+        "link": "Repositorio de GitHub"
+      }
+    ],
+    "projectCard": {
+      "name": "Plantilla de backend",
+      "description": "Una API REST base, completa con base de datos y usuarios implementados."
+    }
+  },
+  "MyPortfolio": {
+    "title": "<&>Mi<&> portfolio",
+    "text": "Explora conmigo todos los detalles sobre mi portfolio web (esta). Consulta los detalles de desarrollo, testing y despliegue en producción.",
+    "projectCard": {
+      "name": "Mi Portfolio",
+      "description": "Una página web para mostrar mi portfolio, CV y un poquito sobre mi."
+    },
+    "management": {
+      "title": "Gestión del proyecto",
+      "text": "Para mantenerme organizado, he utilizado varias herramientas de gestión de tareas y diseño. Aparte del obvio control de versiones, git. \n \n Para este proyecto, he utilizado <&>GitHub<&> para alojar el control de versiones, <&>Monday<&>, una herramienta de gestión de tareas y <&>Figma<&> para el diseño del sitio web. Echa un vistazo a estos enlaces relevantes para obtener una visión de mi gestión de proyectos mientras construía este sitio web.",
+      "linkSections": [
+        {
+          "name": "GitHub",
+          "links": ["Front-End", "Back-End"]
+        },
+        {
+          "name": "Mis tablas de Monday ",
+          "links": ["Gestión del proyecto", "Front-End", "Back-End"]
+        },
+        {
+          "name": "Figma",
+          "links": ["Diseño Figma", "Prototipo Figma"]
+        }
+      ]
+    },
+    "enviroments": {
+      "title": "Entornos",
+      "text": "Este sitio web ha sido construido usando Webpack, la solución embedida en React, para el front-end y utilizando Nodemon para el back-end. \n Mi entorno de producción ha sido implementado utilizando el servicio de alojamiento de <&>Netlify<&> para el front-end y <&>Render<&> para el back-end.",
+      "text2": "También he utilizado tanto las acciones de Netlify como mi propia <&>acción de auditoría<&> que realiza algunas comprobaciones antes de permitirme hacer push a producción. Las comprobaciones más importantes que realiza son la validación de <&>ESLint<&> (formato de código) y la validación de <&>testing<&> que asegura que todos los tests pasan.",
+      "linkSections": [
+        {
+          "name": "Provedores:",
+          "links": ["Netlify Front-End", "Render Back-End"]
+        },
+        {
+          "name": "Echa un vistazo al workflow:",
+          "links": ["Acción de auditoría"]
+        }
+      ]
+    },
+    "design": {
+      "title": "Diseño",
+      "text": "Este sitio web es casi completamente de mi propio diseño, excepto mi página de inicio, que fue fuertemente inspirada por un diseño de plantilla publicado por un diseñador de UX/UI. Desafortunadamente, no puedo encontrar la imagen original. Si es tu diseño, ¡por favor contáctame para que pueda agregar los créditos adecuados!"
+    },
+    "languages": {
+      "title": "Languages",
+      "text": "He implementado la internacionalización (i18n) con i18n-react para poder presentar mi portafolio en inglés y español. Esta fue la segunda vez que utilizo i18n, la primera siendo en Blikk, donde lo usé con Flutter, por lo que podría decirse que es la primera vez. He aprendido que es muy fácil de usar, pero traducir 800 textos diferentes lleva mucho tiempo 😩.\n \n Puedes encontrar el selector de idioma en la parte superior izquierda en caso de que no lo hayas visto."
+    },
+    "coding": {
+      "title": "Codigo",
+      "text": "Como has visto en las etiquetas del proyecto, este sitio web está construido con React y TypeScript, mis plataformas favoritas para construir elementos web. Me he enfocado en escribir código limpio y mantenible, siguiendo una mentalidad DRY, pero sin exagerar al punto de restringirme en futuros cambios de diseño. \n Te invito a visitar la página de GitHub enlazada arriba y echar un vistazo a parte de mi código. \n \n En esta ocasión, para el back-end, he utilizado mi propia plantilla como base para el servidor. Aunque no necesito usuarios para este sitio web, es más fácil usar esa plantilla y eliminar las partes relacionadas con usuarios que construir un nuevo servidor una vez más.",
+      "linkSection": {
+        "name": "Puedes encontrar la plantilla de back-end aquí:",
+        "link": "Plantilla Back-End"
+      }
+    },
+    "testing": {
+      "title": "Testing",
+      "text": "Desde el principio del proyecto, he estado probando la mayor parte de mi código. A pesar de que la cobertura del <&>80%<&> es estándar, generalmente me esfuerzo por alcanzar ese dulce <&>100%<&>. ¿Quién no siente la dopamina al ver todos los 100's verdes? Jaja. La mayor parte de mi código ha sido probada a fondo, pero he encontrado algunos problemas, principalmente relacionados con las funcionalidades de scroll, aparentemente <&>Jest<&> y <&>testing-library<&> aún no tienen soporte para tests de scroll, ya que son entornos de prueba basados en Node.",
+      "sections": [
+        {
+          "name": "SonarQube",
+          "text": "Me gusta usar SonarQube y Sonar Scanner como mi analizador estático para llevar un seguimiento más preciso de mi cobertura, posibles errores o problemas de código. Por eso he incluido mi archivo sonar-project.properties en el repositorio, permitiendo una implementación fácil y rápiuda en cualquier terminal en un par de clics. \n \n En mi última revisión, la mayoría de los problemas estaban resultos, con la excepción de las duplicaciones, que están en un 7.0%. Esto se debe a repeticiones en los tests, ya que los tests deben realizarse de forma separada en cada caso, lo que lleva a bloques duplicados que decidí mantener para mantener la integridad de los tests. Este es el resumen de mi último análisis:",
+          "image": "SonarQube summary - 0 Bugs | 0 Code Smells | 0 Vulnerabilities | 0 Security Hotspots | 92.4% Coverage | 7.0% Duplications on 34 blocks"
+        },
+        {
+          "name": "Jest y Testing-library",
+          "text": "Uso Jest junto con react/testing-library cuando pruebo mis aplicaciones React. Lo encuentro fácil de usar y muy completo para lo que fue diseñado. \n Aquí están las últimas métricas de cobertura de Jest por archivo:",
+          "image": "Cobertura de Jest - 0 Pruebas fallidas | 146 Pruebas pasadas | 44 Suites de pruebas - Declaraciones cubiertas 95.41% | Ramas cubiertas 94.07% | Funciones cubiertas 95.12% | Líneas cubiertas 95.85%"
+        }
+      ]
+    }
+  },
+  "NPM": {
+    "projectCard": {
+      "name": "Paquetes NPM",
+      "description": "Revisa mis paquetes NPM publicados."
     }
   }
 }

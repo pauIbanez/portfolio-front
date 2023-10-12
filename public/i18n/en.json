@@ -20,9 +20,12 @@
     "title": "<&>My<&> Projects",
     "presentation": {
       "title": "<&>My<&> Project Portfolio",
-      "text": "Here, you'll find a selection of my <&>finest work so far<&>. These projects highlight my proficiency in <&>various technologies<&> and showcase the answers to the problems I’ve faced while building them.  Throughout my portfolio, you'll notice a strong <&>emphasis on the technical aspects<&>, innovative solutions, and challenges overcome. Even in projects that aren’t finished, I strive to <&>highlight the skills and creativity<&> I bring to the table.\n \n <&>Quality<&> is paramount to me, and I believe in showcasing a curated selection of projects that represent <&>my best work<&>. Rather than presenting an extensive list, I have carefully chosen the projects that best exemplify my capabilities as full-stack developer. Even if <&>not all of my projects are websites<&> directly, I strongly believe that <&>my experience in these other platforms helped me become a better web developer<&> and made me a <&>better problem solver<&>.",
-      "button": "Go to Projects"
-    }
+      "text": "Here, you'll find a selection of my <&>finest work so far<&>. These projects highlight my proficiency in <&>various technologies<&> and showcase the answers to the problems I’ve faced while building them.  Throughout my portfolio, you'll notice a strong <&>emphasis on the technical aspects<&>, innovative solutions, and challenges overcome.\n \n <&>Quality<&> is paramount to me, and I believe in showcasing a curated selection of projects that represent <&>my best work<&>. Rather than presenting an extensive list, I have carefully chosen the projects that best exemplify my capabilities as full-stack developer. Even if <&>not all of my projects are websites<&> directly, I strongly believe that <&>my experience in these other platforms helped me become a better web developer<&> and made me a <&>better problem solver<&>.",
+      "button": "Go to Projects",
+      "title2": "My Projects"
+    },
+    "click": "Click for more info",
+    "backToProjects": "Back to projects"
   },
   "CV": {
     "title": "<&>My<&> Curriculum",
@@ -30,6 +33,10 @@
       "title": "<&>My<&> Curriculum Vitae",
       "text": "Take a look at my curriculum, you can explore my <&>educational background<&> and <&>professional experience<&>. Furthermore, I have dedicated a section to outline the various <&>technologies and skills<&> I’ve worked with and developed over the years, along with my <&>proficiency level<&> in each of them. \n \nTo ensure your <&>convenience<&>, I have also created a <&>compact version of my CV in PDF format<&>, which you can easily <&>download<&>. The download options can be found at the <&>bottom of this page<&>.",
       "button": "Go to CV"
+    },
+    "shared": {
+      "order": "Order",
+      "date": "Date"
     },
     "sections": {
       "education": {
@@ -65,11 +72,11 @@
             "textSections": [
               {
                 "title": "What I learned",
-                "text": "In this course I learned the ins and outs of PCs and Server Systems. I built both hardware and software, from assembling a PC to creating an HTTP Apache server. We did a lot of system virtualization and we worked on HTTP, Static and SMTP servers. We also learned to correctly use the consoles in different Operating Systems as well as to create scripts for task automation with them."
+                "text": "In this course I learned the in's and out's of PCs and Server Systems. I built both hardware and software, from assembling a PC to creating an HTTP Apache server. We did a lot of system virtualization and we worked on HTTP, Static and SMTP servers. We also learned to correctly use the consoles in different Operating Systems as well as to create scripts for task automation with them."
               },
               {
                 "title": "Remarks",
-                "text": "In this course, we did not have any programming classes, but I already loved it, so I spent a lot of free time in them trying out stuff. It’s while coursing in here that I was developing mini-games in unity."
+                "text": "We did not have any programming classes, but I already loved it, so I spent a lot of free time in them trying out stuff. It’s while coursing in here that I was developing mini-games in unity."
               }
             ]
           }
@@ -154,7 +161,7 @@
       },
       "technologies": {
         "name": "Technologies",
-        "title": "Technbologies and Skills",
+        "title": "Technologies and Skills",
         "text": "These are my most developed technologies and methodologies with an added rating. Note that the ratings reflect my evaluation of my general knowledge and proficiency in each respective area. However, understand that a high rating does not mean I claim to know everything about the given skill.",
         "pages": {
           "technologies": {
@@ -179,7 +186,7 @@
                 "text": "I thrive in collaborative environments, fostering open communication, trust, and mutual respect. I actively contribute to group dynamics, valuing diverse perspectives and working towards shared goals."
               },
               {
-                "title": "Problem <&>Thinking",
+                "title": "Problem <&>Solving",
                 "text": "I excel at breaking down complex problems, anticipating obstacles, and devising innovative solutions. I strongly believe that troubleshooting is the most important skill to have as a programmer. No one's code always works the first time, and it's important to know how to find what's causing the error."
               },
 
@@ -192,7 +199,7 @@
                 "text": "I do not consider myself to be a designer, but I have an eye for it. I won’t create the best design, but I’ll know when something doesn’t work right. I put myself in the position of the end user and I try to figure out the best layout and style for the desired  purpose of the page."
               },
               {
-                "title": "<&>Fast <&>learning",
+                "title": "<&>Fast <&>learner",
                 "text": "I think of myself as a fast learner. My experience with such varies technologies and developing enviroments allows me to adapt to new ones with ease."
               }
             ]
@@ -206,10 +213,6 @@
       },
       "references": {
         "title": "References",
-        "button": {
-          "original": "View original (english)",
-          "translated": "View translated"
-        },
         "items": [
           {
             "name": "Gunnar Kolbeinsson",
@@ -240,7 +243,7 @@
     "textSections": [
       {
         "title": "Who am <&>I<&>?",
-        "text": "I'm <&>Pau Ibáñez<&>, a 21-year-old programmer from Spain, specialized in <&>full-stack<&> web and app development. I’m Driven by a strong desire to generate new and innovative ideas with the understanding that in this industry <&>we can never stop learning<&>. I love being a developer because it grants me the freedom to transform my ideas into reality."
+        "text": "I'm <&>Pau Ibáñez<&>, a 21-year-old programmer from Barcelona, specialized in <&>full-stack<&> web and app development. I’m Driven by a strong desire to generate new and innovative ideas with the understanding that in this industry <&>we can never stop learning<&>. I love being a developer because it grants me the freedom to transform my ideas into reality."
       },
       {
         "title": "<&>Team<&> Player",
@@ -279,7 +282,7 @@
       },
       "itemValues": {
         "copyEmail": "Copy email",
-        "openEmail": "Open email",
+        "openEmail": "Send email",
         "linkedIn": "My LinkedIn profile"
       }
     },
@@ -310,6 +313,23 @@
         "subject": "Subject is required",
         "message": "We are missing the message!"
       }
+    },
+    "messageSent": {
+      "title": {
+        "loading": "<&>Sending<&> message",
+        "success": "Mesage <&>Sent<&>",
+        "fail": "Something went <&>wrong<&>"
+      },
+      "text": {
+        "loading": "Your message is being sent... \n \nIf the back-end server is spinned down this may take a up to a minute.",
+        "success": "Thank you for geting in contact with me. I've receivced your message and I'll be in contact ASAP!",
+        "fail": "I'm sorry! It appears your message was not sucessfuly sent, please check the data or try again later. If this issue persists please feel free to contact me directly with the provided info."
+      },
+      "link": "Render docummentation about spinned-down servers",
+      "button": {
+        "success": "Writte another!",
+        "fail": "Try again"
+      }
     }
   },
   "NotFound": {
@@ -317,17 +337,50 @@
     "text": "How did we end up here?",
     "image": "A lost man"
   },
+  "NoMobile": {
+    "title": "No <&>mobile<&>",
+    "text": "Since I expect 99% of the trafic to this website to be from desktop, and for time management reasons, <&>I have not implemented a mobile version<&>. If you wish to comfortably visit my portfolio, please do so in a Desktop, laptop or tablet. \n \n You can still visit by pressing the button bellow, but understand this site is not <&>currently<&> built for mobile.",
+    "button": "Visit anyway"
+  },
   "Minigames": {
     "title": "<&>Mini<&>games",
-    "text": "I’ve added a couple of minigames design to be <&>light<&> and <&>fast<&>. Feel free to take a break and <&>enjoy disconnecting for a bit<&>!",
+    "text": "I’ve added a couple of minigames designed to be <&>light<&> and <&>fast<&>. Feel free to take a break and <&>enjoy disconnecting for a bit<&>!",
     "memory": {
       "title": "Memory",
-      "text": "The goal of this game is to match all the pairs. Try out a harder difficulty for a bigger challenge!"
+      "text": "The goal of this game is to match pairs of cards. The cards are placed face down, you have to flip  them over to 2 at a time to find the matching pairs. You have to remember the positions of the cards and complete all the pairs in the shorest amout of moves possible. Try out a harder difficulty for a bigger challenge!",
+      "stats": {
+        "difficulty": "Difficulty",
+        "difficulties": ["Easy", "Normal", "Hard"],
+        "pairs": "Matched pairs",
+        "moves": "Moves",
+        "minMoves": "Your minimum moves"
+      },
+      "buttons": {
+        "reset": "Restart Game",
+        "difficulty": "Change Difficulty"
+      }
+    },
+    "simon": {
+      "title": "Simon",
+      "text": "The goal of this game is to repeat a sequence of colors. Simon will display a sequence, and you must repeat it by pressing the corresponding buttons. The challenge is to remember and replicate the sequence accurately for as long as possible.",
+      "stats": {
+        "streak": "Steak",
+        "maxStreak": "Your best streak"
+      },
+      "buttons": {
+        "notPlaying": "Play Simon",
+        "playing": "Restart Game"
+      },
+      "colorNames": ["YELLOW", "BLUE", "GREEN", "RED"]
+    },
+    "projectCard": {
+      "name": "Minigames",
+      "description": "A few minigames to pass the time."
     }
   },
   "BackendTemplate": {
     "title": "<&>Backend<&> template",
-    "text": "I’ve created a fully set up and tested REST API template complete with a database connection and full user support.",
+    "text": "I’ve created a fully set up and tested REST API template complete with a <&>MongoDB<&> database connection and full user support.",
     "sections": [
       {
         "title": "Features",
@@ -346,7 +399,7 @@
         "title": "Users",
         "text": "The template has user support built-in, these are the features it contains:",
         "features": [
-          "User registration with email verification. by email",
+          "User registration with email verification.",
           "User login.",
           "User login via OTP via email.",
           "Password recovery.",
@@ -367,13 +420,92 @@
       },
       {
         "title": "Links",
-        "text": "Feel free to visit the gitHub page and take a look at the code. \n This repo is marked as a template so you can create your own API with a couple of clicks!",
+        "text": "Feel free to visit the GitHub page and take a look at the code. \n This repo is marked as a template so you can create your own API with a couple of clicks!",
         "link": "GitHub Repository page"
       }
-    ]
+    ],
+    "projectCard": {
+      "name": "Backend Template",
+      "description": "A complete typescript REST API template with users"
+    }
   },
   "MyPortfolio": {
     "title": "<&>My<&> portfolio",
-    "text": "Explore with me all the details about my portfolio website (this one). Check out the development, testing and production deployment details."
+    "text": "Explore with me all the details about my portfolio website (this one). Check out the development, testing and production deployment details.",
+    "projectCard": {
+      "name": "My Portfolio",
+      "description": "A webpage to showcase my portfolio, CV and a little about myself."
+    },
+    "management": {
+      "title": "Project management",
+      "text": "In order to keep me organized, I've used varius task management and design tools. Other than the obvious version control, git. \n \n For this project I've used <&>GitHub<&> for the version control hosting, <&>Monday<&>, a task management tool and <&>Figma<&> for the website design. Check out these relevant links for an insignt on my project management while building this website.",
+      "linkSections": [
+        {
+          "name": "GitHub",
+          "links": ["Front-End", "Back-End"]
+        },
+        {
+          "name": "My Monday boards",
+          "links": ["Project management", "Front-End", "Back-End"]
+        },
+        {
+          "name": "Figma",
+          "links": ["Figma design", "Figma prototype"]
+        }
+      ]
+    },
+    "enviroments": {
+      "title": "Enviroments",
+      "text": "This website has been worked on using the react-embeded webpack solution for the front and using nodemon for the back. \n My production enviroment has been implemented using <&>Netlify<&>'s hosting service for the front and <&>Render<&> for the back.",
+      "text2": "I've also used both Netlify's actions aswell as my own <&>Audit action<&> which performs some checks before allowing me to push to production. The most important chekcs it perofrms are the <&>ESLint validation<&> (code formating) and the <&>Testing validation<&> which ensures all tests pass.",
+      "linkSections": [
+        {
+          "name": "Enviroment providers:",
+          "links": ["Netlify Front-End", "Render Back-End"]
+        },
+        {
+          "name": "Check the workflow out:",
+          "links": ["Audit action"]
+        }
+      ]
+    },
+    "design": {
+      "title": "Design",
+      "text": "This website is almost completley of my own design, all except my home page, that was heavely inspired by a posted template design from a UX/UI designer. Unfortunatley I can't find the original image. If it's your design please contact me so I can add the propper credits!"
+    },
+    "languages": {
+      "title": "Languages",
+      "text": "I've implemented i18n with i18n-react to be able to present my portfolio en english and spanish, this was my 2nd time ever using i18n, with the first one being at Blikk, using it with Flutter, so kind of the first time. I've learned that It's super easy to use, but translating 800 different texts takes a lot of time 😩. \n \n You can find the language toggle on the top left in case you missed it."
+    },
+    "coding": {
+      "title": "Coding",
+      "text": "As you've seen in the project tags, this website is built with react and typescript, my favorite platforms for constructiong web elements! I've focused on writing clean and mantainable code, adhering to a DRY mentality, but not going so obverboard that I restrict myself on design changes in the future. \n I strongly invite you to visit the GitHub page linked above and check out some of my code. \n \n This time, for the back-end, I've used my own template for the server base, even though I don't need any users for this website it was still easier to use that template and strip the user parts than to construct a new server yet again!",
+      "linkSection": {
+        "name": "You can find my emplate in the projects page or here:",
+        "link": "Backend template"
+      }
+    },
+    "testing": {
+      "title": "Testing",
+      "text": "Since the very begining of the project I've been testing most of my code. Even though the <&>80% coverage<&> is standard I usually like to strive for that sweet <&>100%<&>. Who does not get dopamine sseing all the geen 100's haha. Anyway, most of my code has been thurougly tested, but I have encountered some problemts, mostly regarding the scroling functionalities, because aparently <&>jest<&> and <&>testing-library<&> don't have scroll testing support yet, since they are node-based testing enviroments.",
+      "sections": [
+        {
+          "name": "SonarQube",
+          "text": "I like to use SonarQube and Sonar Scanner as my static analizer to keep a more acturate track of my coverage, possible bugs or code smells. This is why I've included my sonar-project.properties file in the repo, allowing a propper implementation in any terminal in a cople clicks. \n \n  In my last scann  most problems were fixed with the exception of the duplications, which are sitting at 7.0%. This is due to test repetiotions, since testing should be done spearate in each test and that does lead to some duplicated blocks that I decided to keep to mantain the test integrity. \n  This is my last analized summary:",
+          "image": "SonarQube summary - 0 Bugs | 0 Code Smells | 0 Vulnerabilities | 0 Security Hotspots | 92.4% Coverage | 7.0% Duplications on 34 blocks"
+        },
+        {
+          "name": "Jest and Testing-library",
+          "text": "I use jest with the react/testing-library when testing my react apps. I find it easy to use and super complete for what it was designed to do. \n Here are my latests jest coverage metrics by file:",
+          "image": "Jest coverage terminal - 0 Failed tests | 146 Passed tests | 44 Test suites - Statements covered 95.41% |  Branches covered 94.07% | Functions covered 95.12% | Lines covered 95.85%"
+        }
+      ]
+    }
+  },
+  "NPM": {
+    "projectCard": {
+      "name": "NPM Packages",
+      "description": "Check out my published NPM packages"
+    }
   }
 }

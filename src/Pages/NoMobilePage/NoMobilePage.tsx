@@ -2,6 +2,7 @@ import styled from "styled-components";
 import TiteledText from "../../components/textComponents/TitledText/TiteledText";
 import Colors from "../../data/style/Colors";
 import Button from "../../components/Button/Button";
+import { useTranslation } from "react-i18next";
 
 const Holder = styled.div`
   display: flex;
@@ -23,12 +24,13 @@ const Content = styled.main`
 `;
 
 const NoMobilePage = ({ onClick }: { onClick: () => void }) => {
+  const { t } = useTranslation();
   return (
     <Holder>
       <Content>
         <TiteledText
-          title="No <&>mobile<&>"
-          text="Since I expect 99% of the trafic to this website to be from desktop, and for time management reasons, <&>I have not implemented a mobile version<&>. If you wish to comfortably visit my portfolio, please do so in a Desktop, laptop or tablet. \n \n You can still visit by pressing the button bellow, but understand this site is not <&>currently<&> built for mobile."
+          title={t("NoMobile.title")}
+          text={t("NoMobile.text")}
           styleObject={{
             title: {
               heading: 1,
@@ -45,7 +47,7 @@ const NoMobilePage = ({ onClick }: { onClick: () => void }) => {
           height: 40,
         }}
       >
-        Visit anyway
+        {t("NoMobile.button")}
       </Button>
     </Holder>
   );

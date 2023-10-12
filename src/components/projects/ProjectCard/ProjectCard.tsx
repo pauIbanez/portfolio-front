@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ProjectCardInfo, { ProjectTag } from "../../../Types/ProjectCardInfo";
 import Colors from "../../../data/style/Colors";
 import { projectTagData } from "../../../data/projects/Projects";
+import { useTranslation } from "react-i18next";
 
 interface HoverProp {
   isHovering: boolean;
@@ -229,10 +230,12 @@ const ProjectCard = ({
     backgroundColor,
     tags,
     isInteractive,
+    logoMini,
   },
   onClick,
 }: Props) => {
   const [isHovering, setIsHovering] = useState<boolean>(false);
+  const { t } = useTranslation();
 
   const renderTags = tags.map((tag, index) => {
     const tagData: ProjectTag = projectTagData[tag];
@@ -285,29 +288,29 @@ const ProjectCard = ({
             height={100}
             width={100}
           />
-          <CardTitle color={nameColor}>{name}</CardTitle>
+          <CardTitle color={nameColor}>{t(name)}</CardTitle>
         </CardTitleHolder>
       </CardPresentation>
       <CardInfo isHovering={isHovering}>
         <MinimizedCardInfo>
-          <CardInfoName>{name}</CardInfoName>
+          <CardInfoName>{t(name)}</CardInfoName>
           <CardInfoTagHolder isCentered={false}>{renderTags}</CardInfoTagHolder>
         </MinimizedCardInfo>
         <MaximizedCardInfo>
           <MaximizedCardTitleHolder>
             <MaximizedCardIcon
               alt={`${name} logo`}
-              src={`./media/logos/${logo}`}
+              src={`./media/logos/${logoMini ? logoMini : logo}`}
               height={50}
               width={50}
             />
-            <MaximizedCardTitle>{name}</MaximizedCardTitle>
+            <MaximizedCardTitle>{t(name)}</MaximizedCardTitle>
           </MaximizedCardTitleHolder>
-          <Desctiption>{description}</Desctiption>
+          <Desctiption>{t(description)}</Desctiption>
           <CardInfoTagHolder isCentered={true}>
             {renderMaximazibleTags}
           </CardInfoTagHolder>
-          <CardClickInfo>Click for more info</CardClickInfo>
+          <CardClickInfo>{t("Projects.click")}</CardClickInfo>
         </MaximizedCardInfo>
       </CardInfo>
     </CardHolder>

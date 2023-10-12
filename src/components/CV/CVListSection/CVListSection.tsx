@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import Colors from "../../../data/style/Colors";
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import CVListItemData from "../../../Types/CVListItem";
 import useEffectOnce from "../../../hooks/useEffectOnce";
 import CVListItem from "../CVListItem/CVListItem";
 import ScrollContext from "../../../contexts/scrollContext/ScrollContext.contextCreator";
 import ResponsiveContext from "../../../contexts/responsiveContext/ResponsiveContext.contextCreator";
 import { textSizes } from "../../../data/Pages/responsive/cvPage";
+import { useTranslation } from "react-i18next";
 
 const Container = styled.section`
   width: 100%;
@@ -76,15 +77,25 @@ interface Props {
 const CVListSection = ({ title, items }: Props) => {
   const [isDateUp, setIsDateUp] = useState(true);
   const [renderItems, setRenderItems] = useState<React.JSX.Element[]>([]);
-
+  const [prevTitle, setPrevTitle] = useState<string>("");
   const section = useRef(null);
+  const { t } = useTranslation();
 
-  const { loadItem } = useContext(ScrollContext);
+  const { loadItem, updateItem } = useContext(ScrollContext);
   const { currentWidthBreakPoint } = useContext(ResponsiveContext);
 
   useEffectOnce(() => {
     loadItem({ name: title, ref: section });
+  });
 
+  useEffect(() => {
+    if (prevTitle !== title) {
+      setPrevTitle(title);
+      updateItem(section, title);
+    }
+  }, [prevTitle, title, updateItem]);
+
+  useEffect(() => {
     const allItems: React.JSX.Element[] = [];
 
     let currentIndex = 0;
@@ -105,7 +116,7 @@ const CVListSection = ({ title, items }: Props) => {
       });
 
     setRenderItems(allItems);
-  });
+  }, [items, loadItem, title]);
 
   const changeOrder = () => {
     setRenderItems(renderItems.reverse());
@@ -117,9 +128,10 @@ const CVListSection = ({ title, items }: Props) => {
       <Content>
         <Title $size={textSizes[currentWidthBreakPoint].titles}>{title}</Title>
         <Order onClick={changeOrder} isDateUp={isDateUp}>
-          Order:
+          {t("CV.shared.order")}:
           <div>
-            Date <img src="/media/icons/arrow.svg" alt="arrow" />
+            {t("CV.shared.date")}{" "}
+            <img src="/media/icons/arrow.svg" alt="arrow" />
           </div>
         </Order>
       </Content>

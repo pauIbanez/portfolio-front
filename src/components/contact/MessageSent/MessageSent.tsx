@@ -2,6 +2,7 @@ import styled, { keyframes } from "styled-components";
 import TiteledText from "../../textComponents/TitledText/TiteledText";
 import Button from "../../Button/Button";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Holder = styled.div`
   height: 100%;
@@ -47,6 +48,7 @@ interface Props {
 }
 
 const MessageSent = ({ onResetClick, $loading, success: sucess }: Props) => {
+  const { t } = useTranslation();
   return (
     <Holder>
       <Icon
@@ -59,17 +61,17 @@ const MessageSent = ({ onResetClick, $loading, success: sucess }: Props) => {
         <TiteledText
           title={
             $loading
-              ? "<&>Sending<&> message"
+              ? t("Contact.messageSent.title.loading")
               : sucess
-              ? "Mesage <&>Sent<&>"
-              : "Something went <&>wrong<&>"
+              ? t("Contact.messageSent.title.success")
+              : t("Contact.messageSent.title.fail")
           }
           text={
             $loading
-              ? "Your message is being sent... \n \nIf the back-end server is spinned down this may take a up to a minute."
+              ? t("Contact.messageSent.text.loading")
               : sucess
-              ? "Thank you for geting in contact with me. I've receivced your message and I'll be in contact ASAP!"
-              : "I'm sorry! It appears your message was not sucessfuly sent, please check the data or try again later. If this issue persists please feel free to contact me directly with the provided info."
+              ? t("Contact.messageSent.text.success")
+              : t("Contact.messageSent.text.fail")
           }
           styleObject={{
             gap: 10,
@@ -80,7 +82,7 @@ const MessageSent = ({ onResetClick, $loading, success: sucess }: Props) => {
             to={"https://render.com/docs/free#spinning-down-on-idle"}
             target="_blank"
           >
-            Render docummentation
+            {t("Contact.messageSent.link")}
           </Link>
         )}
 
@@ -94,7 +96,9 @@ const MessageSent = ({ onResetClick, $loading, success: sucess }: Props) => {
               radius: 10,
             }}
           >
-            {sucess ? "Writte another!" : "Try again"}
+            {sucess
+              ? t("Contact.messageSent.button.success")
+              : t("Contact.messageSent.button.fail")}
           </Button>
         )}
       </Content>
