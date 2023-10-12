@@ -263,7 +263,10 @@ const ContactPage = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(contactFormValues),
+          body: JSON.stringify({
+            ...contactFormValues,
+            language: i18n.language,
+          }),
         }
       );
 
@@ -288,7 +291,7 @@ const ContactPage = () => {
     ContactFormValues | undefined
   >();
 
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const { currentWidthBreakPoint } = useContext(ResponsiveContext);
 
