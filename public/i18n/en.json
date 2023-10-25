@@ -455,12 +455,12 @@
       ]
     },
     "enviroments": {
-      "title": "Enviroments",
-      "text": "This website has been worked on using the react-embeded webpack solution for the front and using nodemon for the back. \n My production enviroment has been implemented using <&>Netlify<&>'s hosting service for the front and <&>Render<&> for the back.",
+      "title": "Environments",
+      "text": "This website has been worked on using the react-embeded webpack solution for the front and using nodemon for the back. \n My production environment has been implemented using <&>Netlify<&>'s hosting service for the front and <&>Render<&> for the back.",
       "text2": "I've also used both Netlify's actions aswell as my own <&>Audit action<&> which performs some checks before allowing me to push to production. The most important chekcs it perofrms are the <&>ESLint validation<&> (code formating) and the <&>Testing validation<&> which ensures all tests pass.",
       "linkSections": [
         {
-          "name": "Enviroment providers:",
+          "name": "Environment providers:",
           "links": ["Netlify Front-End", "Render Back-End"]
         },
         {
@@ -471,32 +471,32 @@
     },
     "design": {
       "title": "Design",
-      "text": "This website is almost completley of my own design, all except my home page, that was heavely inspired by a posted template design from a UX/UI designer. Unfortunatley I can't find the original image. If it's your design please contact me so I can add the propper credits!"
+      "text": "This website is almost completely of my own design, all except my home page, that was heavely inspired by a posted template design from a UX/UI designer. Unfortunatley I can't find the original image. If it's your design, please contact me so I can add the propper credits!"
     },
     "languages": {
       "title": "Languages",
-      "text": "I've implemented i18n with i18n-react to be able to present my portfolio en english and spanish, this was my 2nd time ever using i18n, with the first one being at Blikk, using it with Flutter, so kind of the first time. I've learned that It's super easy to use, but translating 800 different texts takes a lot of time 😩. \n \n You can find the language toggle on the top left in case you missed it."
+      "text": "I've implemented i18n with i18n-react to be able to present my portfolio in English and Spanish. This was my 2nd time ever using i18n, with the first one being at Blikk, using it with Flutter, so kind of the first time. I've learned that It's super easy to use, but translating 800 different texts takes a lot of time 😩. \n \n You can find the language toggle on the top left in case you missed it."
     },
     "coding": {
       "title": "Coding",
-      "text": "As you've seen in the project tags, this website is built with react and typescript, my favorite platforms for constructiong web elements! I've focused on writing clean and mantainable code, adhering to a DRY mentality, but not going so obverboard that I restrict myself on design changes in the future. \n I strongly invite you to visit the GitHub page linked above and check out some of my code. \n \n This time, for the back-end, I've used my own template for the server base, even though I don't need any users for this website it was still easier to use that template and strip the user parts than to construct a new server yet again!",
+      "text": "As you've seen in the project tags, this website is built with React and TypeScript, my favorite platforms for constructiong web elements! I've focused on writing clean and mantainable code, adhering to a DRY mentality, but not going so obverboard that I restrict myself on design changes in the future. \n I strongly invite you to visit the GitHub page, linked above and check out some of my code. \n \n This time, for the back-end, I've used my own template for the server base, even though I don't need any users for this website it was still easier to use that template and strip the user parts than to construct a new server yet again!",
       "linkSection": {
-        "name": "You can find my emplate in the projects page or here:",
+        "name": "You can find my template in the projects page, or here:",
         "link": "Backend template"
       }
     },
     "testing": {
       "title": "Testing",
-      "text": "Since the very begining of the project I've been testing most of my code. Even though the <&>80% coverage<&> is standard I usually like to strive for that sweet <&>100%<&>. Who does not get dopamine sseing all the geen 100's haha. Anyway, most of my code has been thurougly tested, but I have encountered some problemts, mostly regarding the scroling functionalities, because aparently <&>jest<&> and <&>testing-library<&> don't have scroll testing support yet, since they are node-based testing enviroments.",
+      "text": "I've been testing most of my code since the very begining of the project . Even though the <&>80% coverage<&> is standard I usually like to strive for that sweet <&>100%<&>. Who doesn't get dopamine seing all the geen 100's haha. Anyway, most of my code has been thoroughly tested, but I have encountered some problems, mostly regarding the scroling functionalities. Apparently <&>Jest<&> and <&>Testing Library<&> don't have scroll testing support yet, since they are node-based testing enviroments.",
       "sections": [
         {
           "name": "SonarQube",
-          "text": "I like to use SonarQube and Sonar Scanner as my static analizer to keep a more acturate track of my coverage, possible bugs or code smells. This is why I've included my sonar-project.properties file in the repo, allowing a propper implementation in any terminal in a cople clicks. \n \n  In my last scann  most problems were fixed with the exception of the duplications, which are sitting at 7.0%. This is due to test repetiotions, since testing should be done spearate in each test and that does lead to some duplicated blocks that I decided to keep to mantain the test integrity. \n  This is my last analized summary:",
+          "text": "I like to use SonarQube and Sonar Scanner as my static analizer to keep a more acturate track of my coverage, possible bugs or code smells. This is why I've included my sonar-project.properties file in the repo, allowing a proper implementation in any terminal in a couple clicks. \n \n  In my latest scann most problems were fixed with the exception of the duplications, which are sitting at 7.0%. This is due to test repetitions, since unit testing should be done sparately in each test, and that does lead to some duplicated blocks that I decided to keep to mantain the test integrity. \n  This is my latest analyzed summary:",
           "image": "SonarQube summary - 0 Bugs | 0 Code Smells | 0 Vulnerabilities | 0 Security Hotspots | 92.4% Coverage | 7.0% Duplications on 34 blocks"
         },
         {
           "name": "Jest and Testing-library",
-          "text": "I use jest with the react/testing-library when testing my react apps. I find it easy to use and super complete for what it was designed to do. \n Here are my latests jest coverage metrics by file:",
+          "text": "I use Jest with the react/testing-library when testing my react apps. I find it easy to use and complete for what it was designed to do. \n Here are my latests jest coverage metrics by file:",
           "image": "Jest coverage terminal - 0 Failed tests | 146 Passed tests | 44 Test suites - Statements covered 95.41% |  Branches covered 94.07% | Functions covered 95.12% | Lines covered 95.85%"
         }
       ]
