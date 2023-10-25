@@ -31,7 +31,7 @@
     "title": "<&>Mi<&> Currículum",
     "presentation": {
       "title": "<&>Mi<&> Currículum Vitae",
-      "text": " Aquí tienes mi currículum, puedes explorar mi <&>formación educativa<&> y mi <&>experiencia profesional<&>. Además, he dedicado una sección para detallar las diferentes <&>tecnologías y habilidades<&> con las que he trabajado y desarrollado a lo largo de los años, junto con mi nivel de <&>competencia<&> en cada una de ellas. \n \nPara garantizar tu <&>comodidad<&>, también he creado una <&>versión compacta de mi currículum en formato PDF<&>, que puedes <&>descargar<&> fácilmente. Las opciones de descarga se encuentran en la <&>parte inferior de esta página<&>.",
+      "text": " Aquí tienes mi currículum, puedes explorar mi <&>formación educativa<&> y mi <&>experiencia profesional<&>. Además, he dedicado una sección para detallar las diferentes <&>tecnologías y habilidades<&> con las que he trabajado y desarrollado a lo largo de los años, junto con mi nivel de <&>competencia<&> en cada una de ellas. \n \nPara facilitar tu <&>acceso<&>, también he creado una <&>versión compacta de mi currículum en formato PDF<&>, que puedes <&>descargar<&> fácilmente. Las opciones de descarga se encuentran en la <&>parte inferior de esta página<&>.",
       "button": "Ir al CV"
     },
     "shared": {
@@ -255,17 +255,20 @@
       },
       {
         "title": "<&>Mi<&> Trayectoria como Programador",
-        "text": "Desde que era pequeño, me ha fascinado la programación. Empecé construyendo robots usando <&>Arduino<&> con <&>C++<&>. Con el tiempo, mi pasión se inclinó hacia la creación de juegos, comenzando con Scratch y finalmente encontrando <&>Unity<&>, donde desarrollé mis habilidades en <&>C#<&>. Me sumergí en el aprendizaje de diferentes lenguajes de programación basados en mis intereses del momento. Por ejemplo, exploré <&>JavaScript<&> con (desafortunadamente) <&>JQuery<&> cuando construí mi primera interfaz de usuario, y aprendí <&>Lua<&> y <&>SQL<&> mientras creaba modificaciones para videojuegos. Este viaje me ayudó a convertirme en un <&>desarrollador full-stack versátil<&>, familiarizado con diversas plataformas y tecnologías. \n \n A pesar de tener un conocimiento decente de diferentes lenguajes de programación, me di cuenta de que mi codigo era desordenado y poco fiable. Fue entonces cuando decidí inscribirme en el <&>ISDI Coders Bootcamp<&> en Barcelona. Durante tres ntensivos meses, me dediqué a desarrollar mis habilidades en <&>JavaScript y TypeScript<&>, especialmente utilizando el <&>MERN stack<&>, pasando 12 horas al día, siete días a la semana creando páginas web y aplicaciones full-stack completas. El bootcamp no solo refinó mis habilidades de codificación, sino que también me enseñó cómo escribir codigo manteniendo la consistencia, buenas prácticas y escalabilidad en mis aplicaciones. \n \n Después de completar el bootcamp, conseguí mi primer trabajo full-stack en Blikk, una startup bancaria de Islandia. Curiosamente, no pude utilizar los lenguajes de programación que había aprendido hasta ese momento. Sin embargo, mi experiencia previa en aprender nuevos lenguajes me preparó para el desafío y construí con éxito una <&>aplicación móvil full-stack<&> utilizando <&>Dart<&> y <&>Flutter<&> para el frontend y <&>Golang<&> para el backend."
+        "text": "Desde que era pequeño, me ha fascinado la programación. Empecé construyendo robots usando <&>Arduino<&> con <&>C++<&>. Con el tiempo, mi pasión se inclinó hacia la creación de juegos, comenzando con Scratch y finalmente encontrando <&>Unity<&>, donde desarrollé mis habilidades en <&>C#<&>. Me sumergí en el aprendizaje de diferentes lenguajes de programación basados en mis intereses del momento. Por ejemplo, exploré <&>JavaScript<&> con (desafortunadamente) <&>JQuery<&> cuando construí mi primera interfaz de usuario, y aprendí <&>Lua<&> y <&>SQL<&> mientras creaba modificaciones para videojuegos. Este viaje me ayudó a convertirme en un <&>desarrollador full-stack versátil<&>, familiarizado con diversas plataformas y tecnologías. \n \n A pesar de tener un conocimiento decente de diferentes lenguajes de programación, me di cuenta de que mi código era desordenado y poco fiable. Fue entonces cuando decidí inscribirme en el <&>ISDI Coders Bootcamp<&> en Barcelona. Durante tres intensivos meses, me dediqué a desarrollar mis habilidades en <&>JavaScript y TypeScript<&>, especialmente utilizando el <&>MERN stack<&>, pasando 12 horas al día, siete días a la semana creando páginas web y aplicaciones full-stack completas. El bootcamp no solo refinó mis habilidades de codificación, sino que también me enseñó cómo escribir codigo manteniendo la consistencia, buenas prácticas y escalabilidad en mis aplicaciones. \n \n Después de completar el bootcamp, conseguí mi primer trabajo full-stack en Blikk, una startup bancaria de Islandia. Curiosamente, no pude utilizar los lenguajes de programación que había aprendido hasta ese momento. Sin embargo, mi experiencia previa en aprender nuevos lenguajes me preparó para el desafío y construí con éxito una <&>aplicación móvil full-stack<&> utilizando <&>Dart<&> y <&>Flutter<&> para el frontend y <&>Golang<&> para el backend."
       }
     ],
-    "images": ["3 people with their hands up", "Cartoon man climbing a ladder"]
+    "images": [
+      "3 personas con las manos en el aire",
+      "Hombre subiendo una escalera"
+    ]
   },
   "Contact": {
     "title": "Contacta <&>conmigo<&>",
     "textSections": [
       {
         "title": "Bienvenido a <&>mi<&> página de contacto!",
-        "text": "Si tienes alguna pregunta o simplemente quieres <&>ponerte en contacto conmigo<&>, me encantaria conocernos. Si estas interesado en una <&>collaboración<&> en tu proyecto, comentar una <&>oportunidad<&>, o simplemente quiieres <&>saludar<&>, este es el sitio donde hacerlo. Puedes contactarme a través del formulario y contestaré lo antes posible. Tambés puedes contacter directamente a través de mi email o numero de telefono. \n \n <&>Muchas grácias<&> por visitar mi portfolio website, <&>espero con ganas tu mensaje!<&>"
+        "text": "Si tienes alguna pregunta o simplemente quieres <&>ponerte en contacto conmigo<&>, me encantaria conocernos. Si estas interesado en una <&>colaboración<&> en tu proyecto, comentar una <&>oportunidad<&>, o simplemente quieres <&>saludar<&>, este es el sitio donde hacerlo. Puedes contactarme a través del formulario y responderé lo antes posible. También puedes contacter directamente a través de mi email o número de telefono. \n \n <&>Muchas gracias<&> por visitar mi portfolio website, <&>espero con ganas tu mensaje!<&>"
       },
       {
         "title": "Terminos de privacidad",
@@ -478,7 +481,7 @@
       "text": "He implementado la internacionalización (i18n) con i18n-react para poder presentar mi portafolio en inglés y español. Esta fue la segunda vez que utilizo i18n, la primera siendo en Blikk, donde lo usé con Flutter, por lo que podría decirse que es la primera vez. He aprendido que es muy fácil de usar, pero traducir 800 textos diferentes lleva mucho tiempo 😩.\n \n Puedes encontrar el selector de idioma en la parte superior izquierda en caso de que no lo hayas visto."
     },
     "coding": {
-      "title": "Codigo",
+      "title": "Código",
       "text": "Como has visto en las etiquetas del proyecto, este sitio web está construido con React y TypeScript, mis plataformas favoritas para construir elementos web. Me he enfocado en escribir código limpio y mantenible, siguiendo una mentalidad DRY, pero sin exagerar al punto de restringirme en futuros cambios de diseño. \n Te invito a visitar la página de GitHub enlazada arriba y echar un vistazo a parte de mi código. \n \n En esta ocasión, para el back-end, he utilizado mi propia plantilla como base para el servidor. Aunque no necesito usuarios para este sitio web, es más fácil usar esa plantilla y eliminar las partes relacionadas con usuarios que construir un nuevo servidor una vez más.",
       "linkSection": {
         "name": "Puedes encontrar la plantilla de back-end aquí:",
