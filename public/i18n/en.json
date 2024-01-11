@@ -507,5 +507,11 @@
       "name": "NPM Packages",
       "description": "Check out my published NPM packages"
     }
+  },
+  "Model": {
+    "projectCard": {
+      "name": "Model Citizen Project",
+      "description": "A small plain showcase website of a Modding project"
+    }
   }
 }

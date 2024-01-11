@@ -147,6 +147,17 @@ const ProjectCards: ProjectCardInfo[] = [
     isInteractive: false,
     link: "/project/backendTemplate",
   },
+  {
+    name: "Model.projectCard.name",
+    description: "Model.projectCard.description",
+    logo: "model.png",
+    nameColor: "white",
+    backgroundImage: "model_back.png",
+    tags: [ProjectTags.javaScript, ProjectTags.typeScript],
+    isInteractive: false,
+    externalLink: true,
+    link: "https://www.modelcitizenproject.com",
+  },
 ];
 
 export default ProjectCards;
