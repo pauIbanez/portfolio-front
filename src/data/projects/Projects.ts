@@ -150,9 +150,9 @@ const ProjectCards: ProjectCardInfo[] = [
   {
     name: "Model.projectCard.name",
     description: "Model.projectCard.description",
-    logo: "backendTemplate.png",
+    logo: "model.png",
     nameColor: "white",
-    backgroundColor: "#659f64",
+    backgroundImage: "model_back.png",
     tags: [ProjectTags.javaScript, ProjectTags.typeScript],
     isInteractive: false,
     externalLink: true,
