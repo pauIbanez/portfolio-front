@@ -510,5 +510,11 @@
       "name": "Paquetes NPM",
       "description": "Revisa mis paquetes NPM publicados."
     }
+  },
+  "Model": {
+    "projectCard": {
+      "name": "Model Citizen Project",
+      "description": "Una prqueña pagina web de presentación de un proyecto de modding"
+    }
   }
 }
